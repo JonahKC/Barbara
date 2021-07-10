@@ -1,0 +1,24 @@
+{
+  "name": "Barbara",
+  "version": "1.0.0",
+  "description": "AI Chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonahKC/Barbra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonahKC/Barbra/issues"
+  },
+  "homepage": "https://github.com/JonahKC/Barbra#readme",
+  "dependencies": {
+    "discord.py": "^1.0.0",
+    "flask": "^0.2.10"
+  }
+}

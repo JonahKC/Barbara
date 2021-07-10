@@ -1,0 +1,3 @@
+# i tried to change the repl type youre gonna need to...
+#language = "python"
+run = "index.html"
