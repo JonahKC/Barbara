@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JonahKC/Barbra#readme",
   "dependencies": {
+    "asyncio": "0.0.2",
     "discord.py": "^1.0.0",
     "flask": "^0.2.10"
   }

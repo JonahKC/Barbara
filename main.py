@@ -7,6 +7,8 @@ import re
 import keep_alive
 import meese
 import secret_messages
+import asyncio
+
 intents = discord.Intents(messages=True, guilds=True)
 client = discord.Client(intents=intents)
 
