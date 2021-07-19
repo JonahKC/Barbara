@@ -1,7 +1,6 @@
 import discord
 import os
 import lib.keep_alive
-from commands import *
 import commands.__init__ as init
 import config.config as config
 from discord_components import DiscordComponents

@@ -13,5 +13,5 @@ async def main(message, prefix, client):
 			else:
 				await admin.noperm(message)
 		else:
-			link = config.read(message.guild.id, "link")
+			link = config.read(message.guild.id, "link").replace("{prefix}", prefix)
 			await message.channel.send(f"""{link}\n\nBot developed by <https://jcwyt.com>!""")
