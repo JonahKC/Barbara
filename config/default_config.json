@@ -3,5 +3,6 @@
 	"admin roles": [],
 	"admin users": [],
 	"link": "[Add a custom link or message here by running `{prefix}link custom [link]`. Add as many as you want, or run `{prefix}link custom` and nothing after it to remove this message]",
-	"nomees": "true"
+	"nomees": "true",
+	"whitelist": ["nomees","me especially"]
 }

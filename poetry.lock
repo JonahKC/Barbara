@@ -90,6 +90,23 @@ aiohttp = "*"
 "discord.py" = "*"
 
 [[package]]
+name = "discord-py-slash-command"
+version = "2.3.2"
+description = "A simple interaction handler for discord.py."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+aiohttp = "*"
+"discord.py" = "*"
+
+[package.extras]
+dev = ["black", "flake8", "isort", "sphinx", "sphinx-rtd-theme"]
+lint = ["black", "flake8", "isort", "sphinx", "sphinx-rtd-theme"]
+readthedocs = ["sphinx", "sphinx-rtd-theme"]
+
+[[package]]
 name = "discord.py"
 version = "1.7.3"
 description = "A Python wrapper for the Discord API"
@@ -202,7 +219,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "42f3359e96335e86dbf9bb8eef3f49916f93a6b41700d4f2f8347d6a6f1c2945"
+content-hash = "446417652051c8d5b98eab2981770d70c4f754f8cd2652cef88bad5ae2420f6f"
 
 [metadata.files]
 aiohttp = [
@@ -271,6 +288,10 @@ discord = [
 discord-components = [
     {file = "discord_components-1.1.4-py3-none-any.whl", hash = "sha256:701c49895c6d69060d79a436ed3ba2bfbb9e92457a4548a5bd14daa7bcbb9fff"},
     {file = "discord_components-1.1.4.tar.gz", hash = "sha256:11768d28bf3b7ad20f378328e0f02e3322579167d97ae672da59c09d31bc61e7"},
+]
+discord-py-slash-command = [
+    {file = "discord-py-slash-command-2.3.2.tar.gz", hash = "sha256:ab3e73d683bb0ed098902c33de3c87c8a05c1e5dbe50682752dcc3fc0db4ce6a"},
+    {file = "discord_py_slash_command-2.3.2-py3-none-any.whl", hash = "sha256:3347442b70484b02eba40490f946cdfd58e080c4f698f9e2960f134d28faa41d"},
 ]
 "discord.py" = [
     {file = "discord.py-1.7.3-py3-none-any.whl", hash = "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"},
