@@ -1,8 +1,9 @@
 import config.config as config
 import lib.lib as lib
 
+NAME = "admin"
+
 async def main(message, prefix, client):
-	if message.content.startswith(f"{prefix}admin"):
 		if perms(message.guild.id, message.author):
 			content = message.content.split(' ')
 			if content[1] == "add":

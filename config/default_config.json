@@ -2,7 +2,8 @@
 	"prefix": "%",
 	"admin roles": [],
 	"admin users": [],
-	"link": "[Add a custom link or message here by running `{prefix}link custom [link]`. Add as many as you want, or run `{prefix}link custom` and nothing after it to remove this message]",
+	"link": "[Add a custom link or message here by running `{prefix}link set [link]`. Add as many as you want, or run `{prefix}link custom` and nothing after it to remove this message]",
 	"nomees": "true",
-	"whitelist": ["nomees","mee6","me especially"]
+	"whitelist": ["nomees","mee6","me especially"],
+	"flavorOfSecrets": "normal (can be normal, jokesonyoubot, or botwinkle)"
 }

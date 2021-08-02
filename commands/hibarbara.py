@@ -1,3 +1,5 @@
+NAME = "*"
+
 async def main(message, prefix, client):
 	if f'<@!{client.user.id}>' in message.content:
 		nick = message.author.nick

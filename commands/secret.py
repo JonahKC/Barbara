@@ -1,6 +1,7 @@
-import resources.secret_messages
-import random
+import lib.messages as messages
+
+NAME = "secret"
+
 async def main(message, prefix, client):
-	if message.content.startswith(f"{prefix}secret"): 
-		rand = random.randint(0, len(resources.secret_messages.secret_messages))
-		await message.channel.send(resources.secret_messages.secret_messages[rand])
+  if message.content.startswith(f"{prefix}secret"):
+    await message.channel.send(await messages.random_message(message.guild.id, "secret"))

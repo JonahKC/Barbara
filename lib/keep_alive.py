@@ -5,7 +5,7 @@ app = Flask('')
 def main():
   return render_template('index.html')
 def run():
-    app.run(host="0.0.0.0", port=8080)
+    app.run(debug=False, host="0.0.0.0", port=3000)
 def keep_alive():
 		server = Thread(target=run)
 		server.start()

@@ -1,6 +1,8 @@
 import config.config as config
 import commands.admin as admin
 
+NAME = "prefix"
+
 async def main(message, prefix, client):
 	if message.content.startswith(f"{prefix}prefix"):
 		if admin.perms(message.guild.id,message.author):

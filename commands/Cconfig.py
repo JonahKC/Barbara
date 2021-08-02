@@ -2,8 +2,9 @@ import config.config as config
 import commands.admin as admin
 import re
 
+NAME = "config"
+
 async def main(message, prefix, client):
-	if message.content.startswith(f"{prefix}config"):
 		if admin.perms(message.guild.id,message.author):
 			content = message.content.split(" ")
 			if content[1] == "read":

@@ -1,8 +1,10 @@
-import discord
-import os
+import os, discord, asyncio
 import lib.keep_alive
 import commands.__init__ as init
+import commands.init as onMessageInit
+import lib.messages as pickupSecretManager
 import config.config as config
+
 from discord_components import DiscordComponents
 
 commandArray = init.commands
@@ -12,30 +14,26 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
-	await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='jcwyt.com'))
-	DiscordComponents(client)
-	lib.keep_alive.keep_alive()
-	print('Connected to bot: {}'.format(client.user.name))
-	print('Logged in as: {0.user}'.format(client))
-	print('Bot ID: {}'.format(client.user.id))
-	print("Servers: " + str(len(client.guilds)))
+  await client.change_presence(activity=discord.Activity(
+	    type=discord.ActivityType.watching, name='jcwyt.com'))
+  DiscordComponents(client)
+  lib.keep_alive.keep_alive()
+  print('Connected to bot: {0.name}'.format(client.user))
+  print('Logged in as: {}'.format(client.user))
+  print('Bot ID: {0.id}'.format(client.user))
+  print("I'm in {} servers!".format(str(len(client.guilds))))
+  await pickupSecretManager.init()
+
 
 @client.event
 async def on_message(message):
-	if message.author == client.user:
-		return
-	for i in commandArray:
-		await i.main(message, config.read(message.guild.id, "prefix"), client)
-		#eval(f"await {commands.__init__.__all__[i]}.main(message, config.read(message.guild.id, \"prefix\"), client)")
-	#await Ceval.main(message, config.read(message.guild.id, "prefix"), client)
-	#await Chelp.main(message, config.read(message.guild.id, "prefix"), client)
-	#await hibarbara.main(message, config.read(message.guild.id, "prefix"), client)
-	#await link.main(message, config.read(message.guild.id, "prefix"), client)
-	#await pickup.main(message, config.read(message.guild.id, "prefix"), client)
-	#await removemeese.main(message, config.read(message.guild.id, "prefix"), client)
-	#await sayb.main(message, config.read(message.guild.id, "prefix"), client)
-	#await secret.main(message, config.read(message.guild.id, "prefix"), client)
-	#await prefix.main(message, config.read(message.guild.id,"prefix"), client)
-	#await Cconfig.main(message, config.read(message.guild.id,"prefix"), client)
-
+  global client, commandArray
+  if message.author == client.user:
+    return
+  prefix = config.read(message.guild.id, "prefix")
+  await onMessageInit.main(message, prefix, client)
+  for c in commandArray:
+    if message.content.startswith(prefix + c.NAME) or c.NAME == "*":
+      c.main(message, prefix, client)
 client.run(os.getenv('TOKEN'))
+""

@@ -1,5 +1,8 @@
 import re
 from discord_components import DiscordComponents, Button, ButtonStyle
+
+NAME = "sayb"
+
 # %sayb https://geekveggie.dev MyWebsite! The button will take you to my website!
 async def main(message, prefix, client):
 	if message.content.startswith(f"{prefix}sayb"):

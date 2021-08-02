@@ -11,7 +11,7 @@ async def main(message, prefix, client):
 				string = message.content
 				whitelist = config.fetch(message.guild.id, "whitelist")
 				for i in whitelist:
-					string = string.replace(i,".")
+					string = string.replace(i,"")
 				if meese.containsMeese(string):
 					await message.delete()
 					await client.get_channel(864644173835665458).send	(message.author.name + ": " + message.content)

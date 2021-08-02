@@ -1,3 +1,5 @@
+NAME = "help"
+
 async def main(message, prefix, client):
 	content = message.content.split(" ")
 	if message.content.startswith(f"{prefix}help"):
@@ -5,7 +7,7 @@ async def main(message, prefix, client):
 			await message.channel.send(f"""**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
 
 `{prefix}secret` - I'll tell you a secret!
-`{prefix}pickup` - My husband fell for me after I told him a pickup line I got from this command.
+`{prefix}pickup` - Tells you a *magnificent* pickup line. Some of them you can respond to too!
 `{prefix}link` - Check out some server-specific links.
 `{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com/>)
 `{prefix}help admin` - View admin commands.

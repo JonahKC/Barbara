@@ -12,4 +12,4 @@ import commands.init as init
 import commands.admin as admin
 import commands.invite as invite
 __all__ = ["init", "admin", "Ceval", "Chelp", "hibarbara", "link", "pickup", "sayb", "secret", "prefix", "invite", "Cconfig", "removemeese"]
-commands = [init, admin, Cconfig, Ceval, Chelp, hibarbara, link, pickup, removemeese, sayb, invite, secret, prefix]
+commands = [Chelp, admin, Cconfig, Ceval, hibarbara, link, pickup, removemeese, sayb, invite, secret, prefix]
