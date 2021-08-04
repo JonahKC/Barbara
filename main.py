@@ -1,4 +1,4 @@
-import os, discord, asyncio
+import os, discord
 import lib.keep_alive
 import commands.__init__ as init
 import commands.init as onMessageInit
@@ -33,6 +33,7 @@ async def on_message(message):
   prefix = config.read(message.guild.id, "prefix")
   await onMessageInit.main(message, prefix, client)
   for c in commandArray:
+    print(message.content.startswith(prefix + c.NAME) or c.NAME == "*")
     if message.content.startswith(prefix + c.NAME) or c.NAME == "*":
       c.main(message, prefix, client)
 client.run(os.getenv('TOKEN'))
