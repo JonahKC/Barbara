@@ -2,7 +2,6 @@ import os, discord
 import lib.keep_alive
 import commands.__init__ as init
 import commands.init as onMessageInit
-import lib.messages as pickupSecretManager
 import config.config as config
 
 from discord_components import DiscordComponents
@@ -22,7 +21,6 @@ async def on_ready():
   print('Logged in as: {}'.format(client.user))
   print('Bot ID: {0.id}'.format(client.user))
   print("I'm in {} servers!".format(str(len(client.guilds))))
-  await pickupSecretManager.init()
 
 
 @client.event
@@ -36,4 +34,3 @@ async def on_message(message):
     if message.content.startswith(prefix + c.NAME) or c.NAME == "*":
       await c.main(message, prefix, client)
 client.run(os.getenv('TOKEN'))
-""

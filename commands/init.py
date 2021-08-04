@@ -1,5 +1,5 @@
 import config.config as config
-import json
+#import json
 
 async def main(message, prefix, client):
 	serverAdmins = config.read(message.guild.id, "admin users")
