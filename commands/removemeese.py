@@ -1,5 +1,8 @@
 import lib.meese as meese
 import config.config as config
+
+NAME = "*"
+
 async def main(message, prefix, client):
 	if message.author.id != client.user.id and message.author.id != 798016639089901610:
 		if config.read(message.guild.id, "nomees") == "true":
