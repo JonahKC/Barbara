@@ -23,6 +23,8 @@ async def main(message, prefix, client):
 `{prefix}admin add user [@user]` - Adds user to admin command whitelist.
 `{prefix}admin remove role [@role]` - Removes role from admin command whitelist.
 `{prefix}admin remove user [@user]` - Removes user from admin command whitelist.
+`{prefix}admin vc ban-bots [vc-id]` - bans bots from the vc, specified by the id of the vc. (Can find by enabling Discord developer, then right clicking on a vc and pressing copy id)
+`{prefix}admin vc unban-bots [vc-id]` - unbans bots from the vc, specified by the id of the vc. (Can find by enabling Discord developer, then right clicking on a vc and pressing copy id)
 `{prefix}link set [message or link]` - Customizes the link in %link. Add as many as you want.
 `{prefix}prefix [new prefix]` - Customize the prefix for all commands from % to whatever you want.
 

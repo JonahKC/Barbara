@@ -10,6 +10,7 @@ Flask = "^2.0.1"
 discord = "^1.7.3"
 discord-components = "^1.1.4"
 aiofiles = "^0.7.0"
+gpt-2-finetuning = "^1.0.14"
 
 [tool.poetry.dev-dependencies]
 

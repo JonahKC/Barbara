@@ -22,6 +22,15 @@ async def on_ready():
   print('Bot ID: {0.id}'.format(client.user))
   print("I'm in {} servers!".format(str(len(client.guilds))))
 
+@client.event
+async def on_voice_state_update(member, before, after):
+    vcnotfchannel = client.get_channel(863922969667567646)
+    if before.channel is None and after.channel is not None:
+        await vcnotfchannel.send("<@" + str(member.id) + "> joined " + str(after.channel) + " VC!")
+    elif before.channel is not None and after.channel is None:
+        await vcnotfchannel.send("<@" + str(member.id) + "> left " + str(before.channel) + " VC!")
+    elif before.channel != after.channel:
+        await vcnotfchannel.send("<@" + str(member.id) + "> moved from " + str(before.channel) + " VC to " + str(after.channel) + " VC!")
 
 @client.event
 async def on_message(message):
@@ -33,4 +42,5 @@ async def on_message(message):
   for c in commandArray:
     if message.content.startswith(prefix + c.NAME) or c.NAME == "*":
       await c.main(message, prefix, client)
+    
 client.run(os.getenv('TOKEN'))

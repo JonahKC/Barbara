@@ -6,7 +6,17 @@ NAME = "admin"
 async def main(message, prefix, client):
 		if perms(message.guild.id, message.author):
 			content = message.content.split(' ')
-			if content[1] == "add":
+			if content[1] == "vc":
+				if len(content) != 4:
+					await message.channel.send(f"Error: Invalid syntax. Please refer to the `{prefix}help admin` command for information on correct syntax.")
+					return
+				if content[2] == "ban-bots":
+					config.append(message.guild.id, "noBotVcs", content[3])
+					await message.channel.send("Succesfully banned bots from vc")
+				if content[2] == "unban-bots":
+					config.remove(message.guild.id, "noBotVcs", content[3])
+					await message.channel.send("Succesfully unbanned bots from vc")
+			elif content[1] == "add":
 				if content[2] == "role":
 					id = content[3]
 					if lib.is_int(id):

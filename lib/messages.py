@@ -4,7 +4,8 @@ import config.config as config
 async def random_message(message_guild_id, messageType):
   if messageType == "pickup":
     with open('./resources/pickups.txt', 'r') as pickups:
-      return pickups.readline()[randint(0, len(pickups))]
+      pickups = pickups.readlines()
+      return pickups[randint(0, len(pickups))]
   elif messageType == "secret":
     flavorOfSecrets = config.read(message_guild_id, "flavorOfSecrets")
     if flavorOfSecrets == "botwinkle":

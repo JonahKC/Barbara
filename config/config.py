@@ -1,21 +1,34 @@
 import json
+import os
+
+secrets = False
 
 def save(dict):
-	with open("config/config.json", "w") as fp:
-		json.dump(dict,fp)
+	if (secrets == False):	
+		with open("config/config.json", "w") as fp:
+			json.dump(dict,fp)
+	else:
+		os.environ["config"] = json.dumps(dict)
+		print(os.environ["config"])
 
 def load():
 	try:
-		with open('config/config.json') as fp:
-			return json.load(fp)
+		if (secrets == False):
+			with open('config/config.json') as fp:
+				return json.load(fp)
+		else:
+			return json.loads(os.environ["config"])
 		
 	except json.decoder.JSONDecodeError:
 		return
 
 def load_global():
 	try:
-		with open('config/global_config.json') as fp:
-			return json.load(fp)
+		if (secrets == False):
+			with open('config/global_config.json') as fp:
+				return json.load(fp)
+		else:
+			return json.loads(os.environ["global config"])
 	except json.decoder.JSONDecodeError:
 		return
 
@@ -95,12 +108,23 @@ def get(guild_id):
 
 def serverGen(guild_id):
 	guild_id = str(guild_id)
-	with open("config/default_config.json") as fp:
+	if (secrets == False):
+		with open("config/default_config.json") as fp:
+			conf = load()
+			conf[guild_id] = json.load(fp)
+			save(conf)
+	else:
+		defaultConf = os.environ["default config"]
 		conf = load()
-		conf[guild_id] = json.load(fp)
+		conf[guild_id] = json.loads(defaultConf)
 		save(conf)
 
 def default(option):
-	with open("config/default_config.json") as fp:
-		data = json.load(fp)
+	if (secrets == False):
+		with open("config/default_config.json") as fp:
+			data = json.load(fp)
+			return data[option]
+	else:
+		defaultConf = os.environ["default config"]
+		data = json.loads(defaultConf)
 		return data[option]
