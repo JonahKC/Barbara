@@ -22,8 +22,9 @@ class BasicCommands(commands.Cog):
 
     @commands.group(name='help')
     async def help(self, ctx):  # %help
-        with open('./resources/help.txt') as helpText:
-            await ctx.send(helpText.read().replace("{prefix}", ctx.prefix))
+      if ctx.invoked_subcommand is not None: return
+      with open('./resources/help.txt') as helpText:
+        await ctx.send(helpText.read().replace("{prefix}", ctx.prefix))
 
     @help.command(name='admin')  # %help admin
     async def helpAdmin(self, ctx):

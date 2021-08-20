@@ -19,6 +19,7 @@ class MessageSendingCommands(commands.Cog):
             await ctx.message.delete()
             await ctx.send(content)
         else:
+            await ctx.send("debug")
             await ctx.message.delete()
             await ctx.send(ctx.author.mention + ": " + content)
 
@@ -27,8 +28,6 @@ class MessageSendingCommands(commands.Cog):
         link = c[1]
         linkTitle = c[2]
         messageContent = " ".join(c[3:])
-
-
         if perms(ctx):
             await ctx.message.delete()
             await ctx.send(messageContent, components=[Button(style=ButtonStyle.URL, label=linkTitle, url=link)])
@@ -36,7 +35,7 @@ class MessageSendingCommands(commands.Cog):
             await ctx.message.delete()
             try:
               await ctx.send(ctx.author.mention + ": " + messageContent,components=[Button(style=ButtonStyle.URL,label=linkTitle,url=link)])
-            except Exception as e:
+            except Exception as e: # for some reason doesn't currently work, if you type the %say button command invalidly, it'll run into an error and not send anything.
               await ctx.send(repr(e))
 
 

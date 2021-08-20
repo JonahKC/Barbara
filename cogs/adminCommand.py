@@ -44,6 +44,7 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
+      print(i)
       print(int(i[3:-1]))
       print(self.bot.get_user(int(i[3:-1])))
       print(self.bot.get_user(437404651818582017))
