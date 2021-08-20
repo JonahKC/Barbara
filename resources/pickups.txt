@@ -1,7 +1,6 @@
 Are you a model?{answer}Oh, when did you quit?
 You’re hotter than the bottom of my laptop.
 If you were a tree, you’d be a really good tree.
-You’re hotter than my GPU when Callum is installing shader after shader after shader onto my computer.
 I ought to complain to Spotify for you not being named this week’s hottest single.
 Are you into science?{answer}Because I got my ion you.
 Are you HTTP?{answer}Because without you, I’m just ://
@@ -37,10 +36,8 @@ Is your face McDonald's? Because I'm lovin' it.
 Are you French? Because Eiffel for you.
 There is something wrong with my cell phone. It doesn't have your number in it.
 If you were a chicken, you’d be impeccable.
-Did you just come out of the oven? Because you’re hot.
 Are you a beaver? Because DAM.
 Are you ~~Netflix~~ JCFlix Prime Max+? Because I could watch you for hours.
-You're so cute that you made me forget my pick up line.
 If I could rearrange the alphabet, I’d put ‘U’ and ‘I’ together.
 Your legs must be tired because you have been running through my mind all night.
 Are you my last 1099 check? Because I want 100% of you.
@@ -102,4 +99,5 @@ Help! I've fallen for you and I can't get up!
 If you were ground coffee, you'd be Espresso cause you're so fine.
 If I was a stoplight, everytime you came by I'd turn red, just to glance at you longer
 Damn girl, I thought diamonds were pretty until I laid my eyes on you!
-A life without you, would be like a computer without.
+A life without you, would be like a computer without me.
+A life without you, would be like a computer without an OS.

@@ -1,0 +1,14 @@
+**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+
+`{prefix}secret` - I'll tell you a secret from an original dataset!
+`{prefix}pickup` - Tells you a *magnificent* pickup line from an original dataset. Some of them you can respond to as well!
+`{prefix}fact` - Can only be run once per hour, returns a random useless fact courtesy of <https://uselessfacts.jsph.pl>
+`{prefix}dadjoke` - Can only be run once per hour, returns a random dad joke courtesy of <https://icanhazdadjoke.com>
+`{prefix}link` - Check out some server-specific links.
+`{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com/>)
+`{prefix}help admin` - View admin commands.
+`{prefix}howoldis [theserver/barbara] <accurately/precisely>` - Return the age of the server/barbara
+**For a list of all commands, go to <https://barbara.jcwyt.com/commands>.**
+
+[parameter] = required
+<parameter> = optional

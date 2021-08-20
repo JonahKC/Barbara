@@ -1,23 +1,24 @@
-from random import randint
-import config.config as config
+import heapq
+from random import random
 
-async def random_message(message_guild_id, messageType):
-  if messageType == "pickup":
-    with open('./resources/pickups.txt', 'r') as pickups:
-      pickups = pickups.readlines()
-      return pickups[randint(0, len(pickups))]
-  elif messageType == "secret":
-    flavorOfSecrets = config.read(message_guild_id, "flavorOfSecrets")
-    if flavorOfSecrets == "botwinkle":
-      with open('./resources/botwinkle_secrets.txt', 'r') as secrets:
-        secrets = secrets.readlines()
-        return secrets[randint(0, len(secrets))]
-    elif flavorOfSecrets == "jokesonyoubot":
-      with open('./resources/jokes_on_you_bot_secrets.txt', 'r') as secrets:
-        secrets = secrets.readlines()
-        return secrets[randint(0, len(secrets))]
-    if flavorOfSecrets != "normal" or flavorOfSecrets != "normal (can be normal, jokesonyoubot, or botwinkle)":
-        config.write(message_guild_id, "flavorOfSecrets", "normal (can be normal, jokesonyoubot, or botwinkle)")
-    with open('./resources/secrets.txt', 'r') as secrets:
-      secrets = secrets.readlines()
-      return secrets[randint(0, len(secrets))]
+MESSAGE_PATHS = {
+  "botwinkle": "./resources/botwinkle_secrets.txt",
+  "jokesonyoubot": "./resources/jokes_on_you_bot_secrets.txt",
+  "normal": "./resources/secrets.txt",
+  "normal (can be normal, jokesonyoubot, or botwinkle)": "./resources/secrets.txt",
+	"pickup": "./resources/pickups.txt"
+}
+
+def random_message(path):
+  return _get_rand(path,1)[0]
+
+# Converts flavorOfSecret config value to a filepath to the secret's location
+def flavorOfSecret(flavorOfSecret):
+  global MESSAGE_PATHS
+  if MESSAGE_PATHS[flavorOfSecret] is None:
+    return MESSAGE_PATHS["normal"]
+  return MESSAGE_PATHS[flavorOfSecret]
+
+def _get_rand(path,number):
+  with open(path) as f:
+    return heapq.nlargest(number, f, key=lambda L: random())

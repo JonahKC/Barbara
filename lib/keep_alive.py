@@ -1,3 +1,4 @@
+# Deprecated web server for bot. If you're looking to do frontend stuff, use the Barbara-frontent repl.
 from flask import Flask, render_template
 from threading import Thread
 app = Flask('')
