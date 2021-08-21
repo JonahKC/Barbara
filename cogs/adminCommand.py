@@ -22,11 +22,11 @@ class BasicCommands(commands.Cog):
   async def adminAddUser(self, ctx, user: discord.User):
     config.append(ctx.guild.id, "admin users", '<@!'+user.id+'>')
 
-  @admin.group(name='list', aliases=['put'],invoke_without_subcommand=False) # %admin list
+  @admin.group(name='list', aliases=['put','~'],invoke_without_subcommand=False) # %admin list
   async def adminList(self, ctx):
     pass
 
-  @adminList.command(name='roles',aliases=['r']) # %admin list roles
+  @adminList.command(name='roles') # %admin list roles
   async def adminListRoles(self, ctx):
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
@@ -39,7 +39,7 @@ class BasicCommands(commands.Cog):
     		roles_temp.append(ctx.guild.get_role(int(i[3:-1])).name)
     await ctx.send('**ADMIN ROLES:**\n'+'\n'.join(roles_temp))
 
-  @adminList.command(name='users',aliases=['u']) # %admin list users
+  @adminList.command(name='users') # %admin list users
   async def adminListUsers(self, ctx):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
