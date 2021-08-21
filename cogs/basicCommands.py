@@ -20,7 +20,7 @@ class BasicCommands(commands.Cog):
     def __init__(self, bot):  # Allows us to access bot later on with self.bot
         self.bot = bot
 
-    @commands.group(name='help')
+    @commands.group(name='help',aliases=['h'])
     async def help(self, ctx):  # %help
       if ctx.invoked_subcommand is not None: return
       with open('./resources/help.txt') as helpText:
@@ -40,7 +40,7 @@ class BasicCommands(commands.Cog):
             "**Invite Me to Your Other Discord Servers!**\n<https://barbara.jcwyt.com/invite>"
         )
 
-    @commands.group(name='link')  # %link
+    @commands.group(name='link',aliases=['info','about'])  # %link
     async def link(self, ctx):
         link = config.read(ctx.guild.id, "link").replace(
             "{prefix}", ctx.prefix
@@ -60,12 +60,8 @@ class BasicCommands(commands.Cog):
         config.write(ctx.guild.id, "prefix", newPrefix)
         await ctx.send(f'My prefix is now \"{newPrefix}\"')
 
-    @commands.command(name='reload')  # %reload cogs.basicCommands
-    @commands.check(
-        admin.jcwytTeam
-    )  # A check takes in a Context as it's sole parameter. Within it, you have the following options: Return True so the person can run the command. Return False so they can't. Raises CheckFailure
-    # * as a parameter means you need to pass the following parameters as key="value"
-    # Specify the cog to reload by the name of the cog (ex: cog.basicCommands)
+    @commands.command(name='reload',aliases=['restart','cog','rld'])  # %reload cogs.basicCommands
+    @commands.check(admin.jcwytTeam)
     async def reloadCog(self,
                         ctx,
                         *,
@@ -80,7 +76,9 @@ class BasicCommands(commands.Cog):
             await ctx.send(f'**ERROR:** `{type(e).__name__} - {e}`')
         else:
             await ctx.send(f'**SUCCESSFULLY RELOADED COG: **`{nameOfCog}`')
-
+    @commands.command()
+    async def ping(self, ctx):
+      await ctx.send(f'Pong!\n`Ping: {bot.latency}`')
 
 def setup(bot):  # Builtin discord function
     bot.add_cog(BasicCommands(bot))

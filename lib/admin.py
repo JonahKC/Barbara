@@ -4,10 +4,10 @@ RESTRICTED_COMMANDS = ("admin", "link set", "prefix") # Only admins can run thes
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
 
 def perms(ctx): # Does this user have admin perms?
-	if f'<@!{ctx.author.id}>' in config.fetch(ctx.guild.id, "admin users") or ctx.author.roles:
+	if f'<@!{ctx.author.id}>' in config.fetch(ctx.guild.id, "admin users"):
 		return True
 	else:
-		for i in ctx.user.roles:
+		for i in ctx.author.roles:
 			if f'<@&{i.id}>' in config.fetch(ctx.guild.id, "admin roles"):
 				return True
 	return False

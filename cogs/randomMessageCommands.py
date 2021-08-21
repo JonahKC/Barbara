@@ -50,8 +50,7 @@ class RandomMessageCommands(commands.Cog):
         await ctx.send(pickup)
 
     @commands.command()  # %fact
-    @commands.cooldown(rate=1, per=600, type=commands.BucketType.user
-                       )  # Each user can only run this once every hour
+  # @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
     async def fact(self, ctx):
         factMessage = await ctx.send("Loading...")
         async with aiohttp.ClientSession() as cs:
@@ -62,7 +61,7 @@ class RandomMessageCommands(commands.Cog):
                 await factMessage.edit(content=res['text'].replace("`", "'"))
 
     @commands.command()  # %dadjoke
-    @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
+  # @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
     async def dadjoke(self, ctx):
         dadjokeMessage = await ctx.send("Loading...")
         async with aiohttp.ClientSession() as cs:

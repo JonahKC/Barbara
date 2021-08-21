@@ -8,7 +8,7 @@ class ConfigCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.group(name='config', invoke_without_subcommand=False)
+    @commands.group(name='config', aliases=['cfg'], invoke_without_subcommand=False)
     async def config(self, ctx):  # %config
         pass
 
