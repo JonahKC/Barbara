@@ -1,12 +1,12 @@
 import json
 
 def save(dict):
-	with open("config/config.json", "w") as fp:
+	with open("./config/config.json", "w") as fp:
 		json.dump(dict,fp)
 
 def load():
 	try:
-		with open('config/config.json') as fp:
+		with open('./config/config.json') as fp:
 			return json.load(fp)
 		
 	except json.decoder.JSONDecodeError:
@@ -14,7 +14,7 @@ def load():
 
 def load_global():
 	try:
-		with open('config/global_config.json') as fp:
+		with open('./config/global_config.json') as fp:
 			return json.load(fp)
 	except json.decoder.JSONDecodeError:
 		return

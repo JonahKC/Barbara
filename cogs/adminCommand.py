@@ -7,6 +7,7 @@ class BasicCommands(commands.Cog):
     self.bot = bot
   
   @commands.group(name='admin',aliases=['sudo'], invoke_without_subcommand=False)
+  @commands.guild_only()
   async def admin(self, ctx): # This command doesn't exist, you need to reference a subcommand.
     pass
 
@@ -17,10 +18,12 @@ class BasicCommands(commands.Cog):
   @adminAdd.command(name='role') # %admin add role
   async def adminAddRole(self, ctx, role: discord.Role):
     config.append(ctx.guild.id, "admin roles", '<@&'+str(role.id)+'>')
+    await ctx.send(f"Promoted role {role.name} to admin.")
 
   @adminAdd.command(name='user') # %admin add user
   async def adminAddUser(self, ctx, user: discord.User):
-    config.append(ctx.guild.id, "admin users", '<@!'+user.id+'>')
+    config.append(ctx.guild.id, "admin users", '<@!'+str(user.id)+'>')
+    await ctx.send(f"Promoted user {user.name} to admin.")
 
   @admin.group(name='list', aliases=['put','~'],invoke_without_subcommand=False) # %admin list
   async def adminList(self, ctx):
@@ -51,7 +54,7 @@ class BasicCommands(commands.Cog):
       print(await self.bot.fetch_user(int(i[3:-1])))
       print(await self.bot.fetch_user(437404651818582017))
       user = await self.bot.fetch_user(int(i[3:-1]))
-      users_temp.append(user.name)
+      users_temp.append(user.name.replace('_', '\_').replace('*', '\*'))
     await ctx.send('\n'.join(users_temp))
 
   @adminList.command(name='all',aliases=['*','everyone']) # %admin list all

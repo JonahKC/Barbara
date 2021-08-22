@@ -4,6 +4,7 @@ from discord_components import (
     ButtonStyle,
 )
 from lib.admin import perms
+from lib.customErrors import ArgumentsInvalid
 
 
 class MessageSendingCommands(commands.Cog):
@@ -24,6 +25,9 @@ class MessageSendingCommands(commands.Cog):
 
     async def button(self, ctx, content: str): 
         c = content.split(" ")
+        cl = len(c)
+        if cl < 3:
+          raise ArgumentsInvalid(f"%say button requires at least 3 arguments. Got {cl - 1} argument{'s' if cl == 1 else ''}.")
         link = c[1]
         linkTitle = c[2]
         messageContent = " ".join(c[3:])
