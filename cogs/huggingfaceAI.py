@@ -12,13 +12,6 @@ def query(payload, url=QA_URL):
 	response = requests.post(url, headers=headers, json=payload)
 	return response.json()
 
-output = query({
-    "inputs": {
-		"question": "What's my name?",
-		"context": "My name is Clara and I live in Berkeley.",
-	},
-})
-
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -27,7 +20,7 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, *, prompt: str=""):
     answer = await ctx.send("Waiting for GPT-NEO")
-    await answer.edit(str(query(prompt, GPT_NEO_URL)[0]['generated_text']))
+    await answer.edit(query(prompt, GPT_NEO_URL)[0]['generated_text'])
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):

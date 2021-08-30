@@ -8,5 +8,5 @@
 	"whitelist": [],
 	"flavor-of-secrets": "normal (can be normal, jokesonyoubot, or botwinkle)",
   "react-to-the-string-nsfw": "false",
-  "nsfw-detection-reactions": ["face_with_symbols_over_mouth", "rage"]
+  "nsfw-detection-reactions": ["🤬", "😡"]
 }

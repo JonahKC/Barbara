@@ -22,10 +22,5 @@ class RemoveNSFW(commands.Cog):
     except AttributeError:
       pass
 
-  @commands.Cog.listener()
-  async def on_raw_reaction_add(self, payload):
-    if not isinstance(self.bot.get_channel(payload.channel_id), DMChannel) and payload.event_type == 'REACTION_ADD' and admin.perms(payload.member) and payload.emoji in config.read(payload.guild_id, "nsfw-detection-reactions"): # Not a DM, not removing a reaction, user is admin, and emoji is in config list of emojis to react to messages with the string 'nsfw'
-      await self.bot.get_channel(payload.channel_id).fetch_message(payload.message_id).delete()
-
 def setup(bot):
   bot.add_cog(RemoveNSFW(bot))

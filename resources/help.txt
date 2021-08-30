@@ -25,7 +25,7 @@ PAGEBREAK
 `{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
 `{prefix}help admin` - View admin commands.
 `{prefix}aiqa` ["Wikipedia page name in quotes"] [question] - Gets the Wikipedia page, then runs it through an API-based AI to answer your question. ~~It's probably wrong.~~ API credits can be found below.
-`%prompt [prompt]` - Continues your prompt and writes a paragraph with it, using the same API that runs `{prefix}aiqa`. This command uses an API, see below for credit links.WARNING: GPT-Neo was trained on the Pile, a dataset known to contain profanity, lewd, and otherwise abrasive language.
+`%prompt [prompt]` - Continues your prompt and writes a paragraph with it, using the same API that runs `{prefix}aiqa`. This command uses an API, see below for credit links. WARNING: GPT-Neo was trained on the Pile, a dataset known to contain profanity, lewd, and otherwise abrasive language.
 `[parameter]` = required
 `<parameter>` = optional
 API links can be found at <https://barbara.jcwyt.com/api-credits>
