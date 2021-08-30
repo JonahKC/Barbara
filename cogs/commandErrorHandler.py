@@ -3,8 +3,7 @@ import discord
 from datetime import timedelta
 from humanize import naturaldelta
 from math import ceil
-
-import discord, traceback, console
+import traceback, console
 
 
 class ErrorHandler(commands.Cog):

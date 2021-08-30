@@ -33,8 +33,6 @@ class BasicCommands(commands.Cog):
   async def adminListRoles(self, ctx):
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
-    print(roles)
-    print(ctx.guild.roles)
     for i in roles:
     	if i == '@everyone':
     		roles_temp.append('@ everyone')
@@ -47,12 +45,6 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      #print(i)
-      #print(int(i[3:-1]))
-      #print(self.bot)
-      #print(self.bot.fetch_user)
-      #print(await self.bot.fetch_user(int(i[3:-1])))
-      #print(await self.bot.fetch_user(437404651818582017))
       user = await self.bot.fetch_user(int(i[3:-1]))
       users_temp.append(user.name.replace('_', '\_').replace('*', '\*'))
     await ctx.send('\n'.join(users_temp))
@@ -62,18 +54,10 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      #print(i)
-      #print(int(i[3:-1]))
-      #print(self.bot)
-      #print(self.bot.fetch_user)
-      #print(await self.bot.fetch_user(int(i[3:-1])))
-      #print(await self.bot.fetch_user(437404651818582017))
       user = await self.bot.fetch_user(int(i[3:-1]))
       users_temp.append(user.name)
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
-    #print(roles)
-    #print(ctx.guild.roles)
     for i in roles:
     	if i == '@everyone':
     		await ctx.send('Everyone on this server is an admin! The more the merrier!')
@@ -81,10 +65,7 @@ class BasicCommands(commands.Cog):
     	else:
     		roles_temp.append(ctx.guild.get_role(int(i[3:-1])))
     members = []
-    #print(roles_temp)
     for i in roles_temp:
-      #print(i.guild)
-      #print(i.members)
       members += i.members
     members = list(set(members))
     for i in members:
