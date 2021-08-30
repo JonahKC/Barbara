@@ -1,6 +1,6 @@
 from discord.ext import commands
 import mediawiki
-import requests
+import aiohttp
 import os
 
 QA_URL = "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad"
@@ -8,9 +8,11 @@ GPT_NEO_URL = "https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.
 
 headers = {"Authorization": f"Bearer {os.getenv('API_TOKEN')}"}
 
-def query(payload, url=QA_URL):
-	response = requests.post(url, headers=headers, json=payload)
-	return response.json()
+async def query(payload, url=QA_URL):
+  async with aiohttp.ClientSession() as cs:
+    async with cs.post(url, headers=headers, json=payload) as response:
+      answer = await response.json()
+      return answer
 
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):
@@ -20,7 +22,8 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, *, prompt: str=""):
     answer = await ctx.send("Waiting for GPT-NEO")
-    await answer.edit(query(prompt, GPT_NEO_URL)[0]['generated_text'])
+    answerText = (await query(prompt, GPT_NEO_URL))[0]['generated_text']
+    await answer.edit(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
@@ -40,12 +43,13 @@ class HuggingfaceAI(commands.Cog):
       await answer.edit("Sorry, the Wikipedia page unexpectedly resolved to a redirect.")
       return
     await answer.edit("Waiting for bert-large-uncased-whole-word-masking-finetuned-squad...")
-    await answer.edit(query({
+    answerText = (await query({
       "inputs": {
-		    "question": quesion,
-		    "context": summary,
-	    },
-    })['answer'])
+        "question": quesion,
+        "context": summary,
+      },
+    }))['answer']
+    await answer.edit(answerText)
 
 def setup(bot):
   bot.add_cog(HuggingfaceAI(bot))
