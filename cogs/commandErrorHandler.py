@@ -1,4 +1,5 @@
 from discord.ext import commands
+import discord
 from datetime import timedelta
 from humanize import naturaldelta
 from math import ceil
@@ -23,7 +24,7 @@ class ErrorHandler(commands.Cog):
     if isinstance(error, commands.CommandNotFound):
       return
 
-    if isinstance(error, commands.BotMissingPermissions):
+    elif isinstance(error, commands.BotMissingPermissions):
       missing = [
         perm.replace('_', ' ').replace('guild', 'server').title()
         for perm in error.missing_perms
@@ -36,15 +37,15 @@ class ErrorHandler(commands.Cog):
       await ctx.send(_message)
       return
 
-    if isinstance(error, commands.DisabledCommand):
+    elif isinstance(error, commands.DisabledCommand):
       await ctx.send('This command has been disabled.')
       return
 
-    if isinstance(error, commands.CommandOnCooldown):
+    elif isinstance(error, commands.CommandOnCooldown):
       await ctx.send("This command is on cooldown, please retry in {}.".format(naturaldelta(timedelta(seconds=ceil(error.retry_after)))))
       return
 
-    if isinstance(error, commands.MissingPermissions):
+    elif isinstance(error, commands.MissingPermissions):
       missing = [
         perm.replace('_', ' ').replace('guild', 'server').title()
         for perm in error.missing_perms
@@ -58,18 +59,21 @@ class ErrorHandler(commands.Cog):
       await ctx.send(_message)
       return
 
-    if isinstance(error, commands.UserInputError):
+    elif isinstance(error, discord.errors.HTTPException):
+      await ctx.send("Oh no! The message I tried to send exceeded Discord's 2000 character limit!")
+      return
+    elif isinstance(error, commands.UserInputError):
       await ctx.send(f"Invalid syntax for command `{ctx.prefix}{ctx.command}`.\nIf you don't know the syntax, try `%help` or `%help admin`, and if the syntax isn't listed there go to <https://barbara.jcwyt.com>")
       return
 
-    if isinstance(error, commands.NoPrivateMessage):
+    elif isinstance(error, commands.NoPrivateMessage):
       try:
         await ctx.author.send('This command cannot be used in direct messages.')
       except discord.Forbidden:
         pass
       return
 
-    if isinstance(error, commands.CheckFailure):
+    elif isinstance(error, commands.CheckFailure):
       await ctx.send("You do not have permission to use this command.")
       return
 

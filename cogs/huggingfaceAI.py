@@ -2,6 +2,7 @@ from discord.ext import commands
 import mediawiki
 import aiohttp
 import os
+from typing import Optional
 
 QA_URL = "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad"
 GPT_NEO_URL = "https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.7B"
@@ -21,10 +22,15 @@ class HuggingfaceAI(commands.Cog):
     self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
-  async def textGen(self, ctx, length: int=-1, *, prompt: str):
+  async def textGen(self, ctx, length: Optional[int]=-1, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
     if length == -1:
-      length = max(250, len(prompt))
+      length = round(max(250, len(prompt)) / 4.7)
+    else:
+      length = int(length)
+    if length > 350:
+      await ctx.send("Sorry, the length you specified was too long to send in a Discord message! Remember that length isn't in characters, but in AI Tokens (each token is about 0.75 words)")
+      return
     answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 1.3, "temperature": 2.5, "return_full_text": False, "max_length": length}))[0]['generated_text']
     await answer.edit(answerText)
 
