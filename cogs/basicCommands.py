@@ -203,7 +203,8 @@ class BasicCommands(commands.Cog):
     link = config.read(ctx.guild.id, "link").replace(
       "{prefix}", ctx.prefix
     ) # read the link message for this server, and replace the text {prefix} with the bot's prefix.
-    await ctx.send(link)
+    if link.replace(" ", "") != "":
+      await ctx.send(link)
 
   @link.command(name='set') # %link set
   async def setLink(
