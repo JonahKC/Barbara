@@ -22,7 +22,7 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, *, prompt: str=""):
     answer = await ctx.send("Waiting for GPT-NEO")
-    answerText = (await query(prompt, GPT_NEO_URL))[0]['generated_text']
+    answerText = (await query({"inputs": prompt, "repetition_penalty": 1.3, "temperature": 2.5}, GPT_NEO_URL))[0]['generated_text']
     await answer.edit(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])

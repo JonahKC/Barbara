@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "barbara-backend-dev"
 version = "3.0.0A34"
-description = "This is the experimental version of Barbara. Development of Barbara will stop for the time being after Barbara 3.0.0 is released."
+description = "This is the release version of Barbara, it mostly works. Barbara is no longer being actively developed, but I still encourage you to try out her amazing commands!"
 authors = ["turnip123 <<>>"]
 
 [tool.poetry.dependencies]
