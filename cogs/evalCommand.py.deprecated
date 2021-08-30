@@ -1,0 +1,34 @@
+from discord.ext import commands
+import lib.admin as admin
+import re
+from types import CoroutineType
+
+class EvalCommand(commands.Cog):
+  def __init__(self, bot):
+    self.bot = bot
+    self.cache = {}
+    self.CODEBLOCK_REGEX = re.compile(r"(?<=```py\n)(?P<code>(\s|\S)*)(?=```)")
+
+  @commands.check(admin.jcwytTeam)
+  @commands.group(name='eval', aliases=['exec', 'python', 'code', 'run'], invoke_without_command=True)
+  async def evalCommand(self, ctx, *, code: str):
+    if '```py' in code:
+      code = self.CODEBLOCK_REGEX.search(code).group('code')
+    elif '`' in code:
+      code = code.replace('`', '')
+    if code in self.cache:
+      try:
+        await self.cache[code]
+      except Exception as e:
+        await ctx.send('`' + str(e) + '`')
+      await ctx.send("Evaluated Python bytecode from cache")
+    else:
+      self.cache[code] = CoroutineType(compile(code, 'UserCode', 'exec').co_consts[0], globals(), "main")
+      try:
+        await self.cache[code]
+      except Exception as e:
+        await ctx.send('`' + str(e) + '`')
+      await ctx.send("Compiled and evaluated Python bytecode. Now cached.")
+
+def setup(bot):
+  bot.add_cog(EvalCommand(bot))

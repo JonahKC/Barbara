@@ -2,14 +2,11 @@
 
 `{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
 `{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
+`{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
 `{prefix}fact` - Returns a random fact, but can only be run once every 10 minutes. This command uses an API, see below for credit links.
 `{prefix}dadjoke` - Returns a random dad joke, runnable once every 10 minutes. This command uses an API, see below for credit links.
-**[UNDER DEV]** `{prefix}say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
-**[UNDER DEV]** `{prefix}say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
-`{prefix}link` - Check out some server-specific links or messages.
-`{prefix}howoldis [theserver/barbara] <accurately/precisely>` - Return the age of the server/barbara
-`{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>)
-`{prefix}help admin` - View admin commands.
+`{prefix}say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
+`{prefix}say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
 
 `[parameter]` = required
 `<parameter>` = optional
@@ -18,3 +15,22 @@ API links can be found at <https://barbara.jcwyt.com/api-credits>
 **Find a bug? Email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
+_ _
+PAGEBREAK
+**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+
+%link – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
+`{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
+`{prefix}link` - Check out some server-specific links or messages.
+`{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
+`{prefix}help admin` - View admin commands.
+`{prefix}aiqa` ["Wikipedia page name in quotes"] [question] - Gets the Wikipedia page, then runs it through an API-based AI to answer your question. ~~It's probably wrong.~~ API credits can be found below.
+`%prompt [prompt]` - Continues your prompt and writes a paragraph with it, using the same API that runs `{prefix}aiqa`. This command uses an API, see below for credit links.WARNING: GPT-Neo was trained on the Pile, a dataset known to contain profanity, lewd, and otherwise abrasive language.
+`[parameter]` = required
+`<parameter>` = optional
+API links can be found at <https://barbara.jcwyt.com/api-credits>
+
+**Find a bug? Email bugs@jcwyt.com.**
+
+**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
+_ _

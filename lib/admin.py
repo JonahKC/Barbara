@@ -1,16 +1,26 @@
 import config.config as config
-from discord.channel import DMChannel
+import discord
 
-RESTRICTED_COMMANDS = ("admin", "link set", "prefix") # Only admins can run these
+RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "message", "config") # Only admins can run these
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
 
 def perms(ctx): # Does this user have admin perms?
-  if isinstance(ctx.channel, DMChannel):
-    return False
-  if f'<@!{ctx.author.id}>' in config.fetch(ctx.guild.id, "admin users"):
+  if type(ctx) == discord.User:
+    raise TypeError('ctx requires a discord.Member, or a discord.ext.commands.Context object. You passed it a discord.User')
+  elif type(ctx) == discord.Member:
+    #if guild_id == -1:
+    #  raise TypeError('guild_id must be set to the ID of the discord guild when passing a User as ctx')
+    #  return False
+    user = ctx
+  else:
+    if isinstance(ctx.channel, discord.channel.DMChannel):
+      return False
+    user = ctx.author
+
+  if f'<@!{user.id}>' in config.fetch(ctx.guild.id, "admin users"):
     return True
   else:
-    for i in ctx.author.roles:
+    for i in user.roles:
       if f'<@&{i.id}>' in config.fetch(ctx.guild.id, "admin roles"):
         return True
   return False

@@ -1,0 +1,261 @@
+,content,time,author
+0,Collecting up to 200 messages from channel beta-testing,2021-08-27 22:08:56.769,[DEV] Barbara
+1,%monosodiumglutemate collect 200,2021-08-27 22:08:56.649,SWEET CAROLINE...BUM BUM BUM
+2,when everything 100% works,2021-08-27 21:43:45.627,SWEET CAROLINE...BUM BUM BUM
+3,and you gotta be in a vc,2021-08-27 21:35:32.739,SWEET CAROLINE...BUM BUM BUM
+4,there's a space,2021-08-27 21:35:21.208,SWEET CAROLINE...BUM BUM BUM
+5,"**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+
+`%secret` - I'll tell you a secret, straight from the JCWYT devs!
+`%pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
+`%fact` - Returns a random fact, but can only be run once every 10 minutes. This command uses an API, see below for credit links.
+`%dadjoke` - Returns a random dad joke, runnable once every 10 minutes. This command uses an API, see below for credit links.
+`%say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
+`%say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
+`%screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
+`[parameter]` = required
+`<parameter>` = optional
+API links can be found at <https://barbara.jcwyt.com/api-credits>
+
+**Find a bug? Email bugs@jcwyt.com.**
+
+**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
+Buttons disabled to stop Discord API rate limiting.",2021-08-27 20:57:34.199,[DEV] Barbara
+6,%help,2021-08-27 20:57:34.078,moose_123_
+7,%sweetcaroline,2021-08-27 20:48:26.786,ToddMannEQuinn
+8,,2021-08-25 22:49:22.983,PiG
+9,sHhhhhhSHHShshshshSHhShHSHS,2021-08-25 22:47:54.523,SWEET CAROLINE...BUM BUM BUM
+10,Callum's password is `The last four digits of Pi.`,2021-08-25 22:47:46.311,PiG
+11,sus,2021-08-25 22:44:57.181,[DEV] Barbara
+12,I have my original name again.,2021-08-25 22:44:42.881,Shattered Transformation
+13,":black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square:
+:black_large_square::black_large_square::black_large_square::red_square::red_square::red_square::black_large_square::black_large_square::black_large_square::green_square::green_square::green_square::black_large_square:
+:black_large_square::black_large_square::black_large_square::red_square::blue_square::blue_square::black_large_square::black_large_square::black_large_square::blue_square::blue_square::green_square::sweat_drops:
+:black_large_square::black_large_square::black_large_square::red_square::red_square::red_square::knife::black_large_square::black_large_square::green_square::green_square::green_square::black_large_square:
+:yellow_square::yellow_square::black_large_square::red_square::black_large_square::red_square::black_large_square::black_large_square::black_large_square::green_square::black_large_square::green_square::black_large_square:
+:yellow_square::yellow_square::bone::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square::black_large_square:",2021-08-25 22:44:00.836,[DEV] Barbara
+14,%whentheimposterissus,2021-08-25 22:44:00.647,SWEET CAROLINE...BUM BUM BUM
+15,Who the heck renamed me,2021-08-25 22:43:44.611,Shattered Transformation
+16,<a:aaw_yeah:716011373968097363>,2021-08-25 20:53:55.772,SWEET CAROLINE...BUM BUM BUM
+17,<a:peepoClap:856457925902991362>,2021-08-25 20:00:39.182,moose_123_
+18,<a:H5_BunBunClap:837703140618666074>,2021-08-25 19:57:07.556,kitkat314159 ♡
+19,https://tenor.com/view/oscars-standing-ovation-clap-clapping-applause-gif-5089552,2021-08-25 19:57:06.527,emilypeng
+20,"An unknown error was encountered executing command `%help`: ```Error: HTTPException
+Message: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.1.components.0.label: This field is required
+Traceback: [{'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord/ext/commands/core.py', 'name': 'wrapped', 'line': 85}, {'filename': '/home/runner/Barbara-backend-dev/cogs/basicCommands.py', 'name': 'helpCommand', 'line': 83}, {'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord_components/interaction.py', 'name': 'respond', 'line': 110}, {'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord/http.py', 'name': 'request', 'line': 254}]```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com",2021-08-25 19:56:58.966,[DEV] Barbara
+21,IT WAS AMAZING!,2021-08-25 19:56:57.295,emilypeng
+22,"**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+
+`%secret` - I'll tell you a secret, straight from the JCWYT devs!
+`%pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
+`%fact` - Returns a random fact, but can only be run once every 10 minutes. This command uses an API, see below for credit links.
+`%dadjoke` - Returns a random dad joke, runnable once every 10 minutes. This command uses an API, see below for credit links.
+`%say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
+`%say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
+`%screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
+`[parameter]` = required
+`<parameter>` = optional
+API links can be found at <https://barbara.jcwyt.com/api-credits>
+
+**Find a bug? Email bugs@jcwyt.com.**
+
+**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**",2021-08-25 19:56:56.715,[DEV] Barbara
+23,%help,2021-08-25 19:56:56.573,PiG
+24,THANK YOU FOR MAKNIG THIS,2021-08-25 19:56:55.374,emilypeng
+25,!join,2021-08-25 19:56:43.979,moose_123_
+26,!join,2021-08-25 19:56:35.157,moose_123_
+27,!join,2021-08-25 19:56:31.080,moose_123_
+28,Banned bots from vc beta-testing,2021-08-25 19:56:26.864,[DEV] Barbara
+29,%vc ban-bots,2021-08-25 19:56:26.628,SWEET CAROLINE...BUM BUM BUM
+30,Unfortunately I am in moving car,2021-08-25 19:56:24.038,ToddMannEQuinn
+31,Lol,2021-08-25 19:56:18.668,ToddMannEQuinn
+32,`%sweet caroline`,2021-08-25 19:56:09.167,moose_123_
+33,wiggle!,2021-08-25 19:56:09.070,emilypeng
+34,`¸`,2021-08-25 19:56:01.368,[DEV] Barbara
+35,%wiggle,2021-08-25 19:56:01.251,PiG
+36,THATS AMAZING,2021-08-25 19:55:59.448,emilypeng
+37,IM HERE,2021-08-25 19:52:05.413,emilypeng
+38,OK,2021-08-25 19:52:04.585,emilypeng
+39,<@!722134644702838785> were gonna start youre gonna miss it,2021-08-25 19:51:49.976,moose_123_
+40,come on,2021-08-25 19:51:49.024,SWEET CAROLINE...BUM BUM BUM
+41,you gotta,2021-08-25 19:51:46.160,SWEET CAROLINE...BUM BUM BUM
+42,<@722134644702838785>,2021-08-25 19:51:44.617,ToddMannEQuinn
+43,join,2021-08-25 19:51:44.265,SWEET CAROLINE...BUM BUM BUM
+44,plz,2021-08-25 19:51:43.258,SWEET CAROLINE...BUM BUM BUM
+45,we're starting so soon,2021-08-25 19:51:42.070,SWEET CAROLINE...BUM BUM BUM
+46,<@722134644702838785>,2021-08-25 19:51:37.422,ToddMannEQuinn
+47,<@!722134644702838785>,2021-08-25 19:51:36.615,SWEET CAROLINE...BUM BUM BUM
+48,<@!722134644702838785>,2021-08-25 19:51:36.139,SWEET CAROLINE...BUM BUM BUM
+49,<@!722134644702838785>,2021-08-25 19:51:35.634,SWEET CAROLINE...BUM BUM BUM
+50,<@!722134644702838785>,2021-08-25 19:51:35.209,SWEET CAROLINE...BUM BUM BUM
+51,<@!722134644702838785>,2021-08-25 19:51:34.803,SWEET CAROLINE...BUM BUM BUM
+52,<@!722134644702838785>,2021-08-25 19:51:34.419,SWEET CAROLINE...BUM BUM BUM
+53,<@!722134644702838785>,2021-08-25 19:51:19.799,moose_123_
+54,make sure to have speakerphone on,2021-08-25 19:51:11.128,SWEET CAROLINE...BUM BUM BUM
+55,<@!722134644702838785>,2021-08-25 19:51:10.498,moose_123_
+56,my ears shall die,2021-08-25 19:51:10.325,kitkat314159 ♡
+57,Caroline,2021-08-25 19:51:01.715,SWEET CAROLINE...BUM BUM BUM
+58,max volume plz,2021-08-25 19:50:58.019,SWEET CAROLINE...BUM BUM BUM
+59,<@!722134644702838785> just need you,2021-08-25 19:50:55.214,moose_123_
+60,loud,2021-08-25 19:50:35.623,kitkat314159 ♡
+61,holy,2021-08-25 19:50:34.516,kitkat314159 ♡
+62,plzzzz,2021-08-25 19:50:26.838,SWEET CAROLINE...BUM BUM BUM
+63,<@!722134644702838785> we're waiting on you,2021-08-25 19:50:25.394,SWEET CAROLINE...BUM BUM BUM
+64,"in the past, my sound hasnt worked on mobile eee",2021-08-25 19:50:12.818,kitkat314159 ♡
+65,I swear,2021-08-25 19:50:07.716,SWEET CAROLINE...BUM BUM BUM
+66,I'm never using it again,2021-08-25 19:50:06.538,SWEET CAROLINE...BUM BUM BUM
+67,got I hate that,2021-08-25 19:50:02.271,SWEET CAROLINE...BUM BUM BUM
+68,<:winktato:707013298159222785>,2021-08-25 19:49:57.713,SWEET CAROLINE...BUM BUM BUM
+69,I changed it,2021-08-25 19:49:50.655,SWEET CAROLINE...BUM BUM BUM
+70,Lol,2021-08-25 19:49:38.893,emilypeng
+71,the guys nickname changed,2021-08-25 19:49:37.324,emilypeng
+72,wdym?,2021-08-25 19:49:29.684,SWEET CAROLINE...BUM BUM BUM
+73,"if you've ever needed to join a vc, now is the time",2021-08-25 19:49:22.673,SWEET CAROLINE...BUM BUM BUM
+74,WAIT WHY WAS THAT DUDE EMILYS FRIEND,2021-08-25 19:49:19.738,emilypeng
+75,ok,2021-08-25 19:49:10.438,SWEET CAROLINE...BUM BUM BUM
+76,one sec-,2021-08-25 19:49:07.769,kitkat314159 ♡
+77,yes,2021-08-25 19:49:04.792,SWEET CAROLINE...BUM BUM BUM
+78,JSHDHSJ the ping spam,2021-08-25 19:49:01.464,emilypeng
+79,plz Caroline,2021-08-25 19:48:58.991,SWEET CAROLINE...BUM BUM BUM
+80,JOIN,2021-08-25 19:48:57.994,PiG
+81,<a:TDK_CatLurkinggOwO:764108983152803861>,2021-08-25 19:48:52.808,kitkat314159 ♡
+82,But everyone else <@&863920057486671913> this is when we need you join in 5 minutes,2021-08-25 19:48:45.150,moose_123_
+83,,2021-08-25 19:47:27.893,moose_123_
+84,ty!,2021-08-25 19:47:20.868,SWEET CAROLINE...BUM BUM BUM
+85,Happy birthday Callum!!!!!,2021-08-25 19:47:17.392,emilypeng
+86,Ok,2021-08-25 19:47:09.488,moose_123_
+87,ok,2021-08-25 19:47:09.067,SWEET CAROLINE...BUM BUM BUM
+88,I’ll join in five minutes if you’re still here?,2021-08-25 19:47:06.417,emilypeng
+89,make your family listen,2021-08-25 19:47:03.805,SWEET CAROLINE...BUM BUM BUM
+90,^^,2021-08-25 19:47:03.399,moose_123_
+91,and max your speakers,2021-08-25 19:47:01.965,PiG
+92,still join,2021-08-25 19:46:57.825,PiG
+93,I’ll be home soon,2021-08-25 19:46:56.123,emilypeng
+94,So,2021-08-25 19:46:55.100,moose_123_
+95,I’m in the car,2021-08-25 19:46:52.915,emilypeng
+96,Please,2021-08-25 19:46:52.066,moose_123_
+97,pleade,2021-08-25 19:46:49.448,SWEET CAROLINE...BUM BUM BUM
+98,Two minutes,2021-08-25 19:46:49.304,moose_123_
+99,Join,2021-08-25 19:46:46.361,moose_123_
+100,^^,2021-08-25 19:46:42.364,moose_123_
+101,Shush stalker,2021-08-25 19:46:42.219,emilypeng
+102,you will get FREE vbucks if you do,2021-08-25 19:46:36.217,SWEET CAROLINE...BUM BUM BUM
+103,<@!722134644702838785> I see you online,2021-08-25 19:46:34.359,moose_123_
+104,we are begging,2021-08-25 19:46:29.230,SWEET CAROLINE...BUM BUM BUM
+105,plz,2021-08-25 19:46:26.765,SWEET CAROLINE...BUM BUM BUM
+106,<@!674457055968624650> <@!722134644702838785> <@!722574171959197796> <@!298292303263694849> <@!723573649650614433> <@!829908682736926772> join the vc,2021-08-25 19:46:10.527,PiG
+107,make sure you know the lyrics of sweet caroline,2021-08-25 19:45:54.404,SWEET CAROLINE...BUM BUM BUM
+108,Fancy feature,2021-08-25 19:45:51.519,moose_123_
+109,2 minutes,2021-08-25 19:45:48.307,moose_123_
+110,<@&863920057486671913> This is really important plz,2021-08-25 19:45:41.231,SWEET CAROLINE...BUM BUM BUM
+111,Hey <@&863920057486671913> quick hop in vc it’s Easter egg time,2021-08-25 19:44:55.632,moose_123_
+112,Hey,2021-08-25 19:12:57.518,moose_123_
+113,hi Jonah,2021-08-25 19:12:38.934,SWEET CAROLINE...BUM BUM BUM
+114,oh lemme fix that first,2021-08-25 19:11:41.313,SWEET CAROLINE...BUM BUM BUM
+115,"An unknown error was encountered executing command `%help`: ```Error: HTTPException
+Message: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.1.components.0.label: This field is required
+Traceback: [{'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord/ext/commands/core.py', 'name': 'wrapped', 'line': 85}, {'filename': '/home/runner/Barbara-backend-dev/cogs/basicCommands.py', 'name': 'helpCommand', 'line': 83}, {'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord_components/interaction.py', 'name': 'respond', 'line': 110}, {'filename': '/opt/virtualenvs/python3/lib/python3.8/site-packages/discord/http.py', 'name': 'request', 'line': 254}]```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com",2021-08-25 19:11:34.831,[DEV] Barbara
+116,<a:Hacker:814204410703904798>,2021-08-25 19:11:33.007,moose_123_
+117,Woo!,2021-08-25 19:11:28.975,moose_123_
+118,"**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+
+`%secret` - I'll tell you a secret, straight from the JCWYT devs!
+`%pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
+`%fact` - Returns a random fact, but can only be run once every 10 minutes. This command uses an API, see below for credit links.
+`%dadjoke` - Returns a random dad joke, runnable once every 10 minutes. This command uses an API, see below for credit links.
+`%say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
+`%say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
+`%screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
+`[parameter]` = required
+`<parameter>` = optional
+API links can be found at <https://barbara.jcwyt.com/api-credits>
+
+**Find a bug? Email bugs@jcwyt.com.**
+
+**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**",2021-08-25 19:11:28.401,[DEV] Barbara
+119,%help,2021-08-25 19:11:28.243,SWEET CAROLINE...BUM BUM BUM
+120,ok I'm working on AI now- finally,2021-08-25 19:11:22.548,SWEET CAROLINE...BUM BUM BUM
+121,eyy it's fully working,2021-08-25 19:00:02.785,SWEET CAROLINE...BUM BUM BUM
+122,Command Sender: <@738843304057372702>. Command: `%snap https://replit.com false`. Image:,2021-08-25 18:59:54.169,[DEV] Barbara
+123,%snap https://replit.com false,2021-08-25 18:59:47.494,SWEET CAROLINE...BUM BUM BUM
+124,Command Sender: <@738843304057372702>. Command: `%snap https://replit.com`. Image:,2021-08-25 18:59:29.672,[DEV] Barbara
+125,%snap https://replit.com,2021-08-25 18:59:16.465,SWEET CAROLINE...BUM BUM BUM
+126,:/,2021-08-25 18:59:10.348,SWEET CAROLINE...BUM BUM BUM
+127,Command Sender: <@738843304057372702>. Command: `%snap https://www.youtube.com/watch?v=GmK5_lnQUbE`. Image:,2021-08-25 18:58:39.131,[DEV] Barbara
+128,%snap https://www.youtube.com/watch?v=GmK5_lnQUbE,2021-08-25 18:58:23.646,SWEET CAROLINE...BUM BUM BUM
+129,Those messages were queued up from like a week ago,2021-08-25 02:07:45.033,SWEET CAROLINE...BUM BUM BUM
+130,Phone lagged,2021-08-25 02:07:30.329,SWEET CAROLINE...BUM BUM BUM
+131,It's done,2021-08-25 02:07:18.888,SWEET CAROLINE...BUM BUM BUM
+132,Ok,2021-08-25 02:07:18.635,SWEET CAROLINE...BUM BUM BUM
+133,👍 it's very very cool!,2021-08-24 23:45:28.301,emilypeng
+134,But `%help dm` dms you,2021-08-24 22:45:42.497,moose_123_
+135,Ok we moved it back,2021-08-24 22:45:16.244,moose_123_
+136,ok help happens in a DM now,2021-08-24 21:37:45.202,SWEET CAROLINE...BUM BUM BUM
+137,you guys there's multiple pages to the help command now,2021-08-24 21:33:09.817,SWEET CAROLINE...BUM BUM BUM
+138,%help,2021-08-24 21:32:52.620,SWEET CAROLINE...BUM BUM BUM
+139,Haha so funny nice funny number,2021-08-24 20:36:53.427,emilypeng
+140,haha error on line 69 so funny lol am i right,2021-08-24 20:31:32.540,SWEET CAROLINE...BUM BUM BUM
+141,(afaik),2021-08-24 20:27:44.478,SWEET CAROLINE...BUM BUM BUM
+142,just to confirm my birthday is 08/25/2007,2021-08-24 20:27:30.842,SWEET CAROLINE...BUM BUM BUM
+143,isaac is 8/22,2021-08-24 20:04:42.545,emilypeng
+144,well that's very weird,2021-08-24 20:04:37.897,emilypeng
+145,oh so 07?,2021-08-24 20:04:31.797,emilypeng
+146,callums was like 10 says off lmao,2021-08-24 20:04:29.379,moose_123_
+147,that happened to me (but it was only an hour wrong),2021-08-24 20:04:26.382,emilypeng
+148,"I'm younger than everyone aside from a few people:
+Marie is 1 day younger than me
+Reina is 6 days younger than me
+and Kairo is 2",2021-08-24 20:04:15.884,SWEET CAROLINE...BUM BUM BUM
+149,maybe you added them while you were on a different timezone,2021-08-24 20:04:11.361,emilypeng
+150,HAHA idek,2021-08-24 20:04:03.120,emilypeng
+151,emily you know how my phone had your bday wrong? it had callums too lol,2021-08-24 20:03:53.257,moose_123_
+152,07 or 06,2021-08-24 20:03:52.704,emilypeng
+153,also are you younger than isaac?,2021-08-24 20:03:47.245,emilypeng
+154,honestly idk,2021-08-24 20:03:41.573,SWEET CAROLINE...BUM BUM BUM
+155,god I hope so,2021-08-24 20:03:36.616,SWEET CAROLINE...BUM BUM BUM
+156,why??,2021-08-24 20:03:28.901,emilypeng
+157,hope you dont spend your whole birthday trying to debug an old lady,2021-08-24 20:03:25.404,emilypeng
+158,but it's the 25th,2021-08-24 20:03:22.809,SWEET CAROLINE...BUM BUM BUM
+159,for about a year I was telling people it was August 24th,2021-08-24 20:03:20.138,SWEET CAROLINE...BUM BUM BUM
+160,<a:peepoClap:856457925902991362>,2021-08-24 20:03:15.332,moose_123_
+161,HAPPY EARLY BDAY!!,2021-08-24 20:03:13.136,emilypeng
+162,wow callum,2021-08-24 20:03:10.818,moose_123_
+163,BRUH,2021-08-24 20:03:05.361,emilypeng
+164,WHY DONT YOU KNOW YOUR OWN BIRTHDAY,2021-08-24 20:03:04.829,emilypeng
+165,🤣,2021-08-24 20:03:02.145,SWEET CAROLINE...BUM BUM BUM
+166,WHAT,2021-08-24 20:03:00.993,emilypeng
+167,sorry,2021-08-24 20:03:00.788,SWEET CAROLINE...BUM BUM BUM
+168,wait,2021-08-24 20:02:59.533,emilypeng
+169,tomorrow,2021-08-24 20:02:59.175,SWEET CAROLINE...BUM BUM BUM
+170,no,2021-08-24 20:02:57.733,SWEET CAROLINE...BUM BUM BUM
+171,wait,2021-08-24 20:02:57.306,SWEET CAROLINE...BUM BUM BUM
+172,HAPPY BIRTHDAY!!!!,2021-08-24 20:02:56.848,emilypeng
+173,today,2021-08-24 20:02:53.265,SWEET CAROLINE...BUM BUM BUM
+174,like 18+ hours of debugging,2021-08-24 20:02:49.046,SWEET CAROLINE...BUM BUM BUM
+175,or today,2021-08-24 20:02:46.045,emilypeng
+176,callum ur bday tomorrow?!!,2021-08-24 20:02:42.515,emilypeng
+177,he solved all my problems,2021-08-24 20:02:42.412,SWEET CAROLINE...BUM BUM BUM
+178,but this one replit guy,2021-08-24 20:02:34.665,SWEET CAROLINE...BUM BUM BUM
+179,bruh,2021-08-24 20:02:34.376,emilypeng
+180,6yos haha,2021-08-24 20:02:31.306,emilypeng
+181,no DMs with strnagers weird,2021-08-24 20:02:30.716,SWEET CAROLINE...BUM BUM BUM
+182,get someone into dms,2021-08-24 20:01:09.775,moose_123_
+183,:(,2021-08-24 20:01:02.002,moose_123_
+184,that place is swarming with 6 year olds,2021-08-24 19:57:22.067,SWEET CAROLINE...BUM BUM BUM
+185,I've asked on the Discord.py discord like 3 times now and it's gotten drowned out all three times,2021-08-24 19:57:11.817,SWEET CAROLINE...BUM BUM BUM
+186,why?,2021-08-24 19:56:48.565,SWEET CAROLINE...BUM BUM BUM
+187,no,2021-08-24 19:56:47.271,SWEET CAROLINE...BUM BUM BUM
+188,is it working??,2021-08-24 19:39:16.400,moose_123_
+189,!join,2021-08-24 19:37:39.110,SWEET CAROLINE...BUM BUM BUM
+190,f,2021-08-24 19:35:52.076,SWEET CAROLINE...BUM BUM BUM
+191,!join,2021-08-24 19:35:40.664,SWEET CAROLINE...BUM BUM BUM
+192,eyyyyyyyy,2021-08-24 19:35:35.123,SWEET CAROLINE...BUM BUM BUM
+193,"Sorry, vc developing is already listed as a bot-banned vc.",2021-08-24 19:35:31.361,[DEV] Barbara
+194,%vc ban-bots,2021-08-24 19:35:31.219,SWEET CAROLINE...BUM BUM BUM
+195,"{'prefix': '%', 'admin roles': ['<\@&863919857418502155>', '<\@&864595922465193994>'], 'admin users': ['<\@!797282028344573992>', '<\@!738843304057372702>'], 'link': 'Check me out on <https://barbara.jcwyt.com/>', 'nomees': 'true', 'whitelist': ['nomees', 'me especially'], 'flavor of secrets': 'normal (can be normal, jokesonyoubot, or botwinkle)', 'renderHTML': 'true', 'banned-vcs': [864596920101240842]}",2021-08-24 19:34:51.844,[DEV] Barbara
+196,%config read,2021-08-24 19:34:51.697,SWEET CAROLINE...BUM BUM BUM
+197,%config read,2021-08-24 19:34:46.865,SWEET CAROLINE...BUM BUM BUM
+198,Banned bots from vc developing,2021-08-24 19:34:44.319,[DEV] Barbara
+199,%vc ban-bots,2021-08-24 19:34:44.177,SWEET CAROLINE...BUM BUM BUM

@@ -1,43 +1,64 @@
-import os, discord
+import lib.graph as graph
+graph.init()
+
+import os, discord, traceback
+from multiprocessing import Process
+from console import fg
+import lib.shell as shell
 from discord.ext import commands
 import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
 def get_prefix(bot, message): # Pass a function to command_prefix that returns the correct per-server prefix
-  if isinstance(message.channel, discord.channel.DMChannel):
-    return "%"
-  else:
-    return commands.when_mentioned_or(
-      config.read(message.guild.id, "prefix"))(bot, message)
+  try:
+    pfx = config.read(message.guild.id, "prefix")
+  except AttributeError:
+    pfx = config.default("prefix")
+  return commands.when_mentioned_or(pfx)(bot, message)
 
-
-intents = discord.Intents(messages=True, guilds=True)
+intents = discord.Intents.all()
 activity = discord.Activity(
-  type=discord.ActivityType.watching,
-  name='jcwyt.com') # Changes bot's activity to "Watching jcwyt.com"
+type=discord.ActivityType.watching,
+name='jcwyt.com')
 bot = commands.Bot(command_prefix=get_prefix,
-          intents=intents,
-          case_insensitive=True,
-          activity=activity)
-bot.remove_command('help') # There's a default help command, so let's remove that so we can add our own.
+                   intents=intents,
+                   activity=activity)
+bot.remove_command('help')
 
-DiscordComponents(bot) # Override a couple functions with ones that use DiscordComponents
+DiscordComponents(bot)
 
 @bot.event
 async def on_ready():
-  print('Connected to bot: {0.name}'.format(bot.user))
-  print('Logged in as: {}'.format(bot.user))
-  print('Bot ID: {0.id}'.format(bot.user))
-  print(f'Discord.py Version: {discord.__version__}')
-  print(f"I'm in {str(len(bot.guilds))} server{'s' if len(bot.guilds) > 1 else ''}!")
-
+  #graph setup
+  #graph.setStatic("RAM")
+  #graph.setStatic("CPU")
+  #graph.setStatic(">>> ")
+  #graph.setInput(4,graph.getHeight()-2,1)
+  #graph.emit(graph.setScroll(15))
+  #graph.flush()
+  print(f'Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}')
+  print(f'Logged in as: {fg.lightgreen}{bot.user}{fg.default}')
+  print(f'Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}')
+  print(f'Discord.py Version: {fg.blue}{discord.__version__}{fg.default}')
+  print(f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!")
+  #graph.setStatic(fg.purple + "-" * 50 + fg.default)
+  shellThread = Process(target=shell.run,name="Thread-Shell")
+  shellThread.start()
 
 for filename in os.listdir('./cogs'): # Loop through every file in the commands folder
   if filename.endswith('.py'):
-    bot.load_extension(f'cogs.{filename[:-3]}') # Load the stuff in the file
-    print(f'Loaded and initialized cogs.{filename[:-3]}')
+    try:
+      bot.load_extension(f'cogs.{filename[:-3]}') # Load the stuff in the file
+      print(f'{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}cogs.{filename[:-3]}{fg.default}')
+    except Exception as error:
+      stack = traceback.extract_tb(error.__traceback__)
+      print(fg.red+f'Error: {str(error)}')
+      for i in stack.format():
+        print(i)
+      print('\n\nEnd of Stacktrace\n\n'+'-'*50+'\n\n'+fg.default)
 
+shell.initialize(bot) # initialize shell evaluation
 
 @bot.event
 async def on_message(message): # If user doesn't have permission, tell them here
@@ -47,18 +68,9 @@ async def on_message(message): # If user doesn't have permission, tell them here
         ctx):
       await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
     else:
-      await bot.process_commands(message)
-  else:
-    pass # The message sent isn't a command
+      if ctx.prefix is not None:
+        await bot.process_commands(message)
+      else:
+        pass # The message sent isn't a command
 
-
-# Was causing duplicate Barbaras, probably an easy fix, but until you get around to it I've disabled the feature to prevent it. Since we're using the new system (discord.ext.commands) you should put this in it's own Cog
-#def reloadFile(file):
-#	imp.reload(file)
-#
-#def shellStart():
-#	shell.start(bot)
-#
-#shellThread = threading.Thread(target=shellStart,name="Thread-Shell")
-#shellThread.start()
 bot.run(os.getenv('TOKEN'))

@@ -1,1 +1,1 @@
-run='python main.py'
+run='sh autorestart.sh'#python lib/graph.py'

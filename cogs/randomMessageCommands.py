@@ -13,12 +13,12 @@ class RandomMessageCommands(commands.Cog):
     async def secret(self, ctx):
         if isinstance(ctx.channel, DMChannel):
             await ctx.send(
-                messages.random_message(messages.flavorOfSecret("normal")))
+                messages.random_message(messages.flavorOfSecret("normal")), ctx)
             return
         await ctx.send(
             messages.random_message(
                 messages.flavorOfSecret(
-                    config.read(ctx.guild.id, "flavor of secrets"))))
+                    config.read(ctx.guild.id, "flavor-of-secrets")), ctx))
 
     @commands.Cog.listener()
     async def on_message(
@@ -39,7 +39,7 @@ class RandomMessageCommands(commands.Cog):
     @commands.command()  # %pickup
     async def pickup(self, ctx):
         global previous_pickup_data
-        pickup = messages.random_message(messages.MESSAGE_PATHS["pickup"])
+        pickup = messages.random_message(messages.MESSAGE_PATHS["pickup"], ctx)
         if "{answer}" in pickup:
             pickup = pickup.split("{answer}")
             await ctx.send(pickup[0])

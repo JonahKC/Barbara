@@ -1,8 +1,12 @@
 from discord import PCMVolumeTransformer, FFmpegPCMAudio
+from time import sleep
 
-def play(ctx, query): # Play an audio file in a vc
+def play(ctx, query, blockUntilDone=False): # Play an audio file in a vc
   source = PCMVolumeTransformer(FFmpegPCMAudio(query))
-  ctx.voice_client.play(source, after=lambda e: print(f'Player error: {e}') if e else None)
+  ctx.voice_client.play(source)
+  if blockUntilDone:
+    while not ctx.voice_client.is_done():
+      sleep(1)
 
 async def join(ctx): # Join a vc
   try:

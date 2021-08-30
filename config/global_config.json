@@ -1,5 +1,6 @@
 {
 	"admin roles": [],
+	"banned-vcs": [],
 	"admin users": ["<@!797282028344573992>","<@!738843304057372702>", "<@!437404651818582017>"],
-	"whitelist":["come333","nomees","mee6","me especially", ":ThinkingHmm:", ":hmm:", "||meese||", "cogs.removeMeese"]
+	"whitelist":["come333","nomees","mee6","me especially", ":ThinkingHmm:", ":hmm:", "||meese||", "cogs.removeMeese", "flamee"]
 }

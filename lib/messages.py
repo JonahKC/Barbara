@@ -9,8 +9,8 @@ MESSAGE_PATHS = {
 	"pickup": "./resources/pickups.txt"
 }
 
-def random_message(path):
-  return _get_rand(path,1)[0]
+def random_message(path, ctx):
+  return _get_rand(path,1)[0].replace("{author}", ctx.author.name).replace(r"\n", '\n')
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):

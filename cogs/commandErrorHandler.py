@@ -1,11 +1,9 @@
 from discord.ext import commands
 from datetime import timedelta
 from humanize import naturaldelta
-from sys import stderr
 from math import ceil
-import lib.help as libHelp
 
-import discord, traceback
+import discord, traceback, console
 
 
 class ErrorHandler(commands.Cog):
@@ -61,8 +59,7 @@ class ErrorHandler(commands.Cog):
       return
 
     if isinstance(error, commands.UserInputError):
-      await ctx.send(f"Invalid syntax for command `{ctx.prefix}{ctx.command}`.")
-      await ctx.send(libHelp.helpText(ctx))
+      await ctx.send(f"Invalid syntax for command `{ctx.prefix}{ctx.command}`.\nIf you don't know the syntax, try `%help` or `%help admin`, and if the syntax isn't listed there go to <https://barbara.jcwyt.com>")
       return
 
     if isinstance(error, commands.NoPrivateMessage):
@@ -77,10 +74,26 @@ class ErrorHandler(commands.Cog):
       return
 
     # ignore all other exception types, but print them to stderr
-    print('Ignoring exception in command {}:'.format(ctx.command), file=stderr)
-    await ctx.send(f"An unknown error was encountered executing the command `{ctx.prefix}{ctx.command}`: ```{error}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com")
+    #print('Ignoring exception in command {}:'.format(ctx.command))
+    trace = []
+    tb = error.__traceback__
+    while tb is not None:
+      trace.append({
+          "filename": tb.tb_frame.f_code.co_filename,
+          "name": tb.tb_frame.f_code.co_name,
+          "line": tb.tb_lineno
+      })
+      tb = tb.tb_next
+    errorMsg = f"An unknown error was encountered executing command `{ctx.prefix}{ctx.command}`: ```Error: {type(error).__name__}\nMessage: {str(error)[:500] + (str(error)[500:] and '...')}\nTraceback: {trace[-25:]}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
+    errorMsg = errorMsg[:1992] + (errorMsg[1992:] and '...')
+    await ctx.send(errorMsg)
 
-    traceback.print_exception(type(error), error, error.__traceback__, file=stderr)
+    #traceback.print_exception(type(error), error, error.__traceback__, file=stderr)
+    stack = traceback.extract_tb(error.__traceback__)
+    print(console.fg.red+f'Error: {str(error)}')
+    for i in stack.format():
+      print(i)
+    print('\n\nEnd of Stacktrace\n\n'+'-'*50+'\n\n'+console.fg.default)
 
 
 def setup(bot):

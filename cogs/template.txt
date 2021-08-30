@@ -8,3 +8,6 @@ class NameOfCog(commands.Cog):
   
 def setup(bot):
   bot.add_cog(NameOfCog(bot))
+
+IN ORDER TO MAKE A COMMAND NOT TRY TO EXECUTE WHEN NOT PASSED A SUBCOMMAND:
+invoke_without_subcommand=False in @commands.command

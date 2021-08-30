@@ -5,8 +5,8 @@ from discord.ext import commands
 class BasicCommands(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-  
-  @commands.group(name='admin',aliases=['sudo'], invoke_without_subcommand=False)
+
+  @commands.group(name='admin', aliases=['sudo', 'owo'], invoke_without_subcommand=False)
   @commands.guild_only()
   async def admin(self, ctx): # This command doesn't exist, you need to reference a subcommand.
     pass
@@ -25,7 +25,7 @@ class BasicCommands(commands.Cog):
     config.append(ctx.guild.id, "admin users", '<@!'+str(user.id)+'>')
     await ctx.send(f"Promoted user {user.name} to admin.")
 
-  @admin.group(name='list', aliases=['put','~'],invoke_without_subcommand=False) # %admin list
+  @admin.group(name='list', aliases=['='],invoke_without_subcommand=False) # %admin list
   async def adminList(self, ctx):
     pass
 
@@ -47,33 +47,33 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      print(i)
-      print(int(i[3:-1]))
-      print(self.bot)
-      print(self.bot.fetch_user)
-      print(await self.bot.fetch_user(int(i[3:-1])))
-      print(await self.bot.fetch_user(437404651818582017))
+      #print(i)
+      #print(int(i[3:-1]))
+      #print(self.bot)
+      #print(self.bot.fetch_user)
+      #print(await self.bot.fetch_user(int(i[3:-1])))
+      #print(await self.bot.fetch_user(437404651818582017))
       user = await self.bot.fetch_user(int(i[3:-1]))
       users_temp.append(user.name.replace('_', '\_').replace('*', '\*'))
     await ctx.send('\n'.join(users_temp))
 
-  @adminList.command(name='all',aliases=['*','everyone']) # %admin list all
+  @adminList.command(name='all',aliases=['*']) # %admin list all
   async def adminListAll(self, ctx):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      print(i)
-      print(int(i[3:-1]))
-      print(self.bot)
-      print(self.bot.fetch_user)
-      print(await self.bot.fetch_user(int(i[3:-1])))
-      print(await self.bot.fetch_user(437404651818582017))
+      #print(i)
+      #print(int(i[3:-1]))
+      #print(self.bot)
+      #print(self.bot.fetch_user)
+      #print(await self.bot.fetch_user(int(i[3:-1])))
+      #print(await self.bot.fetch_user(437404651818582017))
       user = await self.bot.fetch_user(int(i[3:-1]))
       users_temp.append(user.name)
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
-    print(roles)
-    print(ctx.guild.roles)
+    #print(roles)
+    #print(ctx.guild.roles)
     for i in roles:
     	if i == '@everyone':
     		await ctx.send('Everyone on this server is an admin! The more the merrier!')
@@ -81,20 +81,18 @@ class BasicCommands(commands.Cog):
     	else:
     		roles_temp.append(ctx.guild.get_role(int(i[3:-1])))
     members = []
-    print(roles_temp)
+    #print(roles_temp)
     for i in roles_temp:
-      print(i.guild)
-      print(i.members)
+      #print(i.guild)
+      #print(i.members)
       members += i.members
     members = list(set(members))
     for i in members:
       users_temp.append(i.name)
     users_temp = list(set(users_temp))
     await ctx.send('**All Admin Users:**\n'+'\n'.join(users_temp))
-    
-    
   
-  @admin.group(name='remove',aliases=['-','delete','demote','rm'],invoke_without_subcommand=False) # %admin remove
+  @admin.group(name='remove', aliases=['-','delete','demote','rm', '0w0'],invoke_without_subcommand=False) # %admin remove
   async def adminRemove(self, ctx):
     pass
 
@@ -105,6 +103,11 @@ class BasicCommands(commands.Cog):
   @adminRemove.command(name='user',aliases=['u']) # %admin remove user
   async def adminRemoveUser(self, ctx, user: discord.User):
     config.remove(ctx.guild.id, "admin users", user.id)
+
+  @adminRemove.command(name='message', aliases=['uwu'])
+  async def adminRemoveMessage(self, ctx, message: discord.Message):
+    await message.delete()
+    await ctx.message.delete()
 
 def setup(bot):
     bot.add_cog(BasicCommands(bot))
