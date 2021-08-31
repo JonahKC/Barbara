@@ -9,7 +9,6 @@ class ServerInfo(commands.Cog):
   async def on_ready(self):
     serverDict = {}
     for i in self.bot.guilds:
-      #print(i.name)
       inviteList = []
       invites = await i.invites()
       for j in invites:

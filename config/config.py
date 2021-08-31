@@ -51,6 +51,15 @@ def read(guild_id, option, isDM=False):
   else:
     return default(option)
 
+def reset(guild_id, option):
+  guild_id = str(guild_id)
+  conf = load()
+  if conf[str(guild_id)].get(option) == None and default(option) == None:
+    return f"ERROR: Config value `{option}` does not exist."
+  conf[str(guild_id)][option] = default()
+  save(conf)
+  return None
+
 def fetch(guild_id, arr):
 	guild_id = str(guild_id)
 	conf = load()

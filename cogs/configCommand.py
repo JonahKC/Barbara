@@ -45,6 +45,15 @@ class ConfigCommand(commands.Cog):
     else:
       await ctx.send(result) # When the value doesn't exist, this is an error
 
+  @config.command(name='reset')
+  async def configReset(self, ctx, property: str):
+    if isinstance(ctx.channel, discord.channel.DMChannel):
+      await ctx.send("Sorry, config in DMs is not supported.")
+      return
+    result = config.reset(ctx.guild.id, property)
+    if result != None: await ctx.send(result)
+    else: await ctx.send(f"Succesfully reset config option {property}")
+
   @config.command(name='append', aliases=['add', 'push'])
   async def configAppend(self, ctx, arr: str, value):
     if isinstance(ctx.channel, discord.channel.DMChannel):

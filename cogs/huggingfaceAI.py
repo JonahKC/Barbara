@@ -23,7 +23,7 @@ class HuggingfaceAI(commands.Cog):
     self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
-  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=1.0, *, prompt: str):
+  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=0.5, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
     if length == -1:
       length = min(round(len(prompt) / 4.4) + 45, 500)

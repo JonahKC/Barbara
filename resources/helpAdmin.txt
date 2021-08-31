@@ -41,6 +41,7 @@ PAGEBREAK
 *If you would like to edit other config, use these commands.*
 `{prefix}config read` - read the entire config as json (what the kids are coding in nowadays).
 `{prefix}config read [option]` - read a specific option from config.
+`{prefix}config reset [option]` - reset an option to the default value
 `{prefix}config set [option] [value]` - set option to value in config.
 **Find a bug? Email bugs@jcwyt.com.**
 

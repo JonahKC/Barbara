@@ -188,9 +188,6 @@ class BasicCommands(commands.Cog):
           #Disable and get outta here
           await helpMsg.edit(helpPages[currentPage]+"\nButtons disabled to stop Discord API rate limiting.", components=[])
           break
-      except NotFound:
-          await helpMsg.delete()
-          break
 
   @commands.command(name='invite') # %invite
   async def invite(self, ctx):
