@@ -87,7 +87,7 @@ class ErrorHandler(commands.Cog):
           "line": tb.tb_lineno
       })
       tb = tb.tb_next
-    errorMsg = f"An unknown error was encountered executing command `{ctx.prefix}{ctx.command}`: ```Error: {type(error).__name__}\nMessage: {str(error)[:500] + (str(error)[500:] and '...')}\nTraceback: {trace[-25:]}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
+    errorMsg = f"An unknown error was encountered executing command `{ctx.prefix}{ctx.command}`: ```Error: {str(type(error))}\nMessage: {str(error)[:500] + (str(error)[500:] and '...')}\nTraceback: {trace[-25:]}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
     errorMsg = errorMsg[:1992] + (errorMsg[1992:] and '...')
     await ctx.send(errorMsg)
 

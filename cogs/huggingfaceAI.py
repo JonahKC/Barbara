@@ -22,16 +22,16 @@ class HuggingfaceAI(commands.Cog):
     self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
-  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[int]=1.0, *, prompt: str):
+  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=1.0, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
     if length == -1:
       length = min(round(len(prompt) / 4.4) + 45, 500)
     else:
       length = int(length)
-    if length > 500:
-      await ctx.send("Sorry, the length you specified was too long to send in a Discord message! Remember that length isn't in characters, but in AI Tokens (each token is about 0.75 words)")
+    if length > 500 or length <= 0:
+      await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
-    answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 3.2, "temperature": float(temperature), "return_full_text": False, "max_length": length, 'end_sequence': "###"}))[0]['generated_text']
+    answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 3.2, "temperature": temperature, "return_full_text": False, "max_length": length, 'end_sequence': "###"}))[0]['generated_text']
     await answer.edit(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
