@@ -10,6 +10,8 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
+BARBARA_VERSION = '3.0.13'
+
 def get_prefix(bot, message): # Pass a function to command_prefix that returns the correct per-server prefix
   try:
     pfx = config.read(message.guild.id, "prefix")
@@ -41,6 +43,7 @@ async def on_ready():
   print(f'Logged in as: {fg.lightgreen}{bot.user}{fg.default}')
   print(f'Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}')
   print(f'Discord.py Version: {fg.blue}{discord.__version__}{fg.default}')
+  print(f'Barbara-Core Version: {fg.blue}{BARBARA_VERSION}{fg.default}')
   print(f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!")
   #graph.setStatic(fg.purple + "-" * 50 + fg.default)
   shellThread = Process(target=shell.run,name="Thread-Shell")

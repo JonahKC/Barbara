@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "barbara-backend-dev"
-version = "3.0.0A34"
+version = "3.0.13"
 description = "This is the release version of Barbara, it mostly works. Barbara is no longer being actively developed, but I still encourage you to try out her amazing commands!"
 authors = ["turnip123 <<>>"]
 
