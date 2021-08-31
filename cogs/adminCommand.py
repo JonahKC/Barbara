@@ -17,12 +17,12 @@ class BasicCommands(commands.Cog):
 
   @adminAdd.command(name='role') # %admin add role
   async def adminAddRole(self, ctx, role: discord.Role):
-    config.append(ctx.guild.id, "admin roles", '<@&'+str(role.id)+'>')
+    config.append(ctx.guild.id, "admin roles", role.id)
     await ctx.send(f"Promoted role {role.name} to admin.")
 
   @adminAdd.command(name='user') # %admin add user
   async def adminAddUser(self, ctx, user: discord.User):
-    config.append(ctx.guild.id, "admin users", '<@!'+str(user.id)+'>')
+    config.append(ctx.guild.id, "admin users", user.id)
     await ctx.send(f"Promoted user {user.name} to admin.")
 
   @admin.group(name='list', aliases=['='],invoke_without_subcommand=False) # %admin list
@@ -37,7 +37,7 @@ class BasicCommands(commands.Cog):
     	if i == '@everyone':
     		roles_temp.append('@ everyone')
     	else:
-    		roles_temp.append(ctx.guild.get_role(int(i[3:-1])).name)
+    		roles_temp.append(ctx.guild.get_role(i).name)
     await ctx.send('**ADMIN ROLES:**\n'+'\n'.join(roles_temp))
 
   @adminList.command(name='users') # %admin list users
@@ -45,8 +45,8 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      user = await self.bot.fetch_user(int(i[3:-1]))
-      users_temp.append(user.name.replace('_', '\_').replace('*', '\*'))
+      user = await self.bot.fetch_user(i)
+      users_temp.append(user.display_name.replace('_', '\_').replace('*', '\*'))
     await ctx.send('\n'.join(users_temp))
 
   @adminList.command(name='all',aliases=['*']) # %admin list all
@@ -54,8 +54,8 @@ class BasicCommands(commands.Cog):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
     for i in users:
-      user = await self.bot.fetch_user(int(i[3:-1]))
-      users_temp.append(user.name)
+      user = await self.bot.fetch_user(i)
+      users_temp.append(user.display_name)
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
     for i in roles:
@@ -63,13 +63,13 @@ class BasicCommands(commands.Cog):
     		await ctx.send('Everyone on this server is an admin! The more the merrier!')
     		return
     	else:
-    		roles_temp.append(ctx.guild.get_role(int(i[3:-1])))
+    		roles_temp.append(ctx.guild.get_role(i))
     members = []
     for i in roles_temp:
       members += i.members
     members = list(set(members))
     for i in members:
-      users_temp.append(i.name)
+      users_temp.append(i.display_name)
     users_temp = list(set(users_temp))
     await ctx.send('**All Admin Users:**\n'+'\n'.join(users_temp))
   

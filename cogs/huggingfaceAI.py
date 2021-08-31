@@ -15,23 +15,23 @@ async def query(payload, url=QA_URL, parameters={}, options={}):
     async with cs.post(url, headers=headers, json=body) as response:
       answer = await response.json()
       return answer
-
+#%prompt 4 I'm an engineer constructing cutting edge transportation
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
-  async def textGen(self, ctx, length: Optional[int]=-1, *, prompt: str):
+  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[int]=1.0, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
     if length == -1:
-      length = round(max(250, len(prompt)) / 4.7)
+      length = min(round(len(prompt) / 4.4) + 45, 500)
     else:
       length = int(length)
     if length > 500:
       await ctx.send("Sorry, the length you specified was too long to send in a Discord message! Remember that length isn't in characters, but in AI Tokens (each token is about 0.75 words)")
       return
-    answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 3.2, "temperature": 2.5, "return_full_text": False, "max_length": length, 'end_sequence': "###"}))[0]['generated_text']
+    answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 3.2, "temperature": float(temperature), "return_full_text": False, "max_length": length, 'end_sequence': "###"}))[0]['generated_text']
     await answer.edit(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
