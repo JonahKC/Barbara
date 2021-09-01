@@ -25,18 +25,22 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=0.5, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
-    if length == -1:
-      length = min(round(len(prompt) / 4.4) + 45, 500)
-    else:
-      length = int(length)
     minimumTokenLength = 6
     if admin.perms(ctx):
       minimumTokenLength = 1
-    if length > 500 or length < minimumTokenLength:
+    if (length > 500 or length < minimumTokenLength) and length != -1:
       await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
-    answerText = prompt + (await query(prompt, GPT_NEO_URL, {"repetition_penalty": 3.2, "temperature": temperature, "return_full_text": False, "max_length": length, 'end_sequence': "###"}))[0]['generated_text']
-    await answer.edit(answerText)
+    try:
+      reqJSON = {"repetition_penalty": 20.0, "temperature": temperature, "return_full_text": False}
+      if length != -1:
+        reqJSON += {"max_length": length}
+      rawAnswer = await query(prompt, GPT_NEO_URL, )
+      answerText = prompt + rawAnswer[0]['generated_text']
+    except KeyError:
+      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{str(rawAnswer)}\n```")
+      return
+    await ctx.send(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
