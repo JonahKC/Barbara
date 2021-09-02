@@ -26,3 +26,4 @@ class ServerInfo(commands.Cog):
   
 def setup(bot):
   bot.add_cog(ServerInfo(bot))
+

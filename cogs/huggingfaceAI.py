@@ -34,13 +34,13 @@ class HuggingfaceAI(commands.Cog):
     try:
       reqJSON = {"repetition_penalty": 20.0, "temperature": temperature, "return_full_text": False}
       if length != -1:
-        reqJSON += {"max_length": length}
+        reqJSON["max_length"] = length
       rawAnswer = await query(prompt, GPT_NEO_URL, )
       answerText = prompt + rawAnswer[0]['generated_text']
     except KeyError:
       await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{str(rawAnswer)}\n```")
       return
-    await ctx.send(answerText)
+    await answer.edit(answerText)
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
