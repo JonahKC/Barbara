@@ -11,7 +11,7 @@ class MessageSendingCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.group(name='say')  # %say
+    @commands.command(name='say') # %say
     async def say(self, ctx,*, content: str):
         if ctx.message.content.startswith(f"{ctx.prefix}say button"):
             await self.button(ctx, content)
