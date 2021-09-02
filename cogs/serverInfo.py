@@ -7,21 +7,11 @@ class ServerInfo(commands.Cog):
 
   @commands.Cog.listener()
   async def on_ready(self):
-    serverDict = {}
+    servers = []
     for i in self.bot.guilds:
-      inviteList = []
-      invites = await i.invites()
-      for j in invites:
-        try:
-          inviteList.append(j.url)
-        except AttributeError:
-          print(j)
-      if len(inviteList) == 0:
-        invite = await i.text_channels[0].create_invite()
-        inviteList.append(invite.url)
-      serverDict[i.name] = inviteList
+      servers.append(i.name)
     with open("servers.json", "w") as fp:
-      json.dump(serverDict,fp,indent=2,sort_keys=True)
+      json.dump(servers,fp,indent=2,sort_keys=True)
     return
   
 def setup(bot):
