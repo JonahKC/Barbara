@@ -14,9 +14,8 @@ async def query(payload, url=QA_URL, parameters={}, options={}):
   body = {"inputs":payload,'parameters':parameters,'options':options}
   async with aiohttp.ClientSession() as cs:
     async with cs.post(url, headers=headers, json=body) as response:
-      answer = await response.json()
-      return answer
-#%prompt 4 I'm an engineer constructing cutting edge transportation
+      return (await response.json())
+
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -32,13 +31,13 @@ class HuggingfaceAI(commands.Cog):
       await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
     try:
-      reqJSON = {"repetition_penalty": 20.0, "temperature": temperature, "return_full_text": False}
+      reqJSON = {"repetition_penalty": 90.0, "temperature": temperature, "return_full_text": False, "top_p": 60.0}
       if length != -1:
         reqJSON["max_length"] = length
       rawAnswer = await query(prompt, GPT_NEO_URL, )
       answerText = prompt + rawAnswer[0]['generated_text']
     except KeyError:
-      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{str(rawAnswer)}\n```")
+      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{str(rawAnswer)}\n```\nIf this says error 503 in it, it means that the AI is initializing, try again in a moment!")
       return
     await answer.edit(answerText)
 
@@ -48,7 +47,7 @@ class HuggingfaceAI(commands.Cog):
     try:
       summary = self.wikipedia.page(wikipediaPageTitle).summarize(10)
     except mediawiki.exceptions.DisambiguationError as e:
-      await answer.edit(f"Sorry, there's multiple Wikipedia articles going by similar names to what you requested I look at. Look at this list and see which one you want: {str(e)[:30] + (str(e)[30:] and '...')}")
+      await answer.edit(f"Sorry, there's multiple Wikipedia articles going by similar names to what you requested I look at. Look at this list and see which one you want: {str(e)[:1000] + (str(e)[1000:] and '...')}")
       return
     except mediawiki.exceptions.PageError:
       await answer.edit("Sorry, no Wikipedia page by the requested title was found.")
