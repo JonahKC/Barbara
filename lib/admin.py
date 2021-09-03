@@ -6,9 +6,6 @@ NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the co
 
 def perms(ctx): # Does this user have admin perms?
   if type(ctx) == discord.Member:
-    #if guild_id == -1:
-    #  raise TypeError('guild_id must be set to the ID of the discord guild when passing a User as ctx')
-    #  return False
     user = ctx
   elif type(ctx) == discord.ext.commands.Context:
     if isinstance(ctx.channel, discord.channel.DMChannel):
@@ -16,8 +13,9 @@ def perms(ctx): # Does this user have admin perms?
     user = ctx.author
   else:
     raise TypeError(f'ctx requires a discord.Member, or a discord.ext.commands.Context object. You passed it a {str(type(ctx))}')
-
-  if user.id in config.fetch(ctx.guild.id, "admin users"):
+  if user.guild_permissions.administrator: # All admins are, well, admins.
+    True
+  elif user.id in config.fetch(ctx.guild.id, "admin users"):
     return True
   else:
     for i in user.roles:
