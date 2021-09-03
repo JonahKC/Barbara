@@ -12,6 +12,8 @@ class RemoveMeese(commands.Cog):
 
   @commands.Cog.listener() # @bot.event for Cogs
   async def on_message(self, message):
+    if message.author == self.bot.user:
+      return
     if isinstance(message.channel, discord.channel.DMChannel):
       await message.reply(self.MEESE_DELETED_DM_MESSAGE)
       return
@@ -36,6 +38,8 @@ class RemoveMeese(commands.Cog):
 
   @commands.Cog.listener()
   async def on_message_edit(self, before, message):
+    if message.author == self.bot.user:
+      return
     if isinstance(message.channel, discord.channel.DMChannel):
       await message.reply(self.MEESE_DELETED_DM_MESSAGE)
       return
