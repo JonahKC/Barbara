@@ -49,7 +49,7 @@ class EasterEggsNStuff(commands.Cog):
   @commands.Cog.listener()
   async def on_message(self, message):
     if self.bot.get_user(674457055968624650).mentioned_in(message):
-      await message.channel.send("o.0")
+      await message.channel.send("\"o.0\"|| - The only person I had a real crush on in middle school||")
 
 def setup(bot):
   bot.add_cog(EasterEggsNStuff(bot))
