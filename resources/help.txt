@@ -3,8 +3,8 @@
 `{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
 `{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
 `{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
-`{prefix}fact` - Returns a random fact, but can only be run once every 10 minutes. This command uses an API, see below for credit links.
-`{prefix}dadjoke` - Returns a random dad joke, runnable once every 10 minutes. This command uses an API, see below for credit links.
+`{prefix}fact` - Returns a random fact. This command uses an API, see below for credit links.
+`{prefix}dadjoke` - Returns a random dad joke. This command uses an API, see below for credit links.
 `{prefix}say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
 `{prefix}say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
 
