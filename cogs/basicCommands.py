@@ -3,9 +3,9 @@ import lib.admin as admin
 import lib.help as libHelp
 import lib.graph as graph
 from discord.ext import commands
+from random import choice
 from asyncio import sleep, TimeoutError
 from discord.channel import DMChannel
-from discord.errors import NotFound
 from discord_components import Button, ButtonStyle, InteractionType
 
 # Quick command explanation and syntax:
@@ -194,6 +194,10 @@ class BasicCommands(commands.Cog):
     await ctx.send(
       "**Invite Me to Your Other Discord Servers!**\n<https://barbara.jcwyt.com/invite>"
     )
+
+  @commands.command(name='emily')
+  async def emily(self, ctx):
+    await ctx.send(choice(("", "@emi1ypeng", "I wonder what Emily's listening to today... Nevermind, it's Taylor Swift")))
 
   @commands.group(name='link',aliases=['info','about'], invoke_without_command=True) # %link
   async def link(self, ctx, ):

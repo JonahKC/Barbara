@@ -1,7 +1,7 @@
 **Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
 
 `{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
-`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well!
+`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well! WARNING: When running the command, some pickup lines you may enounter might be obscene, or vulgar. If any pickup line ever makes you feel truly uncomfortable, report it to bugs@jcwyt.com or on the JCWYT discord (`%invite`), and we'll remove it asap.
 `{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
 `{prefix}fact` - Returns a random fact. This command uses an API, see below for credit links.
 `{prefix}dadjoke` - Returns a random dad joke. This command uses an API, see below for credit links.

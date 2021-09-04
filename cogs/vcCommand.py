@@ -2,6 +2,7 @@ from discord.ext import commands
 from asyncio import sleep
 from random import choice
 
+# This is *not* 
 class EasterEggsNStuff(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -41,6 +42,14 @@ class EasterEggsNStuff(commands.Cog):
   @commands.command(name='dream', aliases=['dreamminecraft', 'dreammc', 'minecraft'])
   async def dream(self, ctx):
     await ctx.send("You mean Dream Minecraft SMP Speedrun World Record Manhunt???")
+
+  @commands.command(name='jonah')
+  async def jonah(self, ctx):
+    await ctx.send(choice(("||moose||", "<https://jonahkc.com>", "<a:moose_party:866868789370159144>")))
+
+  @commands.command(name='callum')
+  async def callum(self, ctx):
+    await ctx.send(choice(("nerd", "more like,,,, , ,, cool", "https://www.youtube.com/watch?v=ejc5zic4q2A")))
 
   @commands.command(name='baz', aliases=['foobarbaz'])
   async def fooBar(self, ctx):

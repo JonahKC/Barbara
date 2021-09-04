@@ -25,19 +25,19 @@ class HuggingfaceAI(commands.Cog):
   async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=0.5, *, prompt: str):
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 6
-    if admin.perms(ctx):
-      minimumTokenLength = 1
+    if admin.perms(ctx): minimumTokenLength = 1
     if (length > 500 or length < minimumTokenLength) and length != -1:
       await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
     try:
-      reqJSON = {"repetition_penalty": 90.0, "temperature": temperature, "return_full_text": False, "top_p": 60.0}
+      reqJSON = {"repetition_penalty": 45.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
       if length != -1:
-        reqJSON["max_length"] = length
-      rawAnswer = await query(prompt, GPT_NEO_URL, )
+        reqJSON["max_new_tokens"] = length
+      rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON)
       answerText = prompt + rawAnswer[0]['generated_text']
     except KeyError:
-      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{str(rawAnswer)}\n```\nIf this says error 503 in it, it means that the AI is initializing, try again in a moment!")
+      jsonStuff = str(rawAnswer).replace("\'", "\"")
+      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
       return
     await answer.edit(answerText)
 

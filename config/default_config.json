@@ -3,7 +3,7 @@
 	"admin roles": [],
 	"admin users": [],
   "banned-vcs": [],
-	"link": "[Add a custom link or message here by running `{prefix}link set [link]`. Add as many as you want, or run `{prefix}link custom` and nothing after it to remove this message]",
+	"link": "[Add a custom link or message here by running `{prefix}link set [link]`. Run `{prefix}link` and nothing after it to disable this command]",
 	"nomees": "true",
 	"whitelist": [],
 	"flavor-of-secrets": "normal (can be normal, jokesonyoubot, or botwinkle)",
