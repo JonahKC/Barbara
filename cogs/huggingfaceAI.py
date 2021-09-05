@@ -28,7 +28,7 @@ class HuggingfaceAI(commands.Cog):
     minimumTokenLength = 6
     if admin.perms(ctx): minimumTokenLength = 1
     if (length > 250 or length < minimumTokenLength) and length != -1:
-      await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
+      await answer.edit(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
     try:
       reqJSON = {"repetition_penalty": 45.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
@@ -38,7 +38,7 @@ class HuggingfaceAI(commands.Cog):
       answerText = prompt + rawAnswer[0]['generated_text']
     except KeyError:
       jsonStuff = str(rawAnswer).replace("\'", "\"")
-      await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
+      await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
       return
     await answer.edit(answerText)
 
