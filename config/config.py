@@ -11,12 +11,15 @@ def load():
   except json.decoder.JSONDecodeError:
     return default()
 
-def load_global():
-	try:
-		with open('./config/global_config.json') as fp:
-			return json.load(fp)
-	except json.decoder.JSONDecodeError:
-		return
+def load_global(option=None):
+  try:
+    with open('./config/global_config.json') as fp:
+      if option == None:
+        return json.load(fp)
+      else:
+        return json.load(fp)[option]
+  except json.decoder.JSONDecodeError:
+    return
 
 def write(guild_id, option, value):
   guild_id = str(guild_id)
