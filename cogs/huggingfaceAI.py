@@ -1,4 +1,5 @@
 from discord.ext import commands
+from random import choice
 import lib.admin as admin
 import mediawiki
 import aiohttp
@@ -26,7 +27,7 @@ class HuggingfaceAI(commands.Cog):
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 6
     if admin.perms(ctx): minimumTokenLength = 1
-    if (length > 500 or length < minimumTokenLength) and length != -1:
+    if (length > 250 or length < minimumTokenLength) and length != -1:
       await ctx.send(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
     try:
@@ -40,6 +41,10 @@ class HuggingfaceAI(commands.Cog):
       await ctx.send(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
       return
     await answer.edit(answerText)
+
+  @commands.command(name='josh', aliases=['yosh'])
+  async def hiJosh(self, ctx):
+    await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", "<:Susstew:884122681815994388>")))
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):

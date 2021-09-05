@@ -197,7 +197,7 @@ class BasicCommands(commands.Cog):
 
   @commands.command(name='emily')
   async def emily(self, ctx):
-    await ctx.send(choice(("", "@emi1ypeng", "I wonder what Emily's listening to today... Nevermind, it's Taylor Swift")))
+    await ctx.send(choice(("hi Emily", "@emi1ypeng", "I wonder what Emily's listening to today... Nevermind, it's Taylor Swift")))
 
   @commands.group(name='link',aliases=['info','about'], invoke_without_command=True) # %link
   async def link(self, ctx, ):
