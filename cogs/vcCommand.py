@@ -55,10 +55,9 @@ class EasterEggsNStuff(commands.Cog):
   async def fooBar(self, ctx):
     await ctx.send("zi")
 
-  @commands.Cog.listener()
-  async def on_message(self, message):
-    if self.bot.get_user(674457055968624650).mentioned_in(message):
-      await message.channel.send("\"o.0\"|| - The only person I had a real crush on in middle school||")
+  @commands.command(name='caroline')
+  async def caroline(self, ctx):
+     await ctx.send("o.0")
 
 def setup(bot):
   bot.add_cog(EasterEggsNStuff(bot))

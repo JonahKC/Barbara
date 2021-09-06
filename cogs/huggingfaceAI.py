@@ -27,11 +27,11 @@ class HuggingfaceAI(commands.Cog):
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 6
     if admin.perms(ctx): minimumTokenLength = 1
-    if (length > 250 or length < minimumTokenLength) and length != -1:
+    if (length > 500 or length < minimumTokenLength) and length != -1:
       await answer.edit(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
       return
     try:
-      reqJSON = {"repetition_penalty": 45.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
+      reqJSON = {"repetition_penalty": 90.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
       if length != -1:
         reqJSON["max_new_tokens"] = length
       rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON)
