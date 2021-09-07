@@ -31,7 +31,7 @@ class RandomMessageCommands(commands.Cog):
     with open(messages.MESSAGE_PATHS['normal']) as s:
       secrets += s.readlines()
     secretsMessageText = "\n".join(secrets)
-    await secretsMessage.edit(secretsMessageText)
+    await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
 
   @commands.Cog.listener()
   async def on_message(

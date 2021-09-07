@@ -16,7 +16,7 @@ class MessageDoer(commands.Cog):
       if fromUser == None: return True
       return msg.author.id == fromUser.id
     await ctx.channel.purge(limit=limit, check=userCheck, before=None, after=None)
-    await ctx.send(f"Deleted up to {limit} messages from channel {ctx.channel.mention}{' by user {}'.format(fromUser.name) if fromUser else ''}", delete_after=30.0)
+    await ctx.send(f"Deleted up to {limit} messages from channel {ctx.channel.mention}{' by user {}'.format(fromUser.name) if fromUser else ''}", delete_after=5.0)
 
   @messages.command(name='collect', aliases=['acquire', 'gather'])
   async def messagesCollect(self, ctx, limit: int=50, fromUser: discord.User=None):
