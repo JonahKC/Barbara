@@ -247,21 +247,14 @@ class BasicCommands(commands.Cog):
   @commands.check(admin.jcwytTeam)
   async def restartRepl(self, ctx): # Restarts the entire repl.
     shutdownMessage = await ctx.send("Restarting bot...")
-    print("Restarting bot...")
-    print(1)
     sdRaw = open('./temp/shutdown-message.txt', 'w') # We want a "bot online again" message, so let's write the place that message should be in a file.
-    print(2)
     if isinstance(ctx.channel, DMChannel):
       sdRaw.write(str(ctx.author.id) + "DM")
     else:
       sdRaw.write(str(shutdownMessage.channel.id))
-    print(3)
     sdRaw.close()
-    print(4)
     graph.flush()
-    print(5)
     raise SystemExit
-    print(6)
 
   @commands.Cog.listener()
   async def on_ready(self):
