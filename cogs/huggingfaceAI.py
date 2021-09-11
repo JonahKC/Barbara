@@ -1,5 +1,5 @@
 from discord.ext import commands
-from random import choice
+from random import choice, uniform
 import lib.admin as admin
 import mediawiki
 import aiohttp
@@ -23,7 +23,8 @@ class HuggingfaceAI(commands.Cog):
     self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
-  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=0.5, *, prompt: str):
+  async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=-1, *, prompt: str):
+    if temperature == -1: temperature = uniform(0.01, 30.0)
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 6
     if admin.perms(ctx): minimumTokenLength = 1
