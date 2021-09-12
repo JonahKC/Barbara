@@ -19,7 +19,7 @@ _ _
 PAGEBREAK
 **Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
 
-%link – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
+`{prefix}link` – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
 `{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
 `{prefix}link` - Check out some server-specific links or messages.
 `{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).

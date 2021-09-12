@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.2.32'
+BARBARA_VERSION = '3.2.33'
 
 def get_prefix(bot, message): # Pass a function to command_prefix that returns the correct per-server prefix
   try:
