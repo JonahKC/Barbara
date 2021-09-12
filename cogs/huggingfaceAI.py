@@ -1,4 +1,5 @@
 from discord.ext import commands
+import discord
 from random import choice, uniform
 import lib.admin as admin
 import mediawiki
@@ -24,6 +25,7 @@ class HuggingfaceAI(commands.Cog):
 
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=-1, *, prompt: str):
+    if prompt.startswith('\n'): prompt = prompt.replace('\n', '', 1)
     if temperature == -1: temperature = uniform(0.01, 15.0)
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 6
@@ -41,11 +43,11 @@ class HuggingfaceAI(commands.Cog):
       jsonStuff = str(rawAnswer).replace("\'", "\"")
       await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
       return
-    await answer.edit(answerText)
+    await answer.edit(answerText[:1992] + ('...' and answerText[1992:]))
 
   @commands.command(name='josh', aliases=['yosh'])
   async def hiJosh(self, ctx):
-    await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", "<:Susstew:884122681815994388>")))
+    await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", str(discord.utils.get(self.bot.emojis, name='Susstew')))))
 
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
