@@ -37,7 +37,7 @@ class HuggingfaceAI(commands.Cog):
       reqJSON = {"repetition_penalty": 90.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
       if length != -1:
         reqJSON["max_new_tokens"] = length
-      rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON)
+      rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON, {'wait_for_model': True})
       answerText = prompt + rawAnswer[0]['generated_text']
     except KeyError:
       jsonStuff = str(rawAnswer).replace("\'", "\"")

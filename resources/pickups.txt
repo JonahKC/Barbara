@@ -62,7 +62,6 @@ Do you have a twin sister?{answer}Then you must be the most beautiful girl in th
 Let’s play hockey. I”ll be the net, and you can score.
 Vogue just called, they want to put you on the cover.
 Yo are u an enderman?{answer}Cause I get a little scared when I look you in the eyes
-What's the difference between an erection and a Tesla?{answer}I don't have a Tesla.
 Are you YouTube?{answer}Because I want You To be mine.
 You must be really good at art, because you've drawn my attention.
 Of all the beautiful curves on your body, your smile is my favorite.
@@ -100,7 +99,7 @@ Damn boy, I thought diamonds were pretty until I laid my eyes on you!
 A life without you, would be like a computer without me.
 A life without you, would be like a computer without an OS.
 You look like Jesus if he were a butler in a Russian mansion.
-If you were French Toast, you'd be the most elegant French Toast I've ever seen.!
+If you were French Toast, you'd be the most elegant French Toast I've ever seen.
 "Will you marry me?"\n\nThis is a simple one. This line is super effective for anyone. Because it's literally “will you", it is very powerful and intimate. You can do it without even being asked. You can just give a long speech about your dream of marriage, and it will be powerful to your crush.
 I love you. I don’t care if you’re a doggo in a trenchcoat.
 You have such a nice backend, I would love to call your APIs all night long.
@@ -109,10 +108,10 @@ Want to come back to my place for a private beta-testing?
 The way you look in that dress... damn, server overload!
 I could tell from your doctype that we’re a match!
 If you’re coding in CSS3 and going through a rough patch, just know that you can always JavaScript fallback on me… I got you
-Are you Google Glass? 'Cause you augment my reality.
-Are you a piece of carbon? 'Cause I would love to date you.
+Are you Google Glass?{answer}'Cause you augment my reality.
+Are you a piece of carbon?{answer}'Cause I would love to date you.
 Are you made of beryllium, gold, and titanium? 'Cause you're BeAuTiful!
-Your beauty rivals that of the advanced screenspace refraction done in Complementary 4.2 dev6.
+Your beauty rivals that of the screenspace refraction done in Complementary 4.2
 If Internet Explorer is brave enough to ask you to be your default browser, I’m brave enough to ask you out!
 You must be Windows Vista because you've got me feeling so unstable. 
 Isn't your e-mail address beautifulgirl@mydreams.com? 
@@ -125,7 +124,7 @@ My love is like a fractal, it goes on forever.
 Hi, I’m writing a term paper on the finer things in life, and I was wondering if I could interview you?
 Do you have a sunburn, or are you always this hot?
 I have to show you the prettiest person I’ve ever seen. *shows selfie camera*
-How is your fever?{answer}Oh… you just seem abnormally hot to me.
+How is your fever?{answer}Oh… you just seem insanely hot to me.
 I sneezed because God blessed me with you.
 Hershey’s makes millions of kisses a day... all I’m asking for is one from you.
 Me without you is like a computer without typefaces, a middle school without nutcases, a sea turtle without carapaces.
@@ -147,7 +146,7 @@ Did I mention you're looking optiFINE tonight?
 Are you a redstone torch? Because you turn me on.
 Redstone is red, Lazuli is blue, you’re as hot as the lava I fell into.
 Wanna hop on my server and go strip mining?
-It's funny how I know 250+ Minecraft blocks, but not the 16 numbers of your phone number.
+It's funny how I know 250+ Minecraft blocks, but not the 16 digits of your phone number.
 If you were a booger I would pick you first.
 You wanna know what’s big?{answer}My house, pervert ;)
 Was your dad a thief? Why? I don’t know, just making small talk. Mine’s an orthopedist.
