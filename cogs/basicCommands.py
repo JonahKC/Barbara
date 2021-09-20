@@ -211,8 +211,8 @@ class BasicCommands(commands.Cog):
   async def setLink(
     self,
     ctx, *,
-    arg="Barbara is developed by JCWYT: <https://barbara.jcwyt.com>"
-  ): # if you don't pass a link to set, it uses the default one
+    arg=""
+  ):
     config.write(ctx.guild.id, "link", arg)
     await ctx.send(f"Set link to {arg}")
 

@@ -1,5 +1,5 @@
 import humanize
-import datetime as dt
+from datetime import date, timedelta, datetime
 from discord.ext import commands
 import discord
 
@@ -9,16 +9,27 @@ class Age(commands.Cog):
 
   @commands.group(name='howoldis', invoke_without_command=True)
   async def howOldIs(self, ctx, user: discord.User=None, precision="imprecisely"):
-    age = user.created_at - dt.datetime.now()
+    age = user.created_at - datetime.now()
     name = user.name.capitalize().replace('_', r'\_').replace('*', r'\*')
     if precision in ("accurately", "precisely"):
       await ctx.send(f"{name} is {humanize.precisedelta(age)} old.")
     else:
       await ctx.send(f"{name} is {humanize.naturaldelta(age)} old.")
 
+  @howOldIs.command(name='theschoolyear')
+  async def howOldIsTheSchoolYear(self, ctx, precision="imprecisely"):
+    fromDate = datetime(2021, 9, 1, 8, 45)
+    rawAge = datetime.now() - datetime(2021, 9, 1, 8, 45)
+    daygenerator = (fromDate + timedelta(x + 1) for x in range((datetime.now() - fromDate).days + 1))
+    weekdays = sum(1 for day in daygenerator if day.weekday() < 5)
+    if precision in ("accurately", "precisely"):
+      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.precisedelta(rawAge)}` ago.\nThere have been `{weekdays} school days` (not accounting for snow days, etc.).")
+    else:
+      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.naturaldelta(rawAge)}` ago.\nThere have been `{weekdays} school days` (not accounting for snow days, etc.).")		
+
   @howOldIs.command(name='theserver')
   async def howOldIsTheServer(self, ctx, precision="imprecisely"):
-    age = dt.datetime.now() - ctx.guild.created_at
+    age = datetime.now() - ctx.guild.created_at
     if precision in ("accurately", "precisely"):
       await ctx.send(f"This server is {humanize.precisedelta(age)} old.")
     else:
@@ -26,7 +37,7 @@ class Age(commands.Cog):
 
   @howOldIs.command(name='barbara')
   async def howOldIsBarbara(self, ctx, precision="imprecisely"):
-    age = self.bot.user.created_at - dt.datetime.now()
+    age = self.bot.user.created_at - datetime.now()
     if precision in ("accurately", "precisely"):
       await ctx.send(f"I'm {humanize.precisedelta(age)} old.")
     else:
@@ -42,7 +53,7 @@ class Age(commands.Cog):
 
   @commands.command(name='howoldami')
   async def howoldami(self, ctx, precision="imprecisely"):
-    age = ctx.author.created_at - dt.datetime.now()
+    age = ctx.author.created_at - datetime.now()
     if precision in ("accurately", "precisely"):
       await ctx.send(f"I don't know your real age, but your account is {humanize.precisedelta(age)} old")
     else:
