@@ -25,7 +25,7 @@ class BasicCommands(commands.Cog):
   def __init__(self, bot): # Allows us to access bot later on with self.bot
     self.bot = bot
 
-  @commands.Cog.listener
+  @commands.Cog.listener()
   async def on_message(self, message):
       if self.bot.user.mention in message.content.split():
           await message.channel.send(f'Hi, {message.author.display_name}! Run `{config.read(message.guild.id, "prefix")}help` for help accessing my commands.')
