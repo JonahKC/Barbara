@@ -1,5 +1,5 @@
 import humanize
-from datetime import date, timedelta, datetime
+from datetime import timedelta, datetime
 from discord.ext import commands
 import discord
 
