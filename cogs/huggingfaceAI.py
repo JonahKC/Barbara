@@ -38,10 +38,10 @@ class HuggingfaceAI(commands.Cog):
       if length != -1:
         reqJSON["max_new_tokens"] = length
       rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON, {'wait_for_model': True})
-      answerText = prompt + rawAnswer[0]['generated_text']
+      answerText = rawAnswer[0]['generated_text']
     except KeyError:
       jsonStuff = str(rawAnswer).replace("\'", "\"")
-      await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
+      await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff[:1500] + ('...' and jsonStuff[:1500])}\n```")
       return
     await answer.edit(answerText[:1980] + ('...' and answerText[1980:]))
 
