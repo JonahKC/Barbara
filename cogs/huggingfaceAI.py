@@ -43,7 +43,7 @@ class HuggingfaceAI(commands.Cog):
       jsonStuff = str(rawAnswer).replace("\'", "\"")
       await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff}\n```")
       return
-    await answer.edit(answerText[:1992] + ('...' and answerText[1992:]))
+    await answer.edit(answerText[:1980] + ('...' and answerText[1980:]))
 
   @commands.command(name='josh', aliases=['yosh'])
   async def hiJosh(self, ctx):

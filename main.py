@@ -11,7 +11,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.4.40'
+BARBARA_VERSION = '3.4.41'
 
 
 def get_prefix(
