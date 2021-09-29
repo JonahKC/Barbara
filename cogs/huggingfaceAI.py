@@ -28,7 +28,7 @@ class HuggingfaceAI(commands.Cog):
     if prompt.startswith('\n'): prompt = prompt.replace('\n', '', 1)
     if temperature == -1: temperature = uniform(0.01, 15.0)
     answer = await ctx.send("Waiting for GPT-NEO")
-    minimumTokenLength = 6
+    minimumTokenLength = 4
     if admin.perms(ctx): minimumTokenLength = 1
     if (length > 500 or length < minimumTokenLength) and length != -1:
       await answer.edit(f"Sorry, token length of {length} is invalid. Either it's too big, or too small. Please try a different length. My personal favorite is 40, which will output one or two sentences.")
@@ -43,7 +43,7 @@ class HuggingfaceAI(commands.Cog):
       jsonStuff = str(rawAnswer).replace("\'", "\"")
       await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff[:1500] + ('...' and jsonStuff[:1500])}\n```")
       return
-    await answer.edit(answerText[:1980] + ('...' and answerText[1980:]))
+    await answer.edit(answerText[1980:] + ('...' and answerText[:1980]))
 
   @commands.command(name='josh', aliases=['yosh'])
   async def hiJosh(self, ctx):
