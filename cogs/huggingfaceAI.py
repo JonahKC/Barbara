@@ -16,7 +16,10 @@ async def query(payload, url=QA_URL, parameters={}, options={}):
   body = {"inputs":payload,'parameters':parameters,'options':options}
   async with aiohttp.ClientSession() as cs:
     async with cs.post(url, headers=headers, json=body) as response:
-      return (await response.json())
+      try:
+        return (await response.json())
+      except aiohttp.client_exceptions.ContentTypeError:
+        return (await response.text())
 
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):

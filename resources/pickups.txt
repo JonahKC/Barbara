@@ -213,7 +213,7 @@ Are you going to kiss me or do I have to lie to my diary?
 I love you like a pig loves not being bacon.
 You're like pizza. Even when you are bad, you're good
 My friend thinks you're kinda cute, but I don't.{answer}I think you're absolutely gorgeous!
-If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet securley and quickly easy! Brave even comples complete with a builtin ad and tracking blocker! Download today at https://brave.com/
+If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet securley and quickly easy! Brave even comples complete with a builtin ad and tracking blocker! Download today at https://brave.com/ ||why did you add this||
 Be unique and different, say yes.
 You be the Dairy Queen and I'll be your Burger King: You treat me right, and I'll do it your way.
 Well, I AM telepathic, and I can tell that you love me. Right?{answer}Darn, I always get "love" and "lust" mixed up.
@@ -310,3 +310,4 @@ Every time I see you, my cardiovascular system gets all worked up.
 You must be made of Fluorine, Iodine, and Neon, because you’re so FINe.
 Your pH must be 14 because you’re the most basic need in my life right now.
 I must be going through anaerobic respiration right now ’cause you take my breath away.
+Hey, can I take a pictute of you? Quickly, it's urgent!{answer}I'm playing cards and I don't have a queen.
