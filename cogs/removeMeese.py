@@ -17,7 +17,7 @@ class RemoveMeese(commands.Cog):
     try:
       if message.author.id != self.bot.user.id and message.author.id != 798016639089901610: # botwinkle is that ID
         if isinstance(message.channel, discord.channel.DMChannel):
-          if ":meese:" in message.content.lower() or meese.containsMeese(meese.replaceWords(config.load_global("whitelist"), message.content, "")):
+          if ":meese:" in message.content.lower() or meese.containsMeese(meese.replaceWords(config.load_global("whitelist"), message.content.lower(), "")):
             await message.reply(self.MEESE_DELETED_DM_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
           return
         if config.read(message.guild.id, "nomees") == "true":
@@ -25,15 +25,15 @@ class RemoveMeese(commands.Cog):
             await message.reply(self.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
             await message.delete()
             await self.bot.get_channel(864644173835665458).send(
-              message.author.name + ": " + message.content
+              message.author.name + ": " + message.content.lower()
             ) # report in meese deletes
           else:
-            string = meese.replaceWords(config.fetch(message.guild.id, "whitelist"), message.content, "")
+            string = meese.replaceWords(config.fetch(message.guild.id, "whitelist"), message.content.lower(), "")
             if meese.containsMeese(string):
               await message.reply(self.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
               await message.delete()
               await self.bot.get_channel(864644173835665458).send(
-                message.author.name + ": " + message.content
+                message.author.name + ": " + message.content.lower()
               )
     except (discord.errors.NotFound, discord.errors.HTTPException): pass
 
@@ -51,15 +51,15 @@ class RemoveMeese(commands.Cog):
             await message.reply(self.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
             await message.delete()
             await self.bot.get_channel(864644173835665458).send(
-              message.author.name + ": " + message.content
+              message.author.name + ": " + message.content.lower()
             ) # report in meese deletes
           else:
-            string = meese.replaceWords(config.fetch(message.guild.id, "whitelist"), message.content, "")
+            string = meese.replaceWords(config.fetch(message.guild.id, "whitelist"), message.content.lower(), "")
             if meese.containsMeese(string):
               await message.reply(self.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
               await message.delete()
               await self.bot.get_channel(864644173835665458).send(
-                message.author.name + ": " + message.content
+                message.author.name + ": " + message.content.lower()
               ) # report in meese deletes
     except (discord.errors.NotFound, discord.errors.HTTPException): pass
 
