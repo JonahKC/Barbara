@@ -1,13 +1,5 @@
 {
   "files": {
-    "lib/regexLib.py": [
-      {
-        "id": "ac42484a-0680-4c54-99f3-8190bdd1be65",
-        "line": 22,
-        "version": 699,
-        "index": 742
-      }
-    ],
     "lib/ytdlTools.py": [
       {
         "id": "fdf66317-f1d7-4e9d-b269-9074e5c1fa1b",
