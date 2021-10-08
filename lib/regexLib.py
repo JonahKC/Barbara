@@ -7,7 +7,7 @@ E_BLACKLIST = [r":pound:", r":euro:", r":e_mail:", r"3", r"ė", r"ę", r"ē", r"
 S_BLACKLIST = [r":heavy_dollar_sign:", r"ⓢ", r"$", r"𝔰", r"𝖘", r"Ｓ", r"ß", r"š", r"﹩", r"ş", r"ṩ", r"ṧ", r"ṥ", r"ṣ", r"ṡ", r"ഗ", r"ട", r"⒮", r"🇸", r"🅂", r"𝗌", r"5", r"𝕤", r"Ꮥ", r"ѕ", r"ડ", r"ₛ", r"𝓈", r"s", r"̷", r"Տ", r"տ", r"ȿ", r"§", r"Ś", r"ŝ", r"₰", r"∫", r"ֆ", r"క", r"𝕾", r"ꌚ", r"ʂ", r"ʃ", r"ʅ", ]
 TRIM_CHARS = [" ", r".", r"\\", r"/", r";", r":", r",", r"?", r"!", r"@", r"#", r"%", r"^", r"&", r"*", r"(", r")", r"ㅤ", r"​", r"_"]
 
-MEESE_REGEX = re.compile(r"""((([^\|][^\|])|^)me{2,}s[e])""")
+MEESE_REGEX = re.compile(r"""((([^\|][^\|])|^)me{2,}s{2,}e)""")
 
 
 def replaceWords(words, string, replaceWith, replace=1):
