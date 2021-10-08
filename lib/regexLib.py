@@ -17,17 +17,17 @@ def replaceWords(words, string, replaceWith, replace=1):
   if len(words) == 0: return string
   for word in words:
     string = string.replace(word, replaceWith, replace)
-    print(word + ': ' + string)
+    #print(word + ': ' + string)
   return string
 
 def containsMeese(inputStr):
-  print('character trimming and unidecoding')
+  #print('character trimming and unidecoding')
   inputStr = replaceWords(TRIM_CHARS, unidecode(inputStr), "", -1)
-  print('m blacklist')
+  #print('m blacklist')
   inputStr = replaceWords(M_BLACKLIST, inputStr.lower(), "m", 32)
-  print('e blacklist')
+  #print('e blacklist')
   inputStr = replaceWords(E_BLACKLIST, inputStr.lower(), "e", 64)
-  print('s blacklist')
+  #print('s blacklist')
   inputStr = replaceWords(S_BLACKLIST, inputStr.lower(), "s", 32)
   contains_meese = re.search(MEESE_REGEX, inputStr)
   if contains_meese == None:
