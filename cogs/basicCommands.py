@@ -238,8 +238,7 @@ class BasicCommands(commands.Cog):
     if stealthy == "true":
       await ctx.message.delete()
     try:
-      self.bot.unload_extension(nameOfCog)
-      self.bot.load_extension(nameOfCog)
+      self.bot.reload_extension(nameOfCog)
     except Exception as e:
       await ctx.send(f'**ERROR:** `{type(e).__name__} - {e}`')
     else:
@@ -272,7 +271,7 @@ class BasicCommands(commands.Cog):
         channel = self.bot.get_user(int(shutdownMessageData[:-2]))
       else:
         channel = self.bot.get_channel(int(shutdownMessageData))
-      await channel.send("Bot succesfully restarted!")
+      await channel.send("Succesfully completed task!")
     except ValueError: # Repl didn't shutdown because of %restart
       pass
 

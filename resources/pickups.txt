@@ -71,7 +71,6 @@ Even if there wasn’t gravity on earth, I’d still fall for you.
 You don’t need keys to drive me crazy.
 There’s only one thing I want to change about you, and that’s your last name.
 I know this is going to sound strange, but if I don’t ask you now, I’ll be kicking myself for the rest of the day. I’m running to meet a friend, but I think you’re really drop-dead pretty. Could I have your phone number? I’m not a psycho—I promise. You can give me a fake one if you’re not interested.
-I love your style man
 Sorry, I'm already seeing Botwinkle. I'd rather just be friends with you.
 Four plus four equals eight, but you plus me equals fate.
 Hey, you’re pretty and I’m cute. Together we’d be Pretty Cute.
@@ -98,7 +97,6 @@ If I was a stoplight, everytime you came by I'd turn red, just to glance at you 
 Damn boy, I thought diamonds were pretty until I laid my eyes on you!
 A life without you, would be like a computer without me.
 A life without you, would be like a computer without an OS.
-You look like Jesus if he were a butler in a Russian mansion.
 If you were French Toast, you'd be the most elegant French Toast I've ever seen.
 "Will you marry me?"\n\nThis is a simple one. This line is super effective for anyone. Because it's literally “will you", it is very powerful and intimate. You can do it without even being asked. You can just give a long speech about your dream of marriage, and it will be powerful to your crush.
 I love you. I don’t care if you’re a doggo in a trenchcoat.
@@ -213,7 +211,7 @@ Are you going to kiss me or do I have to lie to my diary?
 I love you like a pig loves not being bacon.
 You're like pizza. Even when you are bad, you're good
 My friend thinks you're kinda cute, but I don't.{answer}I think you're absolutely gorgeous!
-If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet securley and quickly easy! Brave even comples complete with a builtin ad and tracking blocker! Download today at https://brave.com/ ||why did you add this||
+If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet securley and quickly easy! Brave even comples complete with a builtin ad and tracking blocker! Download today at <https://brave.com/>{answer}That was not me omg why was it added help pls no \n -Jonah
 Be unique and different, say yes.
 You be the Dairy Queen and I'll be your Burger King: You treat me right, and I'll do it your way.
 Well, I AM telepathic, and I can tell that you love me. Right?{answer}Darn, I always get "love" and "lust" mixed up.

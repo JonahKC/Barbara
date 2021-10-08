@@ -34,7 +34,7 @@ class SweetCaroline(commands.Cog):
           msgsToDelete.append(await ctx.send(lyric.replace(r'\n', '\n')))
           await sleep(float(dur))
       await vc.leave(ctx)
-      await ctx.channel.purge(limit=len(msgsToDelete), check=self.isMe)
+      await ctx.channel.purge(limit=len(msgsToDelete)+50, check=self.isMe)
     except discord.ClientException:
       await ctx.send(f"Sorry, I'm already in a vc ({ctx.voice_client.channel.name}).")
   

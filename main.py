@@ -11,7 +11,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.5.50'
+BARBARA_VERSION = '3.7.50'
 
 def get_prefix(
     bot, message
@@ -36,13 +36,6 @@ DiscordComponents(bot)
 
 @bot.event
 async def on_ready():
-	#graph setup
-	#graph.setStatic("RAM")
-	#graph.setStatic("CPU")
-	#graph.setStatic(">>> ")
-	#graph.setInput(4,graph.getHeight()-2,1)
-	#graph.emit(graph.setScroll(15))
-	#graph.flush()
 	print(f'Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}')
 	print(f'Logged in as: {fg.lightgreen}{bot.user}{fg.default}')
 	print(f'Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}')
@@ -51,17 +44,14 @@ async def on_ready():
 	print(
 	    f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!"
 	)
-	#graph.setStatic(fg.purple + "-" * 50 + fg.default)
 	shellThread = Process(target=shell.run, name="Thread-Shell")
 	shellThread.start()
 
 
-for filename in os.listdir(
-        './cogs'):  # Loop through every file in the commands folder
+for filename in os.listdir('./cogs'):
 	if filename.endswith('.py'):
 		try:
-			bot.load_extension(
-			    f'cogs.{filename[:-3]}')  # Load the stuff in the file
+			bot.load_extension(f'cogs.{filename[:-3]}')
 			print(
 			    f'{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}cogs.{filename[:-3]}{fg.default}'
 			)
@@ -73,7 +63,6 @@ for filename in os.listdir(
 			print('\n\nEnd of Stacktrace\n\n' + '-' * 50 + '\n\n' + fg.default)
 
 shell.initialize(bot)  # initialize shell evaluation
-
 
 @bot.event
 async def on_message(
@@ -88,6 +77,5 @@ async def on_message(
 				await bot.process_commands(message)
 			else:
 				pass  # The message sent isn't a command
-
 
 bot.run(os.getenv('TOKEN'))
