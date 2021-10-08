@@ -24,7 +24,7 @@ def containsMeese(inputStr):
   print('character trimming and unidecoding')
   inputStr = replaceWords(TRIM_CHARS, unidecode(inputStr), "", -1)
   print('m blacklist')
-  inputStr = replaceWords(M_BLACKLIST, inputStr.lower(), "m", 1)
+  inputStr = replaceWords(M_BLACKLIST, inputStr.lower(), "m", 32)
   print('e blacklist')
   inputStr = replaceWords(E_BLACKLIST, inputStr.lower(), "e", 64)
   print('s blacklist')
