@@ -2,6 +2,8 @@ import config.config as config
 import lib.admin as admin
 import lib.help as libHelp
 import lib.graph as graph
+import time
+from textwrap import dedent
 from discord.ext import commands
 from random import choice
 from asyncio import sleep, TimeoutError
@@ -245,7 +247,13 @@ class BasicCommands(commands.Cog):
       await ctx.send(f'**SUCCESSFULLY RELOADED COG: **`{nameOfCog}`')
   @commands.command()
   async def ping(self, ctx):
-   await ctx.send(f'Pong! 🏓\nPing: `{self.bot.latency} milliseconds`')
+    start_time = time.time()
+    message = await ctx.send("Testing Ping...")
+    end_time = time.time()
+    await message.edit(content=dedent(f"""\
+		Pong! 🏓
+		Bot Latency: `{round(self.bot.latency * 1000)}ms`
+		API Latency: `{round((end_time - start_time) * 1000)}ms`"""))
 
   @commands.command(name='restart')
   @commands.check(admin.jcwytTeam)

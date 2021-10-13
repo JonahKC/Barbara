@@ -45,7 +45,7 @@ You know what’s on the menu?{answer}ME-N-U
 On a scale of 1 to 10, you’re a 9. I’m the 1 you need.
 You can’t spell Quarantine without u r a q t
 My love for you is like dividing by zero, it cannot be defined.
-You are as beautiful as 1.618.
+You are as beautiful as 1.618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391137484754088075386891752126633862223536931793180060766726354433389086595939582905638322661319928290267880675208766962070322210432162695486262963136144381497587012203408058879544547492461856953648644492410443207713449470495658467885098743394422125448770664780915884607499887124007652170.
 You must be √(-1), ’cause you can’t be real.
 You must be the square root of two cause I feel irrational around you.
 Excuse me, you dropped something back there!{answer}This conversation, lets pick it up later tonight.
@@ -309,3 +309,5 @@ You must be made of Fluorine, Iodine, and Neon, because you’re so FINe.
 Your pH must be 14 because you’re the most basic need in my life right now.
 I must be going through anaerobic respiration right now ’cause you take my breath away.
 Hey, can I take a pictute of you? Quickly, it's urgent!{answer}I'm playing cards and I don't have a queen.
+Your interface looks very clean, and *smooth*
+Heyyyyyyyyyyyyy 

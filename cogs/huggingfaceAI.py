@@ -75,7 +75,7 @@ class HuggingfaceAI(commands.Cog):
         "question": quesion,
         "context": summary,
       },
-    }))['answer']
+    }))
     await answer.edit(answerText)
 
 def setup(bot):
