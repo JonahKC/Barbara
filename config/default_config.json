@@ -4,7 +4,7 @@
 	"admin users": [],
   "banned-vcs": [],
 	"link": "[Add a custom link or message here by running `{prefix}link set [link]`. Run `{prefix}link` and nothing after it to disable this command]",
-	"nomees": "true",
+	"nomees": "false",
 	"whitelist": [],
 	"flavor-of-secrets": "normal (can be normal, jokesonyoubot, or botwinkle)",
   "react-to-the-string-nsfw": "false",
