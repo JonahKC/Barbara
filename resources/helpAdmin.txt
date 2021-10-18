@@ -4,6 +4,12 @@
 **General Admin Commands**
 `%messages purge <​limit> <​user>` - Deletes up to `<​limit>` messages from the current channel (if not set, it defaults to 50), optionally from `<​user>` (if not set, deletes all messages).
 `%messages collect <​limit> <​user>` - Collects up to `<​limit>` messages from the current channel into a `.csv` file (if not set, it defaults to 50), optionally from `<​user>` (if not set, collects all messages).
+`%reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
+`%reaction remove [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
+
+`[parameter]` = required
+`<parameter>` = optional
+
 **Find a bug? Email bugs@jcwyt.com.**
 
 **Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
@@ -20,6 +26,10 @@ General Admin Commands
 `{prefix}admin add user [@user]` - Adds user to admin command whitelist.
 `{prefix}admin remove role [@role]` - Removes role from admin command whitelist.
 `{prefix}admin remove user [@user]` - Removes user from admin command whitelist.
+
+`[parameter]` = required
+`<parameter>` = optional
+
 **Find a bug? Email bugs@jcwyt.com.**
 
 **Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
@@ -33,6 +43,10 @@ General Admin Commands
 `{prefix}prefix [new prefix]` - Customize the prefix for all commands from % to whatever you want.
 `{prefix}vc ban-bots <VC NAME>` - Bans bots from the VC you are currently in, or the VC specified by the ID of the VC (you can find IDs by enabling Discord Developer in settings, right-clicking on the VC and clicking Copy ID).
 `{prefix}vc unban-bots <VC NAME>` - Un-bans bots from the VC you are currently in, or the VC specified by the ID of the VC (you can find IDs by enabling Discord Developer in settings, right-clicking on the VC and clicking Copy ID).
+
+`[parameter]` = required
+`<parameter>` = optional
+
 **Find a bug? Email bugs@jcwyt.com.**
 
 **Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
@@ -43,6 +57,10 @@ PAGEBREAK
 `{prefix}config read [option]` - read a specific option from config.
 `{prefix}config reset [option]` - reset an option to the default value
 `{prefix}config set [option] [value]` - set option to value in config.
+
+`[parameter]` = required
+`<parameter>` = optional
+
 **Find a bug? Email bugs@jcwyt.com.**
 
 **Go to <https://barbara.jcwyt.com/adminhelp> for more info.**

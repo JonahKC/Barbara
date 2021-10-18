@@ -18,19 +18,21 @@ class MessageSendingCommands(commands.Cog):
     async def say(self, ctx,*, content: str):
       if config.read(ctx.guild.id, "nomees") == "true":
         if ":meese:" in ctx.message.content.lower():
-          await ctx.reply(self.bot.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
-          await ctx.delete()
+          await ctx.message.reply(self.bot.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
+          await ctx.message.delete()
           await self.bot.get_channel(864644173835665458).send(
             ctx.author.name + ": " + ctx.message.content.lower()
           ) # report in meese deletes
+          return
         else:
           string = meese.replaceWords(config.fetch(ctx.guild.id, "whitelist"), ctx.message.content.lower(), "")
           if meese.containsMeese(string):
-            await ctx.reply(self.bot.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
-            await ctx.delete()
+            await ctx.message.reply(self.bot.MEESE_DELETED_MESSAGE.replace('{nomeese}', str(discord.utils.get(self.bot.emojis, name='nomeese'))))
+            await ctx.message.delete()
             await self.bot.get_channel(864644173835665458).send(
               ctx.author.name + ": " + ctx.message.content.lower()
             )
+            return
       if isinstance(ctx.channel, discord.channel.DMChannel):
         if ctx.message.content.startswith(f"{ctx.prefix}say button"):
             await self.button(ctx, content)
