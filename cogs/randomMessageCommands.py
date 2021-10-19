@@ -2,7 +2,7 @@ import lib.messages as messages
 import config.config as config
 import aiohttp
 from discord.ext import commands
-from discord.channel import DMChannel
+import discord, asyncio
 
 
 class RandomMessageCommands(commands.Cog):
@@ -11,7 +11,7 @@ class RandomMessageCommands(commands.Cog):
 
   @commands.command() # %secret
   async def secret(self, ctx):
-    if isinstance(ctx.channel, DMChannel):
+    if isinstance(ctx.channel, discord.channel.DMChannel):
       await ctx.send(
         messages.random_message(messages.flavorOfSecret("normal")), ctx)
       return
@@ -33,32 +33,20 @@ class RandomMessageCommands(commands.Cog):
     secretsMessageText = "".join(secrets)
     await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
 
-  @commands.Cog.listener()
-  async def on_message(
-    self, message
-  ): # honestly I don't really understand this code myself, but it allows for pickup lines to have replies
-    global previous_pickup_data
-    try:
-      if previous_pickup_data[1] == message.author.id:
-        await message.channel.send(
-          previous_pickup_data[0][previous_pickup_data[2]])
-        if len(previous_pickup_data[0]) - 1 == previous_pickup_data[2]:
-          previous_pickup_data = ["", 000000000000000000, 1]
-          return
-        previous_pickup_data[2] += 1
-    except NameError:
-      previous_pickup_data = ["", 000000000000000000, 1]
-
-  @commands.command() # %pickup
+  @commands.command(name='pickup') # %pickup
   async def pickup(self, ctx):
-    global previous_pickup_data
-    pickup = messages.random_message(messages.MESSAGE_PATHS["pickup"], ctx)
+    def check(m: discord.Message):  # m = discord.Message.
+      return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+    pickup = messages.iterated_pickup(ctx)
     if "{answer}" in pickup:
       pickup = pickup.split("{answer}")
-      await ctx.send(pickup[0])
-      previous_pickup_data = [
-        pickup, ctx.author.id, previous_pickup_data[2]
-      ]
+      pickupMsg = await ctx.send(pickup.pop(0))
+      try:
+        for pickupLine in pickup:
+          await self.bot.wait_for(event='message', check=check, timeout=60.0)
+          await ctx.send(pickup.pop(0))
+      except asyncio.TimeoutError:
+        await pickupMsg.reply('\n'.join(pickup))
       return
     await ctx.send(pickup)
 
@@ -83,7 +71,7 @@ class RandomMessageCommands(commands.Cog):
                  'Accept':
                  'text/plain',
                  'User-Agent':
-                 'Barabara / 2.0.0 Barbara the Discord bot'
+                 'Barabara the Discord bot'
                }) as r:
         res = await r.text(encoding='utf-8')
         await dadjokeMessage.edit(content=res)

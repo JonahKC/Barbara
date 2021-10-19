@@ -1,17 +1,16 @@
-import lib.graph as graph
-
-graph.init()
+#import lib.graph as graph
+#graph.init()
 
 import os, discord, traceback
-from multiprocessing import Process
+#from multiprocessing import Process
 from console import fg
-import lib.shell as shell
+#import lib.shell as shell
 from discord.ext import commands
 import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.9.59'
+BARBARA_VERSION = '3.10.60'
 
 def get_prefix(
     bot, message
@@ -28,7 +27,8 @@ activity = discord.Activity(type=discord.ActivityType.watching,
                             name='jcwyt.com')
 bot = commands.Bot(command_prefix=get_prefix,
                    intents=intents,
-                   activity=activity)
+                   activity=activity,
+									 case_insensitive=True)
 bot.remove_command('help')
 
 DiscordComponents(bot)
@@ -44,8 +44,8 @@ async def on_ready():
 	print(
 	    f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!"
 	)
-	shellThread = Process(target=shell.run, name="Thread-Shell")
-	shellThread.start()
+	#shellThread = Process(target=shell.run, name="Thread-Shell")
+	#shellThread.start()
 
 
 for filename in os.listdir('./cogs'):
@@ -62,20 +62,18 @@ for filename in os.listdir('./cogs'):
 				print(i)
 			print('\n\nEnd of Stacktrace\n\n' + '-' * 50 + '\n\n' + fg.default)
 
-shell.initialize(bot)  # initialize shell evaluation
+#shell.initialize(bot)  # initialize shell evaluation
 
 @bot.event
-async def on_message(
-        message):  # If user doesn't have permission, tell them here
-	ctx = await bot.get_context(message)
-	if ctx.valid:
-		if ctx.command.name in admin.RESTRICTED_COMMANDS and not admin.perms(
-		    ctx):
-			await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
-		else:
-			if ctx.prefix is not None:
-				await bot.process_commands(message)
-			else:
-				pass  # The message sent isn't a command
+async def on_message(message):  # Perms
+  ctx = await bot.get_context(message)
+  if ctx.valid:
+    if ctx.command.name in admin.RESTRICTED_COMMANDS and not admin.perms(ctx):
+      await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
+    else:
+      if ctx.prefix is not None:
+        await bot.process_commands(message)
+      else:
+        pass  # The message sent isn't a command
 
 bot.run(os.getenv('TOKEN'))

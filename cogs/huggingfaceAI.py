@@ -52,6 +52,7 @@ class HuggingfaceAI(commands.Cog):
   async def hiJosh(self, ctx):
     await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", str(discord.utils.get(self.bot.emojis, name='Susstew')))))
 
+  """
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
     answer = await ctx.send("Waiting for Wikipedia...")
@@ -77,6 +78,7 @@ class HuggingfaceAI(commands.Cog):
       },
     }))
     await answer.edit(answerText)
+  """
 
 def setup(bot):
   bot.add_cog(HuggingfaceAI(bot))

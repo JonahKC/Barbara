@@ -26,7 +26,7 @@ class ReactionCommand(commands.Cog):
     messageToReact = (await ctx.channel.history(limit=2).flatten())[1]
     for reaction in reactions:
       try:
-        await messageToReact.remove_reaction(reaction)
+        await messageToReact.remove_reaction(reaction, self.bot.user)
       except HTTPException:
         await ctx.send(f"Invalid Reaction: {reaction}", delete_after=3.0)    
     await ctx.message.delete()

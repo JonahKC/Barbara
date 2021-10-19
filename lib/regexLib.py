@@ -20,7 +20,7 @@ def replaceWords(words, string, replaceWith, replace=1):
   for word in words:
     newString = string.replace(word, replaceWith, replace)
     #if newString != string:
-    #print(word + ': ' + newString)
+    #  print(word + ': ' + newString)
     string = newString
   return string.lower()
 
@@ -34,8 +34,8 @@ def containsMeese(inputStr):
   inputStr = unidecode(inputStr)
   #print('FINAL STRING: ' + inputStr)
   contains_meese = re.search(MEESE_REGEX, inputStr)
-  if contains_meese == None:
-    contains_meese = re.search(MEESE_REGEX, reverseString(inputStr))
+  #if contains_meese == None:
+  #  contains_meese = re.search(MEESE_REGEX, reverseString(inputStr))
   if contains_meese == None:
     return False
   return True

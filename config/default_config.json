@@ -9,5 +9,6 @@
 	"flavor-of-secrets": "normal (can be normal, jokesonyoubot, or botwinkle)",
   "react-to-the-string-nsfw": "false",
   "nsfw-detection-reactions": ["🤬", "😡"],
-	"publicly-renameable-channels": []
+	"publicly-renameable-channels": [],
+	"pickup-internal": 0
 }

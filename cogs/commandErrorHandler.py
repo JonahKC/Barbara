@@ -105,7 +105,7 @@ class ErrorHandler(commands.Cog):
 
     #traceback.print_exception(type(error), error, error.__traceback__, file=stderr)
     stack = traceback.extract_tb(error.__traceback__)
-    print(console.fg.red+f'Error: {str(type(error))}')
+    print(console.fg.red+f'Error: {repr(error)}\nMessage: {str(error)}\nStacktrace:')
     for i in stack.format():
       print(i)
     print('\n\nEnd of Stacktrace\n\n'+'-'*50+'\n\n'+console.fg.default)
