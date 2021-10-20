@@ -33,7 +33,6 @@ bot.remove_command('help')
 
 DiscordComponents(bot)
 
-
 @bot.event
 async def on_ready():
 	print(f'Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}')
