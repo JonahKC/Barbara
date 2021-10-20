@@ -1,12 +1,15 @@
 from discord import PCMVolumeTransformer, FFmpegPCMAudio
-from time import sleep
+from asyncio import sleep
 
-def play(ctx, query, blockUntilDone=False): # Play an audio file in a vc
+async def play(ctx, query, blockUntilDone=False): # Play an audio file in a vc
   source = PCMVolumeTransformer(FFmpegPCMAudio(query))
   ctx.voice_client.play(source)
   if blockUntilDone:
-    while not ctx.voice_client.is_done():
-      sleep(1)
+    try:
+      while ctx.voice_client.is_playing():
+        await sleep(1)
+    except AttributeError:
+      await ctx.message.delete()
 
 async def join(ctx): # Join a vc
   try:

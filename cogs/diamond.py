@@ -25,7 +25,7 @@ class SweetCaroline(commands.Cog):
     try:
       await vc.join(ctx)
       await sleep(1)
-      vc.play(ctx, 'neil-diamond-sweet-caroline.mp3')
+      await vc.play(ctx, 'neil-diamond-sweet-caroline.mp3')
       with open('./resources/sweet_caroline.txt') as file:
         for line in file:
           lineMatch = match(r"(?P<lyric>.*):(?P<time>\d*.\d*)",line)

@@ -8,7 +8,7 @@ import os
 from typing import Optional
 
 QA_URL = "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad"
-GPT_NEO_URL = "https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.7B"
+GPT_NEO_URL ="https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.7B"
 
 headers = {"Authorization": f"Bearer {os.getenv('API_TOKEN')}"}
 
@@ -42,7 +42,7 @@ class HuggingfaceAI(commands.Cog):
         reqJSON["max_new_tokens"] = length
       rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON, {'wait_for_model': True})
       answerText = rawAnswer[0]['generated_text']
-    except KeyError:
+    except Exception:
       jsonStuff = str(rawAnswer).replace("\'", "\"")
       await answer.edit(f"Sorry, an unexpected `KeyError` was encountered talking to the API. Please report bugs in the JCWYT Discord, or by contacting bugs@jcwyt.com. When you report the error, give us this: ```json\n{jsonStuff[:1500] + ('...' and jsonStuff[:1500])}\n```")
       return
@@ -52,6 +52,7 @@ class HuggingfaceAI(commands.Cog):
   async def hiJosh(self, ctx):
     await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", str(discord.utils.get(self.bot.emojis, name='Susstew')))))
 
+  # Deprecated AIQA command (you can do this with a specific prompt for GPT-Neo)
   """
   @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
   async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):

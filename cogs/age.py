@@ -3,6 +3,8 @@ from datetime import timedelta, datetime
 from discord.ext import commands
 import discord
 
+SCHOOL_DAYS_OFF = 1
+
 class Age(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -21,11 +23,11 @@ class Age(commands.Cog):
     fromDate = datetime(2021, 9, 1, 8, 45)
     rawAge = datetime.now() - datetime(2021, 9, 1, 8, 45)
     daygenerator = (fromDate + timedelta(x + 1) for x in range((datetime.now() - fromDate).days + 1))
-    weekdays = sum(1 for day in daygenerator if day.weekday() < 5)
+    weekdays = sum(1 for day in daygenerator if day.weekday() < 5) - SCHOOL_DAYS_OFF
     if precision in ("accurately", "precisely"):
-      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.precisedelta(rawAge)}` ago.\nThere have been `{weekdays} school days` (not accounting for snow days, etc.).")
+      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.precisedelta(rawAge)}` ago.\nThere have been `{weekdays} school days`")
     else:
-      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.naturaldelta(rawAge)}` ago.\nThere have been `{weekdays} school days` (not accounting for snow days, etc.).")		
+      await ctx.send(f"The SPS School Year:\nThe school year started `{humanize.naturaldelta(rawAge)}` ago.\nThere have been `{weekdays} school days`")		
 
   @howOldIs.command(name='theserver')
   async def howOldIsTheServer(self, ctx, precision="imprecisely"):

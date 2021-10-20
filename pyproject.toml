@@ -23,6 +23,10 @@ psutil = "^5.8.0"
 pandas = "^1.3.2"
 pymediawiki = "^0.7.0"
 Unidecode = "^1.3.2"
+aiodns = "^3.0.0"
+Brotli = "^1.0.9"
+cchardet = "^2.1.7"
+orjson = "^3.6.4"
 
 [tool.poetry.dev-dependencies]
 
