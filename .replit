@@ -1,2 +1,2 @@
-run='python main.py'
-language='python'
+run='sh autorestart.sh'
+language='python3'
