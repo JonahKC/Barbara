@@ -312,10 +312,8 @@ Your interface looks very clean, and *smooth*
 Are you Medusa?{answer}Cause once I saw you the first time, I couldn't look back.
 Are you my house burning down? Cause you take my breath away.
 Are you a mortar shell?{answer}Cause when I hear you whistling, I stop what I'm doing, and try to find out where you're coming from, and where you're going.
-Are you a Fairchild Republic A-10 Thunderbolt II?{answer}Cause you're wayyy above me.
 Are you Alzheimers?{answer}Cause I forgot where I was going with  this one.
 Are you a large sum of money?{answer}Cause I love you.
 Let's start an LLC together so our wedding can be deductable.
 Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style autocannon mounted in the United States Air Force's Fairchild Republic A-10 Thunderbolt II?{answer}Cause you never fail to blow me away.
-Wanna go out on friday?{answer}After all, it is the day you're supposed to take out the trash.
 Are you a mirror?{answer}Cause I can't stop admiring everything about you.

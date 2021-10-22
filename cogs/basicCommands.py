@@ -6,7 +6,7 @@ import time
 from textwrap import dedent
 from discord.ext import commands
 from random import choice
-from asyncio import sleep, TimeoutError
+from asyncio import sleep
 from discord.channel import DMChannel
 from discord_components import Button, ButtonStyle, InteractionType
 
@@ -109,7 +109,7 @@ class BasicCommands(commands.Cog):
             ]
           ]
         )
-      except TimeoutError:
+      except Exception:
           #Disable and get outta here
           await helpMsg.edit(helpPages[currentPage]+"\nButtons disabled to stop Discord API rate limiting.", components=[])
           break
@@ -191,7 +191,7 @@ class BasicCommands(commands.Cog):
             ]
           ]
         )
-      except TimeoutError:
+      except Exception:
           #Disable and get outta here
           await helpMsg.edit(helpPages[currentPage]+"\nButtons disabled to stop Discord API rate limiting.", components=[])
           break
