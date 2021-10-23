@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.12.65'
+BARBARA_VERSION = '3.12.66'
 
 def get_prefix(
     bot, message
@@ -75,5 +75,9 @@ async def on_message(message):  # Perms
         await bot.process_commands(message)
       else:
         pass  # The message sent isn't a command
+
+@bot.command(name='version') # %version
+async def versionCommand(ctx):
+  await ctx.send(f'Barbara `v{BARBARA_VERSION}`\nDiscord.py `v{discord.__version__}`')
 
 bot.run(os.getenv('TOKEN'))
