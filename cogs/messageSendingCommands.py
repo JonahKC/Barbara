@@ -25,6 +25,14 @@ class MessageSendingCommands(commands.Cog):
       await ctx.message.delete()
       await ctx.send(ctx.author.mention + ": " + content)
 
+  @say.command(name='in')
+  async def sayIn(self, ctx, channelID: int, *, content: str):
+    if perms(ctx):
+      await self.bot.get_channel(channelID).send(content)
+    else:
+      await ctx.send('in' + content)
+
+  @say.command(name='button')
   async def button(self, ctx, url: str, urlLabel: str, *, content: str):
     if perms(ctx):
       await ctx.send(content, components=[Button(style=ButtonStyle.URL, label=urlLabel, url=url)])
