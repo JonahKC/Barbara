@@ -34,10 +34,10 @@ def iterated_pickup(ctx):
       config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
   if(pickupIndex >= len(pickups) - 1):
     return reset_pickups(ctx)
-  return result
+  return result.replace('{author}', ctx.author.display_name).replace(r'\n', '\n')
 
 def random_message(path, ctx):
-  return _get_rand(path,1).replace("{author}", ctx.author.name).replace(r"\n", '\n') # for heapq add [0] after _get_rand
+  return _get_rand(path,1).replace("{author}", ctx.author.display_name).replace(r'\n', '\n') # for heapq add [0] after _get_rand
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):
