@@ -6,6 +6,7 @@ class JoinMessage(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
+  @commands.Cog.listener()
   async def on_guild_join(self, guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
