@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.11.65'
+BARBARA_VERSION = '3.12.65'
 
 def get_prefix(
     bot, message
@@ -66,6 +66,7 @@ for filename in os.listdir('./cogs'):
 @bot.event
 async def on_message(message):  # Perms
   ctx = await bot.get_context(message)
+  bot.dispatch('pre_message', message)
   if ctx.valid:
     if ctx.command.name in admin.RESTRICTED_COMMANDS and not admin.perms(ctx):
       await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
