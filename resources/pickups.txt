@@ -307,7 +307,7 @@ Every time I see you, my cardiovascular system gets all worked up.
 You must be made of Fluorine, Iodine, and Neon, because you’re so FINe.
 Your pH must be 14 because you’re the most basic need in my life right now.
 I must be going through anaerobic respiration right now ’cause you take my breath away.
-Hey, can I take a pictute of you? Quickly, it's urgent!{answer}I'm playing cards and I don't have a queen.
+Hey, can I take a picture of you? Quickly, it's urgent!{answer}I'm playing cards and I don't have a queen.
 Your interface looks very clean, and *smooth*
 Are you Medusa?{answer}Cause once I saw you the first time, I couldn't look back.
 Are you my house burning down? Cause you take my breath away.
