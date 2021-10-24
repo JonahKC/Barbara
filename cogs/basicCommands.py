@@ -29,8 +29,8 @@ class BasicCommands(commands.Cog):
 
   @commands.Cog.listener()
   async def on_message(self, message):
-      if self.bot.user.mention in message.content:
-          await message.channel.send(f'Hi, {message.author.display_name}! Run `{config.read(message.guild.id, "prefix")}help` for help accessing my commands.')
+    if self.bot.user.mention in message.content:
+      await message.channel.send(f'Hi, {message.author.display_name}! Run `{config.read(message.guild.id, "prefix")}help` for help accessing my commands.')
 
   @commands.group(name='help',aliases=['h'], invoke_without_command=True)
   async def helpCommand(self, ctx, DM: str=""): # %help
