@@ -99,7 +99,7 @@ class ConfigCommand(commands.Cog):
 
   @commands.command(name='meesedetect') # %meesedetect
   async def meesedetect(self, ctx, toggle: bool):
-    result = config.write(ctx.guild.id, "nomees", str(toggle))
+    result = config.write(ctx.guild.id, "nomees", str(toggle).lower())
     if result == None:
       await ctx.send(f"Set config value `nomees` to `{toggle}`.")
     else:
