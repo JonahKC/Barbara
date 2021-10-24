@@ -80,5 +80,26 @@ class ConfigCommand(commands.Cog):
       return
     await ctx.send(f"Removed config value `{value}` from `{arr}`.")
 
+  @commands.group(name='link',aliases=['info','about'], invoke_without_command=True) # %link
+  async def link(self, ctx, ):
+    link = config.read(ctx.guild.id, "link").replace(
+      "{prefix}", ctx.prefix
+    ) # read the link message for this server, and replace the text {prefix} with the bot's prefix.
+    if link.replace(" ", "") != "":
+      await ctx.send(link)
+
+  @link.command(name='set') # %link set
+  async def setLink(
+    self,
+    ctx, *,
+    arg=""
+  ):
+    config.write(ctx.guild.id, "link", arg)
+    await ctx.send(f"Set link to {arg}")
+
+  @commands.command(name='meesedetect') # %meesedetect
+  async def meesedetect(self, ctx, toggle: bool):
+    config.write(ctx.guild.id, "nomees", str(toggle))
+
 def setup(bot):
   bot.add_cog(ConfigCommand(bot))

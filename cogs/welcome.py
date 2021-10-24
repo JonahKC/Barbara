@@ -17,7 +17,7 @@ class JoinMessage(commands.Cog):
     else:
       await find(lambda x: x.name == 'general',  guild.text_channels).send(dedent(f"""
         Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.
-        Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%config set nomees true` true to enable ||meese|| blocking (it’s disabled by default).
+        Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).
         If you need any help, go to <https://barbara.jcwyt.com/>
         {str(get(self.bot.emojis, name='barbara'))}"""))
   

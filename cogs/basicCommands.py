@@ -206,23 +206,6 @@ class BasicCommands(commands.Cog):
   async def emily(self, ctx):
     await ctx.send(choice(("hi Emily", "@emi1ypeng", "I wonder what Emily's listening to today... Nevermind, it's Taylor Swift")))
 
-  @commands.group(name='link',aliases=['info','about'], invoke_without_command=True) # %link
-  async def link(self, ctx, ):
-    link = config.read(ctx.guild.id, "link").replace(
-      "{prefix}", ctx.prefix
-    ) # read the link message for this server, and replace the text {prefix} with the bot's prefix.
-    if link.replace(" ", "") != "":
-      await ctx.send(link)
-
-  @link.command(name='set') # %link set
-  async def setLink(
-    self,
-    ctx, *,
-    arg=""
-  ):
-    config.write(ctx.guild.id, "link", arg)
-    await ctx.send(f"Set link to {arg}")
-
   @commands.command(name='bazzi', aliases=['ifly'])
   async def perfectlyNormalFunction(self, ctx):
     for lyric in (("I guess what I'm sayin'", 0.6), (" I guess what I'm sayin'", 0.5), ("I guess what I'm sayin' is, I", 2), ("I f||uckin'|| love yooouuuuuuu", 0)):
