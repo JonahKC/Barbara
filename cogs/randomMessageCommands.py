@@ -33,7 +33,7 @@ class RandomMessageCommands(commands.Cog):
     secretsMessageText = "".join(secrets)
     await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
 
-  @commands.command(name='pickup') # %pickup
+  @commands.group(name='pickup') # %pickup
   async def pickup(self, ctx):
     def check(m: discord.Message):
       return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
@@ -50,7 +50,7 @@ class RandomMessageCommands(commands.Cog):
       return
     await ctx.send(pickup)
 
-  @commands.command(name='breakup') # %breakup
+  @pickup.command(name='breakup') # %breakup
   async def breakup(self, ctx):
     def check(m: discord.Message):
       return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
