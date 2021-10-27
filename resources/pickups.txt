@@ -316,3 +316,66 @@ Are you Alzheimers?{answer}Cause I forgot where I was going with this one.
 Are you a large sum of money?{answer}Cause I love you.
 Let's start an LLC together so our dates can be deductable.
 Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style autocannon mounted in the United States Air Force's Fairchild Republic A-10 Thunderbolt II?{answer}Cause you never fail to blow me away.
+I’d join the dark side as long as you were there.
+I must be drawn to the Force, because {author}, Yoda only one for me.
+Is your last name Skywalker? Because you Luke so good.
+Did you like Rogue One? Maybe if we went out, we could be Rogue Two?
+Wow, is your lightsaber yellow? Because you’re a total Rey of sunshine.
+R4 is red, R2 is blue. If I was the Force, I’d be with you.
+Will you BB my D8?
+Wow, call me Chewbacca, because I feel so Wookiee to have found you!
+You’ve been looking for love in Alderaan places.
+You’re hotter than the flames on Mustafar.
+Wow, I’m so glad I found you… because I’ve Ben Solo for too long.
+You’re the droid I’ve been looking for.
+Are you a doughnut?{answer}Because you're a-dough-rable.
+Lets go watch "The Simpsons", you can be Marge and I can take you Homer!"
+I know the first 10 digits of pi, but somehow, I don’t know yours.
+Your dad must have worked at Ikea because you're put together nice!
+We learned some pretty important dates in history class today, but I couldn’t help noticing that you aren’t a part of any of them.
+I didn’t know angels go to [insert name of your high school].
+You've stolen a pizza my heart.
+I cannoli have eyes for you.
+I think we're *mint* to be!
+I was feeling a little off today—but you’ve turned me on again!
+Are you a magician? Because when I’m looking at you, you make everyone else disappear!
+Something’s wrong with my eyes: I can’t take them off you.
+Remember when you asked me who I had a crush on the other day?{answer}I plead the fifth.
+Knock, knock.{answer}Police.{answer}Police tell me I’m your type!
+Knock, knock.{answer}Owl.{answer}Owl be seeing you soon, right?
+Knock, knock.{answer}Doya.{answer}Do-ya want to be my partner?
+Knock, knock.{answer}Gopher.{answer}Gopher me, obviously.
+Knock, knock.{answer}Eyesore.{answer}Eyesore do like you!
+Knock, knock.{answer}Pauline.{answer}I think I’m Pauline in love with you.
+Knock, knock.{answer}Kiss.{answer}Kiss me!
+Knock, knock.{answer}Iguana.{answer}Iguana hold your hand.
+Knock, knock.{answer}Candice.{answer}Candice be love I’m feeling right now?
+Knock, knock.{answer}Ben.{answer}Ben thinking about you all day.
+You must be a high-test score because I’m dying to take you home to meet my mother.
+Are you Harvard? Because I know I have no chance with you.
+Forget student loans, you’ve got all my interest.
+I’m a statistics major, and I think you have the best curves I’ve ever seen.
+I’m the new school janitor. I’d love to sweep you off your feet.
+Are you my future roommate? Because I just can't stop talking to you online anAre you the SATs? Because I would gladly sit in a room with you for six hours.
+I don’t know how I’ll ever get to class on time when it’s so easy to get lost in your eyes.
+Are you a creeper? Because you make my heart explode.
+I am falling in love with you. Let's meet up. I swear I am not a 55-year-old man in his mom's basement.
+I'm like a zombie and you're like the sun - you light me on fire!
+You must be from nether, because you are out of this world.
+Are you from Candy Crush Saga? Because you're real sweet.
+Are you a streamer? Because I have been following you.
+You're my favorite streamer, want to do more than Just Chatting?
+You look like my next girlfriend.
+Knock, knock.{answer}Anita.{answer}Anita kiss from you, please!
+Knock, knock.{answer}Aldo.{answer}Aldo anything for you!
+Hey baby, are your pants reflective aluminum alloy?{answer}Because I can see myself in them.
+If I were a `function()`, would you ~~invoke~~ call me?
+Is it hot in here, or did your internal fan system just crash?
+My scanners detected high amounts of sexiness in this quadrant, and I think I have found the source.
+Were you designed for use on Mars? Because your chassis is out of this world!
+What’s your IP address? I’d sure love to ping you sometime.
+You're so hot you need to be water cooled.
+Are you as spicy as your artisan hot sauce?
+Have you ever seen a guy eat an entire can of pinto beans in under 10 seconds?{answer}Would you like to?
+Okay, here’s the deal: I’ll let you take the last stuffed crust frozen pizza if you let me take you to dinner. At your house. Where we’ll be having frozen pizza.
+There are over six hundred varieties of heirloom tomatoes, but there’s only one of ~~me~~ you.

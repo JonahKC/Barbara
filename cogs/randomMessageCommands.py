@@ -33,7 +33,7 @@ class RandomMessageCommands(commands.Cog):
     secretsMessageText = "".join(secrets)
     await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
 
-  @commands.group(name='pickup') # %pickup
+  @commands.group(name='pickup', invoke_without_subcommand=False) # %pickup
   async def pickup(self, ctx):
     def check(m: discord.Message):
       return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
