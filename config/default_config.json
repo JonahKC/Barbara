@@ -10,5 +10,6 @@
   "react-to-the-string-nsfw": "false",
   "nsfw-detection-reactions": ["🤬", "😡"],
 	"publicly-renameable-channels": [],
-	"pickup-internal": 0
+	"pickup-internal": 0,
+	"breakup-internal": 0
 }

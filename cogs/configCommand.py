@@ -8,8 +8,7 @@ class ConfigCommand(commands.Cog):
     self.bot = bot
 
   def fancifyCfg(self, cfg):
-    processedConf = "**All Config Options:**\n"
-    processedConf += '```json\n' + json.dumps(cfg, indent=2) + '```'
+    processedConf = '```json\n' + json.dumps(cfg, indent=2) + '```'
     processedConf += '\n'
     return processedConf
 
@@ -22,8 +21,8 @@ class ConfigCommand(commands.Cog):
       await ctx.send(str(config.default()))
       return
     if property is None:
-      conf = config.get(ctx.guild.id)
-      conf = self.fancifyCfg(conf)
+      conf = "**All Config Options:**\n"
+      conf += self.fancifyCfg(config.get(ctx.guild.id))
       conf = re.sub('<@([&!](\d+))>', '<\\\\@\\1>', str(conf))
       conf = re.sub('@everyone', '\\\\@ everyone', str(conf))
       await ctx.send(conf)

@@ -1,5 +1,5 @@
 #import heapq
-import random
+import random, os
 import config.config as config
 
 MESSAGE_PATHS = {
@@ -9,8 +9,8 @@ MESSAGE_PATHS = {
   "normal (can be normal, jokesonyoubot, or botwinkle)": "./resources/secrets.txt",
 }
 
-def shuffle_pickups():
-  shuffledPickupsRaw = open('./temp/shuffled-pickups.txt', 'w')
+def shuffle_pickups(id: int=1):
+  shuffledPickupsRaw = open(f'./temp/shuffled-pickups-{id}.txt', 'w')
   pickupsRaw = open('./resources/pickups.txt', 'r')
   pickupLines = pickupsRaw.readlines()
   random.shuffle(pickupLines)
@@ -20,20 +20,51 @@ def shuffle_pickups():
 
 def reset_pickups(ctx):
   config.write(ctx.guild.id, 'pickup-internal', 0)
-  shuffle_pickups()
-  with open('./temp/shuffled-pickups.txt', 'r') as f:
+  shuffle_pickups(ctx.guild.id)
+  with open(f'./temp/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
     return f.readline()
 
 def iterated_pickup(ctx):
   pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
-  result = "INTERNAL_PICKUP_ERROR (messages.py)"
-  with open('./temp/shuffled-pickups.txt', 'r') as f:
+  result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
+  if not os.path.exists(f'./temp/shuffled-pickups-{ctx.guild.id}.txt'):
+    open(f'./temp/shuffled-pickups-{ctx.guild.id}.txt', 'x').close()
+  with open(f'./temp/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
     pickups = f.readlines()
     if(pickupIndex < len(pickups) - 1):
       result = pickups[pickupIndex]
       config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
   if(pickupIndex >= len(pickups) - 1):
     return reset_pickups(ctx)
+  return result.replace('{author}', ctx.author.display_name).replace(r'\n', '\n')
+
+def shuffle_breakups(id: int=1):
+  shuffledBreakupsRaw = open(f'./temp/shuffled-breakups-{id}.txt', 'w')
+  breakupsRaw = open('./resources/breakups.txt', 'r')
+  breakupLines = breakupsRaw.readlines()
+  random.shuffle(breakupLines)
+  shuffledBreakupsRaw.writelines(breakupLines)
+  breakupsRaw.close()
+  shuffledBreakupsRaw.close()
+
+def reset_breakups(ctx):
+  config.write(ctx.guild.id, 'breakup-internal', 0)
+  shuffle_breakups(ctx.guild.id)
+  with open(f'./temp/shuffled-breakups-{ctx.guild.id}.txt', 'r') as f:
+    return f.readline()
+
+def iterated_breakup(ctx):
+  breakupIndex = config.read(ctx.guild.id, 'breakup-internal')
+  result = "`INTERNAL_BREAKUP_ERROR (messages.py)`"
+  if not os.path.exists(f'./temp/shuffled-breakups-{ctx.guild.id}.txt'):
+    open(f'./temp/shuffled-breakups-{ctx.guild.id}.txt', 'x').close()
+  with open(f'./temp/shuffled-breakups-{ctx.guild.id}.txt', 'r') as f:
+    breakups = f.readlines()
+    if(breakupIndex < len(breakups) - 1):
+      result = breakups[breakupIndex]
+      config.write(ctx.guild.id, 'breakup-internal', breakupIndex + 1)
+  if(breakupIndex >= len(breakups) - 1):
+    return reset_breakups(ctx)
   return result.replace('{author}', ctx.author.display_name).replace(r'\n', '\n')
 
 def random_message(path, ctx):

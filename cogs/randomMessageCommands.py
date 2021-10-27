@@ -35,7 +35,7 @@ class RandomMessageCommands(commands.Cog):
 
   @commands.command(name='pickup') # %pickup
   async def pickup(self, ctx):
-    def check(m: discord.Message):  # m = discord.Message.
+    def check(m: discord.Message):
       return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
     pickup = messages.iterated_pickup(ctx)
     if "{answer}" in pickup:
@@ -49,6 +49,23 @@ class RandomMessageCommands(commands.Cog):
         await pickupMsg.reply('\n'.join(pickup))
       return
     await ctx.send(pickup)
+
+  @commands.command(name='breakup') # %breakup
+  async def breakup(self, ctx):
+    def check(m: discord.Message):
+      return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+    breakup = messages.iterated_breakup(ctx)
+    if "{answer}" in breakup:
+      breakup = breakup.split("{answer}")
+      breakupMsg = await ctx.send(breakup.pop(0))
+      try:
+        for breakupLine in breakup:
+          await self.bot.wait_for(event='message', check=check, timeout=60.0)
+          await ctx.send(breakup.pop(0))
+      except asyncio.TimeoutError:
+        await breakupMsg.reply('\n'.join(breakup))
+      return
+    await ctx.send(breakup)
 
   @commands.command() # %fact
  # @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
