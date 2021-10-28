@@ -80,12 +80,12 @@ Remember how you said that you can’t live without me?{answer}Well it’s time 
 I expected some baggage with our relationship but I didn’t expect the cargo of the Titanic to come floating to the surface.
 You like Scooby-Doo?{answer}Then let’s split up, gang!
 Are you American cheese because you come as a single now.
-Hey, did it hurt when you fell from heaven? because your face is kinda messed up and i’ve realized that my love for you was blinding and I don’t find you physically attractive anymore. physical attraction is a core tenet of my relationships and I know that makes me selfish but I can’t help it i’m so sorry\ncan we stay friends tho lol haha
+Hey, did it hurt when you fell from heaven? Because your face is kinda messed up and I’ve realized that my love for you was blinding and I don’t find you physically attractive anymore. Physical attraction is a core tenet of my relationships and I know that makes me selfish but I can’t help it i’m so sorry\ncan we stay friends tho lol haha
 Are you an overdue library book?{answer}Because I don’t want you anymore. 
-Are you a biblical angel?{answer}because you’ve got so many eyes you remind me of a spider. I have horrible arachnophobia and you’re scaring me.  I think we should break up. 
+Are you a biblical angel?{answer}Because you’ve got so many eyes you remind me of a spider. I have horrible arachnophobia and you’re scaring me. I think we should break up. 
 It’s not me… it’s you. 
 Are you warm drinking water?{answer}Because you’re disgusting and I hate you.
 Are you a parking ticket?{answer}Because I really didn’t want you in the first place and now it’s this whole thing but I still don’t want you.
-If you were a vegetable, you’d be a carrot. I don’t really like carrots
+If you were a vegetable, you’d be a carrot. I don’t like carrots
 If being loving and communicative was a crime, you’d be set free. You can’t give me what I want in a relationship I’m sorry
-Well here I am. what are your other two wishes?{answer}Because both of mine are to break up with you, so sorry but this isn’t working out.
+Well here I am. What are your other two wishes?{answer}Because both of mine are to break up with you, so sorry but this isn’t working out.
