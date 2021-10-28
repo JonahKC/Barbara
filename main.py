@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.14.78'
+BARBARA_VERSION = '3.14.85'
 
 def get_prefix(
     bot, message

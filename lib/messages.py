@@ -24,20 +24,6 @@ def reset_pickups(ctx):
   with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
     return f.readline()
 
-def iterated_pickup(ctx):
-  pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
-  result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
-  if not os.path.exists(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt'):
-    open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'x').close()
-  with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
-    pickups = f.readlines()
-    if(pickupIndex < len(pickups) - 1):
-      result = pickups[pickupIndex]
-  config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
-  if(pickupIndex >= len(pickups) - 1):
-    return reset_pickups(ctx)
-  return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
-
 def shuffle_breakups(id: int=1):
   shuffledBreakupsRaw = open(f'./temp/shuffled/shuffled-breakups-{id}.txt', 'w')
   breakupsRaw = open('./resources/breakups.txt', 'r')
@@ -58,6 +44,7 @@ def iterated_breakup(ctx):
   result = "`INTERNAL_BREAKUP_ERROR (messages.py)`"
   if not os.path.exists(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt'):
     open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'x').close()
+    reset_breakups(ctx)
   with open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'r') as f:
     breakups = f.readlines()
     if(breakupIndex < len(breakups) - 1):
@@ -67,8 +54,23 @@ def iterated_breakup(ctx):
     return reset_breakups(ctx)
   return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
 
+def iterated_pickup(ctx):
+  pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
+  result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
+  if not os.path.exists(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt'):
+    open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'x').close()
+    reset_pickups(ctx)
+  with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
+    pickups = f.readlines()
+    if(pickupIndex < len(pickups) - 1):
+      result = pickups[pickupIndex]
+  config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
+  if(pickupIndex >= len(pickups) - 1):
+    return reset_pickups(ctx)
+  return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
+
 def random_message(path, ctx):
-  return _get_rand(path,1).replace("{author}", ctx.author.display_name).replace(r'\n', '\n') # for heapq add [0] after _get_rand
+  return _get_rand(path,1).replace("{author}", ctx.author.display_name).replace(r'\n', '\n').replace(r'{prefix}', config.read(ctx.guild.id, "prefix"))
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):
@@ -77,8 +79,8 @@ def flavorOfSecret(flavorOfSecret):
     return MESSAGE_PATHS["normal"]
   return MESSAGE_PATHS[flavorOfSecret]
 
-def _get_rand(path,number):
+def _get_rand(path):
   with open(path) as f:
     return random.choice(f.readlines())
     # Less random but also less memory intensive alternative
-		#return heapq.nlargest(number, f, key=lambda L: random.random())
+		#return heapq.nlargest(1, f, key=lambda L: random.random())[0]

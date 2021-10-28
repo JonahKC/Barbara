@@ -56,14 +56,14 @@ It's not you...it's your taste in music
 Wanna see a magic trick?{answer}POOF, you're single! 
 It's not because I don't like you, it's because I hate you.
 Remember when I asked you out?{answer}Well, I was talking to the person behind you.
-I’m a 9/10 and you’re not the 1 i need 
+I’m a 9/10 and you’re not the 1 I need 
 Is it hot in here or is my relationship just suffocating me?
 Are you a magician's assistant?{answer}Because I want you to disappear from my life.
 You’re like peanut butter and I’m the jelly. But I’m allergic to nuts
 Do you believe in love at first sight?{answer}How about misery after three years?
 You deserve better and so do I.
 Sorry {author}, but I’m in love with your mom.
-I took a gamble and chose you, now i believe I made the wrong choice.
+I took a gamble and chose you, now I believe I made the wrong choice.
 I treated our relationship like a diet, one cheat day a week.
 Knock Knock. Who’s there?{answer}Single. Single who?{answer}Single you!
 Our relationship is like doing push-ups on your knees. It’s just not working out.
@@ -80,3 +80,12 @@ Remember how you said that you can’t live without me?{answer}Well it’s time 
 I expected some baggage with our relationship but I didn’t expect the cargo of the Titanic to come floating to the surface.
 You like Scooby-Doo?{answer}Then let’s split up, gang!
 Are you American cheese because you come as a single now.
+Hey, did it hurt when you fell from heaven? because your face is kinda messed up and i’ve realized that my love for you was blinding and I don’t find you physically attractive anymore. physical attraction is a core tenet of my relationships and I know that makes me selfish but I can’t help it i’m so sorry\ncan we stay friends tho lol haha
+Are you an overdue library book?{answer}Because I don’t want you anymore. 
+Are you a biblical angel?{answer}because you’ve got so many eyes you remind me of a spider. I have horrible arachnophobia and you’re scaring me.  I think we should break up. 
+It’s not me… it’s you. 
+Are you warm drinking water?{answer}Because you’re disgusting and I hate you.
+Are you a parking ticket?{answer}Because I really didn’t want you in the first place and now it’s this whole thing but I still don’t want you.
+If you were a vegetable, you’d be a carrot. I don’t really like carrots
+If being loving and communicative was a crime, you’d be set free. You can’t give me what I want in a relationship I’m sorry
+Well here I am. what are your other two wishes?{answer}Because both of mine are to break up with you, so sorry but this isn’t working out.

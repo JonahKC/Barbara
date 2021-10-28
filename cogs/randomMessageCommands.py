@@ -33,18 +33,19 @@ class RandomMessageCommands(commands.Cog):
     secretsMessageText = "".join(secrets)
     await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
 
-  @commands.group(name='pickup', invoke_without_subcommand=False) # %pickup
+  @commands.group(name='pickup', invoke_without_command=True) # %pickup
   async def pickup(self, ctx):
     def check(m: discord.Message):
-      return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+      return m.channel.id == ctx.channel.id
     pickup = messages.iterated_pickup(ctx)
     if "{answer}" in pickup:
       pickup = pickup.split("{answer}")
-      pickupMsg = await ctx.send(pickup.pop(0))
+      pickupMsg = await ctx.send(pickup[0])
+      print(pickup)
       try:
-        for pickupLine in pickup:
+        for i in range(len(pickup) - 1):
           await self.bot.wait_for(event='message', check=check, timeout=60.0)
-          await ctx.send(pickup.pop(0))
+          await ctx.send(pickup[i + 1])
       except asyncio.TimeoutError:
         await pickupMsg.reply('\n'.join(pickup))
       return
@@ -53,15 +54,15 @@ class RandomMessageCommands(commands.Cog):
   @pickup.command(name='breakup') # %breakup
   async def breakup(self, ctx):
     def check(m: discord.Message):
-      return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+      return m.channel.id == ctx.channel.id
     breakup = messages.iterated_breakup(ctx)
     if "{answer}" in breakup:
       breakup = breakup.split("{answer}")
-      breakupMsg = await ctx.send(breakup.pop(0))
+      breakupMsg = await ctx.send(breakup[0])
       try:
-        for breakupLine in breakup:
+        for i in range(len(breakup) - 1):
           await self.bot.wait_for(event='message', check=check, timeout=60.0)
-          await ctx.send(breakup.pop(0))
+          await ctx.send(breakup[i + 1])
       except asyncio.TimeoutError:
         await breakupMsg.reply('\n'.join(breakup))
       return
