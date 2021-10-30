@@ -47,7 +47,7 @@ def iterated_breakup(ctx):
     reset_breakups(ctx)
   with open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'r') as f:
     breakups = f.readlines()
-    if(breakupIndex < len(breakups) - 1):
+    if(breakupIndex < len(breakups) - 2): # f.writelines appends a \n to the end, so -2 prevents that from getting sent
       result = breakups[breakupIndex]
   config.write(ctx.guild.id, 'breakup-internal', breakupIndex + 1)
   if(breakupIndex >= len(breakups) - 1):
@@ -62,7 +62,7 @@ def iterated_pickup(ctx):
     reset_pickups(ctx)
   with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
     pickups = f.readlines()
-    if(pickupIndex < len(pickups) - 1):
+    if(pickupIndex < len(pickups) - 2):
       result = pickups[pickupIndex]
   config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
   if(pickupIndex >= len(pickups) - 1):
