@@ -380,3 +380,4 @@ Have you ever seen a guy eat an entire can of pinto beans in under 10 seconds?{a
 Okay, here’s the deal: I’ll let you take the last stuffed crust frozen pizza if you let me take you to dinner. At your house. Where we’ll be having frozen pizza.
 There are over six hundred varieties of heirloom tomatoes, but there’s only one of ~~me~~ you.
 Is your name Mara?{answer}Because I wish Mara my free time were spent with you
+Hey {author}, are you looking for a stud?{answer}Because I have the STD, all I need is U.
