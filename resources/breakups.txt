@@ -89,3 +89,9 @@ Are you a parking ticket?{answer}Because I really didn’t want you in the first
 If you were a vegetable, you’d be a carrot. I don’t like carrots
 If being loving and communicative was a crime, you’d be set free. You can’t give me what I want in a relationship I’m sorry
 Well here I am. What are your other two wishes?{answer}Because both of mine are to break up with you, so sorry but this isn’t working out.
+If you were words on a page, you’d be fine print because you’re really hard to read and I never know what you want because you don’t communicate.
+Are you an passport photo photographer? Because when I look at you I have to fake a smile and pretend like I’m happy with my life.
+I hope our love will be like the number pi: irrational and no one cares enough to stick around.
+Are you the average of a set of particular numbers? Because you’re mean and I don’t think I like being around you anymore.
+Roses are red\nI need my space\nWe've broken up\nGet out of my face
+I hope you know CPR, because you’re actively suffocating me in this relationship please let me go.

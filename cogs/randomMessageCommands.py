@@ -51,7 +51,11 @@ class RandomMessageCommands(commands.Cog):
       return
     await ctx.send(pickup)
 
-  @pickup.command(name='breakup') # %breakup
+  @pickup.command(name='breakup') # %pickup breakup
+  async def pickupBreakup(self, ctx):
+    await ctx.send("Try using `%breakup` instead!")
+
+  @commands.command(name='breakup') # %breakup
   async def breakup(self, ctx):
     def check(m: discord.Message):
       return m.channel.id == ctx.channel.id
