@@ -41,7 +41,6 @@ class RandomMessageCommands(commands.Cog):
     if "{answer}" in pickup:
       pickup = pickup.split("{answer}")
       pickupMsg = await ctx.send(pickup[0])
-      print(pickup)
       try:
         for i in range(len(pickup) - 1):
           await self.bot.wait_for(event='message', check=check, timeout=60.0)
