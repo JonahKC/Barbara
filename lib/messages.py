@@ -70,7 +70,7 @@ def iterated_pickup(ctx):
   return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
 
 def random_message(path, ctx):
-  return _get_rand(path,1).replace("{author}", ctx.author.display_name).replace(r'\n', '\n').replace(r'{prefix}', config.read(ctx.guild.id, "prefix"))
+  return _get_rand(path).replace("{author}", ctx.author.display_name).replace(r'\n', '\n').replace(r'{prefix}', config.read(ctx.guild.id, "prefix"))
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):
