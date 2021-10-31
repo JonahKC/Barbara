@@ -43,7 +43,8 @@ def iterated_breakup(ctx):
   breakupIndex = config.read(ctx.guild.id, 'breakup-internal')
   result = "`INTERNAL_BREAKUP_ERROR (messages.py)`"
   if not os.path.exists(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt'):
-    open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'x').close()
+    with open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'w'):
+      pass
     reset_breakups(ctx)
   with open(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt', 'r') as f:
     breakups = f.readlines()
@@ -58,7 +59,8 @@ def iterated_pickup(ctx):
   pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
   result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
   if not os.path.exists(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt'):
-    open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'x').close()
+    with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'w'):
+      pass
     reset_pickups(ctx)
   with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
     pickups = f.readlines()
