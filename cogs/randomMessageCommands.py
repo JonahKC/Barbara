@@ -12,13 +12,10 @@ class RandomMessageCommands(commands.Cog):
   @commands.command() # %secret
   async def secret(self, ctx):
     if isinstance(ctx.channel, discord.channel.DMChannel):
-      await ctx.send(
-        messages.random_message(messages.flavorOfSecret("normal")), ctx)
+      await ctx.send(messages.random_message(messages.flavorOfSecret("normal"), ctx).replace('{author}', ctx.author.display_name))
       return
     await ctx.send(
-      messages.random_message(
-        messages.flavorOfSecret(
-          config.read(ctx.guild.id, "flavor-of-secrets")), ctx))
+      messages.random_message(messages.flavorOfSecret(config.read(ctx.guild.id, "flavor-of-secrets")), ctx).replace('{author}', ctx.author.display_name))
 
   @commands.command()
   async def secrets(self, ctx):
