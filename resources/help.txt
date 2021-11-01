@@ -1,7 +1,8 @@
 **Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
 
 `{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
-`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well! WARNING: When running the command, some pickup lines you may enounter might be obscene, or vulgar. If any pickup line ever makes you feel truly uncomfortable, report it to bugs@jcwyt.com or on the JCWYT discord (`%invite`), and we'll remove it asap.
+`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well! 
+`%breakup` – Responds with a random breakup line from an amazing list of 100+.
 `{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
 `{prefix}fact` - Returns a random fact. This command uses an API, see below for credit links.
 `{prefix}dadjoke` - Returns a random dad joke. This command uses an API, see below for credit links.
@@ -12,7 +13,7 @@
 `<parameter>` = optional
 API links can be found at <https://barbara.jcwyt.com/api-credits>
 
-**Find a bug? Email bugs@jcwyt.com.**
+**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
 _ _
@@ -29,7 +30,7 @@ PAGEBREAK
 `<parameter>` = optional
 API links can be found at <https://barbara.jcwyt.com/api-credits>
 
-**Find a bug? Email bugs@jcwyt.com.**
+**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
 _ _
