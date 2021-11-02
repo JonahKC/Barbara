@@ -1,5 +1,5 @@
 #import heapq
-import random, os
+import random, os, aiohttp
 import config.config as config
 
 MESSAGE_PATHS = {
@@ -8,6 +8,15 @@ MESSAGE_PATHS = {
   "normal": "./resources/secrets.txt",
   "normal (can be normal, jokesonyoubot, or botwinkle)": "./resources/secrets.txt",
 }
+
+async def getName(id: int):
+  async with aiohttp.ClientSession as s:
+    async with s.get('https://NamesAPI.turnip123.repl.co/name/' + str(id)) as response:
+      return (await response.text)
+
+def formatString(string: str, ctx):
+  string = string.replace(r'{author}', ctx.author.display_name)
+  string = string.replace(r'\n', '\n')
 
 def shuffle_pickups(id: int=1):
   shuffledPickupsRaw = open(f'./temp/shuffled/shuffled-pickups-{id}.txt', 'w')

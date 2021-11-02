@@ -11,7 +11,7 @@ class JoinMessage(commands.Cog):
     if guild.system_channel and guild.system_channel.permissions_for(guild.me).send_messages:
         await guild.system_channel.send(dedent(f"""
         Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.
-        Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%config set nomees true` true to enable ||meese|| blocking (it’s disabled by default).
+        Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).
         If you need any help, go to <https://barbara.jcwyt.com/>
         {str(get(self.bot.emojis, name='barbara'))}"""))
     else:
