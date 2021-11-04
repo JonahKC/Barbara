@@ -15,3 +15,9 @@ async def in_each_channel(check: Union[Callable[[discord.TextChannel], bool], st
           callback(channel)
   if noChannelsFound:
     print(f"No channels found")
+
+async def send(channelID: int, message: str, bot: commands.Bot):
+  await (await bot.get_channel(channelID)).send(message)
+
+async def reply(channelID: int, messageID: int, message: str, bot: commands.Bot):
+  await (await (await bot.get_channel(channelID)).fetch_message(messageID)).reply(message)

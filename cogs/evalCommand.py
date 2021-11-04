@@ -35,7 +35,9 @@ class EvalCommand(commands.Cog):
       'message': ctx.message,
       '_': self._last_result,
       'in_each_channel': evalUtils.in_each_channel,
-      'discord': discord
+      'discord': discord,
+      'send': evalUtils.send,
+      'reply': evalUtils.reply
     }
 
     env.update(globals())

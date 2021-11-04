@@ -22,7 +22,7 @@ def shuffle_secrets(id: int=1):
   secretsRaw = open(MESSAGE_PATHS[config.read(id, "flavor-of-secrets")], 'r')
   secretLines = secretsRaw.readlines()
   random.shuffle(secretLines)
-  shuffledSecretsRaw.write(secretLines.join('\n')) # instead of writelines so a newline isn't appended to the end
+  shuffledSecretsRaw.write('\n'.join(secretLines)) # instead of writelines so a newline isn't appended to the end
   secretsRaw.close()
   shuffledSecretsRaw.close()
 
@@ -37,7 +37,7 @@ def shuffle_pickups(id: int=1):
   pickupsRaw = open('./resources/pickups.txt', 'r')
   pickupLines = pickupsRaw.readlines()
   random.shuffle(pickupLines)
-  shuffledPickupsRaw.write(pickupLines.join('\n'))
+  shuffledPickupsRaw.write('\n'.join(pickupLines))
   pickupsRaw.close()
   shuffledPickupsRaw.close()
 
