@@ -2,7 +2,7 @@
 
 from discord.ext import commands
 from contextlib import redirect_stdout
-import inspect
+import inspect, discord
 import lib.admin as admin
 import io, textwrap, traceback
 import lib.evalUtils as evalUtils
@@ -34,7 +34,8 @@ class EvalCommand(commands.Cog):
       'guild': ctx.guild,
       'message': ctx.message,
       '_': self._last_result,
-      'in_each_channel': evalUtils.in_each_channel
+      'in_each_channel': evalUtils.in_each_channel,
+      'discord': discord
     }
 
     env.update(globals())
