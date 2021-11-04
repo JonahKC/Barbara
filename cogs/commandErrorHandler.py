@@ -1,5 +1,5 @@
 from discord.ext import commands
-import discord
+import discord, json
 from datetime import timedelta
 from humanize import naturaldelta
 from math import ceil
@@ -68,7 +68,8 @@ class ErrorHandler(commands.Cog):
             "line": tb.tb_lineno
         })
         tb = tb.tb_next
-      errorMsg = f"Oh no! There was an error talking to the Discord API running the command `{ctx.prefix}{ctx.command}`: ```Error: {str(type(error))}\nMessage: {str(error)[:500] + (str(error)[500:] and '...')}\nTraceback: {trace[:100] + (trace[100:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
+      trace = json.dumps(trace, indent=2)
+      errorMsg = f"Oh no! There was an unhandled exception talking to the Discord API running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:] and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:500] + (trace[500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
       errorMsg = errorMsg[:1992] + (errorMsg[1992:] and '...')
       await ctx.send(errorMsg)
       return
@@ -87,7 +88,7 @@ class ErrorHandler(commands.Cog):
     elif isinstance(error, commands.CheckFailure):
       await ctx.send("You do not have permission to use this command.")
       return
-#The message I tried to send exceeded Discord's 2000 character limit!
+    #The message I tried to send exceeded Discord's 2000 character limit!
     # ignore all other exception types, but print them to stderr
     #print('Ignoring exception in command {}:'.format(ctx.command))
     trace = []
@@ -99,8 +100,8 @@ class ErrorHandler(commands.Cog):
           "line": tb.tb_lineno
       })
       tb = tb.tb_next
-    errorMsg = f"An unknown error was encountered executing command `{ctx.prefix}{ctx.command}`: ```Error: {str(type(error))}\nMessage: {str(error)[:500] + (str(error)[500:] and '...')}\nTraceback: {trace[:100] + (trace[100:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
-    errorMsg = errorMsg[:1992] + (errorMsg[1992:] and '...')
+    trace = json.dumps(trace, indent=2)
+    errorMsg = f"Oh no! There was an unhandled exception whilst running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:] and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:500] + (trace[500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
     await ctx.send(errorMsg)
 
     #traceback.print_exception(type(error), error, error.__traceback__, file=stderr)

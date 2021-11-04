@@ -1,6 +1,7 @@
-#import heapq
+ #import heapq
 import random, os, aiohttp
 import config.config as config
+import discord.ext.commands as commands
 
 MESSAGE_PATHS = {
   "botwinkle": "./resources/botwinkle_sec rets.txt",
@@ -9,21 +10,34 @@ MESSAGE_PATHS = {
   "normal (can be normal, jokesonyoubot, or botwinkle)": "./resources/secrets.txt",
 }
 
-async def getName(id: int):
-  async with aiohttp.ClientSession as s:
-    async with s.get('https://NamesAPI.turnip123.repl.co/name/' + str(id)) as response:
-      return (await response.text)
-
-def formatString(string: str, ctx):
-  string = string.replace(r'{author}', ctx.author.display_name)
+async def formatString(string: str, ctx: commands.Context):
+  name = ctx.author.display_name
+  string = string.replace(r'{author}', name)
   string = string.replace(r'\n', '\n')
+  string = string.replace('{prefix}', config.read(ctx.guild.id, "prefix"))
+  return string
+
+def shuffle_secrets(id: int=1):
+  shuffledSecretsRaw = open(f'./temp/shuffled/shuffled-secrets-{id}.txt', 'w')
+  secretsRaw = open(MESSAGE_PATHS[config.read(id, "flavor-of-secrets")], 'r')
+  secretLines = secretsRaw.readlines()
+  random.shuffle(secretLines)
+  shuffledSecretsRaw.write(secretLines.join('\n')) # instead of writelines so a newline isn't appended to the end
+  secretsRaw.close()
+  shuffledSecretsRaw.close()
+
+def reset_secrets(ctx):
+  config.write(ctx.guild.id, 'secret-internal', 0)
+  shuffle_secrets(ctx.guild.id)
+  with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'r') as f:
+    return f.readline()
 
 def shuffle_pickups(id: int=1):
   shuffledPickupsRaw = open(f'./temp/shuffled/shuffled-pickups-{id}.txt', 'w')
   pickupsRaw = open('./resources/pickups.txt', 'r')
   pickupLines = pickupsRaw.readlines()
   random.shuffle(pickupLines)
-  shuffledPickupsRaw.writelines(pickupLines)
+  shuffledPickupsRaw.write(pickupLines.join('\n'))
   pickupsRaw.close()
   shuffledPickupsRaw.close()
 
@@ -62,7 +76,7 @@ def iterated_breakup(ctx):
   config.write(ctx.guild.id, 'breakup-internal', breakupIndex + 1)
   if(breakupIndex >= len(breakups) - 1):
     return reset_breakups(ctx)
-  return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
+  return result
 
 def iterated_pickup(ctx):
   pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
@@ -78,10 +92,24 @@ def iterated_pickup(ctx):
   config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
   if(pickupIndex >= len(pickups) - 1):
     return reset_pickups(ctx)
-  return result.replace(r'{author}', ctx.author.display_name).replace(r'\n', '\n')
+  return result
 
-def random_message(path, ctx):
-  return _get_rand(path).replace("{author}", ctx.author.display_name).replace(r'\n', '\n').replace(r'{prefix}', config.read(ctx.guild.id, "prefix"))
+def iterated_secret(ctx):
+	return ctx
+  #secretIndex = config.read(ctx.guild.id, 'secret-internal')
+  #result = "`INTERNAL_SECRET_ERROR (messages.py)`"
+  #if not os.path.exists(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt'):
+  #  with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'w'):
+  #    pass
+  #  reset_secrets(ctx)
+  #with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'r') as f:
+  #  secrets = f.readlines()
+  #  if(secretIndex < len(secrets) - 2):
+  #    result = secrets[secretIndex]
+  #config.write(ctx.guild.id, 'secret-internal', secretIndex + 1)
+  #if(secretIndex >= len(secrets) - 1):
+  #  return reset_secrets(ctx)
+  #return result
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):
@@ -89,9 +117,3 @@ def flavorOfSecret(flavorOfSecret):
   if MESSAGE_PATHS[flavorOfSecret] is None:
     return MESSAGE_PATHS["normal"]
   return MESSAGE_PATHS[flavorOfSecret]
-
-def _get_rand(path):
-  with open(path) as f:
-    return random.choice(f.readlines())
-    # Less random but also less memory intensive alternative
-		#return heapq.nlargest(1, f, key=lambda L: random.random())[0]

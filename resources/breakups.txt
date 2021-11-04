@@ -86,12 +86,27 @@ Are you a biblical angel?{answer}Because you’ve got so many eyes you remind me
 It’s not me… it’s you. 
 Are you warm drinking water?{answer}Because you’re disgusting and I hate you.
 Are you a parking ticket?{answer}Because I really didn’t want you in the first place and now it’s this whole thing but I still don’t want you.
-If you were a vegetable, you’d be a carrot. I don’t like carrots
 If being loving and communicative was a crime, you’d be set free. You can’t give me what I want in a relationship I’m sorry
 Well here I am. What are your other two wishes?{answer}Because both of mine are to break up with you, so sorry but this isn’t working out.
 If you were words on a page, you’d be fine print because you’re really hard to read and I never know what you want because you don’t communicate.
-Are you an passport photo photographer? Because when I look at you I have to fake a smile and pretend like I’m happy with my life.
+Are you a passport photo photographer?{answer}Because when I look at you I have to fake a smile and pretend like I’m happy with my life.
 I hope our love will be like the number pi: irrational and no one cares enough to stick around.
-Are you the average of a set of particular numbers? Because you’re mean and I don’t think I like being around you anymore.
+Are you the average of a set of particular numbers?{answer}Because you’re mean and I don’t think I like being around you anymore.
 Roses are red\nI need my space\nWe've broken up\nGet out of my face
 I hope you know CPR, because you’re actively suffocating me in this relationship please let me go.
+Are you thunder?{answer}Because when I hear you I jump and my dog hides
+Are you an appendix?{answer}Because every time I’m near you I get a horrible feeling in my stomach and I’d like to remove you from my life 
+If you were a vegetable, you'd be a squash, because I have no attraction to you
+If we were magnets, you would be north, and I would also be north
+Are you a minecraft fence with a carpet on it?{answer}Cause I'm about to get over you
+You are soup and I am a fork
+Hey, are you Discord?{answer}Because I think I spend too much time on you and we should take a break
+Hey are you Discord?{answer}Because that’s certainly what our relationship is in
+Are you the winter months?{answer}Because you make me seasonally depressed
+Hey are you the winter months?{answer}Because when I’m with you I feel cold and empty inside and very very alone.
+Am I an astronaut?{answer}Because I think I need some space.
+You're like pumpkin spice: I love you so much, and then all of the sudden you abandon me.
+You're like soda: sweet, but with a 2000% markup.
+You and I are like bassoon and oboe.
+Do you like playing games?{answer}I can tell, that's how you've treated our whole relationship.
+Are we a point?{answer}Because I don’t see us going anywhere

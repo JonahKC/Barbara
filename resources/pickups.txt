@@ -381,3 +381,4 @@ Okay, here’s the deal: I’ll let you take the last stuffed crust frozen pizza
 There are over six hundred varieties of heirloom tomatoes, but there’s only one of ~~me~~ you.
 Is your name Mara?{answer}Because I wish Mara my free time were spent with you
 Hey {author}, are you looking for a stud?{answer}Because I have the STD, all I need is U.
+Hey are you Discord? Because I can't stop thinking about you and my friends think I'm obsessed
