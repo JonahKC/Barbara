@@ -20,7 +20,7 @@ async def send(channelID: int, message: str, bot: commands.Bot):
   await (bot.get_channel(channelID)).send(message)
 
 async def reply(channelID: int, messageID: int, message: str, bot: commands.Bot):
-  await ((bot.get_channel(channelID)).fetch_message(messageID)).reply(message)
+  await (await (bot.get_channel(channelID)).fetch_message(messageID)).reply(message)
 
 async def dm(userID: int, message: str, bot: commands.Bot):
   await (await bot.fetch_user(userID)).send(message)
