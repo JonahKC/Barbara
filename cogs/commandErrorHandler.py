@@ -59,6 +59,9 @@ class ErrorHandler(commands.Cog):
       return
 
     elif isinstance(error, discord.errors.HTTPException):
+      if str(error) == "400 Bad Request (error code: 50006): Cannot send an empty message":
+        await ctx.send("Cannot send empty message")
+        return
       trace = []
       tb = error.__traceback__
       while tb is not None:
@@ -69,8 +72,7 @@ class ErrorHandler(commands.Cog):
         })
         tb = tb.tb_next
       trace = json.dumps(trace, indent=2)
-      errorMsg = f"Oh no! There was an unhandled exception talking to the Discord API running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:] and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:500] + (trace[500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
-      errorMsg = errorMsg[:1992] + (errorMsg[1992:] and '...')
+      errorMsg = f"Oh no! There was an unhandled exception talking to the Discord API running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:] and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:1500] + (trace[1500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
       await ctx.send(errorMsg)
       return
 
@@ -85,12 +87,18 @@ class ErrorHandler(commands.Cog):
         pass
       return
 
+    elif isinstance(error, discord.Forbidden):
+      try:
+        await ctx.author.send("Oh no! Whatever you just tried to do, I lack permissions for.")
+      except discord.Forbidden:
+        print("Missing perms in channel {} of server {} by author {}".format(ctx.channel.name, ctx.guild.name, ctx.author.display_name ))
+        pass
+      return
+
     elif isinstance(error, commands.CheckFailure):
       await ctx.send("You do not have permission to use this command.")
       return
-    #The message I tried to send exceeded Discord's 2000 character limit!
-    # ignore all other exception types, but print them to stderr
-    #print('Ignoring exception in command {}:'.format(ctx.command))
+
     trace = []
     tb = error.__traceback__
     while tb is not None:

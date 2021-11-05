@@ -11,5 +11,6 @@
   "nsfw-detection-reactions": ["🤬", "😡"],
 	"publicly-renameable-channels": [],
 	"pickup-internal": 0,
-	"breakup-internal": 0
+	"breakup-internal": 0,
+  "secret-internal": 0
 }

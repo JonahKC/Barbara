@@ -1,5 +1,5 @@
  #import heapq
-import random, os, aiohttp
+import random, os, discord
 import config.config as config
 import discord.ext.commands as commands
 
@@ -22,7 +22,7 @@ def shuffle_secrets(id: int=1):
   secretsRaw = open(MESSAGE_PATHS[config.read(id, "flavor-of-secrets")], 'r')
   secretLines = secretsRaw.readlines()
   random.shuffle(secretLines)
-  shuffledSecretsRaw.write('\n'.join(secretLines)) # instead of writelines so a newline isn't appended to the end
+  shuffledSecretsRaw.write(''.join(secretLines)) # instead of writelines so a newline isn't appended to the end
   secretsRaw.close()
   shuffledSecretsRaw.close()
 
@@ -37,7 +37,7 @@ def shuffle_pickups(id: int=1):
   pickupsRaw = open('./resources/pickups.txt', 'r')
   pickupLines = pickupsRaw.readlines()
   random.shuffle(pickupLines)
-  shuffledPickupsRaw.write('\n'.join(pickupLines))
+  shuffledPickupsRaw.write(''.join(pickupLines))
   pickupsRaw.close()
   shuffledPickupsRaw.close()
 
@@ -52,7 +52,7 @@ def shuffle_breakups(id: int=1):
   breakupsRaw = open('./resources/breakups.txt', 'r')
   breakupLines = breakupsRaw.readlines()
   random.shuffle(breakupLines)
-  shuffledBreakupsRaw.writelines(breakupLines)
+  shuffledBreakupsRaw.writelines(''.join(breakupLines))
   breakupsRaw.close()
   shuffledBreakupsRaw.close()
 
@@ -63,6 +63,8 @@ def reset_breakups(ctx):
     return f.readline()
 
 def iterated_breakup(ctx):
+  if isinstance(ctx.channel, discord.channel.DMChannel):
+    return "Sorry, breakup lines are not supported in DM conversation."
   breakupIndex = config.read(ctx.guild.id, 'breakup-internal')
   result = "`INTERNAL_BREAKUP_ERROR (messages.py)`"
   if not os.path.exists(f'./temp/shuffled/shuffled-breakups-{ctx.guild.id}.txt'):
@@ -79,6 +81,8 @@ def iterated_breakup(ctx):
   return result
 
 def iterated_pickup(ctx):
+  if isinstance(ctx.channel, discord.channel.DMChannel):
+    return "Sorry, pickup lines are not supported in DM conversation."
   pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
   result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
   if not os.path.exists(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt'):
@@ -95,21 +99,22 @@ def iterated_pickup(ctx):
   return result
 
 def iterated_secret(ctx):
-	return ctx
-  #secretIndex = config.read(ctx.guild.id, 'secret-internal')
-  #result = "`INTERNAL_SECRET_ERROR (messages.py)`"
-  #if not os.path.exists(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt'):
-  #  with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'w'):
-  #    pass
-  #  reset_secrets(ctx)
-  #with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'r') as f:
-  #  secrets = f.readlines()
-  #  if(secretIndex < len(secrets) - 2):
-  #    result = secrets[secretIndex]
-  #config.write(ctx.guild.id, 'secret-internal', secretIndex + 1)
-  #if(secretIndex >= len(secrets) - 1):
-  #  return reset_secrets(ctx)
-  #return result
+  if isinstance(ctx.channel, discord.channel.DMChannel):
+    return "Sorry, secrets are not supported in DM conversation."
+  secretIndex = config.read(ctx.guild.id, 'secret-internal')
+  result = "`INTERNAL_SECRET_ERROR (messages.py)`"
+  if not os.path.exists(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt'):
+    with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'w'):
+      pass
+    reset_secrets(ctx)
+  with open(f'./temp/shuffled/shuffled-secrets-{ctx.guild.id}.txt', 'r') as f:
+    secrets = f.readlines()
+    if(secretIndex < len(secrets) - 2):
+      result = secrets[secretIndex]
+  config.write(ctx.guild.id, 'secret-internal', secretIndex + 1)
+  if(secretIndex >= len(secrets) - 1):
+    return reset_secrets(ctx)
+  return result
 
 # Converts flavorOfSecret config value to a filepath to the secret's location
 def flavorOfSecret(flavorOfSecret):

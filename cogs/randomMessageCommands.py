@@ -3,31 +3,13 @@ import aiohttp
 from discord.ext import commands
 import discord, asyncio
 
-
 class RandomMessageCommands(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
   @commands.command() # %secret
   async def secret(self, ctx):
-    if isinstance(ctx.channel, discord.channel.DMChannel):
-      await ctx.send((await messages.formatString(messages.iterated_secret(messages.flavorOfSecret("normal")),ctx)))
-      return
-    await   ctx.send((await messages.formatString(messages.iterated_secret(messages.flavorOfSecret("normal")),ctx)))
-
-  @commands.command()
-  async def secrets(self, ctx):
-    secretsMessage = await ctx.send("Gathering all secrets...")
-    secrets = ["All Secrets:"]
-    with open(messages.MESSAGE_PATHS['botwinkle']) as s:
-      secrets += s.readlines()
-    with open(messages.MESSAGE_PATHS['jokesonyoubot']) as s:
-      secrets += s.readlines()
-    with open(messages.MESSAGE_PATHS['normal']) as s:
-      secrets += s.readlines()
-    secretsMessageText = "".join(secrets)
-    secretsMessageText = await messages.formatString(secretsMessageText, ctx)
-    await secretsMessage.edit(secretsMessageText[:1993] + (secretsMessageText[1993:] and '...'))
+    await ctx.send((await messages.formatString(messages.iterated_secret(ctx),ctx)))
 
   @commands.group(name='pickup', invoke_without_command=True) # %pickup
   async def pickup(self, ctx):
@@ -92,7 +74,6 @@ class RandomMessageCommands(commands.Cog):
                }) as r:
         res = await r.text(encoding='utf-8')
         await dadjokeMessage.edit(content=res)
-
 
 def setup(bot):
   bot.add_cog(RandomMessageCommands(bot))
