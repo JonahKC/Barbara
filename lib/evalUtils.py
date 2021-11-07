@@ -1,5 +1,6 @@
 from discord.ext import commands
 import discord
+from discord.utils import find
 from typing import Callable, Union
 import inspect
 
@@ -16,8 +17,8 @@ async def in_each_channel(check: Union[Callable[[discord.TextChannel], bool], st
   if noChannelsFound:
     print(f"No channels found")
 
-async def send(channelID: int, message: str, bot: commands.Bot):
-  await (bot.get_channel(channelID)).send(message)
+async def send(guild: str, channel: str, message: str, bot: commands.Bot):
+  await find(lambda x: channel.lower() in x.name.lower(), find(lambda x: guild.lower() in x.name.lower(), bot.guilds).text_channels).send(message)
 
 async def reply(channelID: int, messageID: int, message: str, bot: commands.Bot):
   await (await (bot.get_channel(channelID)).fetch_message(messageID)).reply(message)
