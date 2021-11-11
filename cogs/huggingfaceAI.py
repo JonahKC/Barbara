@@ -29,7 +29,8 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=-1, *, prompt: str):
     if prompt.startswith('\n'): prompt = prompt.replace('\n', '', 1)
-    if temperature == -1: temperature = uniform(0.01, 15.0)
+    if temperature == -1: temperature = 0.02
+    temperature = max(temperature, 0.0001)
     answer = await ctx.send("Waiting for GPT-NEO")
     minimumTokenLength = 4
     if admin.perms(ctx): minimumTokenLength = 1
