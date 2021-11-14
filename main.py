@@ -63,7 +63,7 @@ for filename in os.listdir('./cogs'):
 
 @bot.event
 async def on_message(message):  # Perms
-  if type(message.channel) == discord.channel.DMChannel:
+  if type(message.channel) == discord.channel.DMChannel and message.author != bot.user:
     await message.channel.send("Sorry, Barbara is not support in DM conversations at this time.")
     return
   ctx = await bot.get_context(message)
