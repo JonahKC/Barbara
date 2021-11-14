@@ -1,6 +1,7 @@
 import config.config as config
 import re, json
 from discord.ext import commands
+import lib.admin as admin
 import discord
 
 class ConfigCommand(commands.Cog):
@@ -87,12 +88,9 @@ class ConfigCommand(commands.Cog):
     if link.replace(" ", "") != "":
       await ctx.send(link)
 
+  @commands.check(admin.perms)
   @link.command(name='set') # %link set
-  async def setLink(
-    self,
-    ctx, *,
-    arg=""
-  ):
+  async def setLink(self, ctx, *, arg=""):
     config.write(ctx.guild.id, "link", arg)
     await ctx.send(f"Set link to {arg}")
 

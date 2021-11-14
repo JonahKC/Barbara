@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.15.104'
+BARBARA_VERSION = '3.16.104'
 
 def get_prefix(
     bot, message
@@ -63,6 +63,9 @@ for filename in os.listdir('./cogs'):
 
 @bot.event
 async def on_message(message):  # Perms
+  if type(message.channel) == discord.channel.DMChannel:
+    await message.channel.send("Sorry, Barbara is not support in DM conversations at this time.")
+    return
   ctx = await bot.get_context(message)
   bot.dispatch('pre_message', message)
   if ctx.valid:

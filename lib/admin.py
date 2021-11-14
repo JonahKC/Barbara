@@ -1,7 +1,7 @@
 import config.config as config
 import discord
 
-RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "message", "config", "secrets") # Only admins can run these
+RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "messages", "config", "secrets") # Only admins can run these
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
 
 JCWYT_TEAM = (437404651818582017, 797282028344573992, 738843304057372702)
