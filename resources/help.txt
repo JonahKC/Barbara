@@ -21,7 +21,7 @@ PAGEBREAK
 **Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
 
 `{prefix}link` – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
-`{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website.
+`{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website. **This command is restricted to NSFW channels only.**
 `{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
 `{prefix}help admin` - View admin commands.
 `{prefix}aiqa` ["Wikipedia page name in quotes"] [question] - Gets the Wikipedia page, then runs it through an API-based AI to answer your question. ~~It's probably wrong.~~ API credits can be found below.

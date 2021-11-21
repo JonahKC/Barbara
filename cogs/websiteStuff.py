@@ -4,10 +4,16 @@ from pyppeteer import launch
 from pyppeteer.errors import TimeoutError
 from pyppeteer_stealth import stealth
 from asyncio import sleep
+import lib.admin as admin
 
 class WebsiteScreenshotter(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
+  
+  def is_nsfw_or_jcwyt(ctx):
+    return ctx.channel.is_nsfw() or admin.jcwytTeam(ctx)
+
+  @commands.check(is_nsfw_or_jcwyt)
   @commands.command(name='screenshot', aliases=['website', 'snapshot', 'takeapictureof', 'snap'])
   @commands.cooldown(1, 14, commands.BucketType.user)
   async def screenshot(self, ctx, website: str, fullPageArg=True, scrollBy: int=0, pageWidth: int=1280, pageHeight: int=720):
