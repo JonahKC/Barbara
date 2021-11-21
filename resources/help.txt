@@ -25,7 +25,8 @@ PAGEBREAK
 `{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
 `{prefix}help admin` - View admin commands.
 `{prefix}aiqa` ["Wikipedia page name in quotes"] [question] - Gets the Wikipedia page, then runs it through an API-based AI to answer your question. ~~It's probably wrong.~~ API credits can be found below.
-`%prompt <length of answer> <temperature> [prompt]` - Continues your prompt and writes a paragraph with the length <length of answer> (if not specified, it automatically chooses a good length. **Length of answer is NOT in characters, it's in AI tokens, or about 0.75 *words* each, so make sure you're not setting it too high!**). To learn more about how to get the AI to say what you want, go to https://barbara..<br>This command uses an API, see below for credit links. <b>WARNING 2: GPT-Neo (the AI used to do this) was trained on the Pile, a dataset known to contain profanity, lewd, and otherwise abrasive language. USE AT YOUR OWN RISK</b>
+`%prompt <length of answer> <temperature> [prompt]` - Continues your prompt and writes a paragraph with the length <length of answer> (if not specified, it automatically chooses a good length. **Length of answer is NOT in characters, it's in AI tokens, or about 0.75 *words* each, so make sure you're not setting it too high!**). To learn more about how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
+This command uses an API, see below for credit links. <b>WARNING 2: GPT-Neo (the AI used to do this) was trained on the Pile, a dataset known to contain profanity, lewd, and otherwise abrasive language. USE AT YOUR OWN RISK</b>
 `[parameter]` = required
 `<parameter>` = optional
 API links can be found at <https://barbara.jcwyt.com/api-credits>
