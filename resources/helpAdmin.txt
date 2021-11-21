@@ -3,8 +3,11 @@
 
 **General Admin Commands**
 `%messages purge <​limit> <​user>` - Deletes up to `<​limit>` messages from the current channel (if not set, it defaults to 50), optionally from `<​user>` (if not set, deletes all messages).
+
 `%messages collect <​limit> <​user>` - Collects up to `<​limit>` messages from the current channel into a `.csv` file (if not set, it defaults to 50), optionally from `<​user>` (if not set, collects all messages).
+
 `%reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
+
 `%reaction remove [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
 
 `[parameter]` = required
@@ -21,6 +24,7 @@ General Admin Commands
 **Admin Role Commands**
 `{prefix}admin list all` - Lists both admin roles and users.
 `{prefix}admin list roles` - Lists roles that can use admin commands.
+
 `{prefix}admin list users` - Lists users that can use admin commands.
 `{prefix}admin add role [@role]` - Adds role to admin command whitelist.
 `{prefix}admin add user [@user]` - Adds user to admin command whitelist.
