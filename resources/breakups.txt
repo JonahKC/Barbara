@@ -110,3 +110,13 @@ You're like soda: sweet, but with a 2000% markup.
 You and I are like bassoon and oboe.
 Do you like playing games?{answer}I can tell, that's how you've treated our whole relationship.
 Are we a point?{answer}Because I don’t see us going anywhere
+Are you a belladonna fruit? Cause you're attractive looking, but you're gonna kill me.
+Is your name Amara? Cause our relationship is turning into a bitter one
+Person A: Your ex is hot\nPerson B: Which one?\nPerson A: Me, bye
+Call me financially broke because I need you to leave me a loan
+Are you a balloon?{answer}because I'm gonna let you go
+Do you use Mac or Windows?{answer}Windows: Because our relationship keeps not working, and you keep saying you’ll fix it, but you never do.\nMac: Because our relationship is like the Apple logo: it’s missing something
+Hey, are you a Enfamil NeuroPro Baby Formula, Triple Prebiotic Immune Blend with 2'FL HMO & Expert Recommended Omega-3 DHA, Inspired by Breast Milk, Non-GMO, Refill Box, 31.4 Oz, Pack of 4 (Packaging May Vary)?{answer}Because I don’t love anymore
+I’m jealous of all the people that haven’t met you.
+I am looking forward to the pleasure of your company, since I haven't had it yet.
+You bring me happiness ~~wherever~~ whenever you go.
