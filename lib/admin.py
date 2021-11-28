@@ -20,7 +20,7 @@ def perms(ctx): # Does this user have admin perms?
   # All admins are, well, admins
   if user.guild_permissions.administrator: return True
   #All JCWYT team members admin by default
-  elif jcwytTeam(user.id): return True
+  elif user.id in JCWYT_TEAM: return True
   #Specifically mentioned as an admin user
   elif user.id in config.fetch(ctx.guild.id, "admin users"): return True
   else:
@@ -30,19 +30,9 @@ def perms(ctx): # Does this user have admin perms?
         return True
   return False
 
-def jcwytTeam(ctx=None): # Is this user on the JCWYT team?
+def jcwytTeam(): # Is this user on the JCWYT team?
   def predicate(ctx):
-    if type(ctx) == int:
-      id = ctx
-    elif type(ctx) == discord.ext.commands.Context:
-      id = ctx.author.id
-    else:
-      raise TypeError(f'ctx requires a discord.Member, or a discord.ext.commands.Context object. It got passed a {str(type(ctx))}')
-      return False
     if id in JCWYT_TEAM:
       return True
     return False
-  if ctx:
-    predicate(ctx)
-  else:
-    return commands.check(predicate)
+  return commands.check(predicate)

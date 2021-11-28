@@ -7,7 +7,6 @@ class BasicCommands(commands.Cog):
     self.bot = bot
 
   @commands.group(name='admin', aliases=['sudo', 'owo'], invoke_without_subcommand=False)
-  @commands.guild_only()
   async def admin(self, ctx): # This command doesn't exist, you need to reference a subcommand.
     pass
 

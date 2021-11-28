@@ -25,7 +25,7 @@ class WWHS(commands.Cog):
     trimmed = intro.lower()
     for t in self.TRIM:
       trimmed = trimmed.replace(t, '')
-    return " ".join([name.capitalize() for name in trimmed.split('\n')[0].split(' ')]).strip()
+    return " ".join(" ".join([name.capitalize() for name in trimmed.split('\n')[0].split(' ')]).strip().split(' ')[0:2])
   def find_name(self, id: int):
     try:
       intro = find(lambda x: x.author.id==id and self.has_keywords(x.content), self.INTRODUCTIONS).content
