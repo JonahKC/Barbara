@@ -10,7 +10,7 @@ class WWHS(commands.Cog):
   async def on_ready(self):
     self.INTRODUCTIONS = (await (await self.bot.fetch_channel(854961975292854283)).history(limit=250).flatten())[::-1]
     self.KEYWORDS = ("lincoln", "hale", "roosevelt", "holy name", "lakeside", "ingraham", "ida b")
-    self.TRIM = (':', 'name')
+    self.TRIM = (':', 'name', 'my', 'is', 'go', 'by')
 
   def is_wwhs():
     def predicate(ctx):
