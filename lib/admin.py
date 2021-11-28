@@ -1,5 +1,6 @@
 import config.config as config
 import discord
+from discord.ext import commands
 
 RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "messages", "config", "secrets") # Only admins can run these
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
@@ -29,14 +30,19 @@ def perms(ctx): # Does this user have admin perms?
         return True
   return False
 
-def jcwytTeam(ctx): # Is this user on the JCWYT team?
-  if type(ctx) == int:
-    id = ctx
-  elif type(ctx) == discord.ext.commands.Context:
-    id = ctx.author.id
-  else:
-    raise TypeError(f'ctx requires a discord.Member, or a discord.ext.commands.Context object. It got passed a {str(type(ctx))}')
+def jcwytTeam(ctx=None): # Is this user on the JCWYT team?
+  def predicate(ctx):
+    if type(ctx) == int:
+      id = ctx
+    elif type(ctx) == discord.ext.commands.Context:
+      id = ctx.author.id
+    else:
+      raise TypeError(f'ctx requires a discord.Member, or a discord.ext.commands.Context object. It got passed a {str(type(ctx))}')
+      return False
+    if id in JCWYT_TEAM:
+      return True
     return False
-  if id in JCWYT_TEAM:
-    return True
-  return False
+  if ctx:
+    predicate(ctx)
+  else:
+    return commands.check(predicate)

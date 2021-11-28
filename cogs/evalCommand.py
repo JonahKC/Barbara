@@ -23,7 +23,12 @@ class EvalCommand(commands.Cog):
       return f'```py\n{e.__class__.__name__}: {e}\n```'
     return f'```py\n{e.text}{"^":>{e.offset}}\n{e.__class__.__name__}: {e}```'
 
-  @commands.check(admin.jcwytTeam)
+  def is_alex():
+    def predicate(ctx):
+        return ctx.author.id == 397191449894060045
+    return commands.check(predicate)
+
+  @commands.check_any(admin.jcwytTeam(), is_alex())
   @commands.command(name='eval')
   async def _eval(self, ctx, *, body: str):
     env = {
