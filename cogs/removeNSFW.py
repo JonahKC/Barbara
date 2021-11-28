@@ -1,8 +1,8 @@
 from discord.ext import commands
-from discord.channel import DMChannel
+#from discord.channel import DMChannel
 import lib.regexLib as rl
 import config.config as config
-import lib.admin as admin
+#import lib.admin as admin
 import re
 
 class RemoveNSFW(commands.Cog):
