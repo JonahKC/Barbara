@@ -14,7 +14,7 @@ class WWHS(commands.Cog):
 
   def is_wwhs():
     def predicate(ctx):
-      return ctx.guild.id == "838269717566718002"
+      return ctx.guild.id == 838269717566718002
     return commands.check(predicate)
   def has_keywords(self, msg):
     for k in self.KEYWORDS:
