@@ -379,3 +379,6 @@ There are over six hundred varieties of heirloom tomatoes, but there's only one 
 Is your name Mara?{answer}Because I wish Mara my free time were spent with you
 Hey {author}, are you looking for a stud?{answer}Because I have the STD, all I need is U.
 Hey are you Discord? Because I can't stop thinking about you and my friends think I'm obsessed
+Hey, wanna link molecules?
+Will you brush your teeth with me?{answer}Because dentists say brushing alone doesn't prevent cavities.
+My internet is 4G, but my heart is 4U.
