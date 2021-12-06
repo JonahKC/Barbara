@@ -1,6 +1,6 @@
 from discord.ext import commands
-from discord.utils import find
 import discord
+import lib.introductions as intros
 
 class WWHS(commands.Cog):
   def __init__(self, bot):
@@ -8,35 +8,12 @@ class WWHS(commands.Cog):
 
   @commands.Cog.listener()
   async def on_ready(self):
-    self.INTRODUCTIONS = (await (await self.bot.fetch_channel(854961975292854283)).history(limit=250).flatten())[::-1]
-    self.KEYWORDS = ("lincoln", "hale", "roosevelt", "holy name", "lakeside", "ingraham", "ida b")
-    self.TRIM = (':', 'name', 'my', 'is', 'go', 'by')
-
-  def is_wwhs():
-    def predicate(ctx):
-      return ctx.guild.id == 838269717566718002
-    return commands.check(predicate)
-  def has_keywords(self, msg):
-    for k in self.KEYWORDS:
-      if k in msg.lower():
-        return True
-    return False
-  def extract_name_from_intro(self, intro: str):
-    trimmed = intro.lower()
-    for t in self.TRIM:
-      trimmed = trimmed.replace(t, '')
-    return " ".join(" ".join([name.capitalize() for name in trimmed.split('\n')[0].split(' ')]).strip().split(' ')[0:2])
-  def find_name(self, id: int):
-    try:
-      intro = find(lambda x: x.author.id==id and self.has_keywords(x.content), self.INTRODUCTIONS).content
-      return self.extract_name_from_intro(intro)
-    except AttributeError:
-      return f"`no introduction found for user`"
+    await intros.index(self.bot)
 
   @commands.command(name='whois')
-  @is_wwhs()
+  @intros.is_wwhs()
   async def realname(self, ctx, person: discord.User):
-    await ctx.send(f"{person.display_name} is {self.find_name(person.id)}")
+    await ctx.send(f"{person.display_name} is {intros.find_name(person)}")
 
 def setup(bot):
   bot.add_cog(WWHS(bot))

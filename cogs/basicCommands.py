@@ -218,7 +218,7 @@ class BasicCommands(commands.Cog):
     await ctx.send(f'My prefix is now \"{newPrefix}\"')
 
   @commands.command(name='reload',aliases=['cog','rld']) # %reload cogs.basicCommands
-  @commands.check(admin.jcwytTeam)
+  @admin.jcwytTeam()
   async def reloadCog(self, ctx, *, nameOfCog: str, stealthy="false"): # Reloads a Cog
     if stealthy == "true":
       await ctx.message.delete()
@@ -239,7 +239,7 @@ class BasicCommands(commands.Cog):
 		API Latency: `{round((end_time - start_time) * 1000)}ms`"""))
 
   @commands.command(name='restart')
-  @commands.check(admin.jcwytTeam)
+  @admin.jcwytTeam()
   async def restartRepl(self, ctx): # Restarts the entire repl.
     shutdownMessage = await ctx.send("Restarting bot...")
     sdRaw = open('./temp/shutdown-message.txt', 'w') # We want a "bot online again" message, so let's write the place that message should be in a file.
