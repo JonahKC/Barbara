@@ -49,4 +49,5 @@ class RemoveMeese(commands.Cog):
     except (discord.errors.NotFound, discord.errors.HTTPException): pass
 
 def setup(bot):
+  meese.reloadMeeseBlacklist()
   bot.add_cog(RemoveMeese(bot))
