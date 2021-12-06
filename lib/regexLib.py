@@ -8,21 +8,22 @@ def reloadMeeseBlacklist():
     E_BLACKLIST = []
     S_BLACKLIST = []
     TRIM_CHARS = []
+    blacklist_raw = blacklist_raw.read() + '\n'
     temp_category = "M_BLACKLIST"
     # Read blacklist, and sort into M_BLACKLIST, E_BLACKLIST, S_BLACKLIST, and TRIM_CHARS
-    for line in blacklist_raw.readlines():
+    for line in blacklist_raw.split('\n'):
       if line.startswith('$$'):
         temp_category = line[2:].strip()
         continue
       else:
         if temp_category == "M_BLACKLIST":
-          M_BLACKLIST.append(line)
+          M_BLACKLIST.append(line.strip('\n'))
         elif temp_category == "E_BLACKLIST":
-          E_BLACKLIST.append(line)
+          E_BLACKLIST.append(line.strip('\n'))
         elif temp_category == "S_BLACKLIST":
-          S_BLACKLIST.append(line)
+          S_BLACKLIST.append(line.strip('\n'))
         elif temp_category == "TRIM_CHARS":
-          TRIM_CHARS.append(line)
+          TRIM_CHARS.append(line.strip('\n'))
 
 MEESE_REGEX = re.compile("""me{2,}s+e""")
 
