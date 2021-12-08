@@ -1,18 +1,17 @@
 from discord.ext import commands
 import discord
-from random import choice, uniform
+from random import choice#, uniform
 import lib.admin as admin
-import mediawiki
 import aiohttp
 import os
 from typing import Optional
 
-QA_URL = "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad"
 GPT_NEO_URL ="https://api-inference.huggingface.co/models/EleutherAI/gpt-neo-2.7B"
+GPT_J_URL = "https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B"
 
-headers = {"Authorization": f"Bearer {os.getenv('API_TOKEN')}"}
+headers = {"Authorization": f"Bearer {os.getenv('HUGGINGFACE_API_TOKEN')}"}
 
-async def query(payload, url=QA_URL, parameters={}, options={}):
+async def query(payload, url=GPT_NEO_URL, parameters={}, options={}):
   body = {"inputs":payload,'parameters':parameters,'options':options}
   async with aiohttp.ClientSession() as cs:
     async with cs.post(url, headers=headers, json=body) as response:
@@ -24,14 +23,13 @@ async def query(payload, url=QA_URL, parameters={}, options={}):
 class HuggingfaceAI(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-    self.wikipedia = mediawiki.MediaWiki()
 
   @commands.command(name='textgen', aliases=['prompt'])
   async def textGen(self, ctx, length: Optional[int]=-1, temperature: Optional[float]=-1, *, prompt: str):
     if prompt.startswith('\n'): prompt = prompt.replace('\n', '', 1)
     if temperature == -1: temperature = 0.02
     temperature = max(temperature, 0.0001)
-    answer = await ctx.send("Waiting for GPT-NEO")
+    answer = await ctx.send("Waiting for GPT-J-6B")
     minimumTokenLength = 4
     if admin.perms(ctx): minimumTokenLength = 1
     if (length > 500 or length < minimumTokenLength) and length != -1:
@@ -41,7 +39,7 @@ class HuggingfaceAI(commands.Cog):
       reqJSON = {"repetition_penalty": 90.0, "temperature": temperature, "return_full_text": False, "top_p": 0.6}
       if length != -1:
         reqJSON["max_new_tokens"] = length
-      rawAnswer = await query(prompt, GPT_NEO_URL, reqJSON, {'wait_for_model': True})
+      rawAnswer = await query(prompt, GPT_J_URL, reqJSON, {'wait_for_model': True})
       answerText = rawAnswer[0]['generated_text']
     except Exception:
       jsonStuff = str(rawAnswer).replace("\'", "\"")
@@ -52,35 +50,6 @@ class HuggingfaceAI(commands.Cog):
   @commands.command(name='josh', aliases=['yosh'])
   async def hiJosh(self, ctx):
     await ctx.send(choice(("tuple", "Java is shorthand for JavaScript", str(discord.utils.get(self.bot.emojis, name='Susstew')))))
-
-  # Deprecated AIQA command (you can do this with a specific prompt for GPT-Neo)
-  """
-  @commands.command(name='igotaquestion', aliases=['plzihavequestion', 'readthisandanswermyquestion', 'aiqa', 'ask'])
-  async def aiqa(self, ctx, wikipediaPageTitle: str=None, *, quesion: str):
-    answer = await ctx.send("Waiting for Wikipedia...")
-    try:
-      summary = self.wikipedia.page(wikipediaPageTitle).summarize(10)
-    except mediawiki.exceptions.DisambiguationError as e:
-      await answer.edit(f"Sorry, there's multiple Wikipedia articles going by similar names to what you requested I look at. Look at this list and see which one you want: {str(e)[:1000] + (str(e)[1000:] and '...')}")
-      return
-    except mediawiki.exceptions.PageError:
-      await answer.edit("Sorry, no Wikipedia page by the requested title was found.")
-      return
-    except mediawiki.exceptions.HTTPTimeoutError:
-      await answer.edit("Sorry, the Mediawiki servers timed out. Maybe try again later idk")
-      return
-    except mediawiki.exceptions.RedirectError:
-      await answer.edit("Sorry, the Wikipedia page unexpectedly resolved to a redirect.")
-      return
-    await answer.edit("Waiting for bert-large-uncased-whole-word-masking-finetuned-squad...")
-    answerText = (await query({
-      "inputs": {
-        "question": quesion,
-        "context": summary,
-      },
-    }))
-    await answer.edit(answerText)
-  """
 
 def setup(bot):
   bot.add_cog(HuggingfaceAI(bot))
