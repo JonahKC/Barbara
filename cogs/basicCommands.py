@@ -196,6 +196,10 @@ class BasicCommands(commands.Cog):
           await helpMsg.edit(helpPages[currentPage]+"\nButtons disabled to stop Discord API rate limiting.", components=[])
           break
 
+  @commands.command(name='vote')
+  async def vote(self, ctx):
+    await ctx.send("Vote for Barbara on top.gg at <https://top.gg/bot/863912165757026304/vote>!")
+
   @commands.command(name='invite') # %invite
   async def invite(self, ctx):
     await ctx.send(
