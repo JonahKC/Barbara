@@ -26,6 +26,7 @@ aiodns = "^3.0.0"
 Brotli = "^1.0.9"
 cchardet = "^2.1.7"
 orjson = "^3.6.4"
+schedule = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 
