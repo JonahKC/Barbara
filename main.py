@@ -64,12 +64,12 @@ async def on_ready():
 for filename in os.listdir('./cogs'):
 
   # If the file is a Python file
-	if filename.endswith('.py'):
+  if filename.endswith('.py'):
 
     # Attempt to load it as a Cog
-		try:
-			bot.load_extension(f'cogs.{filename[:-3]}')
-			
+    try:
+      bot.load_extension(f'cogs.{filename[:-3]}')
+
       # Log the Cog that was loaded
       print(f'{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}cogs.{filename[:-3]}{fg.default}')
 		
@@ -77,13 +77,13 @@ for filename in os.listdir('./cogs'):
     except Exception as error:
 
       # Get the stacktrace from the exception
-			stack = traceback.extract_tb(error.__traceback__)
-			
+      stack = traceback.extract_tb(error.__traceback__)
+    
       # Debug it to the console with pretty red text
       print(fg.red + f'Error: {str(error)}')
-			for i in stack.format():
-				print(i)
-			print('\n\nEnd of Stacktrace\n\n' + '-' * 50 + '\n\n' + fg.default)
+      for i in stack.format():
+      	print(i)
+      print('\n\nEnd of Stacktrace\n\n' + '-' * 50 + '\n\n' + fg.default)
 
 #shell.initialize(bot)  # initialize shell evaluation
 
