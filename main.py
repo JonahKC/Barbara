@@ -10,7 +10,7 @@ import config.config as config
 import lib.admin as admin
 from discord_components.client import DiscordComponents
 
-BARBARA_VERSION = '3.17.113'
+BARBARA_VERSION = '3.17.114'
 
 def get_prefix(
     bot, message
@@ -73,6 +73,7 @@ async def on_message(message):  # Perms
       await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
     else:
       if ctx.prefix is not None:
+        print("Executing command: " + message.content)
         await bot.process_commands(message)
       else:
         pass  # The message sent isn't a command
