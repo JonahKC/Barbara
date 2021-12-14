@@ -20,7 +20,7 @@ class JoinMessage(commands.Cog):
 
       # Otherwise find #general and check for perms
       channel = find(lambda x: x.name == 'general',  guild.text_channels)
-      if channel.permissions_for(guild.me).send_messages:
+      if channel and channel.permissions_for(guild.me).send_messages:
         await channel.send(dedent(f"""
         Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.
         Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).
