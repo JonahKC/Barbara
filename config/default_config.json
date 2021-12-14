@@ -7,9 +7,6 @@
 	"nomees": "false",
 	"whitelist": [],
 	"flavor-of-secrets": "normal (can be normal, jokesonyoubot, or botwinkle)",
-  "react-to-the-string-nsfw": "false",
-  "nsfw-detection-reactions": ["🤬", "😡"],
-	"publicly-renameable-channels": [],
 	"pickup-internal": 0,
 	"breakup-internal": 0,
   "secret-internal": 0
