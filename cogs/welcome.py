@@ -19,7 +19,7 @@ class JoinMessage(commands.Cog):
     else:
 
       # Otherwise find #general and check for perms
-      channel = await find(lambda x: x.name == 'general',  guild.text_channels)
+      channel = find(lambda x: x.name == 'general',  guild.text_channels)
       if channel.permissions_for(guild.me).send_messages:
         await channel.send(dedent(f"""
         Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.

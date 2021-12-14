@@ -8,7 +8,7 @@ class ServerInfo(commands.Cog):
   def write_serverlist(self):
     servers = []
     for i in self.bot.guilds:
-      servers.append(i.name)
+      servers.append(i.name+'\n')
     with open("./servers.txt", "w") as serverlist:
       serverlist.writelines(servers)
   

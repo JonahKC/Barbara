@@ -1,17 +1,14 @@
 import os
 import traceback
-import schedule
 import discord
-import time
 import config.config as config
 import lib.admin as admin
 from   discord.ext import commands
 from   discord_components.client import DiscordComponents
 from   console import fg
-from   threading import Thread
 
 # Version constant
-BARBARA_VERSION = "3.18.114"
+BARBARA_VERSION = "3.18.115"
 
 # Pass a function to command_prefix that returns the correct per-server prefix
 def get_prefix(bot, message):
@@ -116,9 +113,7 @@ async def on_message(message):  # Perms
       # If the message sent was a command
       if ctx.prefix is not None:
 
-        # Write commands that are executed to a log
-        with open("./cmds.log", "a") as log:
-          log.write("Executing command: " + message.content + "\n")
+        # Process the text command
         await bot.process_commands(message)
       else:
         pass  # The message sent isn"t a command
@@ -126,24 +121,6 @@ async def on_message(message):  # Perms
 @bot.command(name="version") # %version
 async def versionCommand(ctx):
   await ctx.send(f"Barbara `v{BARBARA_VERSION}`\nDiscord.py `v{discord.__version__}`")
-
-# Start a thread to check for pending scheduled functions
-def loop_schedule():
-  while 1:
-    schedule.run_pending()
-    time.sleep(1)
-
-# Clean the command log file
-def clean_commands():
-  with open("./cmds.log", "w") as log:
-    log.write("")
-
-# Run the clean_commands function at midnight every night
-schedule.every().day.at("00:00").do(clean_commands)
-
-# Start a thread to check for pending tasks
-clean_log_thread = Thread(target=loop_schedule)
-clean_log_thread.start()
 
 # Run the bot with the token environment variable
 bot.run(os.getenv("TOKEN"))
