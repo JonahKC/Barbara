@@ -36,6 +36,7 @@ class JoinMessage(commands.Cog):
             Run `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).
             If you need any help, go to <https://barbara.jcwyt.com/>
             {str(get(self.bot.emojis, name='barbara'))}"""))
+            break
 
 def setup(bot):
   bot.add_cog(JoinMessage(bot))
