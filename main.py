@@ -54,8 +54,6 @@ async def on_ready():
   print(f"Discord.py Version: {fg.blue}{discord.__version__}{fg.default}")
   print(f"Barbara-Core Version: {fg.blue}{BARBARA_VERSION}{fg.default}")
   print(f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!")
-  #shellThread = Process(target=shell.run, name="Thread-Shell")
-  #shellThread.start()
 
 # Loop through every file (not counting subfolders) in the cogs directory
 for filename in os.listdir("./cogs"):
@@ -81,8 +79,6 @@ for filename in os.listdir("./cogs"):
       for i in stack.format():
       	print(i)
       print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
-
-#shell.initialize(bot)  # initialize shell evaluation
 
 @bot.event
 async def on_message(message):  # Perms
@@ -118,7 +114,8 @@ async def on_message(message):  # Perms
       else:
         pass  # The message sent isn"t a command
 
-@bot.command(name="version") # %version
+# The %version command returns Barbara's version as well as Discord.py's version
+@bot.command(name="version")
 async def versionCommand(ctx):
   await ctx.send(f"Barbara `v{BARBARA_VERSION}`\nDiscord.py `v{discord.__version__}`")
 
