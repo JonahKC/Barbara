@@ -12,7 +12,7 @@ from   discord_components.client import DiscordComponents
 from   console import fg
 
 # Version constant
-BARBARA_VERSION = "3.18.116"
+BARBARA_VERSION = "3.18.117"
 
 # Pass a function to command_prefix that returns the correct per-server prefix
 def get_prefix(bot, message):
@@ -28,9 +28,11 @@ def get_prefix(bot, message):
   # You can mention Barbara instead of using her prefix
   return commands.when_mentioned_or(pfx)(bot, message)
 
-# Give the bot all intents
+# Give the bot intents
 # She won"t be able to play audio, for example, without the proper intent
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.voice_states = True
+intents.webhooks = True
 
 # Set the activity of the bot to "Watching jcwyt.com"
 activity = discord.Activity(type=discord.ActivityType.watching,
