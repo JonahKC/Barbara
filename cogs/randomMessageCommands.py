@@ -11,21 +11,45 @@ class RandomMessageCommands(commands.Cog):
   async def secret(self, ctx):
     await ctx.send((await messages.formatString(messages.iterated_secret(ctx),ctx)))
 
-  @commands.group(name='pickup', invoke_without_command=True) # %pickup
+  @commands.group(name='pickup', invoke_without_command=True)
   async def pickup(self, ctx):
+    """Sends a random pickup line in the author's channel. Supports pickup lines that have responses"""
+    
+    # Make sure that the author of the message is the author of the entire command
     def check(m: discord.Message):
       return m.channel.id == ctx.channel.id
+  
+    # Get a random pickup line using messages.py (snippet below)
     pickup = await messages.formatString(messages.iterated_pickup(ctx), ctx)
+  
+    # Check to see if the pickup line is one that needs a response
     if "{answer}" in pickup:
+    
+      # If so, split the pickup line into all of it's parts
       pickup = pickup.split("{answer}")
+  
+      # Send the first part of the pickup line
       pickupMsg = await ctx.send(pickup[0])
+  
       try:
+        
+        # For each of the other pickups
         for i in range(len(pickup) - 1):
+        
+          # Wait for a response from the author
           await self.bot.wait_for(event='message', check=check, timeout=60.0)
+  
+          # Send the next part of the pickup line
           await ctx.send(pickup[i + 1])
+  
+      # If the author doesn't respond in time
       except asyncio.TimeoutError:
+      
+        # Reply to the original message with the complete pickup line
         await pickupMsg.reply('\n'.join(pickup))
       return
+  
+    # If the pickup line doesn't need a response, just send it
     await ctx.send(pickup)
 
   @pickup.command(name='breakup') # %pickup breakup
@@ -50,7 +74,7 @@ class RandomMessageCommands(commands.Cog):
     await ctx.send(breakup)
 
   @commands.command() # %fact
- # @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
+  #@commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
   async def fact(self, ctx):
     factMessage = await ctx.send("Loading...")
     async with aiohttp.ClientSession() as cs:
@@ -61,17 +85,17 @@ class RandomMessageCommands(commands.Cog):
         await factMessage.edit(content=res['text'].replace("`", "'"))
 
   @commands.command() # %dadjoke
- # @commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
+  #@commands.cooldown(rate=1, per=600, type=commands.BucketType.user)
   async def dadjoke(self, ctx):
     dadjokeMessage = await ctx.send("Loading...")
     async with aiohttp.ClientSession() as cs:
       async with cs.get('https://icanhazdadjoke.com/',
-               headers={
-                 'Accept':
-                 'text/plain',
-                 'User-Agent':
-                 'Barabara the Discord bot'
-               }) as r:
+                        headers={
+                          'Accept':
+                          'text/plain',
+                          'User-Agent':
+                          'Barabara the Discord bot'
+                        }) as r:
         res = await r.text(encoding='utf-8')
         await dadjokeMessage.edit(content=res)
 

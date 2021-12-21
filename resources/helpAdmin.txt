@@ -2,13 +2,13 @@
 *Remember, you need to be an admin to use these commands. I see you being sneaky...*
 
 **General Admin Commands**
-`%messages purge <​limit> <​user>` - Deletes up to `<​limit>` messages from the current channel (if not set, it defaults to 50), optionally from `<​user>` (if not set, deletes all messages).
+`{prefix}messages purge <​limit> <​user>` - Deletes up to `<​limit>` messages from the current channel (if not set, it defaults to 50), optionally from `<​user>` (if not set, deletes all messages).
 
-`%messages collect <​limit> <​user>` - Collects up to `<​limit>` messages from the current channel into a `.csv` file (if not set, it defaults to 50), optionally from `<​user>` (if not set, collects all messages).
+`{prefix}messages collect <​limit> <​user>` - Collects up to `<​limit>` messages from the current channel into a `.csv` file (if not set, it defaults to 50), optionally from `<​user>` (if not set, collects all messages).
 
-`%reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
+`{prefix}reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
 
-`%reaction remove [emoji]` - Reacts to the previous message with the emoji of your choice. Seperate emoji with commas to do multiple at once.
+`{prefix}reaction remove [emoji]` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
 
 `[parameter]` = required
 `<parameter>` = optional
@@ -19,7 +19,6 @@
 PAGEBREAK
 **Here's a list of admin commands:**
 *Remember, you need to be an admin to use these commands. I see you being sneaky...*
-General Admin Commands
 
 **Admin Role Commands**
 `{prefix}admin list all` - Lists both admin roles and users.
@@ -45,12 +44,13 @@ General Admin Commands
 PAGEBREAK
 **Here's a list of admin commands:**
 *Remember, you need to be an admin to use these commands. I see you being sneaky...*
-General Admin Commands
 
 **Server Customization**
-`{prefix}link set [message or link]` - Customizes the link in %link. Add as many as you want.
+`{prefix}meesedetect [true/false]` - Enables or disables Meese detection.
 
-`{prefix}prefix [new prefix]` - Customize the prefix for all commands from % to whatever you want.
+`{prefix}link set [message or link]` - Customizes the link in {prefix}link. Add as many as you want.
+
+`{prefix}prefix [new prefix]` - Customize the prefix for all commands from {prefix} to whatever you want.
 
 `{prefix}vc ban-bots <VC NAME>` - Bans bots from the VC you are currently in, or the VC specified by the ID of the VC (you can find IDs by enabling Discord Developer in settings, right-clicking on the VC and clicking Copy ID).
 

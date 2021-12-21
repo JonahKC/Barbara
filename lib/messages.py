@@ -11,9 +11,18 @@ MESSAGE_PATHS = {
 }
 
 async def formatString(string: str, ctx: commands.Context):
+  """Formats a string by replacing {author} with the author's name, and {prefix} with the prefix of the command, and making \\n a real newline"""
+  
+  # Get the author's server name
   name = ctx.author.display_name
+
+  # Replace {author} with the author's name
   string = string.replace(r'{author}', name)
+
+  # Replace \\n with \n
   string = string.replace(r'\n', '\n')
+
+  # Replace {prefix} with the server-specific prefix of the command
   string = string.replace('{prefix}', config.read(ctx.guild.id, "prefix"))
   return string
 
@@ -33,18 +42,37 @@ def reset_secrets(ctx):
     return f.readline()
 
 def shuffle_pickups(id: int=1):
+  """Shuffles the order of the pickup lines (so there aren't ever repeats)"""
+
+  # Get the server-specific pickup line file
   shuffledPickupsRaw = open(f'./temp/shuffled/shuffled-pickups-{id}.txt', 'w')
+
+  # Get the original pickup line list
   pickupsRaw = open('./resources/pickups.txt', 'r')
+
+  # Turn the pickup line list into an array
   pickupLines = pickupsRaw.readlines()
+  
+  # Shuffle the pickup line list
   random.shuffle(pickupLines)
+
+  # Write the shuffled pickup line list back to the file
   shuffledPickupsRaw.write(''.join(pickupLines))
   pickupsRaw.close()
   shuffledPickupsRaw.close()
 
 def reset_pickups(ctx):
+  """Resets the server-specific pickup line file and shuffles the array, then returns the first pickup line"""
+
+  # Reset the server-specific pickup line index
   config.write(ctx.guild.id, 'pickup-internal', 0)
+
+  # Shuffle the pickup lines
   shuffle_pickups(ctx.guild.id)
+
   with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
+    
+    # Return the first pickup line
     return f.readline()
 
 def shuffle_breakups(id: int=1):
@@ -81,21 +109,43 @@ def iterated_breakup(ctx):
   return result
 
 def iterated_pickup(ctx):
+  """Iterates through the pickup lines, returning the next one in the randomized server-specific pickup line file"""
+
+  # DMs don't have their own pickup line file, so send a message to the author telling them to run the command in a server
   if isinstance(ctx.channel, discord.channel.DMChannel):
     return "Sorry, pickup lines are not supported in DM conversation."
+
+  # Get the server-specific pickup line index
   pickupIndex = config.read(ctx.guild.id, 'pickup-internal')
+
+  # If this result doesn't change, then the we've run into a weird bug that should not ever happen
   result = "`INTERNAL_PICKUP_ERROR (messages.py)`"
+
+  # If the server-specific pickup line file doesn't exist, create it and shuffle the pickups into it
   if not os.path.exists(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt'):
     with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'w'):
       pass
     reset_pickups(ctx)
+
+  # Get the server-specific pickup line file
   with open(f'./temp/shuffled/shuffled-pickups-{ctx.guild.id}.txt', 'r') as f:
+
+    # Get the pickup line list as an array
     pickups = f.readlines()
+
+    # if the index is NOT at the end of the list, reset it to 0
     if(pickupIndex < len(pickups) - 2):
       result = pickups[pickupIndex]
+
+  # Update the server-specific pickup line index
   config.write(ctx.guild.id, 'pickup-internal', pickupIndex + 1)
+
+  # If the index is at the end of the list
   if(pickupIndex >= len(pickups) - 1):
+
+    # Reset the server-specific pickup line index and shuffle the pickups
     return reset_pickups(ctx)
+
   return result
 
 def iterated_secret(ctx):

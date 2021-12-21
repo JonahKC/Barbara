@@ -5,7 +5,7 @@ from discord.ext import commands
 RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "messages", "config", "secrets") # Only admins can run these
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
 
-JCWYT_TEAM = (722134644702838785, 437404651818582017, 797282028344573992, 738843304057372702)
+JCWYT_TEAM = (437404651818582017, 797282028344573992, 738843304057372702)
 
 def perms(ctx): # Does this user have admin perms?
   if type(ctx) == discord.Member:
