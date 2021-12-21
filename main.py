@@ -3,12 +3,16 @@ import traceback
 import discord
 import config.config as config
 import lib.admin as admin
+import click
+import logging
+from   threading import Thread
+from   flask import Flask
 from   discord.ext import commands
 from   discord_components.client import DiscordComponents
 from   console import fg
 
 # Version constant
-BARBARA_VERSION = "3.18.115"
+BARBARA_VERSION = "3.18.116"
 
 # Pass a function to command_prefix that returns the correct per-server prefix
 def get_prefix(bot, message):
@@ -46,6 +50,35 @@ DiscordComponents(bot)
 
 @bot.event
 async def on_ready():
+
+  # Start a flask server so that you can ping her to see if she's alive
+  web_app = Flask('')
+
+  # Flask we don't care about your spam
+
+  # These are overrides to the logging functions
+  def secho(text, file=None, nl=None, err=None, color=None, **styles):
+    pass
+  def echo(text, file=None, nl=None, err=None, color=None, **styles):
+    pass
+
+  # Replace the default ones Flask uses with ours that do nothing
+  click.echo = echo
+  click.secho = secho
+
+  # Make Flask only log errors. This is needed as well as the above code. Idk why.
+  log = logging.getLogger('werkzeug')
+  log.setLevel(logging.ERROR)
+
+  @web_app.route('/')
+  def webserver_ping():
+  	return str(len(bot.guilds))
+
+  def run_webserver():
+  	web_app.run(host="0.0.0.0", port=8080)
+
+  server = Thread(target=run_webserver)
+  server.start()
 
   # Log bot info
   print(f"Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}")
