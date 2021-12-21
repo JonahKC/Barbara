@@ -18,25 +18,25 @@ class SweetCaroline(commands.Cog):
   @sweet.command(name='caroline')
   async def caroline(self, ctx):
     await ctx.message.delete()
-    if not ctx.author.voice:
-      await ctx.send(";)")
-      return
-    msgsToDelete = []
     try:
       await vc.join(ctx)
       await sleep(1)
       await vc.play(ctx, 'neil-diamond-sweet-caroline.mp3')
+      msg = await ctx.send("😉")
+      await sleep(14)
       with open('./resources/sweet_caroline.txt') as file:
         for line in file:
           lineMatch = match(r"(?P<lyric>.*):(?P<time>\d*.\d*)",line)
           lyric = lineMatch.group("lyric")
           dur = lineMatch.group("time")
-          msgsToDelete.append(await ctx.send(lyric.replace(r'\n', '\n')))
+          await msg.edit(content=lyric.replace(r'\n', '\n'))
           await sleep(float(dur))
       await vc.leave(ctx)
-      await ctx.channel.purge(limit=len(msgsToDelete)+50, check=self.isMe)
-    except discord.ClientException:
-      await ctx.send(f"Sorry, I'm already in a vc ({ctx.voice_client.channel.name}).")
+    except Exception as e:
+      if e.__class__ == AttributeError:
+        await ctx.send("Try again in a voice call 😉")
+      elif e.__class__ == discord.ClientException:
+        await ctx.send(f"Sorry, I'm already in a vc ({ctx.voice_client.channel.name}).")
   
 def setup(bot):
   bot.add_cog(SweetCaroline(bot))
