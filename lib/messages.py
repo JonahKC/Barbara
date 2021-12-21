@@ -1,4 +1,3 @@
- #import heapq
 import random, os, discord
 import config.config as config
 import discord.ext.commands as commands

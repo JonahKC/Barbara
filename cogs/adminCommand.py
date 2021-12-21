@@ -1,5 +1,5 @@
 import config.config as config
-import discord # Two different imports are needed, because discord.ext.commands is like a different module or something
+import discord
 from discord.ext import commands
 
 class BasicCommands(commands.Cog):
@@ -7,28 +7,28 @@ class BasicCommands(commands.Cog):
     self.bot = bot
 
   @commands.group(name='admin', aliases=['sudo', 'owo'], invoke_without_subcommand=False)
-  async def admin(self, ctx): # This command doesn't exist, you need to reference a subcommand.
+  async def admin(self, ctx):
     pass
 
-  @admin.group(name='add', aliases=['+'],invoke_without_subcommand=False) # %admin add
+  @admin.group(name='add', aliases=['+'],invoke_without_subcommand=False)
   async def adminAdd(self, ctx):
     pass
 
-  @adminAdd.command(name='role') # %admin add role
+  @adminAdd.command(name='role')
   async def adminAddRole(self, ctx, role: discord.Role):
     config.append(ctx.guild.id, "admin roles", role.id)
     await ctx.send(f"Promoted role {role.name} to admin.")
 
-  @adminAdd.command(name='user') # %admin add user
+  @adminAdd.command(name='user')
   async def adminAddUser(self, ctx, user: discord.User):
     config.append(ctx.guild.id, "admin users", user.id)
     await ctx.send(f"Promoted user {user.name} to admin.")
 
-  @admin.group(name='list', aliases=['='],invoke_without_subcommand=False) # %admin list
+  @admin.group(name='list', aliases=['='],invoke_without_subcommand=False)
   async def adminList(self, ctx):
     pass
 
-  @adminList.command(name='roles') # %admin list roles
+  @adminList.command(name='roles')
   async def adminListRoles(self, ctx):
     roles = config.read(ctx.guild.id, "admin roles")
     roles_temp = []
@@ -39,7 +39,7 @@ class BasicCommands(commands.Cog):
     		roles_temp.append(ctx.guild.get_role(i).name)
     await ctx.send('**ADMIN ROLES:**\n'+'\n'.join(roles_temp))
 
-  @adminList.command(name='users') # %admin list users
+  @adminList.command(name='users')
   async def adminListUsers(self, ctx):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
@@ -48,7 +48,7 @@ class BasicCommands(commands.Cog):
       users_temp.append(user.display_name.replace('_', '\_').replace('*', '\*'))
     await ctx.send('\n'.join(users_temp))
 
-  @adminList.command(name='all',aliases=['*']) # %admin list all
+  @adminList.command(name='all',aliases=['*'])
   async def adminListAll(self, ctx):
     users = config.read(ctx.guild.id, "admin users")
     users_temp = []
@@ -76,11 +76,11 @@ class BasicCommands(commands.Cog):
   async def adminRemove(self, ctx):
     pass
 
-  @adminRemove.command(name='role',aliases=['r']) # %admin remove role
+  @adminRemove.command(name='role',aliases=['r'])
   async def adminRemoveRole(self, ctx, role: discord.Role):
     config.remove(ctx.guild.id, "admin roles", role.id)
 
-  @adminRemove.command(name='user',aliases=['u']) # %admin remove user
+  @adminRemove.command(name='user',aliases=['u'])
   async def adminRemoveUser(self, ctx, user: discord.User):
     config.remove(ctx.guild.id, "admin users", user.id)
 

@@ -8,7 +8,10 @@ class WWHS(commands.Cog):
 
   @commands.Cog.listener()
   async def on_ready(self):
-    await intros.index(self.bot)
+    try:
+      await intros.index(self.bot)
+    except discord.errors.Forbidden:
+      pass
 
   @commands.command(name='whois')
   @intros.is_wwhs()
