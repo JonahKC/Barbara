@@ -2,12 +2,17 @@ import config.config as config
 import discord
 from discord.ext import commands
 
-RESTRICTED_COMMANDS = ("admin", "link set", "prefix", "messages", "config", "secrets") # Only admins can run these
+# Admin commands
+RESTRICTED_COMMANDS = ("meesedetect", "admin", "link set", "prefix", "messages", "config", "secrets") # Only admins can run these
+
+# Message to send when no permissions
 NO_PERMS_MESSAGE = lambda ctx: f"You have insufficient permissions to run the command `{ctx.prefix}{ctx.command.name}`!"
 
+# All JCWYT Team members always have admin
 JCWYT_TEAM = (437404651818582017, 797282028344573992, 738843304057372702)
 
-def perms(ctx): # Does this user have admin perms?
+# Does this user have admin perms?
+def perms(ctx):
   if type(ctx) == discord.Member:
     user = ctx
   elif type(ctx) == discord.ext.commands.Context:
