@@ -17,7 +17,7 @@ I'm calling myself Han because you need to be Solo.
 Are we divergent tectonic plates?{answer}Because we’re drifting apart.
 Raise your hand if you're dating anyone. Not so fast.
 Are you being followed?{answer}Cause I been seeing people behind your back.
-Knock knock. \n Who's there?{answer}\n My divorce attorney
+Knock knock.{answer}My divorce attorney
 Hey {author}, I think I'm going blind, because I can't see you anymore.
 Aside from being single, what do you do for a living?
 Are you the McDonald's Ice Cream Machine?{answer}Because you just aren't working for me anymore.
@@ -37,7 +37,7 @@ What’s the difference between me and your socks?{answer}I’m not yours anymor
 Are you an astronaut?{answer}Because I need some space.
 I don’t know what I’d do without you, but starting tomorrow I’m going to give it a try.
 Are you a fidget spinner?{answer}Because the last time I had fun with you was forever ago and I’m not really interested in touching you anymore. I’m pretty sure you were just a phase and now I’d really like to get you out of my house and forget it ever happened.
-Hey {author}, is your name Southwest?{answer}Because I’ve spent the last forty-five minutes waiting for you to take off.
+Is your name Southwest?{answer}Because I’ve spent the last forty-five minutes waiting for you to take off.
 What’s your sign?{answer}Mine is stop.
 I see my future like how the Americans spell colour, without u.
 You must be a math book because you’re full of problems.
@@ -122,3 +122,14 @@ I am looking forward to the pleasure of your company, since I haven't had it yet
 You bring me happiness ~~wherever~~ whenever you go.
 Hey are you the Winter Months? Because when I’m with you I feel snowed in and trapped.
 Are you a pig? Because you act like one.
+I'm sorry Google, I don't like Bing here with you!
+Our relationship is like a fat guy, It's not working out.
+Want to know a joke? Our relationship.
+Roses are red, violets are blue, I'd rather be dead than continue seeing you!
+It's not you, it's me... Well ok, it is you.
+Knock knock.{answer}You're{answer}You're single!
+I'll always remember last night, but I think we can forget about tomorrow.
+I just realized how ugly you are.
+Want to know something I've been wanting to say since the day we met?{answer}Goodbye!
+Sorry, but my leprosy is acting up again. Unrelated but are you going to eat those fries?
+Roses are red, Violets are blue. Garbage is dumped, now so are you.

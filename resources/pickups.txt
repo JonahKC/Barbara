@@ -8,7 +8,7 @@ Did you invent the airplane?{answer}Cause you seem Wright for me.
 Can I have a Band-Aid?{answer}Cuz I scraped my knee falling for you.
 Are you a keyboard? Because you're just my type.
 My teeth and I no longer sleep together, but you and I definitely should.
-How about I take you back to my place where we can get into a heated arguement about social security?
+How about I take you back to my place where we can get into a heated argument about social security?
 Getting lucky usually means finding my car in the parking lot, but tonight you can change that.
 Is your name Cholesterol? Because you send my blood pressure skyrocketing!
 I hope you know CPR, because you just took my breath away!
@@ -51,17 +51,17 @@ You must be the square root of two cause I feel irrational around you.
 Excuse me, you dropped something back there!{answer}This conversation, lets pick it up later tonight.
 I'd never play hide and seek with you because someone like you is impossible to find
 You know you're in love when you can't fall asleep because reality is finally better than your dreams.
-Roses are red violets are blue, I can't rhyme but can I date you?
-I heard you're good in algebra, can you replace my X without asking Y
+Roses are red, violets are blue, I can't rhyme but can I date you?
+I heard you're good in algebra, could you replace my X without asking Y?
 Give someone else 12 roses. 11 real, 1 fake and say to them, “I will stop loving you when all the roses die.”
 Roses are red, I have a crush, whenever I'm around you, all I do is blush
 Are you made of copper and tellurium? Because you're CuTe!
-Charzards are red Squirtals are blue if u were a Pokemon i would choose you!
+Charizards are red, Squirtles are blue, if you were a Pokemon I would choose you!
 Is your name Ariel?{answer}Cause we Mermaid for each other!
 Do you have an identical twin?{answer}Then you must be the most beautiful person in the world!
 Let's play hockey. I'll be the net, and you can score.
 Vogue just called, they want to put you on the cover.
-Yo are u an enderman?{answer}Cause I get a little scared when I look you in the eyes
+Are you an enderman?{answer}Cause I get a little scared when I look you in the eyes
 Are you YouTube?{answer}Because I want You To be mine.
 You must be really good at art, because you've drawn my attention.
 Of all the beautiful curves on your body, your smile is my favorite.
@@ -74,28 +74,26 @@ I know this is going to sound strange, but if I don't ask you now, I'll be kicki
 Sorry, I'm already seeing Botwinkle. I'd rather just be friends with you.
 Four plus four equals eight, but you plus me equals fate.
 Hey, you're pretty and I'm cute. Together we'd be Pretty Cute.
-What are your other two wishes?
 You can't be my first, but you can be my last.
 Didn't I see you on the cover of Vogue?
 Guess what I'm wearing? The smile you gave me!
 WYD{answer}No, I mean where's your dog?
 How clever was my last pickup line, on a scale of (000)-000-0000 to (999)-999-9999?
-To receive a cheesy pickup line, press 1. To receive a generic salutation, press 2. To receive a crude sexual advance, press 3. To replay message, press 4.{answer}Hey, how do you pronounce your phone number?{answer}Hi!{answer}.-.{answer}To receive a cheesy pickup line, press 1. To receive a generic salutation, press 2. To receive a crude sexual advance, press 3. To replay message, press 4.
-Hello. I am a Nigerian Prince and I can make you rich beyond your wildest dreams! I just need your phone number.{answer}And your bank account.{answer}And Social Security.{answer}And mothers maiden name.
+Hello. I am a Nigerian Prince and I can make you rich beyond your wildest dreams! I just need your phone number.{answer}And your birthday.{answer}And your bank account.{answer}And Social Security number.{answer}And mother's maiden name.
 Do you have 11 protons? Because you're sodium fine!
 Are you my self-esteem? Cause I've been looking for you everywhere.
-This is the police! You're under arrest for being too cute, now put your hands where i can hold them.
+This is the police! You're under arrest for being too cute, now put your hands where I can hold them.
 Well, here I am. What were your other two wishes?
 Let me tie your shoes, cause I don't want you falling for anyone else.
-Most people like to watch the Olympics, because they only happen once every 4 years, but I'd rather talk to you cause the chance of meeting someone so special only happens once in a lifetime.
+Most people like to watch the Olympics, because they only happen once every 4 years, but I'd rather talk to you because the chance of meeting someone so special only happens once in a lifetime.
 No wonder the sky is grey today, all the blue is in your eyes.
 Was your father a thief? 'Cause someone stole the stars from the sky and put them in your eyes.
 Help! I've fallen for you and I can't get up!
 If you were ground coffee, you'd be Espresso cause you're so fine.
 If I was a stoplight, everytime you came by I'd turn red, just to glance at you longer
 Damn {author}, I thought diamonds were pretty until I laid my eyes on you!
-A life without you, would be like a computer without me.
-A life without you, would be like a computer without an OS.
+A life without you would be like a computer without me.
+A life without you would be like a computer without an OS.
 If you were French Toast, you'd be the most elegant French Toast I've ever seen.
 "Will you marry me?"\n\nThis is a simple one. This line is super effective for anyone. Because it's literally “will you", it is very powerful and intimate. You can do it without even being asked. You can just give a long speech about your dream of marriage, and it will be powerful to your crush.
 I love you. I don't care if you're a doggo in a trenchcoat.
@@ -111,10 +109,10 @@ Are you made of beryllium, gold, and titanium? 'Cause you're BeAuTiful!
 Your beauty rivals that of the screenspace refraction done in Complementary 4.2
 If Internet Explorer is brave enough to ask you to be your default browser, I'm brave enough to ask you out!
 You must be Windows Vista because you've got me feeling so unstable.
-Isn't your e-mail address manofyourdreams@jcwyt.com?
+Isn't your email address manofyourdreams@jcwyt.com?
 WebMD says your love is contagious.
 You are the Apple of my i-Mac.
-If you were an ebay auction, I'd totally 'buy it now'.
+If you were an Ebay auction, I'd totally 'buy it now'.
 You auto-complete me.
 Idk what to say so here's a pickup line:\n🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻🛻
 My love is like a fractal, it goes on forever.
@@ -122,26 +120,25 @@ Hi, I'm writing a term paper on the finer things in life, and I was wondering if
 Do you have a sunburn, or are you always this hot?
 I have to show you the prettiest person I've ever seen. *shows selfie camera*
 How is your fever?{answer}Oh… you just seem insanely hot.
-I sneezed because God blessed me with you.
+Did I sneeze? Because God blessed me with you.
 Hershey's makes millions of kisses a day... all I'm asking for is one from you.
 Me without you is like a computer without typefaces, a middle school without nutcases, a sea turtle without carapaces.
 Are you a kidnapper? Because you just abducted my heart.
-Are you Apple Support? There's something wrong with my cell phone. It doesn't have your number in it.
-Help! I've fallen for you and I can't get up!
+Are you Apple Support? There's something wrong with my phone. It doesn't have your number in it.
 I don't have a library card, but do you mind if I check you out?
-Hello, I'm doing a survey of what people think are the cheesiest pickup lines. So, do you pick ‘Do you come here often?', ‘How was heaven when you left it?', or ‘Hello, I'm doing a survey of what people think are the cheesiest pickup lines.'?
-Most people call me Barbara, but you can call me tomorrow!
+Hello, I'm doing a survey of what people think are the cheesiest pickup lines. Which of the following is the best: ‘Do you come here often?', ‘How was heaven when you left it?', or ‘Hello, I'm doing a survey of what people think are the cheesiest pickup lines.'?
+Most people call me Barbara, but you can call me tonight!
 If you were a stormtrooper's gun, you'd be set to stun.
 I'm studying to be a historian, are you interested in finding a date?
 I hope our love will be like pi, irrational and endless.
 Are you a Minecraft fence? Cuz I can't get over you.
-Are you a Hurricane, {author}? Cause you're blowing me away.
+Are you a hurricane, {author}? Cause you're blowing me away.
 Are you Gravel in Minecraft? Because I'm falling for you!
 Are you Mumbo Jumbo? Because I'm blown away by your end crystals.
 Did I mention you're looking optiFINE tonight?
 Are you a redstone torch? Because you turn me on.
 Redstone is red, Lazuli is blue, you're as hot as the lava I fell into.
-It's funny how I know 250+ Minecraft blocks, but not the 16 digits of your phone number.
+It's funny how I know 250+ Minecraft blocks, but not the 10 digits of your phone number.
 If you were a booger I would pick you first.
 You wanna know what's big?{answer}My house, pervert ;)
 Was your dad a thief? Why? I don't know, just making small talk. Mine's an orthopedist.
@@ -152,15 +149,15 @@ Do you work at Starbucks? Because I like you a latte.
 Excuse me, is your name Earl Grey? Because you look like a hot-tea!
 Are you a fruit, because Honeydew you know how hot you look right now?
 Do you live in a corn field? 'Cause I'm stalking you.
-I'm no organ donor but I'd be happy to give you my heart
-Do you smoke pot? Because weed be cute together.
+I'm no organ donor but I'd be happy to give you my heart.
+Do you smoke marijuana? Because weed be cute together.
 If you were a tropical fruit, you'd be a Fine-apple!
 Did you read Dr. Seuss as a kid? Because green eggs and... damn!
 You must be the cure for Alzheimer's, because you're unforgettable.
 Do you work at Dick's? Cause you're sporting the goods.
 You know I'd like to invite you over, but I'm afraid you're so hot that you'll skyrocket my air-conditioning bill.
 My love for you is like diarrhea, I just can't hold it in.
-Rejection can lead to emotional stress for both parties involved and emotional stress can lead to physical complications such as headaches, ulcers, cancerous tumors, and even death! So for my health and yours, JUST SAY YES!
+Rejection can lead to emotional stress for both parties involved and emotional stress can lead to physical complications such as headaches, ulcers, cancerous tumors, and even death! So for my health and yours, just say yes!
 I like Legos, you like Legos, why don't we build a relationship?
 Life without you would be like a broken pencil... pointless.
 Is your name Dunkin? Because I Donut want to spend another day without you.
@@ -169,7 +166,6 @@ Do you have advanced radiation poisoning?{answer}Because you're glowing!
 If I were a transplant surgeon, I'd give you my heart. And spleen.
 Did it hurt?{answer}When you fell out of heaven?
 I'm sorry, were you talking to me?{answer}Well then, please start.
-What's on the menu? Me-n-U
 Are you my phone charger? Because without you, I'd die.
 Hey {author}. You got a jersey?{answer}Because I need your name and number.
 How much does a polar bear weigh?{answer}Enough to break the ice... Hi, I'm Barbara!
@@ -177,9 +173,7 @@ I blame you for global warming... your hotness is too much for the planet to han
 Sorry, but you owe me a drink.{answer}Because when I looked at you, I dropped mine.
 My buddies bet me that I wouldn't be able to start a conversation with the hottest person in the bar. Wanna buy some drinks with their money?
 I'm going to have to ask you to leave. You're making the other people look bad.
-Hawaiian or pepperoni?
 I don't know who'd be more excited about us going on a date, me or my mom.
-Hi, my name is Barbara, but you can call me tonight.
 If I were to ask you out on a date, would your answer be the same as the answer to this question?
 Hey, is that guy bothering you?{answer}Would you mind if I bothered you then?
 I used to be able to recite the alphabet until we met—now I can't get past ‘u'.
@@ -191,7 +185,7 @@ If I were a cat I'd spend all 9 lives with you.
 If you were a triangle you'd be acute one.
 We're not socks. But I think we'd make a great pair.
 Are you an omelette? Because you're making me egg-cited!
-Do you want to see a picture of a beautiful person? (hold up a mirror)
+Do you want to see a picture of a beautiful person? *holds up mirror*
 If you were a flower you'd be a damn-delion
 You shouldn't wear makeup. It's messing with perfection!
 I'm fighting the urge 24/7 to not scream a pickup line at the top of my lungs. If I had a partner, maybe I wouldn't have to.
@@ -202,20 +196,19 @@ Do you have the time?{answer}No, the time to write down my number?
 If a thousand painters worked for a thousand years, they could not create a work of art as beautiful as you. But, then again, https://en.wikipedia.org/wiki/Infinite_monkey_theorem
 If nothing lasts forever, will you be my nothing?
 Hi there, how are you?{answer}Hey, I didn't ask you how you looked!
-Did you fart? cause you blew me away.
+Did you fart? 'Cause you blew me away.
 Are you going to kiss me or do I have to lie to my diary?
 I love you like a pig loves not being bacon.
 You're like pizza. Even when you are bad, you're good
 My friend thinks you're kinda cute, but I don't.{answer}I think you're absolutely gorgeous!
-If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet securley and quickly easy! Brave even comples complete with a builtin ad and tracking blocker! Download today at &lt;https://brave.com/&gt;{answer}That was not me omg why was it added help pls no \n -Jonah
+If Internet Explorer is brave enough to... wait, did someone say Brave? Brave is a free, fast, and secure browser. With speeds averaging over 3x that of Chrome, and privacy settings better than Firefox by default, Brave makes browsing the internet  securely and quickly easy! Brave even comes complete with a builtin ad and tracking blocker! Download today at <https://brave.com>{answer}That was not me omg why was it added help pls no \n -Jonah
 Be unique and different, say yes.
-You be the Dairy Queen and I'll be your Burger King: You treat me right, and I'll do it your way.
+You be the Dairy Queen and I'll be your Burger King.
 Well, I AM telepathic, and I can tell that you love me. Right?{answer}Darn, I always get "love" and "lust" mixed up.
 Excuse me, I don't want you to think I'm ridiculous or anything, but you are the most beautiful person I have ever seen. I just felt like I had to tell you.
 I know where they give out free drinks.{answer}It's a place called “My House”!
-If you stood in front of a mirror and help up 11 roses, you would see 12 of the most beautiful things in the world.
+If you stood in front of a mirror and held up 11 roses, you would see 12 of the most beautiful things in the world.
 Stop, drop, and roll, {author}. You are on fire.
-I can't believe I've been here the entire evening with all these beautiful people and the moment I find 'The One', all I have time to say is "good bye".
 If we shared a garden, I'd put my tulips and your tulips together.
 {author}, you marinate my tempeh.
 Would you like some organic roasted root vegetables to go with that non-dairy fair trade shake?
@@ -226,9 +219,9 @@ I'd switch to emacs for you.
 If you were an ISP I'd dial you all day long.
 What's the difference between a crush and a Facebook account?{answer}I'm not rapidly developing a Facebook account on you.
 Mario is red. Sonic is blue. Press X to join and be my player 2.
-Even though it would~~n't~~ mess up my K/D ratio, I'd die a million deaths if it meant I could be with you.
+Even though it would mess up my K/D ratio, I'd die a million deaths if it meant I could be with you.
 I'll wait for you like I wait for Steam sales
-If I had to rate you on a scale from 1-undefined I'd rank you a π^π^π^π
+If I had to rate you on a scale from 1 to undefined, I'd rank you a π^π^π^π
 You must be a choir director because you make my heart sing!
 Are you a fermata? Because I want to hold you.
 Would you like to borrow my tuner?{answer}You're looking pretty sharp to me.
@@ -257,11 +250,11 @@ I C Major potential in us getting together.
 You must be a fourth or a fifth, because you're just perfect!
 Do you have any Sriracha sauce? Cause you fire me up!
 You're as complete as quinoa.
-Do you work at Little Caesars? Because you're Hot And I'm Ready.
+Do you work at Little Caesars? Because you're hot and I'm ready.
 I might not be a Doritos Locos Taco, but I sure will spice up your life.
 You must be peanut butter because you're making my legs feel like jelly.
 {author} if you were a burger at McDonalds you would be a McGorgeous.
-I want you more than a Hagen-Daas on a hot summer day.
+I want you more than a Haagen-Dazs on a hot summer day.
 You must be from Prague, because I can't help but Czech you out.
 Are you from South England? Cause you Brighton up my day.
 Norway are you leaving without giving me your number!
@@ -273,10 +266,9 @@ Do you like bagels? Because you're bae goals.
 What do you call a string of people lifting a mozzarella cheese? A cheesy pick up line.
 Are you my laptop? Because you're really hot and I'm concerned.
 Are you the COVID vaccine? Because I would never turn you down.
-I bet I know when your birthday is. October 10. Because you're a 10/10.
+I bet I know when your birthday is. October 10, because you're a 10/10.
 Is your Bluetooth enabled? I feel like we could pair.
 My BBQ is broken, could you have a look at it?{answer}Oh, I thought you might be able to help, being smoking hot yourself and all.
-Do you have rasins? How about a date?
 This may be cheesy, but I think you're grate.
 Are you related to Jean-Claude Van Damme? Because Jean-Claude Van Damme you're sexy!
 Did your license get suspended for driving all these guys crazy?
@@ -285,12 +277,12 @@ Are you a camera? Because I look at you and smile!
 I'm no mathematician, but I've been told I'm good with numbers. How about you give me yours so I can prove it?
 Hey {author}, are you a Prius? Because you're giving me no sounds or indecations that you're turned on right now.
 Are you an APR loan? Because I don't really understand your terms and you keep saying you have no interest.
-Yo, are you a microwave?{answer}Because mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+Are you a microwave?{answer}Because mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 Hey dude, is your name John? Because I've never Cena guy like you.
 Are you a time traveler? Cause I see you in my future!
 You must be a campfire. Because you're super hot and I want s'more.
 Are you a cat? Because I'm feline a connection between us.
-Hey beautiful! Your face is like a moon. Always glowing.
+Hey beautiful! Your face is like a moon, always glowing.
 If I had a star for every time you brightened my day, I'd have a galaxy in my hand.
 If you were broccoli you'd be a Romanesco.
 Forget hydrogen! You're my number one element.
@@ -311,7 +303,7 @@ Are you my house burning down? Cause you take my breath away.
 Are you a mortar shell?{answer}Cause when I hear you whistling, I stop what I'm doing, and try to find out where you're coming from, and where you're going.
 Are you Alzheimers?{answer}Cause I forgot where I was going with this one.
 Are you a large sum of money?{answer}Cause I love you.
-Let's start an LLC together so our dates can be deductable.
+Let's start an LLC together so our dates can be deductible.
 Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style autocannon mounted in the United States Air Force's Fairchild Republic A-10 Thunderbolt II?{answer}Cause you never fail to blow me away.
 I'd join the dark side as long as you were there.
 I must be drawn to the Force, because {author}, Yoda only one for me.
@@ -326,7 +318,7 @@ You're hotter than the flames on Mustafar.
 Wow, I'm so glad I found you… because I've Ben Solo for too long.
 You're the droid I've been looking for.
 Are you a doughnut?{answer}Because you're a-dough-rable.
-Lets go watch "The Simpsons", you can be Marge and I can take you Homer!"
+Let's go watch "The Simpsons", you can be Marge and I can take you Homer!
 I know the first 10 digits of pi, but somehow, I don't know yours.
 Your dad must have worked at Ikea because you're put together nice!
 We learned some pretty important dates in history class today, but I couldn't help noticing that you aren't a part of any of them.
@@ -352,13 +344,13 @@ You must be a high-test score because I'm dying to take you home to meet my moth
 Are you Harvard? Because I know I have no chance with you.
 Forget student loans, you've got all my interest.
 I'm a statistics major, and I think you have the best curves I've ever seen.
-I'm the new school janitor. I'd love to sweep you off your feet.
+I'm the new janitor. I'd love to sweep you off your feet.
 Are you the SATs? Because I would gladly sit in a room with you for six hours.
 I don't know how I'll ever get to class on time when it's so easy to get lost in your eyes.
 Are you a creeper? Because you make my heart explode.
 I am falling in love with you. Let's meet up. I swear I am not a 55-year-old man in his mom's basement.
 I'm like a zombie and you're like the sun - you light me on fire!
-You must be from nether, because you are out of this world.
+You must be from the nether, because you are out of this world.
 Are you from Candy Crush Saga? Because you're real sweet.
 Are you a streamer? Because I have been following you.
 You're my favorite streamer, want to do more than Just Chatting?
@@ -381,4 +373,30 @@ Hey {author}, are you looking for a stud?{answer}Because I have the STD, all I n
 Hey are you Discord? Because I can't stop thinking about you and my friends think I'm obsessed
 Hey, wanna link molecules?
 Will you brush your teeth with me?{answer}Because dentists say brushing alone doesn't prevent cavities.
-My internet is 4G, but my heart is 4U.
+My cellular is 4G, but my heart is 4U.
+Is that you passed out, or a snow angel on my lawn?
+You're so hot I only need four layers to go out into this teeeerible weather.
+Black ice isn't the only thing I'm falling for.
+Can you hold my gloves for a second? I usually warm them by the fireplace, but you are way hotter.
+Do I have a fever? Because you're giving me chills.
+Do you live in an igloo? Because you seem like a pretty cool person.
+I didn't think I was a snowman, but you just made my heart melt.
+If you were a tree, you’d be an evergreen, because I bet you look this good year-round.
+Are you a garbage bag? Because I’d like to take you out.
+Are you an expensive blue cheese? Because I want to grow mold with you.
+Will you brie mine?
+I like cheese. Everyone likes cheese. Now we have something in common!
+Hi. Are you busy? Do you have a few minutes so I can hit on you?
+Are you French? Because ma-damn, you're fine.
+You’re so beautiful you made me forget my pickup line.
+Do you have any raisins? How about a date?
+Do you have a name, or can I call you mine?
+I want someone to look at me the way I look at chocolate cake.
+I'm not using Google anymore. When I saw you, the search was over.
+Are you Google Chrome? Because you use all of my memory.
+*holds out hand* Would you hold this for me while I go for a walk?
+*steps on some ice* Now that the ice is broken, what’s your name?
+Hi, I’m writing a phone book, can I have your number?
+*drops 20 limes* Can you help me? I’m really bad at pick up limes.
+Are you a WiFi mesh? Because I feel your love everywhere I go.
+Are you public WiFi? Because I am connecting to you automatically.

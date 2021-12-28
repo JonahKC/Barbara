@@ -7,19 +7,20 @@ import click
 import logging
 from   threading import Thread
 from   flask import Flask
+from   flask_cors import CORS
 from   discord.ext import commands
 from   discord_components.client import DiscordComponents
 from   console import fg
 
 # Version constant
-BARBARA_VERSION = "3.18.120"
+BARBARA_VERSION = "3.19.120"
 
 # Pass a function to command_prefix that returns the correct per-server prefix
 def get_prefix(bot, message):
 
   # Attempt to read the server"s prefix from config
   try:
-  	pfx = config.read(message.guild.id, "prefix")
+    pfx = config.read(message.guild.id, "prefix")
 
   # If it doesn"t exist in config, use the default prefix
   except AttributeError:
@@ -42,7 +43,7 @@ activity = discord.Activity(type=discord.ActivityType.watching,
 bot = commands.Bot(command_prefix=get_prefix,
                    intents=intents,
                    activity=activity,
-									 case_insensitive=True)
+                   case_insensitive=True)
 
 # Remove the default help command
 bot.remove_command("help")
@@ -56,8 +57,10 @@ async def on_ready():
   # Start a flask server so that you can ping her to see if she's alive
   web_app = Flask('')
 
-  # Flask we don't care about your spam
+  # use flask-cors to set Access-Control-Allow-Origin to "*"
+  CORS(web_app)
 
+  # Flask we don't care about your spam
   # These are overrides to the logging functions
   def secho(text, file=None, nl=None, err=None, color=None, **styles):
     pass
@@ -74,10 +77,10 @@ async def on_ready():
 
   @web_app.route('/')
   def webserver_ping():
-  	return str(len(bot.guilds))
+    return str(len(bot.guilds))
 
   def run_webserver():
-  	web_app.run(host="0.0.0.0", port=8080)
+    web_app.run(host="0.0.0.0", port=8080)
 
   server = Thread(target=run_webserver)
   server.start()
@@ -102,7 +105,7 @@ for filename in os.listdir("./cogs"):
 
       # Log the Cog that was loaded
       print(f"{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}cogs.{filename[:-3]}{fg.default}")
-		
+    
     # An error was encountered trying to load a Cog
     except Exception as error:
 
@@ -112,7 +115,7 @@ for filename in os.listdir("./cogs"):
       # Debug it to the console with pretty red text
       print(fg.red + f"Error: {str(error)}")
       for i in stack.format():
-      	print(i)
+        print(i)
       print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
 
 @bot.event

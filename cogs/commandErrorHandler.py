@@ -4,6 +4,7 @@ from datetime import timedelta
 from humanize import naturaldelta
 from math import ceil
 import traceback, console
+import subprocess
 
 
 class ErrorHandler(commands.Cog):
@@ -59,9 +60,13 @@ class ErrorHandler(commands.Cog):
       return
 
     elif isinstance(error, discord.errors.HTTPException):
-      if str(error) == "400 Bad Request (error code: 50006): Cannot send an empty message":
+      if error.status == 400:
         await ctx.send("Cannot send empty message")
         return
+      elif error.status == 429:
+        # use subprocess.run to execute the kill 1 command
+        subprocess.run(['kill', '1'])
+
       trace = []
       tb = error.__traceback__
       while tb is not None:
@@ -72,7 +77,7 @@ class ErrorHandler(commands.Cog):
         })
         tb = tb.tb_next
       trace = json.dumps(trace, indent=2)
-      errorMsg = f"Oh no! There was an unhandled exception talking to the Discord API running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:] and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:1500] + (trace[1500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/discord>), or email bugs@jcwyt.com"
+      errorMsg = f"Oh no! There was an unhandled exception talking to the Discord API running the command `{ctx.prefix}{ctx.command}`\nError Message: {str(error)[:100] + (str(error)[100:]       and '...')}\nRaw Error: `{str(type(error))}`\nTraceback: ```json\n{trace[:1500] + (trace[1500:] and '...')}```Please report bugs you find on the JCWYT Discord (<https://jcwyt.com/     discord>), or email bugs@jcwyt.com"
       await ctx.send(errorMsg)
       return
 
