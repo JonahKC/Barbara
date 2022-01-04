@@ -2,9 +2,6 @@
 *Remember, you need to be an admin to use these commands. I see you being sneaky...*
 
 **General Admin Commands**
-`{prefix}messages purge <​limit> <​user>` - Deletes up to `<​limit>` messages from the current channel (if not set, it defaults to 50), optionally from `<​user>` (if not set, deletes all messages).
-
-`{prefix}messages collect <​limit> <​user>` - Collects up to `<​limit>` messages from the current channel into a `.csv` file (if not set, it defaults to 50), optionally from `<​user>` (if not set, collects all messages).
 
 `{prefix}reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
 
