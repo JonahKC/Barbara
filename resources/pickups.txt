@@ -397,6 +397,7 @@ Are you Google Chrome? Because you use all of my memory.
 *holds out hand* Would you hold this for me while I go for a walk?
 *steps on some ice* Now that the ice is broken, what’s your name?
 Hi, I’m writing a phone book, can I have your number?
-*drops 20 limes* Can you help me? I’m really bad at pick up limes.
-Are you a WiFi mesh? Because I feel your love everywhere I go.
-Are you public WiFi? Because I am connecting to you automatically.
+*drops 20 limes* Can you help me?{answer}I’m really bad at pick up limes.
+Are you a WiFi mesh?{answer}Because I feel your love everywhere I go.
+Are you public WiFi?{answer}Because I am connecting to you automatically.
+are you a 2,000 degree reinforced steel rod?{answer}Because you're hot.
