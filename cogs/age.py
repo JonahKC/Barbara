@@ -3,7 +3,7 @@ from datetime import timedelta, datetime
 from discord.ext import commands
 import discord
 
-SCHOOL_DAYS_OFF = 6
+SCHOOL_DAYS_OFF = 16
 
 class Age(commands.Cog):
   def __init__(self, bot):
