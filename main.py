@@ -13,7 +13,7 @@ from   discord_components.client import DiscordComponents
 from   console import fg
 
 # Version constant
-BARBARA_VERSION = "3.19.120"
+BARBARA_VERSION = "3.20.120"
 
 # Pass a function to command_prefix that returns the correct per-server prefix
 def get_prefix(bot, message):
@@ -117,6 +117,26 @@ for filename in os.listdir("./cogs"):
       for i in stack.format():
         print(i)
       print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
+
+# Load the CustomCommands cog
+try:
+  bot.load_extension(f"temp.customCommands")
+
+  # Log the Cog that was loaded
+  print(f"{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}temp.customCommands{fg.default}")
+ 
+# An error was encountered trying to load a Cog
+except Exception as error:
+
+  # Get the stacktrace from the exception
+  stack = traceback.extract_tb(error.__traceback__)
+ 
+  # Debug it to the console with pretty red text
+  print(fg.red + f"Error: {str(error)}")
+  for i in stack.format():
+    print(i)
+  print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
+
 
 @bot.event
 async def on_message(message):  # Perms

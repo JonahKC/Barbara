@@ -401,3 +401,8 @@ Hi, I’m writing a phone book, can I have your number?
 Are you a WiFi mesh?{answer}Because I feel your love everywhere I go.
 Are you public WiFi?{answer}Because I am connecting to you automatically.
 are you a 2,000 degree reinforced steel rod?{answer}Because you're hot.
+I appreciate you more than Santa appreciates chimney grease.
+With your creative wit, I'm sure you could come up with better compliments than me.
+If I freeze, it's not a computer virus. I was just stunned by your beauty.
+You're more fun than bubble wrap.
+You are the rare catalyst to my volatile compound.

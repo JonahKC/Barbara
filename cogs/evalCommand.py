@@ -13,6 +13,27 @@ class EvalCommand(commands.Cog):
     self._last_result = None
     self.sessions = set()
 
+  @admin.jcwytTeam()
+  @commands.group(name='customcommand', execute_without_subcommand=False)
+  async def customcommand(self, ctx):
+    """
+    This is a custom command that allows the JCWYT Team to easily add a custom command on-the-fly.
+    """
+    pass
+
+  @customcommand.command(name='set')
+  async def customcommand_set(self, ctx, *, command: str):
+    """
+    Write to the CustomCommands Cog and reload it, immediately adding the newly coded commands
+    """
+
+    with open("./temp/customCommands.py", "w") as f:
+      f.write(f"""from discord.ext import commands\nclass CustomCommands(commands.Cog):\n  def __init__(self, bot):\n    self.bot = bot\n{textwrap.indent(self.cleanup_code(command), "  ")}\ndef setup(bot):\n  bot.add_cog(CustomCommands(bot))""")
+    self.bot.unload_extension("temp.customCommands")
+    self.bot.load_extension("temp.customCommands")
+    await ctx.send("Successfully loaded new code into `CustomCommands`!")
+    
+
   def cleanup_code(self, content):
     if content.startswith('```') and content.endswith('```'):
         return '\n'.join(content.split('\n')[1:-1])
