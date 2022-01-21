@@ -25,7 +25,8 @@ def reloadMeeseBlacklist():
         elif temp_category == "TRIM_CHARS":
           TRIM_CHARS.append(line.strip('\n'))
 
-MEESE_REGEX = re.compile("""me{2,}s+e""")
+MEESE_REGEX = re.compile(r"me{2,}s+e")
+SPOILER_REGEX = re.compile(r"\|\|.*?\|\|", re.MULTILINE | re.DOTALL)
 
 def reverseString(x):
   return x[::-1]
@@ -39,9 +40,17 @@ def replaceWords(words, string, replaceWith, replace=1):
     string = newString
   return string.lower()
 
-def containsMeese(inputStr):
+def trim(inputStr):
+  return replaceWords(TRIM_CHARS, inputStr, "", -1)
+
+def containsMeese(inputStr, whitelist=[]):
+  # Remove whitelisted chars
+  inputStr = replaceWords(whitelist, inputStr, "")
+
+  # Use Regex to remove anything inside a discord spoiler (||text||)
+  inputStr = re.sub(SPOILER_REGEX, '', inputStr)
+
   #print('ORIGINAL STRING: ' + inputStr)
-  inputStr = replaceWords(TRIM_CHARS, inputStr, "", -1)
   inputStr = replaceWords(M_BLACKLIST, inputStr, "m", 32)
   inputStr = replaceWords(E_BLACKLIST, inputStr, "e", 64)
   inputStr = replaceWords(S_BLACKLIST, inputStr, "s", 32)
@@ -49,8 +58,15 @@ def containsMeese(inputStr):
   inputStr = unidecode(inputStr)
   #print('FINAL STRING: ' + inputStr)
   contains_meese = re.search(MEESE_REGEX, inputStr)
+
+  # Support for meese spelled backwards
+  # Disabled due to too many false detections
   #if contains_meese == None:
   #  contains_meese = re.search(MEESE_REGEX, reverseString(inputStr))
+
+  # If nothing was found, return False (no meese)
   if contains_meese == None:
     return False
-  return True
+
+  # Otherwise, return the inputStr
+  return inputStr

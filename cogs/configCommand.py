@@ -2,6 +2,7 @@ import config.config as config
 import re, json
 from discord.ext import commands
 import lib.admin as admin
+import lib.messages as messages
 import discord
 
 class ConfigCommand(commands.Cog):
@@ -40,6 +41,12 @@ class ConfigCommand(commands.Cog):
     except ValueError:
       pass
     result = config.write(ctx.guild.id, property, value)
+
+    # Bad hardcoded stuff to force-reshuffle
+    # secrets/pickups/breakups when you change the flavor
+    if property.startswith("flavor-of-secrets"):
+      messages.reset_secrets(ctx)
+
     if result == None:
       await ctx.send(f"Set config value `{property}` to `{value}`.")
     else:
