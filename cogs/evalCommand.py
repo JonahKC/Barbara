@@ -6,6 +6,7 @@ import inspect, discord
 import lib.admin as admin
 import io, textwrap, traceback
 import lib.evalUtils as evalUtils
+import config.config as config
 
 class EvalCommand(commands.Cog):
   def __init__(self, bot):
@@ -65,39 +66,39 @@ class EvalCommand(commands.Cog):
     env.update(globals())
 
     body = self.cleanup_code(body)
-    stdout = io.StringIO()
+    out = io.StringIO()
 
     to_compile = f'async def func():\n{textwrap.indent(body, " ")}'
 
-    try:
-      code = compile(to_compile, '<User Code>', 'exec')
-      if inspect.isawaitable(code):
-        await exec(code, env)
-      else:
-        exec(to_compile, env)
-    except Exception as e:
-      return await ctx.send(f'```py\n{e.__class__.__name__}: {e}  \n```')
-
-    func = env['func']
-    try:
-      with redirect_stdout(stdout):
-        ret = await func()
-    except Exception as e:
-      value = stdout.getvalue()
-      await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
-    else:
-      value = stdout.getvalue()
+    with redirect_stdout(out):
       try:
-        await ctx.message.add_reaction('\u2705')
-      except:
-        pass
+        code = compile(to_compile, '<User Code>', 'exec')
+        if inspect.isawaitable(code):
+          await exec(code, env)
+        else:
+          exec(to_compile, env)
+      except Exception as e:
+        return await ctx.send(f'```py\n{e.__class__.__name__}: {e}  \n```')
 
-      if ret is None:
-        if value:
-          await ctx.send(f'```\n{value}\n```')
+      func = env['func']
+      try:
+        ret = await func()
+      except Exception as e:
+        value = out.getvalue()
+        await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
       else:
-        self._last_result = ret
-        await ctx.send(f'```\n{value}{ret}\n```')
+        value = out.getvalue()
+        try:
+          await ctx.message.add_reaction('\u2705')
+        except:
+          pass
+  
+        if ret is None:
+          if value:
+            await ctx.send(f'```\n{value}\n```')
+        else:
+          self._last_result = ret
+          await ctx.send(f'```\n{value}{ret}\n```')
 
 def setup(bot):
  bot.add_cog(EvalCommand(bot))

@@ -1,15 +1,36 @@
-import json
+import json, os
 
-def save(dict):
-	with open("./config/config.json", "w") as fp:
-		json.dump(dict, fp)
+def save(dict, guild):
+  if guild != None:
+    with open('./config/server conf/'+guild, 'w+') as fp:
+      json.dump(dict, fp)
+#  else:
+#	  with open("./config/config.json", "w") as fp:
+#		  json.dump(dict, fp)
 
-def load():
-  try:
+def load(guild):
+  if guild != None:
+    try:
+      with open('./config/server conf/'+guild) as fp:
+        return json.load(fp)
+    except FileNotFoundError:
+      try:
+        with open('./config/config.json') as fp:
+          conf = json.load(fp)
+          if guild in conf:
+            save(conf[guild], guild)
+            conf[guild] = "migrated"
+            return load(guild)
+          else:
+            serverGen(guild)
+            return load(guild)
+      except FileNotFoundError:
+        serverGen(guild)
+        return load(guild)
+
+  else:
     with open('./config/config.json') as fp:
       return json.load(fp)
-  except json.decoder.JSONDecodeError:
-    return default()
 
 def load_global(option=None):
   try:
@@ -23,102 +44,81 @@ def load_global(option=None):
 
 def write(guild_id, option, value):
   guild_id = str(guild_id)
-  conf = load()
-  if default(option) == None:
+  conf = load(guild_id)
+  if conf[option] == None and default(option) == None:
     return f"ERROR: Config value `{option}` does not exist."
-  if conf.get(str(guild_id)) != None:
-    conf[guild_id][option] = value
-  else:
-    serverGen(guild_id)
-    conf = load()
-    conf[guild_id][option] = value
-  save(conf)
+  conf[option] = value
+  save(conf, guild_id)
 
 def read(guild_id, option, isDM=False):
   if not isDM:
     guild_id = str(guild_id)
-    conf = load()
-    if conf.get(str(guild_id)) != None:
-      if conf[str(guild_id)].get(option) == None and default(option) == None:
-        return f"ERROR: Config value `{option}` does not exist."
-      if conf[str(guild_id)].get(option) == None:
-        conf[str(guild_id)][option] = default(option)
-        save(conf)
-        return conf[str(guild_id)][option]
-      else:
-        return conf[str(guild_id)][option]
+    conf = load(guild_id)
+    if conf.get(option) == None and default(option) == None:
+      return f"ERROR: Config value `{option}` does not exist."
+    if conf.get(option) == None:
+      conf[option] = default(option)
+      save(conf, guild_id)
+      return conf[option]
     else:
-      serverGen(str(guild_id))
-      conf = load()
-      return conf[str(guild_id)][option]
+      return conf[option]
   else:
     return default(option)
 
 def reset(guild_id, option):
   guild_id = str(guild_id)
-  conf = load()
-  if conf[str(guild_id)].get(option) == None and default(option) == None:
+  conf = load(guild_id)
+  if conf.get(option) == None and default(option) == None:
     return f"ERROR: Config value `{option}` does not exist."
-  conf[str(guild_id)][option] = default()
-  save(conf)
-  return None
+  conf[option] = default()
+  save(conf, guild_id)
 
 def fetch(guild_id, arr):
 	guild_id = str(guild_id)
-	conf = load()
+	conf = load(guild_id)
 	global_conf = load_global()
-	if conf.get(str(guild_id)) == None:
-		serverGen(guild_id)
-		conf = load()
-	elif conf[guild_id].get(arr) == None:
-		conf[guild_id][arr] = default(arr)
-		save(conf)
-		conf = load()
-	return list(tuple(conf[guild_id][arr])+tuple(global_conf[arr]))
+	if conf.get(arr) == None:
+		conf[arr] = default(arr)
+		save(conf, guild_id)
+		conf = load(guild_id)
+	return list(tuple(conf[arr])+tuple(global_conf[arr]))
 
 def append(guild_id, arr, value):
   guild_id = str(guild_id)
-  conf = load()
-  if conf.get(str(guild_id)) == None:
-    serverGen(guild_id)
-    conf = load()
-  elif conf[guild_id].get(arr) == None and default(arr) == None:
+  conf = load(guild_id)
+  if conf.get(arr) == None and default(arr) == None:
     return f"ERROR: Config array `{arr}` does not exist."
-  elif conf[guild_id].get(arr) == None:
-    conf[guild_id][arr] = default(arr)
-    save(conf)
-    conf = load()
-  val = conf[guild_id][arr]
+  elif conf.get(arr) == None:
+    conf[arr] = default(arr)
+    save(conf, guild_id)
+    conf = load(guild_id)
+  val = conf[arr]
   val.append(value)
-  conf[guild_id][arr] = list(set(val))
-  save(conf)
+  conf[arr] = list(set(val))
+  save(conf, guild_id)
 
 def remove(guild_id, arr, value):
   guild_id = str(guild_id)
-  conf = load()
-  if conf.get(str(guild_id)) == None:
-    serverGen(guild_id)
-    conf = load()
-  elif conf[guild_id].get(arr) == None and default(arr) == None:
+  conf = load(guild_id)
+  if conf.get(arr) == None and default(arr) == None:
     return f"ERROR: Config array `{arr}` does not exist."
-  elif conf[guild_id].get(arr) == None:
-    conf[guild_id][arr] = default(arr)
-    save(conf)
-    conf = load()
-  conf[guild_id][arr].remove(value)
-  save(conf)
+  elif conf.get(arr) == None:
+    conf[arr] = default(arr)
+    save(conf, guild_id)
+    conf = load(guild_id)
+  conf[arr].remove(value)
+  save(conf, guild_id)
 
 def get(guild_id):
 	guild_id = str(guild_id)
-	conf = load()
-	return conf[guild_id]
+	conf = load(guild_id)
+	return conf
 
 def serverGen(guild_id):
 	guild_id = str(guild_id)
 	with open("config/default_config.json") as fp:
-		conf = load()
-		conf[guild_id] = json.load(fp)
-		save(conf)
+		conf = json.load(fp)
+		save(conf, guild_id)
 
 def default(option=None):
   with open("config/default_config.json") as fp:
@@ -130,3 +130,28 @@ def default(option=None):
     except KeyError:
       print("uh oh\n\n\n")
       return None
+
+def backup():
+  backup = {}
+  conf = {}
+  with open('./config/config.json') as fp:
+    conf = json.load(fp)
+  for i in conf:
+    backup[i] = load(i)
+    conf[i] = "migrated"
+  with open('./config/config.json', 'w') as fp:
+    json.dump(conf, fp)
+  for i in os.listdir('./config/server conf'):
+    with open('./config/server conf/'+i) as fp:
+      backup[i] = json.load(fp)
+  
+  with open('./config/backup.json', 'w') as fp:
+    json.dump(backup, fp)
+
+def revert():
+  backup = {}
+  with open('./config/backup.json') as fp:
+    backup = json.load(fp)
+
+  for i in backup:
+    save(backup[i], i)

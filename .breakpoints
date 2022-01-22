@@ -1,5 +1,13 @@
 {
   "files": {
+    ".gitignore": [
+      {
+        "id": "d0d47b58-c611-4287-82f9-4c3640a91199",
+        "line": 3,
+        "version": 76,
+        "index": 28
+      }
+    ],
     "lib/ytdlTools.py": [
       {
         "id": "fdf66317-f1d7-4e9d-b269-9074e5c1fa1b",
