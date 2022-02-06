@@ -2,6 +2,5 @@
 	"admin roles": [],
 	"banned-vcs": [],
 	"admin users": ["<@!797282028344573992>","<@!738843304057372702>", "<@!437404651818582017>"],
-	"whitelist":["meeseLib", "nomees", "moosemeese", "moosenotmeese", "moose not meese", "not meese", "notmeese", "moosemeese.org", "moosenotmeese.org", "nomeese",  "cogs.removeMeese","meesedetect"],
-	"log actions": []
+	"whitelist":["nomees", "moosemeese", "moosenotmeese", "not meese", "notmeese", "moosemeese.org", "moosenotmeese.org", "nomeese",  "cogs.removeMeese","meesedetect"]
 }

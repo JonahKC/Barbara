@@ -1,0 +1,19 @@
+{
+	"session_name":"main",
+	"windows": [
+		{
+			"window_name": "log",
+			"focus": true,
+			"layout": "main-horizontal",
+			"panes": [
+				"python -c 'import lib.shell as shell; shell.dummy()'",
+				{
+					"focus": true,
+					"shell_command": [
+						"python main.py"
+					]
+				}
+			]
+		}
+	]
+}
