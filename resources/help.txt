@@ -1,51 +1,15 @@
-**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
-
-`{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
-
-`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well! 
-
-`%breakup` – Responds with a random breakup line from an amazing list of 100+.
-
-`%vote` - Vote for Barbara on Top.gg!
-
-`{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
-
-`{prefix}fact` - Returns a random fact. This command uses an API, see below for credit links.
-
-`{prefix}dadjoke` - Returns a random dad joke. This command uses an API, see below for credit links.
-
-`{prefix}say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
-
-`{prefix}say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
-
-`[parameter]` = required
-`<parameter>` = optional
-API links can be found at <https://barbara.jcwyt.com/api-credits>
-
-**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
-
-**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
-_ _
-PAGEBREAK
-**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
-
-`{prefix}link` – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
-
-`{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website. **This command is restricted to NSFW channels only.**
-
-`{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
-
-`{prefix}help admin` - View admin commands.
-
-`%prompt <length of answer> <temperature> [prompt]` - Continues your prompt and writes a paragraph. **Length of answer is NOT in characters, it's in AI tokens, or about 0.75 *words* each, so make sure you're not setting it too high!**. To learn more about how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
-This command uses an API, see below for credit links. **Content Warning: The AI used to do this was trained on a dataset known to contain profanity, lewd, and otherwise offensive language. Use at your own risk!**
-
-
-`[parameter]` = required
-`<parameter>` = optional
-API links can be found at <https://barbara.jcwyt.com/api-credits>
-
-**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
-
-**For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
-_ _
+**Here's What I Can do!**
+`/credits` - Shows the credits of the bot.
+`/help` - Shows this message.
+`/reaction [add/remove] [emoji]` - Add or remove an emoji reaction to a message.
+`/say` - Send a message as Barbara! If you're not an admin, it will be visible that you send this message.
+`/pickup` - Sends a pickup line from a hand-curated list of over 400!
+ADMIN_ONLY
+`/admin [add/remove] [user/role]` - Add or remove a user or role from the admin list.
+`/admin list [users/roles/all]` - List all users or roles in the admin list.
+`/config read [key]` - Read a config value.
+`/config set [key] [value]` - Set a config value.
+`/config reset [key]` - Reset a config value to its default.
+`/config append [array] [value]` - Append a value to a config array.
+`/config remove [array] [value]` - Remove a value from a config array.
+`/meesedetect [true/false]` - Enable or disable meese detection/censorship. Alias for /config set nomees [true/false]
