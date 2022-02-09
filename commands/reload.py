@@ -1,7 +1,7 @@
 import util
 import nextcord
-from constants import TESTING_GUILD_ID
 from nextcord.ext import commands
+from constants import TESTING_GUILD_ID
 
 class ReloadCommand(commands.Cog):
   """
@@ -12,7 +12,7 @@ class ReloadCommand(commands.Cog):
 
   @util.jcwyt()
   @nextcord.slash_command(
-    name="reload",    description="Reload a Cog.",
+    name="reload",    description="[ㅈ] Reload a Cog.",
     
     # Only available in the JCWYT Discord, always not globally
     guild_ids=TESTING_GUILD_ID
@@ -24,6 +24,7 @@ class ReloadCommand(commands.Cog):
       required=True,
       name="cog",
       description="The name of the Cog to reload.",
+      autocomplete=True
     )
   ):
     """
@@ -47,13 +48,16 @@ class ReloadCommand(commands.Cog):
       # Send a success message
       await interaction.send(util.get_message("jcwyt.reload_cog_succeeded", cog_name=cog_name), ephemeral=True)
   
-  #@reload_cog_command.on_autocomplete("cog_name")
-  #async def reload_cog_command_autocomplete(self, interaction: nextcord.Interaction, cog_name: str):
-  #  
-  #  print("cog_name: " + cog_name)
-  #
-  #  # Send an autocomplete payload with all of the cogs
-  #  await interaction.response.send_autocomplete(["commands.admin"])
+  @reload_cog_command.on_autocomplete("cog_name")
+  async def reload_cog_command_autocomplete(self, interaction: nextcord.Interaction, cog_name: str):
+  
+    # Get all of the bot's Cog objects
+    cogs = self.bot.cogs.values()
+
+    # Get the name (ex. commands.reload, not ReloadCommand) of the Cog
+    cogs = map(lambda x: x.qualified_name, cogs)
+
+    await interaction.response.send_autocomplete(cogs)
 
 def setup(bot):
   bot.add_cog(ReloadCommand(bot))

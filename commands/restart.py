@@ -14,7 +14,7 @@ class RestartCommand(commands.Cog):
   @util.jcwyt()
   @nextcord.slash_command(
 		name='restart',
-		description='Restart the entire bot',
+		description='[ㅈ] Restart the entire bot',
 		guild_ids=TESTING_GUILD_ID,
 		force_global=SLASH_COMMANDS_GLOBAL
 	)

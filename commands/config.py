@@ -14,10 +14,10 @@ class ConfigCommand(commands.Cog):
 
   @util.admin()
   @nextcord.slash_command(
-		name = 'config',
-		description = 'Directly read and modify the server config file.',
-		guild_ids = TESTING_GUILD_ID,
-		force_global = SLASH_COMMANDS_GLOBAL,
+		name='config',
+		description='Directly read and modify the server config file.',
+		guild_ids=TESTING_GUILD_ID,
+		force_global=SLASH_COMMANDS_GLOBAL,
 	)
   async def config_command(self, interaction: nextcord.Interaction):
     """
@@ -26,15 +26,15 @@ class ConfigCommand(commands.Cog):
     pass
 
   @config_command.subcommand(
-		name = 'read',
-		description = 'Read the value of a config option, or all of config.'
+		name='read',
+		description='Read the value of a config option, or all of config.'
 	)
-  async def config_read_command(self, interaction:nextcord.Interaction,
+  async def config_read_command(self, interaction: nextcord.Interaction,
   
   # A specific config option is optional, if not provided will read the whole config
-  option: str = nextcord.SlashOption(
-    required = False,
-    default = False,
+  option: str=nextcord.SlashOption(
+    required=False,
+    default=False,
   )):
     """
     Read the value of a specific config option.
@@ -49,7 +49,7 @@ class ConfigCommand(commands.Cog):
       else:
 
         # Otherwise send a formatted message with the entire config
-        await interaction.send(util.get_message('config.entire_config_read_success', config_json=json.dumps(config.load(interaction.guild_id), indent=2)))  
+        await interaction.send(util.get_message('config.entire_config_read_success', guild_name=interaction.guild.name, config_json=json.dumps(config.load(interaction.guild_id), indent=2)))  
     
     # Ruh roh you tried to read an option that doesn't exist or something
     except config.ConfigException as err:
@@ -59,8 +59,8 @@ class ConfigCommand(commands.Cog):
       
 
   @config_command.subcommand(
-		name = 'set',
-		description = 'Set the value of a config option.'
+		name='set',
+		description='Set the value of a config option.'
 	)
   async def config_set_command(self, interaction: nextcord.Interaction, option: str, value):
     """
@@ -81,8 +81,8 @@ class ConfigCommand(commands.Cog):
       await interaction.send(err.__repr__())
 
   @config_command.subcommand(
-	  name = 'reset',
-		description = 'Reset a config option to the default value.'
+	  name='reset',
+		description='Reset a config option to the default value.'
 	)
   async def config_reset_command(self, interaction: nextcord.Interaction, option: str):
     """
@@ -103,8 +103,8 @@ class ConfigCommand(commands.Cog):
       await interaction.send(err.__repr__())
 
   @config_command.subcommand(
-		name = 'append',
-		description = 'Add an item to a config list.'
+		name='append',
+		description='Add an item to a config list.'
 	)
   async def config_append_command(self, interaction: nextcord.Interaction, list: str, value):
     """
@@ -125,8 +125,8 @@ class ConfigCommand(commands.Cog):
       await interaction.send(err.__repr__())
 
   @config_command.subcommand(
-		name = 'remove',
-		description = 'Remove an item from a config list.'
+		name='remove',
+		description='Remove an item from a config list.'
 	)
   async def config_remove_command(self, interaction: nextcord.Interaction, list: str, value):
     """
@@ -145,7 +145,24 @@ class ConfigCommand(commands.Cog):
 
       # Send the error
       await interaction.send(err.__repr__())
-      
+
+  @util.jcwyt()
+  @config_command.subcommand(
+    name='backup',
+    description='[ㅈ] Backup all config to a file'
+  )
+  async def config_backup_command(self, interaction: nextcord.Interaction):
+    config.backup()
+    await interaction.send(util.get_message("jcwyt.config.backup_success"), ephemeral=True)
+
+  @util.jcwyt()
+  @config_command.subcommand(
+    name='restore',
+    description='[ㅈ] Restore all config from the most recent backup'
+  )
+  async def config_restore_command(self, interaction: nextcord.Interaction):
+    config.revert()
+    await interaction.send(util.get_message("jcwyt.config.revert_success"), ephemeral=True)
 
 def setup(bot):
   bot.add_cog(ConfigCommand(bot))

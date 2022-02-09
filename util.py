@@ -73,7 +73,7 @@ def _has_permissions(member: nextcord.Member):
     return True
 	
   #Specifically mentioned as an admin user
-  if f"<@!{member.id}>" in config.fetch(member.guild.id, "admin users"): return True
+  if f"<@!{member.id}>" in config.fetch(member.guild.id, "admin_users"): return True
   else:
 
     # Create a list of member's role ids
@@ -118,7 +118,7 @@ def load_directory(bot, directory_name):
           print(fg.red + f"Error: {str(error)}")
           for i in stack.format():
             print(i)
-          print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
+          print("\n\nEnd of Stacktrace\n\n" + "_" * 50 + "\n\n" + fg.default)
 
 def clear_terminal():
   """

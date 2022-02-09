@@ -58,7 +58,7 @@ class VCBanBots(commands.Cog):
         return
 
     # If it's already banned
-    if vc_object.id in config.fetch(interaction.guild_id, "banned-vcs"):
+    if vc_object.id in config.fetch(interaction.guild_id, "banned_vcs"):
       
       # Send the already banned message
       await interaction.send(util.get_message("vc.already_banned", name=vc_object.name))
@@ -66,7 +66,7 @@ class VCBanBots(commands.Cog):
 
       # Otherwise add the vc id to the list of banned vcs
       try:
-        config.append(interaction.guild_id, "banned-vcs", vc_object.id)
+        config.append(interaction.guild_id, "banned_vcs", vc_object.id)
         await self.bot.logger.log(interaction.guild_id, "vc ban", subaction="banned",vc=vc_object,user=interaction.user)
       
       # If there's an error editing config
@@ -116,7 +116,7 @@ class VCBanBots(commands.Cog):
         return
 
     # If it's already banned
-    if vc_object.id not in config.fetch(interaction.guild_id, "banned-vcs"):
+    if vc_object.id not in config.fetch(interaction.guild_id, "banned_vcs"):
       
       # Send the already banned message
       await interaction.send(util.get_message("vc.already_unbanned", name=vc_object.name))
@@ -124,7 +124,7 @@ class VCBanBots(commands.Cog):
 
       # Otherwise remove the vc id from the list of banned vcs
       try:
-        config.remove(interaction.guild_id, "banned-vcs", vc_object.id)
+        config.remove(interaction.guild_id, "banned_vcs", vc_object.id)
         await self.bot.logger.log(interaction.guild_id, "vc ban", subaction="unbanned",vc=vc_object,user=interaction.user)
       
       # If there's an error editing config
@@ -145,7 +145,7 @@ class VCBanBots(commands.Cog):
     try:
 
       # If the user is a bot, in a banned vc
-      if member.voice.channel.id in config.fetch(member.guild.id, "banned-vcs") and member.bot:
+      if member.voice.channel.id in config.fetch(member.guild.id, "banned_vcs") and member.bot:
         
         # Kick 'em
         await member.edit(voice_channel=None)

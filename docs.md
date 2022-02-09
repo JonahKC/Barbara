@@ -1,4 +1,3 @@
-
 # Config
 
 ### **write**(*guild_id, option, value*)

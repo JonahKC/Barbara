@@ -1,6 +1,7 @@
+import util
 import nextcord
-from nextcord.errors import HTTPException
 from nextcord.ext import commands
+from nextcord.errors import HTTPException
 from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL
 
 class ReactionCommand(commands.Cog):
@@ -48,6 +49,8 @@ class ReactionCommand(commands.Cog):
       # saying that the reaction was invalid
       await interaction.send(content=f"Invalid Reaction: {str(reaction)}", ephemeral=True)
 
+
+  @util.admin()
   @reaction.subcommand(
     name="clear",
     description="Removes all reactions from the previous message.",

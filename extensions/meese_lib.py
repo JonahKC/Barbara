@@ -153,14 +153,11 @@ class MeeseLib(commands.Cog):
             # Delete the heresay
             await message.delete()
             await self.bot.logger.log(message.guild.id, "meese detection", message=message)
-            
-
 
             # Report the message in our channel to help us debug false detections
             await self.bot.get_channel(864644173835665458).send(
-              f"{message.author.name}: ```\n{message.content}```\n" \
+              f"{message.author.display_name}({message.author.id}): ```\n{message.content}```\n" \
               f"Message after processing: ```\n{has_meese[2]}```\n" \
-              f"Matches: ```\n{has_meese[1]}```"
             )
 
     # The message has already been deleted or something
@@ -220,9 +217,8 @@ class MeeseLib(commands.Cog):
 
     # Report the message in our channel to help us debug false detections
     await self.bot.get_channel(864644173835665458).send(
-      f"{message.author.name}: ```\n{message.content}```\n" \
+      f"{message.author.mention}: ```\n{message.content}```\n" \
       f"Message after processing: ```\n{has_meese[2]}```\n" \
-      f"Matches: ```\n{has_meese[1]}```"
     )
 
     # Send an ephemeral success message

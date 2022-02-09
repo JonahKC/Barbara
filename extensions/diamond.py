@@ -44,56 +44,56 @@ class Diamond(commands.Cog):
 
   @commands.Cog.listener()
   async def on_message(self, message):
-    if message.content.startswith(f"<@!{self.bot.user.id}>"):
-      if "sweet caroline" in message.content.lower():
-        ctx = await self.bot.get_context(message)
-        try:
+    if message.content.lower() == "hey barbara, can you play me a song?":
+      ctx = await self.bot.get_context(message)
+      print(message.content)
+      try:
 
-          # Join the vc
-          await self.join(ctx)
+        # Join the vc
+        await self.join(ctx)
 
-          # Wait a second
-          await sleep(1)
+        # Wait a second
+        await sleep(1)
 
-          # Play sweet caroline
-          await self.play(ctx, './resources/neil-diamond-sweet-caroline.mp3')
+        # Play sweet caroline
+        await self.play(ctx, './resources/neil-diamond-sweet-caroline.mp3')
 
-          # Send a wink emoji
-          msg = await ctx.send("😉")
+        # Send a wink emoji
+        msg = await ctx.send("😉")
 
-          # Wait for Neil Diamond to start singing
-          await sleep(14)
+        # Wait for Neil Diamond to start singing
+        await sleep(14)
 
-          # Go through all the lyrics
-          with open('./resources/sweet_caroline.txt') as file:
-            for line in file:
+        # Go through all the lyrics
+        with open('./resources/sweet_caroline.txt') as file:
+          for line in file:
 
-              # Get the amount of time to wait after each lyric
-              # and the actual lyric
-              lineMatch = match(r"(?P<lyric>.*):(?P<time>\d*.\d*)",line)
-              lyric = lineMatch.group("lyric")
-              dur = lineMatch.group("time")
+            # Get the amount of time to wait after each lyric
+            # and the actual lyric
+            lineMatch = match(r"(?P<lyric>.*):(?P<time>\d*.\d*)",line)
+            lyric = lineMatch.group("lyric")
+            dur = lineMatch.group("time")
 
-              # Edit the original message to the current lyric
-              await msg.edit(content=lyric.replace(r'\n', '\n'))
+            # Edit the original message to the current lyric
+            await msg.edit(content=lyric.replace(r'\n', '\n'))
 
-              # Wait the specified amount of time
-              await sleep(float(dur))
+            # Wait the specified amount of time
+            await sleep(float(dur))
 
-          # Leave the vc
-          await ctx.voice_client.disconnect()
+        # Leave the vc
+        await ctx.voice_client.disconnect()
 
-          # Delete the command
-          await message.delete()
+        # Delete the command
+        await message.delete()
 
-        # If the user is not in a call or the bot is already in a call
-        except Exception as e:
+      # If the user is not in a call or the bot is already in a call
+      except Exception as e:
 
-          # Send an error message
-          if e.__class__ == AttributeError:
-            await ctx.send("Try again in a voice call 😉")
-          elif e.__class__ == nextcord.ClientException:
-            await ctx.send(f"Sorry, I'm already in a vc ({ctx.voice_client.channel.name}).")
+        # Send an error message
+        if e.__class__ == AttributeError:
+          await ctx.send("Try again in a voice call 😉")
+        elif e.__class__ == nextcord.ClientException:
+          await ctx.send(f"Sorry, I'm already in a vc ({ctx.voice_client.channel.name}).")
 
 def setup(bot):
   bot.add_cog(Diamond(bot))

@@ -1,6 +1,6 @@
-import nextcord
-import config
 import util
+import config
+import nextcord
 from nextcord.ext import commands
 from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL
 
@@ -44,7 +44,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Appent the member ID to the list of admins for the guild
-    config.append(interaction.guild_id, "admin users", member.id)
+    config.append(interaction.guild_id, "admin_users", member.id)
 
     # Send a success message
     await interaction.send(f"Promoted user {member.display_name} to admin.")
@@ -59,7 +59,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Appent the member ID to the list of admins for the guild
-    config.append(interaction.guild_id, "admin roles", role.id)
+    config.append(interaction.guild_id, "admin_roles", role.id)
 
     # Send a success message
     await interaction.send(f"Promoted role {role.name} to admin.")
@@ -84,7 +84,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Remove the member ID from the list of admins for the guild
-    config.remove(interaction.guild_id, "admin users", member.id)
+    config.remove(interaction.guild_id, "admin_users", member.id)
 
     # Send a success message
     await interaction.send(f"Demoted user {member.display_name} from admin.")
@@ -99,7 +99,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Remove the member ID from the list of admins for the guild
-    config.remove(interaction.guild_id, "admin roles", role.id)
+    config.remove(interaction.guild_id, "admin_roles", role.id)
 
     # Send a success message
     await interaction.send(f"Demoted role {role.name} from admin.")
@@ -124,7 +124,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Read all admin roles
-    roles = config.read(interaction.guild_id, "admin roles")
+    roles = config.read(interaction.guild_id, "admin_roles")
     roles_temp = []
 
     # Loop through them all
@@ -153,7 +153,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Read the admin users array
-    users = config.read(interaction.guild_id, "admin users")
+    users = config.read(interaction.guild_id, "admin_users")
     users_temp = []
 
     # Loop through all of the users
@@ -178,7 +178,7 @@ class AdminCommand(commands.Cog):
     """
 
     # Read the admin users config array
-    users = config.read(interaction.guild_id, "admin users")
+    users = config.read(interaction.guild_id, "admin_users")
     users_temp = []
 
     # Loop through all of the users
@@ -191,7 +191,7 @@ class AdminCommand(commands.Cog):
       users_temp.append(user.display_name.replace('_', '\_').replace('*', '\*'))
 
     # Read the admin roles config array
-    roles = config.read(interaction.guild_id, "admin roles")
+    roles = config.read(interaction.guild_id, "admin_roles")
     roles_temp = []
 
     # Loop through every role

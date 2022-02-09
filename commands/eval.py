@@ -47,7 +47,7 @@ class EvalCommand(commands.Cog):
   @util.jcwyt()
   @nextcord.slash_command(
 		name='eval',
-		description='Evaluate an expression as code.',
+		description='[ㅈ] Evaluate an expression as code.',
     guild_ids=TESTING_GUILD_ID,
     force_global=SLASH_COMMANDS_GLOBAL,
 	)

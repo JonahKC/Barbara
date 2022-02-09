@@ -1,3 +1,4 @@
+import asyncio
 import nextcord
 from nextcord.ext import commands
 import lib.random_msg as random_msg
@@ -18,7 +19,7 @@ class PickupCommand(commands.Cog):
 
   @nextcord.slash_command(
     name="pickup",
-    description="Responds with a pickup line from a hand-curated list of 400+",
+    description="Responds with a random pickup line.",
     guild_ids=TESTING_GUILD_ID,
     force_global=SLASH_COMMANDS_GLOBAL,
   )
@@ -36,10 +37,14 @@ class PickupCommand(commands.Cog):
 
     # Loop through the remaining pickup lines
     for pickup_line in pickup_line_array:
-      
-      # Wait for the author to respond with an answer
-      answer = await self.bot.wait_for(event='message', check=lambda m: m.channel.id == interaction.channel_id and m.author.id == interaction.user.id, timeout=60.0)
+      try:
+        # Wait for the author to respond with an answer
+        answer = await self.bot.wait_for(event='message', check=lambda m: m.channel.id == interaction.channel_id and m.author.id == interaction.user.id, timeout=60.0)
 
+      # User didn't respond. Just send the rest of the pickup. Who the hell cares.
+      except asyncio.TimeoutError:
+        pass
+        
       # Send the pickup line, and format {answer_text} with the answer as well as
       # {author} with the author's name
       await interaction.send(pickup_line.format(answer_text=answer.content, author=interaction.user.display_name))

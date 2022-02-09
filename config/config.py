@@ -294,26 +294,6 @@ def backup():
 
   # Initialize two empty sets
   backup = {}
-  conf = {}
-
-  # Load config.json
-  with open('./config/config.json') as fp:
-    conf = json.load(fp)
-
-  # For every server that has their config stored with our old config system
-  for i in conf:
-
-    # Load the guild file into the backup object
-    backup[i] = load(i)
-
-    # Set the config file to the value "migrated"
-    conf[i] = "migrated"
-
-  # Open config.json for writing
-  with open('./config/config.json', 'w') as fp:
-
-    # Write the new config file
-    json.dump(conf, fp)
 
   # Loop through every guild file
   for i in os.listdir('./config/guild'):

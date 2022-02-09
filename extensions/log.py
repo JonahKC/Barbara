@@ -1,4 +1,3 @@
-import nextcord
 import config
 import util
 from nextcord.ext import commands
@@ -9,9 +8,8 @@ class Logger(commands.Cog):
     self.bot = bot
 
   async def log(self, guild_id: int, action: str, **kwargs):
-    channel_id = config.read(guild_id, 'log channel')
-    allowed_actions = config.read(guild_id, 'log actions')
-    if channel_id == 0 or not action in allowed_actions:
+    channel_id = config.read(guild_id, 'log_channel')
+    if channel_id == 0:
       return
     else:
       action = action.replace(' ','_')

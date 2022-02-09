@@ -1,21 +1,16 @@
-Bot Development:
-- JCWYT Team
-- RaT
+**Credits:**
 
-Alpha Testers:
-- emilyy
-- Insighted
+Developers:
+- JCWYT Team (Jonah and Callum)
+- Josh
 
-Outside Contractors:
-- Jelly Blob
-- the1withspaghetti
-- RaT
-
-Notable Beta Testers:
-- kitkat314159 ♡
-- ToddMannEQuinn
+Lots of help from:
+- Emily
+- Nolan
+- Phil
+- Caroline
 
 APIs Used:
-- icanhazdadjoke API (<https://icanhazdadjoke.com/>)
-- randomfacts API (<https://uselessfacts.jsph.pl/>)
-- HuggingFace Accelerated Inference API (<https://huggingface.co/>)
+- The AI we use for `/prompt` is the Huggingface Accelerated Inference API (<https://huggingface.co>).
+- For our dad jokes, we use the i can haz dad joke API (<https://icanhazdadjoke.com>).
+- For our facts, we use the Random Useless Facts API (<https://uselessfacts.jsph.pl>).
