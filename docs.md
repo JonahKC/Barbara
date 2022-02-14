@@ -32,11 +32,11 @@ Returns specified guild's config.
 
 ### @**admin**()
 
-Disallows non-admins in a guild from using an interaction.
+Decorator restricting a command to admin-only
 
-### **jcwyt**(*member*)
+### @**jcwyt**(*member*)
 
-Returns a boolean representing whether or not the member is on the jcwyt team.
+Decorator restricting a command to JCWYT Team-only
 
 ### **load_directory**(*bot, directory_name*)
 
