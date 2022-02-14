@@ -27,7 +27,7 @@ class CreditsCommand(commands.Cog):
       credits = credits_file.read()
 
       # Send the credits
-      await interaction.send(credits, ephemeral=True)
+      await interaction.send(credits, ephemeral=False)
 
   
 def setup(bot):

@@ -28,5 +28,14 @@ class StaticCommands(commands.Cog):
   async def invite_command(self, interaction: nextcord.Interaction):
     await interaction.send(util.get_message('info.invite'))
 
+  @nextcord.slash_command(
+    name='version',
+    description='No idea why you\'d need this',
+		guild_ids=TESTING_GUILD_ID,
+		force_global=SLASH_COMMANDS_GLOBAL
+  )
+  async def version_command(self, interaction: nextcord.Interaction):
+    await interaction.send(self.bot.__version__, ephemeral=True)
+
 def setup(bot):
   bot.add_cog(StaticCommands(bot))

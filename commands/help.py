@@ -41,7 +41,7 @@ class HelpCommand(commands.Cog):
         help_pages_ui = Paginator(interaction, self.bot, non_admin_help_pages)
 
       # Run the paginator in a message
-      await help_pages_ui.start(ephemeral=True)
+      await help_pages_ui.start(ephemeral=False)
 
 def setup(bot):
   bot.add_cog(HelpCommand(bot))
