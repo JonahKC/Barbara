@@ -43,27 +43,23 @@ class ErrorHandler(commands.Cog):
     else:
       err_message = str(err)
 
-    try:
-      # Send an error message
-      # trace[:1000] + (trace[1000:] and '...' automatically cuts off long tracebacks
-      await interaction.send('\n'.join((
-        f"There was an error running your command. To report this, send us an email at bugs@jcwyt.com, or let us know on the JCWYT Discord with this error:",
-        f"Command: `/{interaction.data['name']}`",
-        f"Error Name: `{type(err).__name__}`",
-        f"Error Message: `{err_message if err_message is not None else 'None'}`",
-        f"Error File: `{trace['filename']}`",
-        f"Error Line: `{trace['line']}`"
-      )))
+    # Send an error message
+    # trace[:1000] + (trace[1000:] and '...' automatically cuts off long tracebacks
+    await interaction.send('\n'.join((
+      f"There was an error running your command. To report this, send us an email at bugs@jcwyt.com, or let us know on the JCWYT Discord with this error:",
+      f"Command: `/{interaction.data['name']}`",
+      f"Error Name: `{type(err).__name__}`",
+      f"Error Message: `{err_message if err_message is not None else 'None'}`",
+      f"Error File: `{trace['filename']}`",
+      f"Error Line: `{trace['line']}`"
+    )))
 
-    # If there's an error sending it, log it instead
-    except:
-
-      # Log the error to the console instead
-      stack = traceback.extract_tb(err.__traceback__)
-      print(fg.red+f'Error: {type(err).__name__}\nMessage: {err_message}\nStacktrace:')
-      for i in stack.format():
-        print(i)
-      print('\n\nEnd of Stacktrace\n\n'+'-'*50+'\n\n'+fg.default)
+    # Log the error to the console
+    stack = traceback.extract_tb(err.__traceback__)
+    print(fg.red+f'Error: {type(err).__name__}\nMessage: {err_message}\nStacktrace:')
+    for i in stack.format():
+      print(i)
+    print('\n\nEnd of Stacktrace\n\n'+'-'*50+'\n\n'+fg.default)
 
 def setup(bot):
   bot.add_cog(ErrorHandler(bot))

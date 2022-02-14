@@ -1,3 +1,4 @@
+import os
 import util
 import nextcord
 from nextcord.ext import commands
@@ -12,7 +13,8 @@ class ReloadCommand(commands.Cog):
 
   @util.jcwyt()
   @nextcord.slash_command(
-    name="reload",    description="[ㅈ] Reload a Cog.",
+    name="reload",
+    description="[ㅈ] Reload a Cog.",
     
     # Only available in the JCWYT Discord, always not globally
     guild_ids=TESTING_GUILD_ID
@@ -51,13 +53,33 @@ class ReloadCommand(commands.Cog):
   @reload_cog_command.on_autocomplete("cog_name")
   async def reload_cog_command_autocomplete(self, interaction: nextcord.Interaction, cog_name: str):
   
-    # Get all of the bot's Cog objects
-    cogs = self.bot.cogs.values()
+    cog_names = []
 
-    # Get the name (ex. commands.reload, not ReloadCommand) of the Cog
-    cogs = map(lambda x: x.qualified_name, cogs)
+    # os.walk through every file in the commands folder
+    for root, dirs, files in os.walk("commands"):
+      
+      # For each file in the folder
+      for file in files:
+        
+        # If the file is a .py file
+        if file.endswith(".py"):
+          
+          # Get the name of the Cog
+          cog_names.append("commands."+os.path.splitext(file)[0])
 
-    await interaction.response.send_autocomplete(cogs)
+    # os.walk through every file in the commands folder
+    for root, dirs, files in os.walk('extensions'):
+      
+      # For each file in the folder
+      for file in files:
+        
+        # If the file is a .py file
+        if file.endswith(".py"):
+          
+          # Get the name of the Cog
+          cog_names.append("extensions."+os.path.splitext(file)[0])
+
+    await interaction.response.send_autocomplete(cog_names)
 
 def setup(bot):
   bot.add_cog(ReloadCommand(bot))

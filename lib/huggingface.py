@@ -9,7 +9,7 @@ _headers = {"Authorization": f"Bearer {os.getenv('HUGGINGFACE_API_TOKEN')}"}
 
 # So we don't create a new ClientSession each time
 # the AI is prompted
-_session = aiohttp.ClientSession()
+_session = None
 
 # The base URL for accessing Huggingface models
 _BASE_URL = "https://api-inference.huggingface.co/models/"

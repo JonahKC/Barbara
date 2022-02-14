@@ -29,5 +29,7 @@
   "vc.unban_success": "Unbanned bots from {name}!",
   "vc.already_unbanned": "Bots have never been banned from {name}, so you can't unban them!",
   "ui.someone_elses_button": "Those buttons aren't for you!",
-  "guild.welcome": "Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.\nRun `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. **Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).**\nIf you need any help, go to <https://barbara.jcwyt.com/>\n{barbara}"
+  "guild.welcome": "Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.\nRun `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. **Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).**\nIf you need any help, go to <https://barbara.jcwyt.com/>\n{barbara}",
+  "info.vote": "Vote for Barbara at <https://top.gg/bot/863912165757026304>!",
+  "info.invite": "Invite Barbara to your server at <https://barbara.jcwyt.com/invite>!"
 }

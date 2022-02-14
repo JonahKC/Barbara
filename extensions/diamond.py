@@ -8,7 +8,7 @@ class Diamond(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  async def play(ctx, query, blockUntilDone=False):
+  async def play(self, ctx, query, blockUntilDone=False):
     """
     Play a .mp3 in the vc the user is in, optionally blocking the code until it's done playing
     """
@@ -27,7 +27,7 @@ class Diamond(commands.Cog):
       except AttributeError:
         await ctx.message.delete()
 
-  async def join(ctx):
+  async def join_someones_vc(self, ctx):
     """
     Join the VC the user is in
     """
@@ -38,19 +38,27 @@ class Diamond(commands.Cog):
         await vc.move_to(channel)
       else:
         vc = await channel.connect()
+      print("vc")
       return vc
     except Exception as e:
         print(repr(e))
 
   @commands.Cog.listener()
   async def on_message(self, message):
+
+    # Alright yes this is a text command but it's an easter egg Discord please don't sue me
     if message.content.lower() == "hey barbara, can you play me a song?":
+
+
+      # Because commands.Context is very cooler
       ctx = await self.bot.get_context(message)
-      print(message.content)
+      
+      # No evidence must be left
+      await message.delete()
       try:
 
         # Join the vc
-        await self.join(ctx)
+        await self.join_someones_vc(ctx)
 
         # Wait a second
         await sleep(1)

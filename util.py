@@ -99,23 +99,27 @@ def load_directory(bot, directory_name):
   # Walk through every file in directory_name
   for root, dirs, files in walk(directory_name):
     for file in files:
+
+      # If it's a Python file that isn't a library
       if file.endswith(".py") and not file.startswith("lib"):
-      
-        # Attempt to load it as a Cog
+        
+        # Log the Cog is loading
+        print(f"{fg.t_5865f2}Loading {fg.yellow}{directory_name}.{file[:-3]}{fg.default}")
+
         try:
+          
+          # Load the Cog!
           bot.load_extension(f"{directory_name}.{file[:-3]}")
-  
-          # Log the Cog that was loaded
-          print(f"{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}{directory_name}.{file[:-3]}{fg.default}")
-  
+
         # An error was encountered trying to load the Cog
         except Exception as error:
           
           # Get the stacktrace from the exception
-          stack = extract_tb(error.__traceback__)
+          # .original gets the actual error in the Cog
+          stack = extract_tb(error.original.__traceback__)
   
           # Debug it to the console with pretty red text
-          print(fg.red + f"Error: {str(error)}")
+          print(fg.red + f"Error: {str(error.original)}")
           for i in stack.format():
             print(i)
           print("\n\nEnd of Stacktrace\n\n" + "_" * 50 + "\n\n" + fg.default)
@@ -181,11 +185,23 @@ def walk_obj(obj, depth = 0):
   """
 
   # If it's a primitive value, return it to minimize on overhead.
-  if type(obj) in (int,float,bool,str): return obj
+  if type(obj) in (int, float, bool, str):
+    return obj
   
   # Otherwise, use dir(obj) to get a list of the objects attributes
   # then uses a map of tuples, each one having the name of the
   # attribute as a string, and the value of the attribute.
   # If you used depth, it finds the value of the attribute by
   # calling itself on the attribute with one less depth.
-  return dict(map(functools.partial(lambda a,b,c:(a,getattr(b,a))if c==0 else(a,walk_obj(getattr(b,a))),b=obj,c=depth),dir(obj)))
+  return dict(
+    map(
+      functools.partial(
+        lambda a, b, c: (a, getattr(b, a))
+        if c == 0
+        else (a, walk_obj(getattr(b, a))),
+        b=obj,
+        c=depth,
+      ),
+      dir(obj),
+    )
+  )

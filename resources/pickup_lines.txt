@@ -408,4 +408,29 @@ You're more fun than bubble wrap.
 You are the rare catalyst to my volatile compound.
 Are you a surfer because I’m following your every wave.
 Are you an orange? ‘cause you're a real cutie
-You should come hang out with me at the gallows.
+If you were a musical instrument, you'd be a *snack*sopohone
+Are you a drummer?{answer}Because you can make my heart skip a beat.
+I want to B with you if that’s no treble.
+Want to go out with the third degree of the diatonic scale?
+Is that an anacrusis? Because you’re about to hear a pick-up.
+Are you an applet?{answer}Because you make me feel all GUI inside.
+Could I borrow your smartphone?{answer}I need to post a Facebook status update that I've met the woman of my dreams, in order to make all the ex-girlfriends I'm still Facebook friends with jealous.
+If I were an operating system, your process would be real-time priority.
+Let's just cut to the chase, I wanna hotsync your PDA.
+No GPU in the world could make you look more beautiful than you already are.
+Your mixin patches my bytecode better than Iris patches GLSL.
+You are my initializer: without you, my life would point to nothing.
+You are the JDK of my life. I won't compile without you.
+Do you work as a paramedic? Because my heart beats fast when I see you. In fact, I think I'm having a heart attack.
+Are you Chili? Because you’re hot and cool at the same time.
+Hi, I appraise art. Your face is absolutely priceless!
+With my IQ and your body, we could begin a new race of genetic super humans.
+You know the best thing about elevator pickup lines? They work on so many levels.
+What do I do? Oh, I'm a writer. I'm working on a phonebook, can I have your number?
+Soup, cereal, {author}, all sorts of things I want to spoon.
+Hey, I’m helicase. I was asked to unzip your jeans?
+Do you sleep on a pile of sugar? Becuase you look pretty sweet.
+You could always fall from a tree, but the coolest way to fall would be to fall for me.
+Are you a tree in California? Because you are on fire and we should do something about it because wildfires = bad.
+Are you a tree? Because I care about you.
+I hope you don’t have any work to do on Saturday night because I’m accounting on taking you out. 

@@ -47,7 +47,7 @@ class EvalCommand(commands.Cog):
   @util.jcwyt()
   @nextcord.slash_command(
 		name='eval',
-		description='[ㅈ] Evaluate an expression as code.',
+		description='Evaluate an expression as code.',
     guild_ids=TESTING_GUILD_ID,
     force_global=SLASH_COMMANDS_GLOBAL,
 	)
@@ -91,10 +91,10 @@ class EvalCommand(commands.Cog):
           await exec(async_func, env)
         else:
           exec(to_compile, env)
-        
+
         # Run the compiled function
         await env['func']()
-			
+  
 			# For some reason stderr doesn't always redirect
       except Exception as e:
 
@@ -125,7 +125,7 @@ class EvalCommand(commands.Cog):
 
     # Always return something so discord doesn't throw a fit
     if not has_output:
-      await interaction.send(util.get_message('eval.default_output'),ephemeral=True)
+      await interaction.send(util.get_message('eval.default_output'), ephemeral=True)
 
 def setup(bot):
   bot.add_cog(EvalCommand(bot))

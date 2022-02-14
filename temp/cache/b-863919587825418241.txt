@@ -105,11 +105,3 @@ Are we a point?{answer}Because I don’t see us going anywhere
 Sorry {author}, but I’m in love with your mom.
 Here, look at this blank piece of paper for a second… I wrote every reason why we should stick together on it.
 Wanna see a magic trick?{answer}POOF, you're single! 
-Hey, are you a Enfamil NeuroPro Baby Formula, Triple Prebiotic Immune Blend with 2'FL HMO & Expert Recommended Omega-3 DHA, Inspired by Breast Milk, Non-GMO, Refill Box, 31.4 Oz, Pack of 4 (Packaging May Vary)?{answer}Because I don’t love anymore
-You’re like peanut butter and I’m the jelly. But I’m allergic to nuts
-Remember how you said that you can’t live without me?{answer}Well it’s time to get your affairs in order.
-Are you an overdue library book?{answer}Because I don’t want you anymore. 
-Hey, did it hurt when you fell from heaven?{answer}Because honestly, Karen, you are a demon.
-If you take the "L" out of LOVER, it's OVER.
-Are you a minecraft fence with a carpet on it?{answer}Cause I'm about to get over you
-I took a gamble and chose you, now I believe I made the wrong choice.

@@ -5,8 +5,9 @@ import nextcord
 import unicodedata
 from unidecode import unidecode
 from nextcord.ext import commands
+from constants import TESTING_GUILD_ID
 
-class MeeseLib(commands.Cog):
+class MeeseDetector(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     self.reloadMeeseBlacklist()
@@ -104,13 +105,15 @@ class MeeseLib(commands.Cog):
     cleaned_string = unicodedata.normalize('NFKC', cleaned_string)
 
     # Remove all accents etc.
-    cleaned_string = unidecode(cleaned_string)
+    cleaned_string = unidecode(cleaned_string).lower()
 
     # Finally run it through regex to detect the string meese
     contains_meese = re.findall(self.MEESE_REGEX, cleaned_string)
 
     # If there's a match, return the array of all the matches
     if contains_meese:
+      self.bot.stats['meeses_censored'] += 1
+      self.bot.get_cog('Statistics').update_file()
       return (True, contains_meese, cleaned_string)
 
     # Otherwise just return false
@@ -150,15 +153,17 @@ class MeeseLib(commands.Cog):
             # Send a message explaining what just happened
             await message.reply(util.get_message("meese.meese_detection", nomees=nextcord.PartialEmoji.from_str("nomees:936864150716575744")))
             
-            # Delete the heresay
-            await message.delete()
+            # Log the m-word detection
             await self.bot.logger.log(message.guild.id, "meese detection", message=message)
 
             # Report the message in our channel to help us debug false detections
             await self.bot.get_channel(864644173835665458).send(
-              f"{message.author.display_name}({message.author.id}): ```\n{message.content}```\n" \
+              f"{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n" \
               f"Message after processing: ```\n{has_meese[2]}```\n" \
             )
+
+            # Delete the heresay
+            await message.delete()
 
     # The message has already been deleted or something
     except (nextcord.errors.NotFound, nextcord.errors.HTTPException):
@@ -169,7 +174,7 @@ class MeeseLib(commands.Cog):
   # Detect for meese when you send a new message
   @commands.Cog.listener()
   async def on_message(self, message):
-    await self.detect_in_message(message)
+      await self.detect_in_message(message)
   
   # Detect for meese when you edit an old message
   @commands.Cog.listener()
@@ -182,7 +187,7 @@ class MeeseLib(commands.Cog):
     name="Report Detection",
 
     # This context menu item is only available in the JCWYT server
-    guild_ids=[863919587825418241],
+    guild_ids=TESTING_GUILD_ID,
   )
   async def report_meese_detection(self, interaction: nextcord.Interaction, message: nextcord.Message):
     """
@@ -211,18 +216,20 @@ class MeeseLib(commands.Cog):
     # Send a message explaining what just happened
     await message.reply(util.get_message("meese.meese_detection", nomees=nextcord.PartialEmoji.from_str("nomees:936864150716575744")))
     
-    # Delete the heresay
-    await message.delete()
+    # Log the m-word detection
     await self.bot.logger.log(interaction.guild_id, "meese detection", message=message)
 
     # Report the message in our channel to help us debug false detections
     await self.bot.get_channel(864644173835665458).send(
-      f"{message.author.mention}: ```\n{message.content}```\n" \
+      f"{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n" \
       f"Message after processing: ```\n{has_meese[2]}```\n" \
     )
+
+    # Delete the heresay
+    await message.delete()
 
     # Send an ephemeral success message
     await interaction.send("Successfully reported the message.", ephemeral=True)
 
 def setup(bot):
-  bot.add_cog(MeeseLib(bot))
+  bot.add_cog(MeeseDetector(bot))

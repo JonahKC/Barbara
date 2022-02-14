@@ -39,6 +39,7 @@ class BreakupCommand(commands.Cog):
     for breakup_line in breakup_line_array:
       
       try:
+        
         # Wait for the author to respond with an answer
         answer = await self.bot.wait_for(event='message', check=lambda m: m.channel.id == interaction.channel_id and m.author.id == interaction.user.id, timeout=60.0)
       

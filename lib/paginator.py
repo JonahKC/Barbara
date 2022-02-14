@@ -1,5 +1,6 @@
 import util
 import nextcord
+
 class Paginator(nextcord.ui.View):
   def __init__(self, interaction, bot, pages):
     """
@@ -13,9 +14,7 @@ class Paginator(nextcord.ui.View):
     pages `(Union[list[str], tuple[str], set[str]])`: All the pages, each page being it's own array element
     ephemeral `bool`: Whether or not the pages should be ephemeral
     """
-
-    # Run the __init__ function for nextcord.ui.View disabling the timeout
-    super().__init__(timeout=None)
+    super().__init__()
 
     # Set data about this paginator instance
     self.interaction = interaction

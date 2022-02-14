@@ -1,20 +1,15 @@
 $$M_BLACKLIST
 nn
-/\\
+/\
 /)
 /]
 /}
 /!
-v\\
+v\
 v)
 v]
 v}
 v!
-V\\
-V)
-V]
-V}
-V!
 M
 𝔪
 𝖒
@@ -26,7 +21,7 @@ M
 :regional_indicator_m:
 🄼
 🅼
-:part_alternation_mark:
+〽️
 🄜
 ⒨
 Պ
@@ -53,7 +48,6 @@ M
 ♍️
 ♏️
 :m:
-:part_alternation_mark:
 ℳ
 :scorpius:
 :virgo:
@@ -126,6 +120,7 @@ rI\\/I
 ꂵ
 ⲙ
 \||
+䷬
 $$E_BLACKLIST
 📧
 pound
@@ -342,6 +337,7 @@ $$S_BLACKLIST
 ⓢ
 🅢
 $
+ꜱ
 𝔰
 𝖘
 Ｓ
@@ -435,6 +431,7 @@ s̀
 ᔕ
 ꇙ
 z
+⣫
 $$TRIM_CHARS
 "
 '

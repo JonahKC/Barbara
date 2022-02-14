@@ -2,8 +2,27 @@
 API for interacting with server config.
 """
 
-import json
 import os
+import json
+
+def make_file_if_not_exists(path):
+  """
+  Make the file if it doesn't exist.
+  """  
+
+  # If the guild file doesn't exist
+  if not os.path.isfile(path):
+
+    # Create it
+    with open(path, 'x'):
+      pass
+make_file_if_not_exists('./config/default_config.json')
+make_file_if_not_exists('./config/global_config.json')
+make_file_if_not_exists('./config/backup.json')
+
+# Check if the guilds directory exists (for guild-specific config files)
+if not os.path.isdir('./config/guild'):
+  os.mkdir('./config/guild')
 
 # To throw a catchable exception
 class ConfigException(Exception):
