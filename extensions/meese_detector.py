@@ -11,6 +11,19 @@ class MeeseDetector(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     self.reloadMeeseBlacklist()
+    self.COMPOUND_CHARACTERS = {
+      "m-long": CompoundFilter(
+        ['/', '|', 'l', 'I', '{', '['],
+        ['\\/', ')', '↯'],
+        ['/', '(', '↯'],
+        ['/', '|', 'l', 'I', '}', ']', '↯']
+      ),
+      "m-short": CompoundFilter(
+        ['/', '|', 'l', 'I', '{', '[', '∧'],
+        ['v', 'V'],
+        ['/', '|', 'l', 'I', '}', ']', '↯']
+      )
+    }
 
   # Various Regexes that I use a lot in the future
   # Best for efficiency to compile them now
@@ -137,15 +150,10 @@ class MeeseDetector(commands.Cog):
             "",
             -1
           )
-          
-          # Remove whitelisted characters
-          trimmed_message = self.replace_words(
-            config.fetch(message.guild.id, "whitelist"),
-            trimmed_message,
-            "",
-            -1
-          )
 
+          for compound_character in self.COMPOUND_CHARACTERS:
+            print(compound_character._index_string(trimmed_message))
+          
           # Check for meese using the Meese Detection Algorithm™
           has_meese = self.has_meese(trimmed_message, config.fetch(message.guild.id, "whitelist"))
           
