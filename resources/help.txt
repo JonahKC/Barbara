@@ -13,15 +13,13 @@
 `/breakup` – Responds with a random breakup line from an amazing list of over 150.
 
 `/secret` - I'll tell you a secret, straight from the JCWYT devs!
-`[parameter]` = required
-`<parameter>` = optional
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
 PAGE
-`/prompt [prompt] <length of answer> <temperature> ` - Continues your prompt and writes a paragraph. Length of answer sets the length in AI tokens (about .75 words), and temperature affects the creativity. To learn how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
-**CW: The AI used for this command is known to output offensive language and potencially . Use at your own risk!**
+`/prompt [prompt] <length of answer> <temperature> ` - Continues your prompt and writes a paragraph. Length of answer lets you adjust the output length and temperature affects the AI's creativity. To learn how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
+**CW: The AI used for this command is known to output offensive language and other potencially inappropriate content. Use at your own risk!**
 
 `/link` – Displays a customizable message when the command is run.
 
@@ -29,16 +27,9 @@ PAGE
 
 `/say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
 
-`/howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
-
-`/fact` - Returns a random fact. This command uses an API, run `/credits` to for credit links.
-
-`/dadjoke` - Returns a random dad joke. This command uses an API, run `/credits` to for credit links.
+`/age [@user] <precision: precise/imprecise>` - Return the age of the a user, either broadly (like how many months), or exactly down to a tenth of a second.
 
 `/reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
-
-`[parameter]` = required
-`<parameter>` = optional
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
@@ -50,9 +41,6 @@ ADMIN_ONLY
 **General Admin Commands**
 
 `/reaction clear` - Removes all reactions from the previous message.
-
-`[parameter]` = required
-`<parameter>` = optional
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
@@ -77,9 +65,6 @@ PAGE
 
 `/admin remove user [@user]` - Removes user from admin command whitelist.
 
-`[parameter]` = required
-`<parameter>` = optional
-
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
 **Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
@@ -91,16 +76,13 @@ PAGE
 
 `/meesedetect [true/false]` - Enables or disables Meese detection.
 
-🚨🚨🚨🚨🚨`/log [enable/disable] [channel]` - CALLUM WHAT HAPPENED 🚨🚨🚨🚨🚨
+`/log [#channel]` - Logs meese detection deletions, message reacts, and other features that can be run anonymously to the channel of your choice.
 
 `/link set [message or link]` - Customizes the link in /link. Add as many as you want.
 
 `/vc ban <Name of VC>` - Bans bots from the VC specified or from the VC you are currently in.
 
 `/vc unban <Name of VC>` - Unans bots from the VC specified or from the VC you are currently in.
-
-`[parameter]` = required
-`<parameter>` = optional
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
@@ -121,9 +103,6 @@ PAGE
 `/config append [option]` - Add an item to a config list.
 
 `/config remove [option]` - Remove an item from a config list.
-
-`[parameter]` = required
-`<parameter>` = optional
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 

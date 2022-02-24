@@ -35,6 +35,7 @@ class ConfigCommand(commands.Cog):
   option: str=nextcord.SlashOption(
     required=False,
     default=False,
+    description='The config option to read. If left blank reads the whole config.'
   )):
     """
     Read the value of a specific config option.
@@ -62,7 +63,7 @@ class ConfigCommand(commands.Cog):
 		name='set',
 		description='Set the value of a config option.'
 	)
-  async def config_set_command(self, interaction: nextcord.Interaction, option: str, value):
+  async def config_set_command(self, interaction: nextcord.Interaction, option: str=nextcord.SlashOption(description='The option to write to.'), value=nextcord.SlashOption(description='The value to write to the option.')):
     """
     Set the value of a config option. Get all configuration options by running /config read without a specific option
     """
@@ -84,7 +85,7 @@ class ConfigCommand(commands.Cog):
 	  name='reset',
 		description='Reset a config option to the default value.'
 	)
-  async def config_reset_command(self, interaction: nextcord.Interaction, option: str):
+  async def config_reset_command(self, interaction: nextcord.Interaction, option: str=nextcord.SlashOption(description='The option to reset to default.')):
     """
     Reset a config option to it's default. Get all configuration options by running /config read without a specific option
     """
@@ -106,7 +107,7 @@ class ConfigCommand(commands.Cog):
 		name='append',
 		description='Add an item to a config list.'
 	)
-  async def config_append_command(self, interaction: nextcord.Interaction, list: str, value):
+  async def config_append_command(self, interaction: nextcord.Interaction, list: str=nextcord.SlashOption(description='The list to append a value to.'), value=nextcord.SlashOption(description='The value to append to the list.')):
     """
     Append a value to a list in config. Get all configuration options by running /config read without a specific option
     """
@@ -128,7 +129,7 @@ class ConfigCommand(commands.Cog):
 		name='remove',
 		description='Remove an item from a config list.'
 	)
-  async def config_remove_command(self, interaction: nextcord.Interaction, list: str, value):
+  async def config_remove_command(self, interaction: nextcord.Interaction, list: str=nextcord.SlashOption(description='The list to remove an element from.'), value=nextcord.SlashOption(description='The element to remove from the list.')):
     """
     Remove a value from a config list. Get all configuration options by running /config read without a specific option
     """

@@ -1,4 +1,4 @@
-print(f"\033[0;34mInitializing Bot...\033[0m")
+print(f'\033[0;34mInitializing Bot...\033[0m')
 
 import os
 import time
@@ -6,51 +6,58 @@ import util
 import aiohttp
 import nextcord
 from console import fg
+import lib.dream as dream
+from nextcord.ext import commands
+import lib.randommer as randommer
 import lib.huggingface as huggingface
-from nextcord.ext.commands import Bot
 
 # Bot Version
-__version__ = "4.0.0.jonahwashere"
+__version__ = '4.0.0.jonahwashere'
 
 # Give the bot intents
-# She won"t be able to play audio, for example, without the proper intent
+# She won't be able to play audio, for example, without the proper intent
 intents = nextcord.Intents.default()
 intents.voice_states = True
 intents.webhooks = True
 
-# Set the activity of the bot to "Watching jcwyt.com"
+# Watching jcwyt.com
 activity = nextcord.Activity(
   type=nextcord.ActivityType.watching,
-  name="jcwyt.com",
+  name='jcwyt.com',
 )
 
 # Create the Bot object from the variables above
-bot = Bot(
+bot = commands.Bot(
 
   # command_prefix is required for some reason
-  command_prefix="~~%~~",
+  command_prefix='~~%~~',
   intents=intents,
   activity=activity,
   case_insensitive=True,
 )
 
 # Remove the default help command
-bot.remove_command("help")
+bot.remove_command('help')
 
 bot.__version__ = __version__
 
 @bot.event
 async def on_ready():
 
+  # Setup all of our clientsessions
   bot.session = aiohttp.ClientSession()
-  huggingface._session = bot.session
+
+  # Give our libs access to the central ClientSession
+  huggingface.session = bot.session
+  randommer.session = bot.session
+  dream.session = bot.session
 
   # Log bot info
-  print(f"Barbara Version: {fg.lightgreen}{__version__}{fg.default}")
-  print(f"Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}")
-  print(f"Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}")
+  print(f'Barbara Version: {fg.lightgreen}{__version__}{fg.default}')
+  print(f'Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}')
+  print(f'Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}')
   print(
-    f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!"
+    f'I\'m in {fg.blue}{str(len(bot.guilds))}{fg.default} server{"s" if len(bot.guilds) > 1 else ""}!'
   )
 
 # Text commands? More like,, bad
@@ -99,18 +106,18 @@ async def on_interaction(interaction: nextcord.Interaction):
     except Exception as err:
     
       # Send out a custom event for the error handler
-      bot.dispatch("application_command_error", err, interaction)
+      bot.dispatch('application_command_error', err, interaction)
 
 # Load all misc cogs in the extensions folder
-util.load_directory(bot, "extensions")
+util.load_directory(bot, 'extensions')
 
 # Load all commands in the commands folder
-util.load_directory(bot, "commands")
+util.load_directory(bot, 'commands')
 
 # Run the bot!
 while True:
   try:
-    bot.run(os.getenv("TOKEN"))
+    bot.run(os.getenv('TOKEN'))
 
   # Catch errors talking to the Discord API
   except nextcord.errors.HTTPException as err:
@@ -122,10 +129,10 @@ while True:
       util.clear_terminal()
 
       # Explain what's happening
-      print(f"{fg.red}Rate limit exceeded.{fg.default}")
+      print(f'{fg.red}Rate limit exceeded.{fg.default}')
       retry_after = err.response.headers['Retry-After']
       print(
-        f"{fg.green}Retrying in {retry_after} seconds...{fg.default}"
+        f'{fg.green}Retrying in {retry_after} seconds...{fg.default}'
       )
 
       # Wait for the specified duration (+1 second for padding)

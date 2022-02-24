@@ -16,7 +16,7 @@ class SayCommand(commands.Cog):
 		guild_ids = TESTING_GUILD_ID,
 		force_global = SLASH_COMMANDS_GLOBAL,
 	)
-  async def say_command(self, interaction: nextcord.Interaction, message: str):
+  async def say_command(self, interaction: nextcord.Interaction, message: str=nextcord.SlashOption(description='Message to say.')):
 
     # Don't send an empty message
     if message != '':

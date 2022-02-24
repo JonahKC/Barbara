@@ -97,32 +97,43 @@ def load_directory(bot, directory_name):
   """
   
   # Walk through every file in directory_name
+  # and add each filename to all_files
+  all_files = []
+
   for root, dirs, files in walk(directory_name):
     for file in files:
 
       # If it's a Python file that isn't a library
       if file.endswith(".py") and not file.startswith("lib"):
         
-        # Log the Cog is loading
-        print(f"{fg.t_5865f2}Loading {fg.yellow}{directory_name}.{file[:-3]}{fg.default}")
+        all_files.append(file)
 
-        try:
-          
-          # Load the Cog!
-          bot.load_extension(f"{directory_name}.{file[:-3]}")
+  # Sort it alphabetically!
+  all_files = sorted(all_files)
 
-        # An error was encountered trying to load the Cog
-        except Exception as error:
-          
-          # Get the stacktrace from the exception
-          # .original gets the actual error in the Cog
-          stack = extract_tb(error.original.__traceback__)
+  # Loop through all the cogs now
+  for file in all_files:
+
+    # Log the Cog is loading
+    print(f"{fg.t_5865f2}Loading {fg.yellow}{directory_name}.{file[:-3]}{fg.default}")
+
+    try:
+      
+      # Load the Cog!
+      bot.load_extension(f"{directory_name}.{file[:-3]}")
+
+    # An error was encountered trying to load the Cog
+    except Exception as error:
+      
+      # Get the stacktrace from the exception
+      # .original gets the actual error in the Cog
+      stack = extract_tb(error.original.__traceback__)
   
-          # Debug it to the console with pretty red text
-          print(fg.red + f"Error: {str(error.original)}")
-          for i in stack.format():
-            print(i)
-          print("\n\nEnd of Stacktrace\n\n" + "_" * 50 + "\n\n" + fg.default)
+      # Debug it to the console with pretty red text
+      print(fg.red + f"Error: {str(error.original)}")
+      for i in stack.format():
+        print(i)
+      print("\n\nEnd of Stacktrace\n\n" + "_" * 50 + "\n\n" + fg.default)
 
 def clear_terminal():
   """

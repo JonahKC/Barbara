@@ -1,3 +1,7 @@
+"""
+A wrapper for the Huggingface Accelerated Inference API. For generating text from an AI prompt.
+"""
+
 import os
 import enum
 import aiohttp
@@ -9,7 +13,7 @@ _headers = {"Authorization": f"Bearer {os.getenv('HUGGINGFACE_API_TOKEN')}"}
 
 # So we don't create a new ClientSession each time
 # the AI is prompted
-_session = None
+session = None
 
 # The base URL for accessing Huggingface models
 _BASE_URL = "https://api-inference.huggingface.co/models/"
@@ -31,7 +35,7 @@ async def query(payload, model: Model, parameters={}, options={}):
   `options`: Non-AI-related options for how Huggingface processes the request. Example: `{'wait_for_model': bool}`
   """
   body = {"inputs": payload, 'parameters': parameters, 'options': options}
-  async with _session.post(_BASE_URL + model.value, headers=_headers, json=body) as response:
+  async with session.post(_BASE_URL + model.value, headers=_headers, json=body) as response:
     try:
       return (await response.json())
     except aiohttp.client_exceptions.ContentTypeError:

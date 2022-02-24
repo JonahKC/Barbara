@@ -63,7 +63,9 @@ class MeeseDetector(commands.Cog):
             S_BLACKLIST.append(line.strip('\n'))
           elif temp_category == "TRIM_CHARS":
             TRIM_CHARS.append(line.strip('\n'))
-
+        
+        # Manually add the newline
+        TRIM_CHARS.append('\n')
   def replace_words(self, words, string, replaceWith, replace=1):
     """
     Replace a whole array of different words with a string, and convert it all to lowercase
@@ -85,7 +87,7 @@ class MeeseDetector(commands.Cog):
     return string.lower()
 
 
-  def has_meese(self, potentially_dirty_string, whitelist = []):
+  def has_meese(self, potentially_dirty_string, whitelist=[]):
     """
     Use the Meese Detection Algorithm™ to detect meese (the incorrect plural of moose) in a string
     """
@@ -233,3 +235,56 @@ class MeeseDetector(commands.Cog):
 
 def setup(bot):
   bot.add_cog(MeeseDetector(bot))
+
+class CompoundFilter:
+  """
+  A filter for compound characters such as "/\/\\"
+  """
+  def __init__(self, *args):
+    """
+    Pass in all the arrays of charactes, as in CompoundFilter(['/', 'l'], ['\\', ')']) etc.
+    """
+    self.compound_letters = args
+
+  def _index_string(self, _string):
+    """
+    Loops through a string, and converts each match of a character in compount_characters_index with the index of the compound characters array.
+    Example:
+    ```py
+    m_detector = CompoundFilter(['/', '('], ['\\', ')'], ['/', '('], ['\\', ')'])
+    m_detector.index_string('/\\/\\') # returns [0, 1, 2, 3]
+    m_detector.index_string('/\\XD') # returns [0, 1]
+    ```
+    """
+    _string = _string.lower()
+    _string_index = []
+
+    # Get the length of all of the compound characters
+    # Flatten the array of arrays
+    flattened_compound_letters = [item for sublist in self.compound_letters for item in sublist]
+
+    # Get the length of each compound character
+    compound_characters_length = [len(compound_char) for compound_char in flattened_compound_letters]
+
+    # Split _string into an array of arrays, each array containing _string split every compound_characters_length[i]
+    split_string = [_string[i:i+compound_characters_length[i]] for i in range(len(compound_characters_length))]
+
+    # Remove any empty strings
+    split_string = [x for x in split_string if x]
+
+    # Remove duplicates
+    split_string = list(set(split_string))
+
+    # Loop through each split string
+    for potential_match in split_string:
+
+      # Loop through each compound character
+      for compound_chars in self.compound_letters:
+
+        # If the potential_match is equal to a compound character
+        if potential_match in compound_chars:
+
+          # Add the index of the compound character to the string index
+          _string_index.append(compound_chars.index(potential_match))
+
+    return _string_index

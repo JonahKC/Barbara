@@ -38,7 +38,7 @@ class AdminCommand(commands.Cog):
     name="user",
     description="Add a user to the list of admins."
   )
-  async def admin_add_user_command(self, interaction: nextcord.Interaction, member: nextcord.Member):
+  async def admin_add_user_command(self, interaction: nextcord.Interaction, member: nextcord.Member=nextcord.SlashOption(description='The member to promote to admin.')):
     """
     Add a user to the list of admins
     """
@@ -53,7 +53,7 @@ class AdminCommand(commands.Cog):
     name="role",
     description="Add a role to admin roles."
   )
-  async def admin_add_role_command(self, interaction: nextcord.Interaction, role: nextcord.Role):
+  async def admin_add_role_command(self, interaction: nextcord.Interaction, role: nextcord.Role=nextcord.SlashOption(description='The role to promote to admin.')):
     """
     Add a role to admin roles
     """
@@ -78,7 +78,7 @@ class AdminCommand(commands.Cog):
     name="user",
     description="Remove a user to the list of admins."
   )
-  async def admin_remove_user_command(self, interaction: nextcord.Interaction, member: nextcord.Member):
+  async def admin_remove_user_command(self, interaction: nextcord.Interaction, member: nextcord.Member=nextcord.SlashOption(description='The user to demote from admin')):
     """
     Remove an individual user from the list of admins
     """
@@ -93,7 +93,7 @@ class AdminCommand(commands.Cog):
     name="role",
     description="Remove a role from the list of admin."
   )
-  async def admin_remove_role_command(self, interaction: nextcord.Interaction, role: nextcord.Role):
+  async def admin_remove_role_command(self, interaction: nextcord.Interaction, role: nextcord.Role=nextcord.SlashOption(description='The role to demote from admin.')):
     """
     Remove a role from the list of admin roles
     """

@@ -6,7 +6,7 @@ import textwrap
 import nextcord
 from nextcord.ext import commands
 from contextlib import redirect_stdout, redirect_stderr
-from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL
+from constants import TESTING_GUILD_ID
 
 class EvalCommand(commands.Cog):
   """
@@ -49,9 +49,8 @@ class EvalCommand(commands.Cog):
 		name='eval',
 		description='Evaluate an expression as code.',
     guild_ids=TESTING_GUILD_ID,
-    force_global=SLASH_COMMANDS_GLOBAL,
 	)
-  async def eval_command(self, interaction: nextcord.Interaction, code: str):
+  async def eval_command(self, interaction: nextcord.Interaction, code: str=nextcord.SlashOption(description='The code to evaluate.')):
     """
 		Run code compiled at runtime.
 		"""

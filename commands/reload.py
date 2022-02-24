@@ -26,7 +26,7 @@ class ReloadCommand(commands.Cog):
       required=True,
       name='cog',
       description='The name of the Cog to reload.',
-      autocomplete=True
+      #autocomplete=True
     )
   ):
     """
@@ -50,36 +50,37 @@ class ReloadCommand(commands.Cog):
       # Send a success message
       await interaction.send(util.get_message('jcwyt.reload_cog_succeeded', cog_name=cog), ephemeral=True)
   
-  @reload_cog_command.on_autocomplete('cog')
-  async def reload_cog_command_autocomplete(self, interaction: nextcord.Interaction, cog: str):
-  
-    cog_names = []
+  # rip autocompletions, Discord seems to have broken them? Or maybe the syntax just changed... idk
+  #@reload_cog_command.on_autocomplete('cog')
+  #async def reload_cog_command_autocomplete(self, interaction: nextcord.Interaction, cog: str):
+  #
+  #  cog_names = []
 
-    # os.walk through every file in the commands folder
-    for root, dirs, files in os.walk('commands'):
-      
-      # For each file in the folder
-      for file in files:
-        
-        # If the file is a .py file
-        if file.endswith('.py'):
-          
-          # Get the name of the Cog
-          cog_names.append('commands.'+os.path.splitext(file)[0])
+  #  # os.walk through every file in the commands folder
+  #  for root, dirs, files in os.walk('commands'):
+  #    
+  #    # For each file in the folder
+  #    for file in files:
+  #      
+  #      # If the file is a .py file
+  #      if file.endswith('.py'):
+  #        
+  #        # Get the name of the Cog
+  #        cog_names.append('commands.'+os.path.splitext(file)[0])
 
-    # os.walk through every file in the commands folder
-    for root, dirs, files in os.walk('extensions'):
-      
-      # For each file in the folder
-      for file in files:
-        
-        # If the file is a .py file
-        if file.endswith('.py'):
-          
-          # Get the name of the Cog
-          cog_names.append('extensions.'+os.path.splitext(file)[0])
+  #  # os.walk through every file in the commands folder
+  #  for root, dirs, files in os.walk('extensions'):
+  #    
+  #    # For each file in the folder
+  #    for file in files:
+  #      
+  #      # If the file is a .py file
+  #      if file.endswith('.py'):
+  #        
+  #        # Get the name of the Cog
+  #        cog_names.append('extensions.'+os.path.splitext(file)[0])
 
-    await interaction.response.send_autocomplete(cog_names)
+  #  await interaction.response.send_autocomplete(cog_names)
 
 def setup(bot):
   bot.add_cog(ReloadCommand(bot))

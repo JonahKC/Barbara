@@ -38,7 +38,7 @@ If you were a chicken, you'd be impeccable.
 Are you a beaver? Because DAM.
 Are you ~~Netflix~~ JCFlix Prime Max+? Because I could watch you for hours.
 If I could rearrange the alphabet, I'd put ‘U' and ‘I' together.
-Your legs must be tired because you have been running through my mind all night.
+Your legs must be tired because you've been running through my mind all night.
 Are you my last 1099 check? Because I want 100% of you.
 You dropped something: My jaw.
 You know what's on the menu?{answer}ME-N-U
@@ -61,7 +61,7 @@ Is your name Ariel?{answer}Cause we Mermaid for each other!
 Do you have an identical twin?{answer}Then you must be the most beautiful person in the world!
 Let's play hockey. I'll be the net, and you can score.
 Vogue just called, they want to put you on the cover.
-Are you an enderman?{answer}Cause I get a little scared when I look you in the eyes
+Are you an enderman?{answer}Because I get a little scared when I look you in the eyes
 Are you YouTube?{answer}Because I want You To be mine.
 You must be really good at art, because you've drawn my attention.
 Of all the beautiful curves on your body, your smile is my favorite.
@@ -134,14 +134,15 @@ I hope our love will be like pi, irrational and endless.
 Are you a Minecraft fence? Cuz I can't get over you.
 Are you a hurricane, {author}? Cause you're blowing me away.
 Are you Gravel in Minecraft? Because I'm falling for you!
+Redstone is red,{answer}Lapis is blue,{answer}you're as hot as the lava I fell into.
+Redstone is red,{answer}Lapis is blue,{answer}I’d rather quit to main menu than respawn without you
 Are you Mumbo Jumbo? Because I'm blown away by your end crystals.
 Did I mention you're looking optiFINE tonight?
 Are you a redstone torch? Because you turn me on.
-Redstone is red, Lazuli is blue, you're as hot as the lava I fell into.
 It's funny how I know 250+ Minecraft blocks, but not the 10 digits of your phone number.
 If you were a booger I would pick you first.
 You wanna know what's big?{answer}My house, pervert ;)
-Were your parents theives?{answer}Why? I don't know, just making small talk. Mine's an orthopedist.
+Were your parents theives?{answer}Why? I don't know, just making small talk. Mine are orthopedists.
 You look so familiar… Did we take a class together?{answer}Because I could've sworn you and I had chemistry.
 Are you a banana, because I find you a-peeling.
 Is your name Waldo? Because someone like you is hard to find.
@@ -233,8 +234,7 @@ Is this the Matrix? Because I think you're 'the one'.
 You must have swallowed a speaker, because your beauty is louder than the rest.
 My love for you is like a concave up function because it is always increasing.
 I can figure out the square root of any number in less than 10 seconds.{answer}What? You don't believe me? Well, then, let's try it with your phone number.
-You're more beautiful than Natalie Portman. You wanna be my Na-boo?
-My love for you is a monotonically increasing unbounded function
+My love for you is a monotonically increasing unbounded function.
 Will you be the Leia to my Han so I won't have to be Solo?
 Hey, you must be an astromech droid, because you R2 good-looking.
 Hey {author}, are you related to Yoda?{answer}Because Yodamn fine.
@@ -246,7 +246,6 @@ Call me Anna, because you are so Hans-some.
 Could you help me? I'm late for a very important date with you.
 You must be Lightning McQueen because you've got my heart racing.
 Hi!
-I C Major potential in us getting together.
 You must be a fourth or a fifth, because you're just perfect!
 Do you have any Sriracha sauce? Cause you fire me up!
 You're as complete as quinoa.
@@ -308,15 +307,8 @@ Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style 
 I'd join the dark side as long as you were there.
 I must be drawn to the Force, because {author}, Yoda only one for me.
 Is your last name Skywalker? Because you Luke so good.
-Did you like Rogue One? Maybe if we went out, we could be Rogue Two?
-Wow, is your lightsaber yellow? Because you're a total Rey of sunshine.
 R4 is red, R2 is blue. If I was the Force, I'd be with you.
-Will you BB my D8?
 Wow, call me Chewbacca, because I feel so Wookiee to have found you!
-You've been looking for love in Alderaan places.
-You're hotter than the flames on Mustafar.
-Wow, I'm so glad I found you… because I've Ben Solo for too long.
-You're the droid I've been looking for.
 Are you a doughnut?{answer}Because you're a-dough-rable.
 Let's go watch "The Simpsons", you can be Marge and I can take you Homer!
 I know the first 10 digits of pi, but somehow, I don't know yours.
@@ -424,7 +416,6 @@ You are the JDK of my life. I won't compile without you.
 Do you work as a paramedic? Because my heart beats fast when I see you. In fact, I think I'm having a heart attack.
 Are you Chili? Because you’re hot and cool at the same time.
 Hi, I appraise art. Your face is absolutely priceless!
-With my IQ and your body, we could begin a new race of genetic super humans.
 You know the best thing about elevator pickup lines? They work on so many levels.
 What do I do? Oh, I'm a writer. I'm working on a phonebook, can I have your number?
 Soup, cereal, {author}, all sorts of things I want to spoon.
@@ -434,3 +425,45 @@ You could always fall from a tree, but the coolest way to fall would be to fall 
 Are you a tree in California? Because you are on fire and we should do something about it because wildfires = bad.
 Are you a tree? Because I care about you.
 I hope you don’t have any work to do on Saturday night because I’m accounting on taking you out. 
+All the other girls are plain bagels, and you are my one and only sprinkled donut.
+You have something on your face, let me try and wipe it off.{answer}Huh, I guess beautiful doesn't come off.
+Are you a goldfish cracker? 'cause you're a snack that smiles back
+Do you have a tracking number? Because I keep getting lost in your eyes.
+Are you my Amazon order? Because you’re a total complete package.
+Are you my package from Amazon? I want you at my house in the next 24 hours.
+No Netflix & Chill for me; I want Amazon Prime and Quality Time.
+I see we're the only two who survived the plane crash and made it to this deserted island. Want to make out?
+You're hotter than a jalapeño in the Sahara desert.
+Are you a space pirate? Because your booty is out of this world.
+Did you call an Uber? Because I’m here to pick you up.
+Did it hurt?{answer}When you fell from that vending machine? Because you're one good-looking cookie.
+Hey are you a tuber?{answer}Because I hope you tur-nip in my DMs.
+On a scale of 1 to 10, you are 8 and I'm in 2 you
+If you were a fruit, you'd be a fineapple and if you were a vegetable...\nI would stay beside you in the hospital each day for as long as they'd allow me to...
+Are you Taylor swift?{answer}Because I’ve **red** so much about you and I want to be your **lover** and this could be a **delicate** subject for you. But **you belong with me** and I hope this will be a **love story** and I’m **ready for it**. I can’t **shake it off** I’ve seen you in my **wildest dreams** and there’s a **blank space** in my life that you can fill.
+A hug without u is just Hg, and that's toxic.
+Ain't using Google no more, cause when I saw you. The search is over.
+Are you Git?{answer}Cause I wanna commit.
+There are lots of things we don't know about the universe, all I know is that it starts with U 'n I.
+Can you tell that I like you or should I make it more obvious?
+I'd like to eat breakfast with you. Would you like to go out to dinner?
+Roses are red,{answer}my face is too.{answer}That only happens when I'm around you.
+They say holiday season is the most wonderful time of the year, but it's wonderful year-round when I'm with you.
+Are you a broken compass?{answer}Because I have no idea where I was going with that one.
+There's a global pandemic right now and even Coronavirus doesn't begin to compete with the contagiousness of your laugh.
+Are you the inverse of Cos C?{answer}Because you are Sec C
+Roses are red,{answer}whales are grey.{answer}I'd love to take you out someday.
+You're from Korea, right?{answer}Because you sure look like my Seoul Mate.
+Wearing a mask rn because it's hard to not catch feelings for you. Stay safe people.
+I'd sit through another Honey sponsorship if you did it.
+If I had a penny for every time I've heard about Coronavirus I'd have, more or less, your phone number in pennies.
+My love for you is like a Windows update: It goes on forever and ever.
+Wearing a mask doesn't make you less pretty, just makes your eyes prettier.
+I was a vegan till I met you.{answer}Then all of a sudden I had butterflies in my stomach.
+You sweep me off my feet like mass starvation swept through Soviet Russia ❤️
+You're still single I take it?{answer}Honest piece of advice, please don't use pickup lines until you have a romantic partner. It's not worth it.
+You're the lavender. To my iced oat milk latte.
+Do you know what Youtube says when you speak?{answer}[MUSIC]
+You and I are kinda like a Minecraft server: We are meant 2B2gether.
+Are you a silica gel?{answer}Because the only thing preserving me is you.
+Are you a pirate?{answer}Because you put the curvy in scurvy.

@@ -104,4 +104,3 @@ Are we a point?{answer}Because I don’t see us going anywhere
 {author} are you an angel?{answer}Because I'm a atheist.
 Sorry {author}, but I’m in love with your mom.
 Here, look at this blank piece of paper for a second… I wrote every reason why we should stick together on it.
-Wanna see a magic trick?{answer}POOF, you're single! 

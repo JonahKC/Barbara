@@ -1,8 +1,5 @@
-import os
-import json
 import click
 import logging
-import nextcord
 from flask import Flask
 from flask_cors import CORS
 from threading import Thread
@@ -50,13 +47,21 @@ class API(commands.Cog):
     def webserver_guilds():
       return str(len(self.bot.guilds))
 
+    @web_app.route('/commands')
+    def command_stats():
+      return str(self.bot.stats['commands_executed'])
+
+    @web_app.route('/m*eses')
+    def meese_stats():
+      return str(self.bot.stats['meeses_censored'])
+
+    @web_app.route('/members')
+    def total_members():
+      return str(sum([guild.member_count for guild in self.bot.guilds]))
+
     # Start the server in a thread
     server = Thread(target=_run_webserver)
     server.start()
-
-    @web_app.route('/stats')
-    def command_stats():
-      return self.bot.stats
 
 def setup(bot):
   bot.add_cog(API(bot))

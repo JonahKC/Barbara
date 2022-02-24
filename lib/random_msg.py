@@ -1,3 +1,7 @@
+"""
+Tools for providing evenly-distributed (every value gets displayed equally as much, but still randomly) using a file, and other fancy stuff. Built for Barbara's /secret, /pickup, and /breakup.
+"""
+
 import os
 from typing import Union
 from random import shuffle

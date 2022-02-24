@@ -390,14 +390,3 @@ Will you brush your teeth with me?{answer}Because dentists say brushing alone do
 Hey, is that guy bothering you?{answer}Would you mind if I bothered you then?
 Knock, knock.{answer}Iguana.{answer}Iguana hold your hand.
 If you were a chicken, you'd be impeccable.
-Have you ever seen a guy eat an entire can of pinto beans in under 10 seconds?{answer}Would you like to?
-You must be Windows Vista because you've got me feeling so unstable.
-Are you French?{answer}Because Eiffel for you.
-R4 is red, R2 is blue. If I was the Force, I'd be with you.
-I cannoli have eyes for you.
-Your parents must have worked at Ikea because you're put together nice!
-Are you an enderman?{answer}Cause I get a little scared when I look you in the eyes
-I hope our love will be like pi, irrational and endless.
-Was that an earthquake or did you just rock my world?
-*holds out hand* Would you hold this for me while I go for a walk?
-What's the difference between a crush and a Facebook account?{answer}I'm not rapidly developing a Facebook account on you.

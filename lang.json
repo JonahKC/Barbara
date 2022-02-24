@@ -1,6 +1,6 @@
 {
   "admin.user_not_admin": "Sorry, you must be an admin to run this command.",
-  "admin.user_not_jcwyt": "Sorry, his command is only available to JCWYT developers.",
+  "admin.user_not_jcwyt": "Sorry, this command is only available to JCWYT developers.",
   "admin.private_beta": "This command is in private beta and is only available to our beta testers. If you want to appy to become a beta tester, join our discord: https://jcwyt.com/discord",
   "config.entire_config_read_success": "**{guild_name} Config:**```json\n{config_json}\n```",
   "config.read_success": "The value of {option} is {value}",

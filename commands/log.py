@@ -19,8 +19,10 @@ class LogCommand(commands.Cog):
 		force_global=SLASH_COMMANDS_GLOBAL
 	)
   async def log_command(self, interaction: nextcord.Interaction, channel: nextcord.abc.GuildChannel=nextcord.SlashOption(
-		required = False,
-		name = "channel"
+		required=False,
+    name='channel',
+    description="The channel to log actions to.",
+    #autocomplete=True
 	)):
     if not channel:
       await interaction.send(util.get_message('log.read_channel', channel=self.bot.get_channel(config.read(interaction.guild_id, 'log_channel'))))
@@ -37,5 +39,20 @@ class LogCommand(commands.Cog):
       config.write(interaction.guild_id,'log_channel', channel.id)
       await interaction.send(util.get_message('log.set_channel', channel=channel))
   
+  # Autocompletions are broken rn
+  #@log_command.on_autocomplete('channel')
+  #async def log_command_autocomplete(self, interaction: nextcord.Interaction, channel: str):
+  #  
+  #  # Get all text channels in the server
+  #  text_channels = filter(
+  #    lambda channel: type(channel) == nextcord.channel.TextChannel,
+  #    interaction.guild.channels
+  #  )
+
+  #  # Get their names
+  #  text_channels = map(lambda x: x.name, text_channels)
+  #  
+  #  await interaction.response.send_autocomplete(text_channels)
+
 def setup(bot):
   bot.add_cog(LogCommand(bot))
