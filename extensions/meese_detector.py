@@ -143,6 +143,9 @@ class MeeseDetector(commands.Cog):
         # Check if the config is set to detect/delete  meese
         if config.read(message.guild.id, "nomees"):
 
+          for compound_character in self.COMPOUND_CHARACTERS.values():
+            print(compound_character.index_string(message.content))
+          
           # Trim the message (removing filler chars etc.)
           trimmed_message = self.replace_words(
             TRIM_CHARS,
@@ -151,9 +154,6 @@ class MeeseDetector(commands.Cog):
             -1
           )
 
-          for compound_character in self.COMPOUND_CHARACTERS:
-            print(compound_character._index_string(trimmed_message))
-          
           # Check for meese using the Meese Detection Algorithm™
           has_meese = self.has_meese(trimmed_message, config.fetch(message.guild.id, "whitelist"))
           
@@ -252,9 +252,12 @@ class CompoundFilter:
     """
     Pass in all the arrays of charactes, as in CompoundFilter(['/', 'l'], ['\\', ')']) etc.
     """
-    self.compound_letters = args
+    self.compound_words = args
 
-  def _index_string(self, _string):
+  def replace_compound(self, dirty_string, replace_with):
+    
+  
+  def index_string(self, dirty_string):
     """
     Loops through a string, and converts each match of a character in compount_characters_index with the index of the compound characters array.
     Example:
@@ -264,35 +267,26 @@ class CompoundFilter:
     m_detector.index_string('/\\XD') # returns [0, 1]
     ```
     """
-    _string = _string.lower()
-    _string_index = []
+    print(dirty_string)
+    dirty_string = dirty_string.lower()
+    dirty_string_index = []
+    dirty_string_split = [dirty_string]
 
-    # Get the length of all of the compound characters
-    # Flatten the array of arrays
-    flattened_compound_letters = [item for sublist in self.compound_letters for item in sublist]
+    # Loop through compound characters
+    for index, compound_char in enumerate(self.compound_words):
 
-    # Get the length of each compound character
-    compound_characters_length = [len(compound_char) for compound_char in flattened_compound_letters]
+      # Loop through every subchar in each compound_char
+      for subchar in compound_char:
+        
+        # Check if the subchar exists in dirty_string
+        if subchar in dirty_string:
+          
+          # Append index to dirty_string_index
+          dirty_string_index.append(index)
 
-    # Split _string into an array of arrays, each array containing _string split every compound_characters_length[i]
-    split_string = [_string[i:i+compound_characters_length[i]] for i in range(len(compound_characters_length))]
+          # Loop through every item in dirty_string_split
+          # and split it by the subchar, and flatten the result
+          for item in dirty_string_split:
+            dirty_string_split.extend(item.split(subchar))
 
-    # Remove any empty strings
-    split_string = [x for x in split_string if x]
-
-    # Remove duplicates
-    split_string = list(set(split_string))
-
-    # Loop through each split string
-    for potential_match in split_string:
-
-      # Loop through each compound character
-      for compound_chars in self.compound_letters:
-
-        # If the potential_match is equal to a compound character
-        if potential_match in compound_chars:
-
-          # Add the index of the compound character to the string index
-          _string_index.append(compound_chars.index(potential_match))
-
-    return _string_index
+    return dirty_string_index

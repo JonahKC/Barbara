@@ -69,7 +69,7 @@ class PromptCommand(commands.Cog):
     await interaction.response.defer()
 
     # Get the output from GPT-J
-    raw_ai_output = (await huggingface.query(
+    raw_ai_output = await huggingface.query(
       prompt,
       huggingface.Model.GPT_J_6B,
       {
@@ -80,7 +80,7 @@ class PromptCommand(commands.Cog):
         'return_full_text': False
       },
       {'wait_for_model': True}
-    ))
+    )
 
     # Loop through all of the outputs
     for output in raw_ai_output:
