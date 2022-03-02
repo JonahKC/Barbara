@@ -1,181 +1,144 @@
+print(f'\033[0;34mInitializing Bot...\033[0m')
+
 import os
-import traceback
-import discord
-import config.config as config
-import lib.admin as admin
-import click
-import logging
-from   threading import Thread
-from   flask import Flask
-from   flask_cors import CORS
-from   discord.ext import commands
-from   discord_components.client import DiscordComponents
-from   console import fg
+import time
+import util
+import config
+import aiohttp
+import nextcord
+from console import fg
+import lib.dream as dream
+from nextcord.ext import commands
+import lib.randommer as randommer
+import lib.huggingface as huggingface
 
-# Version constant
-BARBARA_VERSION = "3.23.0"
-
-# Pass a function to command_prefix that returns the correct per-server prefix
-def get_prefix(bot, message):
-
-  # Attempt to read the server"s prefix from config
-  try:
-    pfx = config.read(message.guild.id, "prefix")
-
-  # If it doesn"t exist in config, use the default prefix
-  except AttributeError:
-    pfx = config.default("prefix")
-
-  # You can mention Barbara instead of using her prefix
-  return commands.when_mentioned_or(pfx)(bot, message)
+# Bot Version
+__version__ = '4.0.0'
 
 # Give the bot intents
-# She won"t be able to play audio, for example, without the proper intent
-intents = discord.Intents.default()
+# She won't be able to play audio, for example, without the proper intent
+intents = nextcord.Intents.default()
 intents.voice_states = True
 intents.webhooks = True
 
-# Set the activity of the bot to "Watching jcwyt.com"
-activity = discord.Activity(type=discord.ActivityType.watching,
-                            name="jcwyt.com")
+# Watching jcwyt.com
+activity = nextcord.Activity(
+  type=nextcord.ActivityType.watching,
+  name='jcwyt.com',
+)
 
 # Create the Bot object from the variables above
-bot = commands.Bot(command_prefix=get_prefix,
-                   intents=intents,
-                   activity=activity,
-                   case_insensitive=True)
+bot = commands.Bot(
+
+  # command_prefix is required for some reason
+  command_prefix='~~%~~',
+  intents=intents,
+  activity=activity,
+  case_insensitive=True,
+)
 
 # Remove the default help command
-bot.remove_command("help")
+bot.remove_command('help')
 
-# Initialize DiscordComponents, this overrides some functions adding capability for things like buttons
-DiscordComponents(bot)
+bot.__version__ = __version__
 
 @bot.event
 async def on_ready():
 
-  # Start a flask server so that you can ping her to see if she's alive
-  web_app = Flask('')
+  # Setup all of our clientsessions
+  bot.session = aiohttp.ClientSession()
 
-  # use flask-cors to set Access-Control-Allow-Origin to "*"
-  CORS(web_app)
-
-  # Flask we don't care about your spam
-  # These are overrides to the logging functions
-  def secho(text, file=None, nl=None, err=None, color=None, **styles):
-    pass
-  def echo(text, file=None, nl=None, err=None, color=None, **styles):
-    pass
-
-  # Replace the default ones Flask uses with ours that do nothing
-  click.echo = echo
-  click.secho = secho
-
-  # Make Flask only log errors. This is needed as well as the above code. Idk why.
-  log = logging.getLogger('werkzeug')
-  log.setLevel(logging.ERROR)
-
-  @web_app.route('/')
-  def webserver_ping():
-    return str(len(bot.guilds))
-
-  def run_webserver():
-    web_app.run(host="0.0.0.0", port=8080)
-
-  server = Thread(target=run_webserver)
-  server.start()
+  # Give our libs access to the central ClientSession
+  huggingface.session = bot.session
+  randommer.session = bot.session
+  dream.session = bot.session
 
   # Log bot info
-  print(f"Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}")
-  print(f"Logged in as: {fg.lightgreen}{bot.user}{fg.default}")
-  print(f"Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}")
-  print(f"Discord.py Version: {fg.blue}{discord.__version__}{fg.default}")
-  print(f"Barbara-Core Version: {fg.blue}{BARBARA_VERSION}{fg.default}")
-  print(f"I'm in {fg.blue}{str(len(bot.guilds))}{fg.default} server{'s' if len(bot.guilds) > 1 else ''}!")
+  print(f'Barbara Version: {fg.lightgreen}{__version__}{fg.default}')
+  print(f'Connected to bot: {fg.lightgreen}{bot.user.name}{fg.default}')
+  print(f'Bot ID: {fg.lightgreen}{bot.user.id}{fg.default}')
+  print(
+    f'I\'m in {fg.blue}{str(len(bot.guilds))}{fg.default} server{"s" if len(bot.guilds) > 1 else ""}!'
+  )
 
-# Loop through every file (not counting subfolders) in the cogs directory
-for filename in os.listdir("./cogs"):
-
-  # If the file is a Python file
-  if filename.endswith(".py"):
-
-    # Attempt to load it as a Cog
-    try:
-      bot.load_extension(f"cogs.{filename[:-3]}")
-
-      # Log the Cog that was loaded
-      print(f"{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}cogs.{filename[:-3]}{fg.default}")
-    
-    # An error was encountered trying to load a Cog
-    except Exception as error:
-
-      # Get the stacktrace from the exception
-      stack = traceback.extract_tb(error.__traceback__)
-    
-      # Debug it to the console with pretty red text
-      print(fg.red + f"Error: {str(error)}")
-      for i in stack.format():
-        print(i)
-      print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
-
-# Load the CustomCommands cog
-try:
-  bot.load_extension(f"temp.customCommands")
-
-  # Log the Cog that was loaded
-  print(f"{fg.t_5865f2}Loaded and initialized{fg.default} {fg.yellow}temp.customCommands{fg.default}")
- 
-# An error was encountered trying to load a Cog
-except Exception as error:
-
-  # Get the stacktrace from the exception
-  stack = traceback.extract_tb(error.__traceback__)
- 
-  # Debug it to the console with pretty red text
-  print(fg.red + f"Error: {str(error)}")
-  for i in stack.format():
-    print(i)
-  print("\n\nEnd of Stacktrace\n\n" + "-" * 50 + "\n\n" + fg.default)
-
-
+# Text commands? More like,, bad
 @bot.event
-async def on_message(message):  # Perms
+async def on_message(message):
+  if message.content.startswith(config.read(message.guild.id, 'prefix')):
+    await message.channel.send(util.get_message('legacy.slash_commands'))
 
-  # If the command was run in a DM channel
-  if type(message.channel) == discord.channel.DMChannel and message.author != bot.user:
+# This is for permissions
+# Called every time the bot receives an Interaction (for example, a slash command)
+@bot.event
+async def on_interaction(interaction: nextcord.Interaction):
+
+  # If the Interaction type is a slash command
+  if interaction.type == nextcord.InteractionType.application_command:
+  
+    # If the command is in the list of admin commands
+    if interaction.data['name'] in util.admin_commands:
     
-    # Tell the author that isn"t supported right now
-    await message.channel.send("Sorry, Barbara is not support in DM conversations at this time.")
-    return
+      # If the user is NOT an admin
+      if not util._has_permissions(interaction.user):
+      
+        # Send the no permissions message
+        await interaction.send(
+          util.get_message('admin.user_not_admin'), ephemeral=True)
+        
+        # And then stop the command from running
+        return
+      
+    # If the command is in the list of JCWYT-only commands
+    elif interaction.data['name'] in util.jcwyt_commands:
+    
+      # If the user is NOT a JCWYT user
+      if not interaction.user.id in util.JCWYT_TEAM:
+      
+        # Send the no permissions message
+        await interaction.send(
+          util.get_message('admin.user_not_jcwyt'), ephemeral=True)
+        
+        # And then stop the command from running
+        return
+      
+    try:
+    
+      # If there's permissions to run the command, run it
+      await bot.process_application_commands(interaction)
+    except Exception as err:
+    
+      # Send out a custom event for the error handler
+      bot.dispatch('application_command_error', err, interaction)
 
-  # Get the context object from the message
-  ctx = await bot.get_context(message)
+# Load all misc cogs in the extensions folder
+util.load_directory(bot, 'extensions')
 
-  # Before any commands or anything are run, run the pre_message event for meese detection
-  bot.dispatch("pre_message", message)
+# Load all commands in the commands folder
+util.load_directory(bot, 'commands')
 
-  # If the text command is valid
-  if ctx.valid:
+# Run the bot!
+while True:
+  try:
+    bot.run(os.getenv('TOKEN'))
 
-    # If this command is restricted to admins only, and the user is not an admin
-    if ctx.command.name in admin.RESTRICTED_COMMANDS and not admin.perms(ctx):
+  # Catch errors talking to the Discord API
+  except nextcord.errors.HTTPException as err:
 
-      # DM them, saying they lack perms
-      await message.author.send(admin.NO_PERMS_MESSAGE(ctx))
-    else:
+    # Catch ratelimits
+    if err.status == 429:
 
-      # If the message sent was a command
-      if ctx.prefix is not None:
+      # Clear the terminal
+      util.clear_terminal()
 
-        # Process the text command
-        await bot.process_commands(message)
-      else:
-        pass  # The message sent isn"t a command
+      # Explain what's happening
+      print(f'{fg.red}Rate limit exceeded.{fg.default}')
+      retry_after = err.response.headers['Retry-After']
+      print(
+        f'{fg.green}Retrying in {retry_after} seconds...{fg.default}'
+      )
 
-# The %version command returns Barbara's version as well as Discord.py's version
-@bot.command(name="version")
-async def versionCommand(ctx):
-  await ctx.send(f"Barbara `v{BARBARA_VERSION}`\nDiscord.py `v{discord.__version__}`")
+      # Wait for the specified duration (+1 second for padding)
+      time.sleep(int(retry_after))
 
-# Run the bot with the token environment variable
-bot.run(os.getenv("TOKEN"))
+      #Try to run the bot again
+      continue

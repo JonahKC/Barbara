@@ -1,51 +1,111 @@
-**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+**Hey there! I'm Barbara! Here's some things you can ask me:**
 
-`{prefix}secret` - I'll tell you a secret, straight from the JCWYT devs!
+`/help` - Lists all commands and what they do.
 
-`{prefix}pickup` - Tells you a *magnificent* pickup line handpicked by our wonderful JCWYT devs. Some of them you can respond to as well! 
+`/credits` - Shows everyone who worked on Barbara and the APIs and resources we use!
 
-`%breakup` – Responds with a random breakup line from an amazing list of 100+.
+`/vote` - Vote for Barbara on Top.gg!
 
-`%vote` - Vote for Barbara on Top.gg!
+`/invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
 
-`{prefix}howoldis [theserver/barbara/@user] <accurately/precisely>` - Return the age of the server/barbara/other user.
+`/pickup` - Tells you a *magnificent* pickup line from a handpicked list of over 500. Some of them you can respond to as well! 
 
-`{prefix}fact` - Returns a random fact. This command uses an API, see below for credit links.
+`/breakup` – Responds with a random breakup line from an amazing list of over 150.
 
-`{prefix}dadjoke` - Returns a random dad joke. This command uses an API, see below for credit links.
+`/secret` - I'll tell you a secret, straight from the JCWYT devs!
 
-`{prefix}say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
-
-`{prefix}say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
-
-`[parameter]` = required
-`<parameter>` = optional
-API links can be found at <https://barbara.jcwyt.com/api-credits>
-
-**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
-_ _
-PAGEBREAK
-**Hey there sweetie! I'm Barbara! Here's some things you can ask me:**
+PAGE
+`/prompt <prompt> <length of answer> <temperature>` - Continues your prompt and writes a paragraph. Length of answer lets you adjust the output length and temperature affects the AI's creativity. To learn how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>. This command uses an API, run `/credits` to view credit links. 
+**CW: The AI used for this command is known to output offensive language and other potencially inappropriate content. Use at your own risk!**
 
-`{prefix}link` – Displays a customizable message when the command is run. Aliases for this command are %about and %info. 
+`/link` – Displays a customizable message when the command is run.
 
-`{prefix}screenshot [url] <fullPage> <scrollBy> <width> <height>` - Screenshots website. **This command is restricted to NSFW channels only.**
+`/say <message>` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
 
-`{prefix}invite` - Invite barbara to your Discord! (Also available at <https://barbara.jcwyt.com>).
+`/fact` - Returns a random fact. This command uses an API, run `/credits` to view credit links. 
 
-`{prefix}help admin` - View admin commands.
+`/truth` - Gives you a great Truth to ask in Truth or Dare. There's no /dare so stop asking (it might be coming soon though). 
 
-`%prompt <length of answer> <temperature> [prompt]` - Continues your prompt and writes a paragraph. **Length of answer is NOT in characters, it's in AI tokens, or about 0.75 *words* each, so make sure you're not setting it too high!**. To learn more about how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
-This command uses an API, see below for credit links. **Content Warning: The AI used to do this was trained on a dataset known to contain profanity, lewd, and otherwise offensive language. Use at your own risk!**
+`/age <@user> <precise/imprecise>` - Return the age of the a user, either broadly (like how many months), or exactly down to a tenth of a second.
 
+`/reaction add <emoji>` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
 
-`[parameter]` = required
-`<parameter>` = optional
-API links can be found at <https://barbara.jcwyt.com/api-credits>
-
-**Find a bug? Think something is super inappropriate? Join our discord or email bugs@jcwyt.com.**
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
-_ _
+ADMIN_ONLY
+**Here's a list of admin commands:**
+*Remember, you need to be an admin to use these commands. I see you being sneaky...*
+
+**General Admin Commands**
+
+`/reaction clear` - Removes all reactions from the previous message.
+
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
+
+**Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
+PAGE
+**Here's a list of admin commands:**
+*Remember, you need to be an admin to use these commands. I see you being sneaky...*
+
+**Admin Role Commands**
+
+`/admin list all` - Lists both admin roles and users.
+
+`/admin list roles` - Lists roles that can use admin commands.
+
+`/admin list users` - Lists users that can use admin commands.
+
+`/admin add role <@role>` - Adds role to admin command whitelist.
+
+`/admin add user <@user>` - Adds user to admin command whitelist.
+
+`/admin remove role <@role>` - Removes role from admin command whitelist.
+
+`/admin remove user <@user>` - Removes user from admin command whitelist.
+
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
+
+**Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
+PAGE
+**Here's a list of admin commands:**
+*Remember, you need to be an admin to use these commands. I see you being sneaky...*
+
+**Server Customization**
+
+`/meesedetect <true/false>` - Enables or disables Meese detection.
+
+`/log <#channel>` - Logs meese detection deletions, message reacts, and other features that can be run anonymously to the channel of your choice.
+
+`/link set <message or link>` - Customizes the link in /link. Add as many as you want.
+
+`/vc ban <Name of VC>` - Bans bots from the VC specified or from the VC you are currently in.
+
+`/vc unban <Name of VC>` - Unans bots from the VC specified or from the VC you are currently in.
+
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
+
+**Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
+PAGE
+**Here's a list of admin commands:**
+*Remember, you need to be an admin to use these commands. I see you being sneaky...*
+
+**Advanced Server Customization**
+*If you would like to edit other config, use these commands.*
+
+`/config read <option>` - Read the value of a config option, or all of config.
+
+`/config set <option> <value>` - Set the value of a config option.
+
+`/config reset <option>` - Reset a config option to the default value.
+
+`/config append <option>` - Add an item to a config list.
+
+`/config remove <option>` - Remove an item from a config list.
+
+**Find a bug? Join our discord or email bugs@jcwyt.com.**
+
+**Go to <https://barbara.jcwyt.com/adminhelp> for more info.**
