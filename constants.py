@@ -1,5 +1,7 @@
+import os
+
 # Whether or not slash commands are only available in TESTING_GUILD_ID, or in all guilds.
-SLASH_COMMANDS_GLOBAL = True
+SLASH_COMMANDS_GLOBAL = True if os.getenv('SLASH_COMMANDS_GLOBAL') == 'True' else False
 
 # JCWYT Guild ID, for testing slash commands
 TESTING_GUILD_ID = []#[863919587825418241]
