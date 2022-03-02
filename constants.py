@@ -1,5 +1,5 @@
 # Whether or not slash commands are only available in TESTING_GUILD_ID, or in all guilds.
-SLASH_COMMANDS_GLOBAL = False
+SLASH_COMMANDS_GLOBAL = True
 
 # JCWYT Guild ID, for testing slash commands
 TESTING_GUILD_ID = []#[863919587825418241]
