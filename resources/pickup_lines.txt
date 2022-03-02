@@ -47,7 +47,7 @@ You can't spell Quarantine without u r a q t
 My love for you is like dividing by zero, it cannot be defined.
 You are as beautiful as 1.618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391137484754088075386891752126633862223536931793180060766726354433389086595939582905638322661319928290267880675208766962070322210432162695486262963136144381497587012203408058879544547492461856953648644492410443207713449470495658467885098743394422125448770664780915884607499887124007652170.
 You must be √(-1), 'cause you can't be real.
-You must be the square root of two cause I feel irrational around you.
+You must be the square root of two because I feel irrational around you.
 Excuse me, you dropped something back there!{answer}This conversation, lets pick it up later tonight.
 I'd never play hide and seek with you because someone like you is impossible to find
 You know you're in love when you can't fall asleep because reality is finally better than your dreams.
@@ -57,7 +57,7 @@ Give someone else 12 roses. 11 real, 1 fake and say to them, “I will stop lovi
 Roses are red, I have a crush, whenever I'm around you, all I do is blush
 Are you made of copper and tellurium? Because you're CuTe!
 Charizards are red, Squirtles are blue, if you were a Pokemon I would choose you!
-Is your name Ariel?{answer}Cause we Mermaid for each other!
+Is your name Ariel?{answer}Because we Mermaid for each other!
 Do you have an identical twin?{answer}Then you must be the most beautiful person in the world!
 Let's play hockey. I'll be the net, and you can score.
 Vogue just called, they want to put you on the cover.
@@ -81,15 +81,15 @@ WYD{answer}No, I mean where's your dog?
 How clever was my last pickup line, on a scale of (000)-000-0000 to (999)-999-9999?
 Hello. I am a Nigerian Prince and I can make you rich beyond your wildest dreams! I just need your phone number.{answer}And your birthday.{answer}And your bank account.{answer}And Social Security number.{answer}And mother's maiden name.
 Do you have 11 protons? Because you're sodium fine!
-Are you my self-esteem? Cause I've been looking for you everywhere.
+Are you my self-esteem? Because I've been looking for you everywhere.
 This is the police! You're under arrest for being too cute, now put your hands where I can hold them.
 Well, here I am. What were your other two wishes?
-Let me tie your shoes, cause I don't want you falling for anyone else.
+Let me tie your shoes, 'cause I don't want you falling for anyone else.
 Most people like to watch the Olympics, because they only happen once every 4 years, but I'd rather talk to you because the chance of meeting someone so special only happens once in a lifetime.
 No wonder the sky is grey today, all the blue is in your eyes.
 Was your father a thief? 'Cause someone stole the stars from the sky and put them in your eyes.
 Help! I've fallen for you and I can't get up!
-If you were ground coffee, you'd be Espresso cause you're so fine.
+If you were ground coffee, you'd be Espresso because you're so fine.
 If I was a stoplight, everytime you came by I'd turn red, just to glance at you longer
 Damn {author}, I thought diamonds were pretty until I laid my eyes on you!
 A life without you would be like a computer without me.
@@ -124,7 +124,7 @@ Did I sneeze? Because God blessed me with you.
 Hershey's makes millions of kisses a day... all I'm asking for is one from you.
 Me without you is like a computer without typefaces, a middle school without nutcases, a sea turtle without carapaces.
 Are you a kidnapper? Because you just abducted my heart.
-Are you Apple Support? There's something wrong with my phone. It doesn't have your number in it.
+Are you tech support? There's something wrong with my phone. It doesn't have your number in it.
 I don't have a library card, but do you mind if I check you out?
 Hello, I'm doing a survey of what people think are the cheesiest pickup lines. Which of the following is the best: ‘Do you come here often?', ‘How was heaven when you left it?', or ‘Hello, I'm doing a survey of what people think are the cheesiest pickup lines.'?
 Most people call me Barbara, but you can call me tonight!
@@ -132,7 +132,7 @@ If you were a stormtrooper's gun, you'd be set to stun.
 I'm studying to be a historian, are you interested in finding a date?
 I hope our love will be like pi, irrational and endless.
 Are you a Minecraft fence? Cuz I can't get over you.
-Are you a hurricane, {author}? Cause you're blowing me away.
+Are you a hurricane, {author}? 'Cause you're blowing me away.
 Are you Gravel in Minecraft? Because I'm falling for you!
 Redstone is red,{answer}Lapis is blue,{answer}you're as hot as the lava I fell into.
 Redstone is red,{answer}Lapis is blue,{answer}I’d rather quit to main menu than respawn without you
@@ -155,7 +155,7 @@ Do you smoke marijuana? Because weed be cute together.
 If you were a tropical fruit, you'd be a Fine-apple!
 Did you read Dr. Seuss as a kid? Because green eggs and... damn!
 You must be the cure for Alzheimer's, because you're unforgettable.
-Do you work at Dick's? Cause you're sporting the goods.
+Do you work at Dick's? 'Cause you're sporting the goods.
 You know I'd like to invite you over, but I'm afraid you're so hot that you'll skyrocket my air-conditioning bill.
 My love for you is like diarrhea, I just can't hold it in.
 Rejection can lead to emotional stress for both parties involved and emotional stress can lead to physical complications such as headaches, ulcers, cancerous tumors, and even death! So for my health and yours, just say yes!
@@ -190,7 +190,7 @@ Do you want to see a picture of a beautiful person? *holds up mirror*
 If you were a flower you'd be a damn-delion
 You shouldn't wear makeup. It's messing with perfection!
 I'm fighting the urge 24/7 to not scream a pickup line at the top of my lungs. If I had a partner, maybe I wouldn't have to.
-Are you from Russia?{answer}‘Cause you're Russian my heart rate!
+Are you from Russia?{answer}'Cause you're Russian my heart rate!
 I would flirt with you, but I'd rather seduce you with my awkwardness.
 You wanna know what's beautiful?{answer}Read the first word again.
 Do you have the time?{answer}No, the time to write down my number?
@@ -240,14 +240,14 @@ Hey, you must be an astromech droid, because you R2 good-looking.
 Hey {author}, are you related to Yoda?{answer}Because Yodamn fine.
 Are you Mary?{answer}Because you're Poppin'.
 I'm so lost in your eyes I'm like Nemo.{answer}You better find me.
-Am I a beast? Cause you're definitely a beauty.
+Am I a beast? Because you're definitely a beauty.
 I'd show you my world, but I'm sure you own a mirror.
 Call me Anna, because you are so Hans-some.
 Could you help me? I'm late for a very important date with you.
 You must be Lightning McQueen because you've got my heart racing.
 Hi!
 You must be a fourth or a fifth, because you're just perfect!
-Do you have any Sriracha sauce? Cause you fire me up!
+Do you have any Sriracha sauce? Because you fire me up!
 You're as complete as quinoa.
 Do you work at Little Caesars? Because you're hot and I'm ready.
 I might not be a Doritos Locos Taco, but I sure will spice up your life.
@@ -255,9 +255,9 @@ You must be peanut butter because you're making my legs feel like jelly.
 {author} if you were a burger at McDonalds you would be a McGorgeous.
 I want you more than a Haagen-Dazs on a hot summer day.
 You must be from Prague, because I can't help but Czech you out.
-Are you from South England? Cause you Brighton up my day.
+Are you from South England? Because you Brighton up my day.
 Norway are you leaving without giving me your number!
-Are you from Stockholm? Cause you're the Swedish guy I've ever seen.
+Are you from Stockholm? 'Cause you're the Swedish guy I've ever seen.
 Irish you'd go on a date with me because you're so pretty you're Dublin my heart rate.
 "Care to Tango?" - Arnold Schwarzenegger
 Roses are red, violets are blue, Yoda I am, and go out with me will you?
@@ -278,7 +278,7 @@ Hey {author}, are you a Prius? Because you're giving me no sounds or indecations
 Are you an APR loan? Because I don't really understand your terms and you keep saying you have no interest.
 Are you a microwave?{answer}Because mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 Hey dude, is your name John? Because I've never Cena guy like you.
-Are you a time traveler? Cause I see you in my future!
+Are you a time traveler? Because I see you in my future!
 You must be a campfire. Because you're super hot and I want s'more.
 Are you a cat? Because I'm feline a connection between us.
 Hey beautiful! Your face is like a moon, always glowing.
@@ -297,13 +297,13 @@ Your pH must be 14 because you're the most basic need in my life right now.
 I must be going through anaerobic respiration right now 'cause you take my breath away.
 Hey, can I take a picture of you? Quickly, it's urgent!{answer}I'm playing cards and I don't have a queen.
 Your interface looks very clean, and *smooth*
-Are you Medusa?{answer}Cause once I saw you the first time, I couldn't look back.
-Are you my house burning down? Cause you take my breath away.
-Are you a mortar shell?{answer}Cause when I hear you whistling, I stop what I'm doing, and try to find out where you're coming from, and where you're going.
-Are you Alzheimers?{answer}Cause I forgot where I was going with this one.
-Are you a large sum of money?{answer}Cause I love you.
+Are you Medusa?{answer}'Cause once I saw you the first time, I couldn't look back.
+Are you my house burning down? 'Cause you take my breath away.
+Are you a mortar shell?{answer}'Cause when I hear you whistling, I stop what I'm doing, and try to find out where you're coming from, and where you're going.
+Are you Alzheimers?{answer}Because I forgot where I was going with this one.
+Are you a large sum of money?{answer}Because I love you.
 Let's start an LLC together so our dates can be deductible.
-Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style autocannon mounted in the United States Air Force's Fairchild Republic A-10 Thunderbolt II?{answer}Cause you never fail to blow me away.
+Are you a GAU-8/A Avenger 30 mm hydraulically driven seven-barrel Gatling-style autocannon mounted in the United States Air Force's Fairchild Republic A-10 Thunderbolt II?{answer}Because you never fail to blow me away.
 I'd join the dark side as long as you were there.
 I must be drawn to the Force, because {author}, Yoda only one for me.
 Is your last name Skywalker? Because you Luke so good.
@@ -399,7 +399,7 @@ If I freeze, it's not a computer virus. I was just stunned by your beauty.
 You're more fun than bubble wrap.
 You are the rare catalyst to my volatile compound.
 Are you a surfer because I’m following your every wave.
-Are you an orange? ‘cause you're a real cutie
+Are you an orange? ‘Cause you're a real cutie
 If you were a musical instrument, you'd be a *snack*sopohone
 Are you a drummer?{answer}Because you can make my heart skip a beat.
 I want to B with you if that’s no treble.
@@ -427,7 +427,7 @@ Are you a tree? Because I care about you.
 I hope you don’t have any work to do on Saturday night because I’m accounting on taking you out. 
 All the other girls are plain bagels, and you are my one and only sprinkled donut.
 You have something on your face, let me try and wipe it off.{answer}Huh, I guess beautiful doesn't come off.
-Are you a goldfish cracker? 'cause you're a snack that smiles back
+Are you a goldfish cracker? 'Cause you're a snack that smiles back
 Do you have a tracking number? Because I keep getting lost in your eyes.
 Are you my Amazon order? Because you’re a total complete package.
 Are you my package from Amazon? I want you at my house in the next 24 hours.
@@ -442,7 +442,7 @@ On a scale of 1 to 10, you're an 8 and I'm in 2 you
 If you were a fruit, you'd be a fineapple and if you were a vegetable...\nI would stay beside you in the hospital each day for as long as they'd allow me to...
 Are you Taylor swift?{answer}Because I’ve **red** so much about you and I want to be your **lover** and this could be a **delicate** subject for you. But **you belong with me** and I hope this will be a **love story** and I’m **ready for it**. I can’t **shake it off** I’ve seen you in my **wildest dreams** and there’s a **blank space** in my life that you can fill.
 A hug without u is just Hg, and that's toxic.
-Are you Git?{answer}Cause I wanna commit.
+Are you Git?{answer}Because I wanna commit.
 Can you tell that I like you, or should I make it more obvious?
 Roses are red, my face is too., That only happens when I'm around you.
 They say holiday season is the most wonderful time of the year, but it's wonderful year-round when I'm with you.

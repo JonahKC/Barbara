@@ -12,7 +12,7 @@ class PromptCommand(commands.Cog):
 
   @nextcord.slash_command(
 		name='prompt',
-		description='Generate text using the AI GPT-J',
+		description='Generate text using the AI GPT-J.',
 		guild_ids=TESTING_GUILD_ID,
 		force_global=SLASH_COMMANDS_GLOBAL
 	)

@@ -41,7 +41,7 @@ class API(commands.Cog):
 
     @web_app.route('/')
     def webserver_index():
-      return f"Barbara {self.bot.__version__}"
+      return self.bot.__version__
 
     @web_app.route('/guilds')
     def webserver_guilds():

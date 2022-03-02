@@ -16,9 +16,9 @@ def make_file_if_not_exists(path):
     # Create it
     with open(path, 'x'):
       pass
-make_file_if_not_exists('./config/default_config.json')
-make_file_if_not_exists('./config/global_config.json')
-make_file_if_not_exists('./config/backup.json')
+#make_file_if_not_exists('./config/default_config.json')
+#make_file_if_not_exists('./config/global_config.json')
+#make_file_if_not_exists('./config/backup.json')
 
 # Check if the guilds directory exists (for guild-specific config files)
 if not os.path.isdir('./config/guild'):
@@ -44,31 +44,47 @@ def save(dict, guild_id):
   Saves the config to the guild file for the guild.
   """
 
+  if dict.get("_hidden") == None:
+    dict["_hidden"] = load(guild_id,True).get("_hidden")
+
   # Open the guild file for that guild
   with open(f'./config/guild/{guild_id}', 'w+') as fp:
     json.dump(dict, fp)
 
 
-def load(guild_id):
+def load(guild_id,hidden=False):
   """
   Loads the guild file for the guild as a JSON object.
   """
 
   # Convert it to a string (it might be an int)
   guild_id = str(guild_id)
-
+  output = {}
+	
   try:
 
     # Try to open the guild file for that guild
     with open(f'./config/guild/{guild_id}') as fp:
 
       # If it exists, return the JSON object
-      return json.load(fp)
+      output = json.load(fp)
 
   # If the guild file doesn't exist set it to the default config
   except FileNotFoundError:
     serverGen(guild_id)
-    return load(guild_id)
+    output = load(guild_id)
+
+
+  try:
+    if hidden == False:
+      output.pop("_hidden")
+
+  except KeyError:
+    conf = output
+    conf['_hidden'] = default('_hidden')
+    save(conf, guild_id)
+
+  return output
 
 def load_global(option=None):
   """
@@ -94,20 +110,38 @@ def write(guild_id, option, value):
   Write a value to a config option for a guild.
   """  
 
+  hidden = option.startswith("_")
+	
   # Load the guild file for that guild
-  conf = load(guild_id)
+  conf = load(guild_id, hidden)
 
-  # If the option doesn't exist and the default value doesn't exist
-  if conf.get(option) == None and default(option) == None:
+  if hidden:
+    option = option[1:]
+
+    # If the option doesn't exist and the default value doesn't exist
+    if conf["_hidden"].get(option) == None and default(option,True) == None:
 
     # Return an error
-    raise OptionNotFoundException(option)
+      raise OptionNotFoundException(option)
 
   # Otherwise write the value to the option
-  conf[option] = value
+    conf["_hidden"][option] = value
 
   # And save the new config to the file
-  save(conf, guild_id)
+    save(conf, guild_id)
+  else:
+
+  # If the option doesn't exist and the default value doesn't exist
+    if conf.get(option) == None and default(option) == None:
+
+    # Return an error
+      raise OptionNotFoundException(option)
+
+  # Otherwise write the value to the option
+    conf[option] = value
+
+  # And save the new config to the file
+    save(conf, guild_id)
 
 
 def read(guild_id, option):
@@ -115,30 +149,57 @@ def read(guild_id, option):
   Read a value from a config option for a guild.
   """  
 
+  hidden = option.startswith("_")
+
   # Load the config for that guild
-  conf = load(guild_id)
+  conf = load(guild_id,hidden)
 
-  # If the option doesn't exist and the default value doesn't exist
-  if conf.get(option) == None and default(option) == None:
+  if hidden:
+    option = option[1:]
+    if conf["_hidden"].get(option) == None and default(option,True) == None:
+	
+	    # Return an error
+	    raise OptionNotFoundException("_"+option)
 
-    # Return an error
-    raise OptionNotFoundException(option)
+	  # If just the guild option doesn't exist, and the default value does
+    if conf["_hidden"].get(option) == None:
+	
+	    # Set the option to the default value
+	    conf["_hidden"][option] = default(option,True)
+	
+	    # And save it to the file
+	    save(conf, guild_id)
+	
+	    # And then return it
+	    return conf["_hidden"][option]
+    else:
+	
+	    # Otherwise just return the value
+	    return conf["_hidden"][option]
 
-  # If just the guild option doesn't exist, and the default value does
-  if conf.get(option) == None:
-
-    # Set the option to the default value
-    conf[option] = default(option)
-
-    # And save it to the file
-    save(conf, guild_id)
-
-    # And then return it
-    return conf[option]
   else:
 
-    # Otherwise just return the value
-    return conf[option]
+	  # If the option doesn't exist and the default value doesn't exist
+	  if conf.get(option) == None and default(option) == None:
+	
+	    # Return an error
+	    raise OptionNotFoundException(option)
+	
+	  # If just the guild option doesn't exist, and the default value does
+	  if conf.get(option) == None:
+	
+	    # Set the option to the default value
+	    conf[option] = default(option)
+	
+	    # And save it to the file
+	    save(conf, guild_id)
+	
+	    # And then return it
+	    return conf[option]
+	  else:
+	
+	    # Otherwise just return the value
+	    return conf[option]
 
 def reset(guild_id, option):
   """
@@ -279,7 +340,7 @@ def serverGen(guild_id):
     # Write the default config file to the guildig file
     save(conf, guild_id)
 
-def default(option=None):
+def default(option=None,hidden=False):
   """
   Get the default value of a config option, or the entire default config.
   """
@@ -294,11 +355,17 @@ def default(option=None):
     if option is None:
 
       # Return the entire default config
-      return data
+      if hidden:
+        return data["_hidden"]
+      else:
+        return data
     try:
 
       # Otherwise return the default value of the option
-      return data[option]
+      if hidden:
+        return data["_hidden"][option]
+      else:
+        return data[option]
 
     # If the option doesn't exist
     except KeyError:

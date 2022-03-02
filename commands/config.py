@@ -150,7 +150,7 @@ class ConfigCommand(commands.Cog):
   @util.jcwyt()
   @config_command.subcommand(
     name='backup',
-    description='[ㅈ] Backup all config to a file'
+    description='[ㅈ] Backup all config to a file.'
   )
   async def config_backup_command(self, interaction: nextcord.Interaction):
     config.backup()
@@ -159,7 +159,7 @@ class ConfigCommand(commands.Cog):
   @util.jcwyt()
   @config_command.subcommand(
     name='restore',
-    description='[ㅈ] Restore all config from the most recent backup'
+    description='[ㅈ] Restore all config from the most recent backup.'
   )
   async def config_restore_command(self, interaction: nextcord.Interaction):
     config.revert()

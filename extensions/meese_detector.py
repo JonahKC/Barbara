@@ -12,24 +12,43 @@ class MeeseDetector(commands.Cog):
     self.bot = bot
     self.reloadMeeseBlacklist()
     self.COMPOUND_CHARACTERS = {
-      "m-long": CompoundFilter(
-        ['/', '|', 'l', 'I', '{', '['],
+      "m-long": [
+        ['|', 'l', 'i', '{', '[', '│', '┃', '|', '⌇', '⦚', '︴', '⎸', '⎹', '⏐', '⼁', '︳', '｜', '¦', '▏', '❘', '╎', '┆', '┊', '╏', '┇', '┋', '⡇', '⢸', '', '', '', '', '', '', '', '', '', ''],
         ['\\/', ')', '↯'],
         ['/', '(', '↯'],
-        ['/', '|', 'l', 'I', '}', ']', '↯']
-      ),
-      "m-short": CompoundFilter(
-        ['/', '|', 'l', 'I', '{', '[', '∧'],
+        ['|', 'l', 'I', '}', ']', '↯']
+      ],
+      "m-short": [
+        ['|', 'l', 'I', '{', '[', '∧'],
         ['v', 'V'],
-        ['/', '|', 'l', 'I', '}', ']', '↯']
-      )
+        ['|', 'l', 'I', '}', ']', '↯']
+      ]
     }
+    self.MIDDLE_CHARACTERS = ['/', '\\', '/', '\\']
 
   # Various Regexes that I use a lot in the future
   # Best for efficiency to compile them now
   MEESE_REGEX = re.compile(r"me{2,}s+e")
   MULTIPLE_LETTERS_REGEX = re.compile(r"(.)\1{2,}")
   SPOILER_REGEX = re.compile(r"\|\|.*?\|\|", re.MULTILINE | re.DOTALL)
+
+  def replace_compound(self, _string, compound_character, replace_with):
+    """
+    Replaces a compound character (/\\/\\) with a normal letter (m)
+    """
+    
+    # Loop through every array in the compound character
+    # unfortunate variable name...
+    for c_section in compound_character:
+        
+        # Loop through each character in the section
+        for c in c_section:
+  
+          # Replace it with self.MIDDLE_CHARACTERS at the same index
+          _string = _string.replace(c, replace_with[c_section.index(c)])
+
+    # Replace /\/\ with m, to get our final result
+    _string = _string.replace
 
   def reloadMeeseBlacklist(self):
     """
@@ -142,9 +161,6 @@ class MeeseDetector(commands.Cog):
 
         # Check if the config is set to detect/delete  meese
         if config.read(message.guild.id, "nomees"):
-
-          for compound_character in self.COMPOUND_CHARACTERS.values():
-            print(compound_character.index_string(message.content))
           
           # Trim the message (removing filler chars etc.)
           trimmed_message = self.replace_words(
@@ -184,12 +200,14 @@ class MeeseDetector(commands.Cog):
   # Detect for meese when you send a new message
   @commands.Cog.listener()
   async def on_message(self, message):
+    if not type(message.channel) == nextcord.channel.DMChannel:
       await self.detect_in_message(message)
   
   # Detect for meese when you edit an old message
   @commands.Cog.listener()
   async def on_message_edit(self, before, after):
-    await self.detect_in_message(after)
+    if not type(after.channel) == nextcord.channel.DMChannel:
+      await self.detect_in_message(after)
   
   # JCWYT-only context menu item for reporting a false detection
   @util.jcwyt()
@@ -243,50 +261,3 @@ class MeeseDetector(commands.Cog):
 
 def setup(bot):
   bot.add_cog(MeeseDetector(bot))
-
-class CompoundFilter:
-  """
-  A filter for compound characters such as "/\/\\"
-  """
-  def __init__(self, *args):
-    """
-    Pass in all the arrays of charactes, as in CompoundFilter(['/', 'l'], ['\\', ')']) etc.
-    """
-    self.compound_words = args
-
-  def replace_compound(self, dirty_string, replace_with):
-    
-  
-  def index_string(self, dirty_string):
-    """
-    Loops through a string, and converts each match of a character in compount_characters_index with the index of the compound characters array.
-    Example:
-    ```py
-    m_detector = CompoundFilter(['/', '('], ['\\', ')'], ['/', '('], ['\\', ')'])
-    m_detector.index_string('/\\/\\') # returns [0, 1, 2, 3]
-    m_detector.index_string('/\\XD') # returns [0, 1]
-    ```
-    """
-    print(dirty_string)
-    dirty_string = dirty_string.lower()
-    dirty_string_index = []
-    dirty_string_split = [dirty_string]
-
-    # Loop through compound characters
-    for index, compound_char in enumerate(self.compound_words):
-
-      # Loop through every subchar in each compound_char
-      for subchar in compound_char:
-        
-        # Check if the subchar exists in dirty_string
-        if subchar in dirty_string:
-          
-          # Append index to dirty_string_index
-          dirty_string_index.append(index)
-
-          # Loop through every item in dirty_string_split
-          # and split it by the subchar, and flatten the result
-          for item in dirty_string_split:
-            dirty_string_split.extend(item.split(subchar))
-
-    return dirty_string_index

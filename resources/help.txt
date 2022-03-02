@@ -18,18 +18,20 @@
 
 **For a list of all commands, with more detailed descriptions, go to <https://barbara.jcwyt.com/commands>.**
 PAGE
-`/prompt [prompt] <length of answer> <temperature> ` - Continues your prompt and writes a paragraph. Length of answer lets you adjust the output length and temperature affects the AI's creativity. To learn how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>.
+`/prompt <prompt> <length of answer> <temperature>` - Continues your prompt and writes a paragraph. Length of answer lets you adjust the output length and temperature affects the AI's creativity. To learn how to get the AI to say what you want, go to <https://barbara.jcwyt.com/prompt>. This command uses an API, run `/credits` to view credit links. 
 **CW: The AI used for this command is known to output offensive language and other potencially inappropriate content. Use at your own risk!**
 
 `/link` – Displays a customizable message when the command is run.
 
-`/say [message]` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
+`/say <message>` - Sends a message as Barbara. If you're not an admin, it mentions who the message is by.
 
-`/say button [buttonURL] [buttonTitle] [message]` - Sends a message as Barbara with a button at the bottom that takes you to a URL. If you're not an admin, it mentions who the message is by.
+`/fact` - Returns a random fact. This command uses an API, run `/credits` to view credit links. 
 
-`/age [@user] <precision: precise/imprecise>` - Return the age of the a user, either broadly (like how many months), or exactly down to a tenth of a second.
+`/truth` - Gives you a great Truth to ask in Truth or Dare. There's no /dare so stop asking (it might be coming soon though). 
 
-`/reaction add [emoji]` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
+`/age <@user> <precise/imprecise>` - Return the age of the a user, either broadly (like how many months), or exactly down to a tenth of a second.
+
+`/reaction add <emoji>` - Reacts to the previous message with the emoji of your choice. Separate emoji with commas to do multiple at once.
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
@@ -57,13 +59,13 @@ PAGE
 
 `/admin list users` - Lists users that can use admin commands.
 
-`/admin add role [@role]` - Adds role to admin command whitelist.
+`/admin add role <@role>` - Adds role to admin command whitelist.
 
-`/admin add user [@user]` - Adds user to admin command whitelist.
+`/admin add user <@user>` - Adds user to admin command whitelist.
 
-`/admin remove role [@role]` - Removes role from admin command whitelist.
+`/admin remove role <@role>` - Removes role from admin command whitelist.
 
-`/admin remove user [@user]` - Removes user from admin command whitelist.
+`/admin remove user <@user>` - Removes user from admin command whitelist.
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 
@@ -74,11 +76,11 @@ PAGE
 
 **Server Customization**
 
-`/meesedetect [true/false]` - Enables or disables Meese detection.
+`/meesedetect <true/false>` - Enables or disables Meese detection.
 
-`/log [#channel]` - Logs meese detection deletions, message reacts, and other features that can be run anonymously to the channel of your choice.
+`/log <#channel>` - Logs meese detection deletions, message reacts, and other features that can be run anonymously to the channel of your choice.
 
-`/link set [message or link]` - Customizes the link in /link. Add as many as you want.
+`/link set <message or link>` - Customizes the link in /link. Add as many as you want.
 
 `/vc ban <Name of VC>` - Bans bots from the VC specified or from the VC you are currently in.
 
@@ -96,13 +98,13 @@ PAGE
 
 `/config read <option>` - Read the value of a config option, or all of config.
 
-`/config set [option] [value]` - Set the value of a config option.
+`/config set <option> <value>` - Set the value of a config option.
 
-`/config reset [option]` - Reset a config option to the default value.
+`/config reset <option>` - Reset a config option to the default value.
 
-`/config append [option]` - Add an item to a config list.
+`/config append <option>` - Add an item to a config list.
 
-`/config remove [option]` - Remove an item from a config list.
+`/config remove <option>` - Remove an item from a config list.
 
 **Find a bug? Join our discord or email bugs@jcwyt.com.**
 

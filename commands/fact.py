@@ -12,7 +12,7 @@ class FactCommand(commands.Cog):
 
   @nextcord.slash_command(
 		name='fact',
-		description='Get a random fact from the Random Facts API!',
+		description='Get a random fact from the Random Facts API.',
 		guild_ids=TESTING_GUILD_ID,
 		force_global=SLASH_COMMANDS_GLOBAL
 	)

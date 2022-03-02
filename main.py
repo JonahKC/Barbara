@@ -3,6 +3,7 @@ print(f'\033[0;34mInitializing Bot...\033[0m')
 import os
 import time
 import util
+import config
 import aiohttp
 import nextcord
 from console import fg
@@ -12,7 +13,7 @@ import lib.randommer as randommer
 import lib.huggingface as huggingface
 
 # Bot Version
-__version__ = '4.0.0.jonahwashere'
+__version__ = '4.0.0'
 
 # Give the bot intents
 # She won't be able to play audio, for example, without the proper intent
@@ -63,7 +64,8 @@ async def on_ready():
 # Text commands? More like,, bad
 @bot.event
 async def on_message(message):
-  pass
+  if message.content.startswith(config.read(message.guild.id, 'prefix')):
+    await message.channel.send(util.get_message('legacy.slash_commands'))
 
 # This is for permissions
 # Called every time the bot receives an Interaction (for example, a slash command)

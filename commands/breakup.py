@@ -1,7 +1,8 @@
 import asyncio
 import nextcord
+import config
 from nextcord.ext import commands
-import lib.random_msg as random_msg
+from lib.LCG import LCG
 from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL
 
 class BreakupCommand(commands.Cog):
@@ -10,12 +11,7 @@ class BreakupCommand(commands.Cog):
   """
   def __init__(self, bot):
     self.bot = bot
-    self.bot.breakup_message_banks = {}
 
-  @commands.Cog.listener()
-  async def on_ready(self):
-    self.bot.breakup_message_banks = random_msg.create_message_bank_for_every_server(
-      self.bot.guilds, "./resources/breakup_lines.txt", "b-")
 
   @nextcord.slash_command(
     name="breakup",
@@ -25,9 +21,25 @@ class BreakupCommand(commands.Cog):
   )
   async def breakup_command(self, interaction: nextcord.Interaction):
 
+    guild_id = interaction.guild_id
+
+    with open("./resources/breakup_lines.txt",'r') as breakup_file:
+      breakups = breakup_file.readlines()
+
+      lcg_data = config.read(guild_id,"_breakup_lcg")
+      try:
+        lcg_data.pop("last_num")
+      except KeyError:
+        pass
+      lcg = LCG(len(breakups),**lcg_data)
+
     # Get the breakup line, and replace {author} with the command author's name
-    breakup_line_raw = self.bot.breakup_message_banks[
-      interaction.guild_id].get_random_message()
+      last_num = config.read(guild_id,"_breakup_lcg").get("last_num")
+      breakup_line_raw = breakups[lcg.gen(last_num)]
+
+			# Update stored lcg data
+      lcg_data = {"seed":lcg.seed,"additive":lcg.additive,"coefficient":lcg.coefficient,"last_num":lcg.last_num}
+      config.write(guild_id,"_breakup_lcg",lcg_data)
 
     # Split the breakup line into an array using {answer} as a delimiter
     breakup_line_array = breakup_line_raw.split("{answer}")

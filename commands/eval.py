@@ -47,7 +47,7 @@ class EvalCommand(commands.Cog):
   @util.jcwyt()
   @nextcord.slash_command(
 		name='eval',
-		description='Evaluate an expression as code.',
+		description='[ㅈ] Evaluate an expression as code.',
     guild_ids=TESTING_GUILD_ID,
 	)
   async def eval_command(self, interaction: nextcord.Interaction, code: str=nextcord.SlashOption(description='The code to evaluate.')):
