@@ -3,7 +3,7 @@ What's your dream job? Adding on to that, what do you think your first job will 
 What are some bad habits you have? Either things that you want to stop doing, or stuff that you're in the habit of doing that negatively impacts your life?
 After a really stimulating day, or a really intensive activity, what do you do to relax?
 What's your take on tattoos, just like, in general?
-In general, do you daydream often? If so, either describe the last one you can remember, or if you can't remember, what do you generally daydream about?
+Do you daydream often? If so, either describe the last one you can remember, or if you can't remember, what do you generally daydream about?
 Are you usually an early bird, or a late-sleeper?
 What's your biggest fear?
 Who's your celebrity crush, if you have one?
@@ -15,7 +15,35 @@ If you could trade lives with any person you know for a day, who would it be?
 Did your parents ever give you The Talk?
 Do you talk in your sleep?
 What's a similarity between us in terms of personality? A difference?
+When's the last time you wet the bed?
+Do you sing in the shower? If so, what's the last thing you sang?
+Describe me with 3 words or less.
+Have you ever been caught looking at someone? Have you ever been caught doing it accidentally?
+Who is someone you pretend to like, but actually can't stand?
+Do you have a childhood nickname, or a nickname in general? Do you have multiple?
+Baths or showers?
+Do you dance when you're by yourself?
+What is something you’ve done to (attempt to) be cooler?
+Have you ever flexed in the mirror? When was the last time?
+Have you ever kissed someone? Who? When?
+In terms of physical attraction do you prefer hair, or eyes?
+What do you usually sleep in?
+What "type" of friend do you consider yourself?
+If you could play a prank on anyone without getting caught, who would you play it on?
+Would you rather not shower for a month, or eat the same meal every day for a month?
+Who in the group, or in general, would you prefer to share a toothbrush with?
+What's an instant "green flag" (platonic, or romantic) in someone?
+What are some of your biggest pet peeves?
+Would you ever be mean to someone if it meant you could save one of your close friends from embarrassment?
+Of the people at our school/workplace/etc., who do you think would make the best president?
+Who do you think is the hottest in our group?
+What is your largest fear / biggest nightmare?
+Do you want to have kids? What about be the cool aunt/uncle?
+Which do you think is better: tests, essays, or projects?
+What's the worst class to have first period and why?
+What's one thing you would never do (currently) in front of someone you had a crush on?
 CATEGORY:Deep
+Do you feel like you're missing out at all, or are you happy with how your life is going?
 What’s the most sensible thing you’ve ever heard someone say?
 What gets you excited about life?
 Have you ever learned a life leson the hard way? You likely have, tell me about how you learned one.
@@ -26,6 +54,8 @@ What would you regret not fully doing, being or having in your life?
 When you are 80-years-old, what do you suspect will matter to you the most? (memories, experiences, love, or something else?)
 If the average human lifespan was 40 years, how would you change how you live your life?
 What’s something you know you do, or believe differently than most people?
+What is your biggest regret?
+If your friend asked you to lie for them, and you knew you would get in trouble, would you do it? Would you do it for a specific friend?
 CATEGORY:Romantic
 What’s one thing you think makes our relationship unique from everyone else’s?
 If you could change one thing about our relationship what would it be?
@@ -35,3 +65,4 @@ What’s one thing about your life you would never change for someone else, incl
 What about us do you think works well together? How do we balance each other out?
 What kind of romantic gestures do you like the most?
 What's your favorite part of being in a relationship? Why?
+Describe the ideal date setting.
