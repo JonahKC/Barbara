@@ -12,13 +12,13 @@ class MeeseDetector(commands.Cog):
     self.bot = bot
     self.reloadMeeseBlacklist()
     self.COMPOUND_CHARACTERS = {
-      "m-long": [
+      'm-long': [
         ['|', 'l', 'i', '{', '[', '│', '┃', '|', '⌇', '⦚', '︴', '⎸', '⎹', '⏐', '⼁', '︳', '｜', '¦', '▏', '❘', '╎', '┆', '┊', '╏', '┇', '┋', '⡇', '⢸', '', '', '', '', '', '', '', '', '', ''],
         ['\\/', ')', '↯'],
         ['/', '(', '↯'],
         ['|', 'l', 'I', '}', ']', '↯']
       ],
-      "m-short": [
+      'm-short': [
         ['|', 'l', 'I', '{', '[', '∧'],
         ['v', 'V'],
         ['|', 'l', 'I', '}', ']', '↯']
@@ -26,12 +26,13 @@ class MeeseDetector(commands.Cog):
     }
     self.MIDDLE_CHARACTERS = ['/', '\\', '/', '\\']
 
-  # Various Regexes that I use a lot in the future
+  # Various regular expressions that I use a lot in the future
   # Best for efficiency to compile them now
-  MEESE_REGEX = re.compile(r"me{2,}s+e")
-  MULTIPLE_LETTERS_REGEX = re.compile(r"(.)\1{2,}")
-  SPOILER_REGEX = re.compile(r"\|\|.*?\|\|", re.MULTILINE | re.DOTALL)
-
+  MEESE_REGEX = re.compile(r'me{2,}s+e')
+  MULTIPLE_LETTERS_REGEX = re.compile(r'(.)\1{2,}')
+  SPOILER_REGEX = re.compile(r'\|\|.*?\|\|', re.MULTILINE | re.DOTALL)
+  MENTION_REGEX = re.compile(r'<@!\d{18}>')
+  
   def replace_compound(self, _string, compound_character, replace_with):
     """
     Replaces a compound character (/\\/\\) with a normal letter (m)
@@ -70,7 +71,7 @@ class MeeseDetector(commands.Cog):
       blacklist_raw = blacklist_raw.read() + '\n'
 
       # This is the current category it's parsing
-      temp_category = "M_BLACKLIST"
+      temp_category = 'M_BLACKLIST'
 
       # Read blacklist, and sort into M_BLACKLIST, E_BLACKLIST, S_BLACKLIST, and TRIM_CHARS
       # Split by newlines and loop through each line
@@ -87,13 +88,13 @@ class MeeseDetector(commands.Cog):
         else:
 
           # Otherwise, append the current character to the corresponding category
-          if temp_category == "M_BLACKLIST":
+          if temp_category == 'M_BLACKLIST':
             M_BLACKLIST.append(line.strip('\n'))
-          elif temp_category == "E_BLACKLIST":
+          elif temp_category == 'E_BLACKLIST':
             E_BLACKLIST.append(line.strip('\n'))
-          elif temp_category == "S_BLACKLIST":
+          elif temp_category == 'S_BLACKLIST':
             S_BLACKLIST.append(line.strip('\n'))
-          elif temp_category == "TRIM_CHARS":
+          elif temp_category == 'TRIM_CHARS':
             TRIM_CHARS.append(line.strip('\n'))
         
         # Manually add the newline
@@ -127,10 +128,13 @@ class MeeseDetector(commands.Cog):
     # Use Regex to remove anything inside a discord spoiler (||text||)
     cleaned_string = re.sub(self.SPOILER_REGEX, '', potentially_dirty_string)
 
-    # Clean up fake letters "/\/\" instead of "m" etc.
-    cleaned_string = self.replace_words(M_BLACKLIST, cleaned_string, "m", 32)
-    cleaned_string = self.replace_words(E_BLACKLIST, cleaned_string, "e", 64)
-    cleaned_string = self.replace_words(S_BLACKLIST, cleaned_string, "s", 32)
+    # Remove @mentions
+    cleaned_string = re.sub(self.MENTION_REGEX, '', cleaned_string)
+    
+    # Clean up fake letters '/\/\' instead of 'm' etc.
+    cleaned_string = self.replace_words(M_BLACKLIST, cleaned_string, 'm', 32)
+    cleaned_string = self.replace_words(E_BLACKLIST, cleaned_string, 'e', 64)
+    cleaned_string = self.replace_words(S_BLACKLIST, cleaned_string, 's', 32)
 
     # Remove digits
     cleaned_string = re.sub(r'\d', '', cleaned_string)
@@ -160,32 +164,32 @@ class MeeseDetector(commands.Cog):
       if not message.author.bot:
 
         # Check if the config is set to detect/delete  meese
-        if config.read(message.guild.id, "nomees"):
+        if config.read(message.guild.id, 'nomees'):
           
           # Trim the message (removing filler chars etc.)
           trimmed_message = self.replace_words(
             TRIM_CHARS,
             message.content.lower(),
-            "",
+            '',
             -1
           )
 
           # Check for meese using the Meese Detection Algorithm™
-          has_meese = self.has_meese(trimmed_message, config.fetch(message.guild.id, "whitelist"))
+          has_meese = self.has_meese(trimmed_message, config.fetch(message.guild.id, 'whitelist'))
           
           # If there's matches
           if has_meese[0]:
 
             # Send a message explaining what just happened
-            await message.reply(util.get_message("meese.meese_detection", nomees=nextcord.PartialEmoji.from_str("nomees:936864150716575744")))
+            await message.reply(util.get_message('meese.meese_detection', nomees=nextcord.PartialEmoji.from_str('nomees:936864150716575744')))
             
             # Log the m-word detection
-            await self.bot.logger.log(message.guild.id, "meese detection", message=message)
+            await self.bot.logger.log(message.guild.id, 'meese detection', message=message)
 
             # Report the message in our channel to help us debug false detections
             await self.bot.get_channel(864644173835665458).send(
-              f"{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n" \
-              f"Message after processing: ```\n{has_meese[2]}```\n" \
+              f'{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n' \
+              f'Message after processing: ```\n{has_meese[2]}```\n' \
             )
 
             # Delete the heresay
@@ -212,7 +216,7 @@ class MeeseDetector(commands.Cog):
   # JCWYT-only context menu item for reporting a false detection
   @util.jcwyt()
   @nextcord.message_command(
-    name="Report Detection",
+    name='Report Detection',
 
     # This context menu item is only available in the JCWYT server
     guild_ids=TESTING_GUILD_ID,
@@ -226,38 +230,38 @@ class MeeseDetector(commands.Cog):
     trimmed_message = self.replace_words(
       TRIM_CHARS,
       message.content.lower(),
-      "",
+      '',
       -1
     )
     
     # Remove whitelisted characters
     trimmed_message = self.replace_words(
-      config.fetch(interaction.guild_id, "whitelist"),
+      config.fetch(interaction.guild_id, 'whitelist'),
       trimmed_message,
-      "",
+      '',
       -1
     )
 
     # Run the message through detection and get some data on it
-    has_meese = self.has_meese(trimmed_message, config.fetch(interaction.guild_id, "whitelist"))
+    has_meese = self.has_meese(trimmed_message, config.fetch(interaction.guild_id, 'whitelist'))
 
     # Send a message explaining what just happened
-    await message.reply(util.get_message("meese.meese_detection", nomees=nextcord.PartialEmoji.from_str("nomees:936864150716575744")))
+    await message.reply(util.get_message('meese.meese_detection', nomees=nextcord.PartialEmoji.from_str('nomees:936864150716575744')))
     
     # Log the m-word detection
-    await self.bot.logger.log(interaction.guild_id, "meese detection", message=message)
+    await self.bot.logger.log(interaction.guild_id, 'meese detection', message=message)
 
     # Report the message in our channel to help us debug false detections
     await self.bot.get_channel(864644173835665458).send(
-      f"{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n" \
-      f"Message after processing: ```\n{has_meese[2]}```\n" \
+      f'{message.author.display_name} ({message.author.id}): ```\n{message.content}```\n' \
+      f'Message after processing: ```\n{has_meese[2]}```\n' \
     )
 
     # Delete the heresay
     await message.delete()
 
     # Send an ephemeral success message
-    await interaction.send("Successfully reported the message.", ephemeral=True)
+    await interaction.send('Successfully reported the message.', ephemeral=True)
 
 def setup(bot):
   bot.add_cog(MeeseDetector(bot))
