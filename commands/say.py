@@ -31,7 +31,7 @@ class SayCommand(commands.Cog):
         await interaction.channel.send(message)
       
 				# Send a success message
-        await interaction.send('Successfully send message!', ephemeral=True)
+        await interaction.send(util.get_message("say.success"), ephemeral=True)
       else:
 
 				# Send message in channel with reply

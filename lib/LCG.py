@@ -77,7 +77,7 @@ def gen_coef(size, last_coef = None):
 
   available_primes = [x for x in PRIMES if x < math.sqrt(size)]
 
-  
+
 
   for i in range(0,random.randrange(10)):
     p_index = random.randrange(len(available_primes))

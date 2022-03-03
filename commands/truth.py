@@ -3,7 +3,7 @@ import nextcord
 import util
 from lib.LCG import LCG
 from nextcord.ext import commands
-from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL
+from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL, DEVELOPMENT_FEATURES
 
 class TruthCommand(commands.Cog):
   '''
@@ -71,4 +71,5 @@ class TruthCommand(commands.Cog):
       await interaction.send(truth)
 
 def setup(bot):
-  bot.add_cog(TruthCommand(bot))
+  if DEVELOPMENT_FEATURES:
+    bot.add_cog(TruthCommand(bot))
