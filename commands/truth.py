@@ -33,13 +33,15 @@ class TruthCommand(commands.Cog):
 
       categories = [x.split('\n') for x in categories]
       cat_dict = {}
+      
       for i in categories:
-        cat = [x for x in i if x != '']
+        cat = [x for x in i if x.strip() != '']
         cat_dict[cat[0].lower()] = cat[1:]
+
       truths = cat_dict[juice.lower()]
       if juice == 'Partners':
-        truths += cat_dict['Friends']
-
+        truths += cat_dict['friends']
+      
       lcg_data = config.read(guild_id,f'_truth_{juice.lower()}_lcg')
       
       try:
