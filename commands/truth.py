@@ -6,12 +6,12 @@ from nextcord.ext import commands
 from constants import TESTING_GUILD_ID, SLASH_COMMANDS_GLOBAL, DEVELOPMENT_FEATURES
 
 class TruthCommand(commands.Cog):
-  '''
+  """
   Get a pickup line from a hand-curated list of 400+
-  '''
+  """
   def __init__(self, bot):
     self.bot = bot
-
+  
   @nextcord.slash_command(
     name='truth',
     description='Truth or dare... with out the \'or date\' part.',
@@ -28,8 +28,6 @@ class TruthCommand(commands.Cog):
 
     with open('./resources/truths.txt','r') as fp:
       file_raw = fp.read()
-      lines_raw = fp.readlines()
-      collect_truths = False
       categories = file_raw.split('CATEGORY:')
       categories.pop(0)
 

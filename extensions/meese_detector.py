@@ -137,7 +137,7 @@ class MeeseDetector(commands.Cog):
     cleaned_string = self.replace_words(S_BLACKLIST, cleaned_string, 's', 32)
 
     # Remove digits
-    cleaned_string = re.sub(r'\d', '', cleaned_string)
+    #cleaned_string = re.sub(r'\d', '', cleaned_string)
 
     # Convert other fancy unicode characters to normal characters
     cleaned_string = unicodedata.normalize('NFKC', cleaned_string)
