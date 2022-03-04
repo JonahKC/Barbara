@@ -73,5 +73,4 @@ class TruthCommand(commands.Cog):
       await interaction.send(truth)
 
 def setup(bot):
-  if DEVELOPMENT_FEATURES:
-    bot.add_cog(TruthCommand(bot))
+  bot.add_cog(TruthCommand(bot))
