@@ -14,14 +14,14 @@ class TruthCommand(commands.Cog):
   
   @nextcord.slash_command(
     name='truth',
-    description='Truth or dare... with out the \'or date\' part.',
+    description='Truth or dare... with out the \'or dare\' part.',
     guild_ids=TESTING_GUILD_ID,
     force_global=SLASH_COMMANDS_GLOBAL,
   )
   async def truth_command(self, interaction: nextcord.Interaction, juice=nextcord.SlashOption(
     name='juice',
     description='The type of question to ask.',
-    choices=('Fun', 'Deep', 'Romantic')
+    choices=('Friends', 'Partners')
   )):
 
     guild_id = interaction.guild_id
@@ -37,6 +37,8 @@ class TruthCommand(commands.Cog):
         cat = [x for x in i if x != '']
         cat_dict[cat[0].lower()] = cat[1:]
       truths = cat_dict[juice.lower()]
+      if juice == 'Partners':
+        truths += cat_dict['Friends']
 
       lcg_data = config.read(guild_id,f'_truth_{juice.lower()}_lcg')
       

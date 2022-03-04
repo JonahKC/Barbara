@@ -3,9 +3,8 @@
 		"secret_lcg": {},
 		"pickup_lcg": {},
 		"breakup_lcg": {},
-    "truth_fun_lcg": {},
-    "truth_deep_lcg": {},
-    "truth_romantic_lcg": {}
+    "truth_friends_lcg": {},
+    "truth_partners_lcg": {},
 	},
 	"admin_roles": [],
 	"admin_users": [],

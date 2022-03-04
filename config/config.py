@@ -24,6 +24,10 @@ def make_file_if_not_exists(path):
 if not os.path.isdir('./config/guild'):
   os.mkdir('./config/guild')
 
+for file in os.listdir('./config/guild'):
+  if not file.endswith('.json'):
+    os.rename('./config/guild/' + file, './config/guild/' + file + '.json')
+  
 # To throw a catchable exception
 class ConfigException(Exception):
   def __init__(self, *args, **kwargs):
@@ -48,8 +52,8 @@ def save(dict, guild_id):
     dict["_hidden"] = load(guild_id,True).get("_hidden")
 
   # Open the guild file for that guild
-  with open(f'./config/guild/{guild_id}', 'w+') as fp:
-    json.dump(dict, fp)
+  with open(f'./config/guild/{guild_id}.json', 'w+') as fp:
+    json.dump(dict, fp, indent=2)
 
 
 def load(guild_id,hidden=False):
@@ -64,7 +68,7 @@ def load(guild_id,hidden=False):
   try:
 
     # Try to open the guild file for that guild
-    with open(f'./config/guild/{guild_id}') as fp:
+    with open(f'./config/guild/{guild_id}.json') as fp:
 
       # If it exists, return the JSON object
       output = json.load(fp)
@@ -394,7 +398,7 @@ def backup():
   with open('./config/backup.json', 'w') as fp:
 
     # Write the entire backup object to it as JSON
-    json.dump(backup, fp)
+    json.dump(backup, fp, indent=2)
 
 def revert():
   """
