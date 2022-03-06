@@ -414,6 +414,10 @@ s̀
 z
 ⣫
 $$TRIM_CHARS
+*
+to the
+plus
+_
 `
 [
 ]
