@@ -64,9 +64,12 @@ async def on_ready():
 # Text commands? More like,, bad
 @bot.event
 async def on_message(message):
-  if message.content.startswith(config.read(message.guild.id, 'prefix')):
-    await message.channel.send(util.get_message('legacy.slash_commands'))
-
+  try:
+    if message.content.startswith(config.read(message.guild.id, 'prefix')):
+      await message.channel.send(util.get_message('legacy.slash_commands'))
+  except Exception:
+    pass
+    
 # This is for permissions
 # Called every time the bot receives an Interaction (for example, a slash command)
 @bot.event
