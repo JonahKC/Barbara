@@ -7,20 +7,21 @@ PRIMES = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67
 class LCG:
   def __init__(self, size, *, seed = None, additive = None, coefficient = None):
 
+    size, overhead = valid_size(size)
+
 		# Gen the seed if none was given
     if seed == None:
       seed = time_ns()
 
 		# Set the side after normalizing it into the range
-    try:
-      seed = seed % size
-    except ZeroDivisionError:
-      raise ValueError('Invalid size of zero')
+    seed = seed % size
     self.seed = seed
 
 		# Get the additive
     self.additive = gen_additive(size)
     if additive != None: self.additive = additive
+
+    print(size,overhead)
 
 		# Get the coefficient
     self.coefficient = gen_coef(size)
@@ -29,6 +30,7 @@ class LCG:
 		# Setup the LCG with the values we got
     self.modulo = size
     self.last_num = seed
+    self.overhead = overhead
 
   def gen(self, last_num = None):
 		
@@ -49,15 +51,19 @@ class LCG:
 
 			# Increment the value so that it doesn't repeat
       val = int((self.coefficient * val + self.additive) % self.modulo)
+      print(self.last_num, val)
       self.last_num = val
       self.seed = val
+
+    if val > self.modulo - self.overhead:
+      val = self.gen()
 
     return val
       
 
 
 def gen_additive(size,last_additive = None):
-  prime_factors = primeFactors(size)
+  prime_factors = set(primeFactors(size))
   available_primes = PRIMES.difference(prime_factors)
   available_primes = [x for x in available_primes if x < size]
 
@@ -70,20 +76,34 @@ def gen_additive(size,last_additive = None):
   return additive
 
 def gen_coef(size, last_coef = None):
-  prime_factors = primeFactors(size)
+  prime_factors = set(primeFactors(size))
   coef = 1
   for i in prime_factors:
     coef *= i
 
-  available_primes = [x for x in PRIMES if x < math.sqrt(size)]
+  available_primes = [x for x in PRIMES if x < size/coef]
+  print(available_primes)
 
-
+  
 
   for i in range(0,random.randrange(10)):
     p_index = random.randrange(len(available_primes))
     if coef * available_primes[p_index] < size:
       coef *= available_primes[p_index]
   return coef + 1
+
+def valid_size(size):
+
+  effective_size = size
+  for i in range(0,20):
+    factors = primeFactors(effective_size)
+    print(factors, set(factors))
+    if len(factors) == len(set(factors)):
+      effective_size = effective_size + 1
+    else:
+      break
+  overhead = effective_size - size
+  return (effective_size, overhead)
 	
 
  
@@ -111,6 +131,6 @@ def primeFactors(n):
   if n > 2:
     primes.append(int(n))
 
-  return set(primes)
+  return primes
  
 # This code is contributed by Harshit Agrawal
