@@ -64,9 +64,8 @@ class PromptCommand(commands.Cog):
         # Bot is thinking
         await interaction.response.defer()
 
-        # Get the output from GPT-J
         raw_ai_output = await huggingface.query(
-            prompt, huggingface.Model.BLOOM, {
+            prompt, huggingface.Model.GPT_J_6B, {
                 'repetition_penalty': repetition_penalty,
                 'num_return_sequences': return_sequences,
                 'temperature': temperature,
