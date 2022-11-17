@@ -11,7 +11,6 @@ import config
 import aiohttp
 import nextcord
 from console import fg
-import lib.dream as dream
 from nextcord.ext import commands
 import lib.randommer as randommer
 import lib.huggingface as huggingface
@@ -56,7 +55,6 @@ async def on_ready():
     # Give our libs access to the central ClientSession
     huggingface.session = bot.session
     randommer.session = bot.session
-    dream.session = bot.session
 
     # Log bot info
     print(f'Barbara Version: {fg.lightgreen}{__version__}{fg.default}')
