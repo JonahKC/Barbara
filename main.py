@@ -1,5 +1,9 @@
 print(f'\033[0;34mInitializing Bot...\033[0m')
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 import os
 import time
 import util
@@ -13,7 +17,7 @@ import lib.randommer as randommer
 import lib.huggingface as huggingface
 
 # Bot Version
-__version__ = '4.0.1'
+__version__ = '4.1.1'
 
 # Give the bot intents
 # She won't be able to play audio, for example, without the proper intent
