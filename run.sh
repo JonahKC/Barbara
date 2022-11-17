@@ -1,2 +1,3 @@
 source venv/bin/activate
-bash autorestart.sh
+echo "Launching barbara in new screen... Run screen -r barbara"
+screen -dmS barbara ./autorestart.sh
