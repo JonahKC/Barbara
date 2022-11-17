@@ -1,7 +1,6 @@
 print(f'\033[0;34mInitializing Bot...\033[0m')
 
 from dotenv import load_dotenv
-
 load_dotenv()
 
 import os
