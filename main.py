@@ -1,18 +1,34 @@
 print(f'\033[0;34mInitializing Bot...\033[0m')
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 import os
 import time
 import util
 import config
+import signal
 import aiohttp
+import platform
 import nextcord
+import threading
 from console import fg
 from nextcord.ext import commands
 import lib.randommer as randommer
 import lib.huggingface as huggingface
+
+
+def die():
+    # get the current PID for safe terminate server if needed:
+    PID = os.getpid()
+    if platform.system() != 'Windows':
+        PGID = os.getpgid(PID)
+    if platform.system() != 'Windows':
+        os.killpg(PGID, signal.SIGKILL)
+    else:
+        os.kill(PID, signal.SIGTERM)
+
 
 # Bot Version
 __version__ = '4.1.1'
@@ -38,6 +54,25 @@ bot = commands.Bot(
     activity=activity,
     case_insensitive=True,
 )
+
+# Commandline "interpreter"
+stop = False
+
+
+def interpreter():
+    global bot
+
+    @bot.listen()
+    async def on_ready():
+        global bot, stop
+        print('')
+
+        while not stop:
+            text = input('> ')
+            if text.lower() == 'stop':
+                stop = True
+                await bot.close()
+
 
 # Remove the default help command
 bot.remove_command('help')
@@ -126,8 +161,10 @@ util.load_directory(bot, 'extensions')
 util.load_directory(bot, 'commands')
 
 # Run the bot!
-while True:
+while not stop:
     try:
+        interpreter_thread = threading.Thread(target=interpreter)
+        interpreter_thread.start()
         bot.run(os.getenv('TOKEN'))
 
     # Catch errors talking to the Discord API
@@ -150,3 +187,6 @@ while True:
 
             #Try to run the bot again
             continue
+
+interpreter_thread.join(0)
+die()
