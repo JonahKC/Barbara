@@ -72,6 +72,9 @@ def interpreter():
             if text.lower() == 'stop':
                 stop = True
                 await bot.close()
+            elif text.lower() == 'test':
+                await (await bot.fetch_channel(880164840147157070)
+                       ).send('Testing...`' + str(bot.latency * 1000) + '`ms')
 
 
 # Remove the default help command
