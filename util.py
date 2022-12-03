@@ -24,7 +24,7 @@ def admin(*args, **kwargs):
   """
 
     # This is a decorator, so we need to get the function that is being decorated
-    def predicate(command: nextcord.ApplicationCommand):
+    def predicate(command):
 
         # Add the command to the admin_commands array
         admin_commands.append(command.name)
