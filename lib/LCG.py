@@ -21,8 +21,6 @@ class LCG:
     self.additive = gen_additive(size)
     if additive != None: self.additive = additive
 
-    print(size,overhead)
-
 		# Get the coefficient
     self.coefficient = gen_coef(size)
     if coefficient != None: self.coefficient = coefficient
@@ -51,7 +49,6 @@ class LCG:
 
 			# Increment the value so that it doesn't repeat
       val = int((self.coefficient * val + self.additive) % self.modulo)
-      print(self.last_num, val)
       self.last_num = val
       self.seed = val
 
@@ -82,8 +79,6 @@ def gen_coef(size, last_coef = None):
     coef *= i
 
   available_primes = [x for x in PRIMES if x < size/coef]
-  print(available_primes)
-
   
 
   for i in range(0,random.randrange(10)):
@@ -97,7 +92,6 @@ def valid_size(size):
   effective_size = size
   for i in range(0,20):
     factors = primeFactors(effective_size)
-    print(factors, set(factors))
     if len(factors) == len(set(factors)):
       effective_size = effective_size + 1
     else:

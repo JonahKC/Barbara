@@ -12,10 +12,9 @@ import signal
 import aiohttp
 import platform
 import nextcord
-import threading
 from console import fg
 from nextcord.ext import commands
-import lib.randommer as randommer
+#import lib.randommer as randommer
 import lib.huggingface as huggingface
 
 
@@ -38,6 +37,7 @@ __version__ = '4.1.1'
 intents = nextcord.Intents.default()
 intents.voice_states = True
 intents.webhooks = True
+intents.message_content = True
 
 # Watching jcwyt.com
 activity = nextcord.Activity(
@@ -77,6 +77,11 @@ def interpreter():
                        ).send('Testing...`' + str(bot.latency * 1000) + '`ms')
 
 
+def run_bot():
+    global bot
+    bot.run(os.getenv('TOKEN'))
+
+
 # Remove the default help command
 bot.remove_command('help')
 
@@ -91,7 +96,7 @@ async def on_ready():
 
     # Give our libs access to the central ClientSession
     huggingface.session = bot.session
-    randommer.session = bot.session
+    #randommer.session = bot.session
 
     # Log bot info
     print(f'Barbara Version: {fg.lightgreen}{__version__}{fg.default}')
@@ -166,9 +171,11 @@ util.load_directory(bot, 'commands')
 # Run the bot!
 while not stop:
     try:
-        interpreter_thread = threading.Thread(target=interpreter)
-        interpreter_thread.start()
-        bot.run(os.getenv('TOKEN'))
+        # For some reason an interpreter breaks Barbara
+        #interpreter_thread = threading.Thread(target=interpreter)
+        #interpreter_thread.start()
+        #bot.run(os.getenv('TOKEN'))
+        run_bot()
 
     # Catch errors talking to the Discord API
     except nextcord.errors.HTTPException as err:
@@ -191,5 +198,5 @@ while not stop:
             #Try to run the bot again
             continue
 
-interpreter_thread.join(0)
-die()
+#interpreter_thread.join(0)
+#die()
