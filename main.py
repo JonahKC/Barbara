@@ -30,7 +30,7 @@ def die():
 
 
 # Bot Version
-__version__ = '4.1.1'
+__version__ = '4.1.2'
 
 # Give the bot intents
 # She won't be able to play audio, for example, without the proper intent
