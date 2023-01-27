@@ -43,16 +43,6 @@ class MeeseDetector(commands.Cog):
                     "┋",
                     "⡇",
                     "⢸",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
                 ],
                 ["\\/", ")", "↯"],
                 ["/", "(", "↯"],
@@ -214,7 +204,7 @@ class MeeseDetector(commands.Cog):
                         message.content.lower(), "", -1)
 
                     trimmed_message = self.replace_words(
-                        TRIM_CHARS, message.content.lower(), "", -1)
+                        TRIM_CHARS, trimmed_message, "", -1)
 
                     # Check for meese using the Meese Detection Algorithm™
                     has_meese = self.has_meese(
@@ -270,14 +260,15 @@ class MeeseDetector(commands.Cog):
         Report a message that wasn't detected automatically as containing meese
         """
 
-        # Trim the message (removing filler chars etc.)
-        trimmed_message = self.replace_words(TRIM_CHARS,
-                                             message.content.lower(), "", -1)
-
         # Remove whitelisted characters
+        trimmed_message = message.content.lower()
         trimmed_message = self.replace_words(
             config.fetch(interaction.guild_id, "whitelist"), trimmed_message,
             "", -1)
+
+        # Trim the message (removing filler chars etc.)
+        trimmed_message = self.replace_words(TRIM_CHARS, trimmed_message, "",
+                                             -1)
 
         # Run the message through detection and get some data on it
         has_meese = self.has_meese(
