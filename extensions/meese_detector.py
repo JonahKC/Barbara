@@ -200,7 +200,7 @@ class MeeseDetector(commands.Cog):
                 if config.read(message.guild.id, "nomees"):
 
                     trimmed_message = self.replace_words(
-                        config.read(message.guild.id, 'whitelist'),
+                        config.fetch(message.guild.id, 'whitelist'),
                         message.content.lower(), "", -1)
 
                     trimmed_message = self.replace_words(
