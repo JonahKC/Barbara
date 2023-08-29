@@ -17,7 +17,6 @@ from nextcord.ext import commands
 #import lib.randommer as randommer
 import lib.huggingface as huggingface
 
-
 def die():
     # get the current PID for safe terminate server if needed:
     PID = os.getpid()
