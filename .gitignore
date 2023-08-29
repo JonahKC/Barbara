@@ -3,3 +3,4 @@ config/guild/
 stats.json
 .cache/
 venv/
+__pycache__/
