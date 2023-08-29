@@ -1,3 +1,5 @@
 resources/neil-diamond-sweet-caroline.mp3
 config/guild/
 stats.json
+.cache/
+venv/
