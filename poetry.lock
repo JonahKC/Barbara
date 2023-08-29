@@ -94,6 +94,17 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "bs4"
+version = "0.0.1"
+description = "Dummy package for Beautiful Soup"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = "*"
+
+[[package]]
 name = "cchardet"
 version = "2.1.7"
 description = "cChardet is high speed universal character encoding detector."
@@ -290,6 +301,14 @@ python-versions = "*"
 
 [package.dependencies]
 ansicon = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "lib"
+version = "4.0.0"
+description = "Autocode standard library Python bindings"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "markupsafe"
@@ -507,7 +526,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "63a4a41ee4e5869a581d54ec34cd26dd78be91e913f78ba7ee8fdbda6f2c0d71"
+content-hash = "ca716252bee28aa527038d33d30ea9162b0184c694c3a69f34ca1a5ad80cbd5a"
 
 [metadata.files]
 aiodns = []
@@ -518,6 +537,7 @@ async-timeout = []
 attrs = []
 beautifulsoup4 = []
 brotli = []
+bs4 = []
 cchardet = []
 certifi = []
 cffi = []
@@ -536,6 +556,7 @@ importlib-metadata = []
 itsdangerous = []
 jinja2 = []
 jinxed = []
+lib = []
 markupsafe = []
 multidict = []
 nextcord = []

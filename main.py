@@ -1,8 +1,8 @@
-print(f'\033[0;34mInitializing Bot...\033[0m')
+print('\033[0;34mInitializing Bot...\033[0m')
 
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 import os
 import time
@@ -23,7 +23,6 @@ def die():
     PID = os.getpid()
     if platform.system() != 'Windows':
         PGID = os.getpgid(PID)
-    if platform.system() != 'Windows':
         os.killpg(PGID, signal.SIGKILL)
     else:
         os.kill(PID, signal.SIGTERM)
