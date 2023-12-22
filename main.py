@@ -76,8 +76,8 @@ def interpreter():
 
 
 def run_bot():
-    global bot
-    bot.run(os.getenv('TOKEN'))
+  global bot
+  bot.run(os.environ['TOKEN'])
 
 
 # Remove the default help command

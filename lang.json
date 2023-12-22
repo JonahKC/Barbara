@@ -40,13 +40,13 @@
     "log.set_channel":
     "I'm now logging my actions in <#{channel.id}>",
     "log.meese_detection":
-    "\"{message.content}\" flagged by meese detection in <#{message.channel.id}>",
+    "\"{message.content}\" flagged by ||meese|| detection in <#{message.channel.id}>",
     "log.reaction":
     "{user.name} {subaction} a reaction in <#{interaction.channel.id}>.",
     "log.vc_ban":
     "{user.name} {subaction} music bots from <#{vc.id}>",
     "meese.meese_detection":
-    "{nomees} Message flagged by ||meese|| detection. To learn more about the correct plural of moose, go to <https://moosenotmeese.org>. If you think this deletion is a mistake, contact bugs@jcwyt.com or report it on the JCWYT discord.",
+    "{nomees} Message flagged by ||meese|| detection.",
     "say.empty_string":
     "I can't send an empty message!",
     "say.success":
@@ -66,7 +66,7 @@
     "ui.someone_elses_button":
     "Those buttons aren't for you!",
     "guild.welcome":
-    "Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.\nRun `%help` to view all of my commands, and `%help admin` to set up my admin-y bits. **Also, run `%meesedetect true` true to enable ||meese|| blocking (it’s disabled by default).**\nIf you need any help, go to <https://barbara.jcwyt.com/>\n{barbara}",
+    "Hi everyone, I'm Barbara! Thank you for adding me to {guild.name}.\nIf you need any help, go to <https://barbara.jcwyt.com/> or run /help\n{barbara}",
     "info.vote":
     "Vote for Barbara at <https://top.gg/bot/863912165757026304>!",
     "info.invite":
