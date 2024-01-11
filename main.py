@@ -13,7 +13,14 @@ import aiohttp
 import platform
 import nextcord
 from console import fg, bg
-print(bg.default, end='')
+
+# Make sure the background stays normal
+default_print = print
+def new_print(*args, **kwargs):
+  return default_print(bg.default, *args, **kwargs)
+
+print = new_print
+
 from nextcord.ext import commands
 #import lib.randommer as randommer
 import lib.huggingface as huggingface
