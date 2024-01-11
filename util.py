@@ -5,8 +5,14 @@ import nextcord
 import functools
 import subprocess
 from os import walk
-from console import fg
+from console import fg, bg
 from traceback import extract_tb
+
+default_print = print
+def new_print(*args, **kwargs):
+  return default_print(bg.default, *args, **kwargs)
+
+print = new_print
 
 # This is an array with all of the commands with @admin command decorators
 admin_commands = []
