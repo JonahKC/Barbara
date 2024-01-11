@@ -7,7 +7,6 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 console = "^0.9907"
-nextcord = "^2.0.0-alpha.6"
 PyNaCl = "^1.5.0"
 Brotli = "^1.0.9"
 aiodns = "^3.0.0"
@@ -24,6 +23,7 @@ pipreqs = "^0.4.11"
 python-dotenv = "^0.21.0"
 lib = "^4.0.0"
 bs4 = "^0.0.1"
+nextcord = "2.6.0"
 
 [tool.poetry.dev-dependencies]
 
