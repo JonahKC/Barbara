@@ -1,8 +1,8 @@
 print('\033[0;34mInitializing Bot...\033[0m')
 
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-#load_dotenv()
+load_dotenv()
 
 import os
 import time
@@ -12,7 +12,8 @@ import signal
 import aiohttp
 import platform
 import nextcord
-from console import fg
+from console import fg, bg
+print(bg.default, end='')
 from nextcord.ext import commands
 #import lib.randommer as randommer
 import lib.huggingface as huggingface
