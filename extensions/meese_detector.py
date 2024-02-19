@@ -60,7 +60,7 @@ class MeeseDetector(commands.Cog):
     # Best for efficiency to compile them now
     MEESE_REGEX = re.compile(r"me{2,}s+e")
     MULTIPLE_LETTERS_REGEX = re.compile(r"(.)\1{2,}")
-    SPOILER_REGEX = re.compile(r"\|\|.*?\|\|", re.MULTILINE | re.DOTALL)
+    SPOILER_REGEX = re.compile(r"\|\|.+\|\|", re.MULTILINE | re.DOTALL)
     MENTION_REGEX = re.compile(r"<@!\d{18}>")
 
     def replace_compound(self, _string, compound_character, replace_with):
@@ -156,16 +156,16 @@ class MeeseDetector(commands.Cog):
         Use the Meese Detection Algorithm™ to detect meese (the incorrect plural of moose) in a string
         """
 
+        # Use Regex to remove anything inside a discord spoiler (||text||)
+        cleaned_string = re.sub(self.SPOILER_REGEX, "",
+                                potentially_dirty_string)
+
         trimmed_message = self.replace_words(
           whitelist,
           potentially_dirty_string, "", -1)
   
         trimmed_message = self.replace_words(
           TRIM_CHARS, trimmed_message, "", -1)
-
-        # Use Regex to remove anything inside a discord spoiler (||text||)
-        cleaned_string = re.sub(self.SPOILER_REGEX, "",
-                                potentially_dirty_string)
 
         # Remove @mentions
         cleaned_string = re.sub(self.MENTION_REGEX, "", cleaned_string)
@@ -260,19 +260,9 @@ class MeeseDetector(commands.Cog):
         Report a message that wasn't detected automatically as containing meese
         """
 
-        # Remove whitelisted characters
-        trimmed_message = message.content.lower()
-        trimmed_message = self.replace_words(
-            config.fetch(interaction.guild_id, "whitelist"), trimmed_message,
-            "", -1)
-
-        # Trim the message (removing filler chars etc.)
-        trimmed_message = self.replace_words(TRIM_CHARS, trimmed_message, "",
-                                             -1)
-
         # Run the message through detection and get some data on it
         has_meese = self.has_meese(
-            trimmed_message, config.fetch(interaction.guild_id, "whitelist"))
+           message.content.lower(), config.fetch(interaction.guild_id, "whitelist"))
 
         # Send a message explaining what just happened
         await message.reply(

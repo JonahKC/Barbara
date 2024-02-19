@@ -85,3 +85,7 @@ requiredFiles = [".replit", "replit.nix", ".config", "venv"]
 [deployment]
 run = ["sh", "-c", "python3 main.py"]
 deploymentTarget = "gce"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
