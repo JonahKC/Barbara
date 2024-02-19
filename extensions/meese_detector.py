@@ -156,6 +156,13 @@ class MeeseDetector(commands.Cog):
         Use the Meese Detection Algorithm™ to detect meese (the incorrect plural of moose) in a string
         """
 
+        trimmed_message = self.replace_words(
+          whitelist,
+          potentially_dirty_string, "", -1)
+  
+        trimmed_message = self.replace_words(
+          TRIM_CHARS, trimmed_message, "", -1)
+
         # Use Regex to remove anything inside a discord spoiler (||text||)
         cleaned_string = re.sub(self.SPOILER_REGEX, "",
                                 potentially_dirty_string)
@@ -199,16 +206,9 @@ class MeeseDetector(commands.Cog):
                 # Check if the config is set to detect/delete  meese
                 if config.read(message.guild.id, "nomees"):
 
-                    trimmed_message = self.replace_words(
-                        config.fetch(message.guild.id, 'whitelist'),
-                        message.content.lower(), "", -1)
-
-                    trimmed_message = self.replace_words(
-                        TRIM_CHARS, trimmed_message, "", -1)
-
                     # Check for meese using the Meese Detection Algorithm™
                     has_meese = self.has_meese(
-                        trimmed_message,
+                        message.content.lower(),
                         config.fetch(message.guild.id, "whitelist"))
 
                     if has_meese[0]:
