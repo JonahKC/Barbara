@@ -156,16 +156,18 @@ class MeeseDetector(commands.Cog):
         Use the Meese Detection Algorithm™ to detect meese (the incorrect plural of moose) in a string
         """
 
+        print(whitelist)
+
         # Use Regex to remove anything inside a discord spoiler (||text||)
         cleaned_string = re.sub(self.SPOILER_REGEX, "",
-                                potentially_dirty_string)
+                                  potentially_dirty_string)
 
-        trimmed_message = self.replace_words(
-          whitelist,
-          potentially_dirty_string, "", -1)
-  
-        trimmed_message = self.replace_words(
-          TRIM_CHARS, trimmed_message, "", -1)
+        cleaned_string = self.replace_words(
+                  whitelist,
+                  potentially_dirty_string, "", -1)
+          
+        cleaned_string = self.replace_words(
+                  TRIM_CHARS, cleaned_string, "", -1)
 
         # Remove @mentions
         cleaned_string = re.sub(self.MENTION_REGEX, "", cleaned_string)
@@ -177,6 +179,8 @@ class MeeseDetector(commands.Cog):
                                             64)
         cleaned_string = self.replace_words(S_BLACKLIST, cleaned_string, "s",
                                             32)
+
+      
 
         # Remove digits
         # cleaned_string = re.sub(r'\d', '', cleaned_string)
